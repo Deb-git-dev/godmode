@@ -60,6 +60,16 @@
 | `Tokcomment.com` | Social Proof Generator | Realistic social media comment mockup component and verified feedback preview. | `src/components/social/TokCommentPreview.tsx` |
 | `HeyGen.com` | Cloud Avatar Video API | Cloud-based avatar synthesis and video generation API (zero local GPU). | `backend/app/routers/media_router.py`, `docs/CLOUD_MEDIA_ARCHITECTURE.md` |
 | `templatical/sdk` | Email Template SDK | Visual drag-and-drop email editor SDK with JSON, MJML, and HTML export. | `docs/GITREVERSE_PROMPTS.md` |
+| `anthropics/skills` | Frontend Design Skill | Anthropic official aesthetic conviction and anti-slop frontend design rules. | `.agents/skills/frontend-design/` |
+| `Jpisnice/shadcn-ui-mcp-server` | Component MCP | Real-time shadcn/ui component blocks, metadata, and installation MCP server. | `mcp_config.json` |
+| `21st-dev/magic-mcp` | Component MCP | AI-powered component generation and 21st.dev component library search MCP. | `mcp_config.json` |
+| `vercel-labs/agent-skills` | React Performance Skills | Vercel performance rules (waterfalls, bundle tree-shaking) & React Native mobile patterns. | `.agents/skills/vercel-react-best-practices/`, `.agents/skills/vercel-react-native-skills/` |
+| `greensock/gsap-skills` | Animation Skill | Official GreenSock GSAP timeline orchestration, ScrollTrigger, and React cleanup. | `.agents/skills/gsap-master/` |
+| `freshtechbro/claudedesignskills` | Motion Design Skill | Framer Motion layoutId transitions, spring physics, and 3D gyro micro-interactions. | `.agents/skills/motion-framer/` |
+| `get-convex/agent-skills` | Reactive Backend Skill | Convex reactive components, object syntax, mutation transactions, and auth integration. | `.agents/skills/convex-create-component/` |
+| `skiper-ui.com` | Component Library | Premium animated landing page component library reference. | `docs/FRONTEND_TOOLKIT_ALPHENEX.md` |
+| `uiverse.io` | Component Library | 3,000+ open-source community CSS, Tailwind, and React UI elements. | `docs/FRONTEND_TOOLKIT_ALPHENEX.md` |
+
 
 
 

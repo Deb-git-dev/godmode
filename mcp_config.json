@@ -12,7 +12,10 @@
     "github": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-github"
+      ],
       "env": {
         "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_TOKEN}"
       },
@@ -26,13 +29,19 @@
     "playwright": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "@executeautomation/playwright-mcp-server"],
+      "args": [
+        "-y",
+        "@executeautomation/playwright-mcp-server"
+      ],
       "description": "Browser automation and UI visual testing server"
     },
     "canva": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "canva-mcp"],
+      "args": [
+        "-y",
+        "canva-mcp"
+      ],
       "env": {
         "CANVA_API_KEY": "${CANVA_API_KEY}"
       },
@@ -41,7 +50,10 @@
     "asana": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-asana"],
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-asana"
+      ],
       "env": {
         "ASANA_ACCESS_TOKEN": "${ASANA_ACCESS_TOKEN}"
       },
@@ -50,7 +62,11 @@
     "headroom": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "headroom-ai", "mcp"],
+      "args": [
+        "-y",
+        "headroom-ai",
+        "mcp"
+      ],
       "description": "Headroom CCR context compression, retrieval, and token savings MCP server"
     },
     "firecrawl": {
@@ -60,6 +76,24 @@
         "Authorization": "Bearer fc-142efcf8619f4221b6b43495bf2b6dd0"
       },
       "description": "Official Firecrawl MCP server for web search, scrape, crawl, and LLM-ready markdown extraction"
+    },
+    "shadcn-ui": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@jpisnice/shadcn-ui-mcp-server"
+      ],
+      "description": "shadcn/ui MCP server providing component structure, registry blocks, and installation context (Jpisnice/shadcn-ui-mcp-server)"
+    },
+    "magic-mcp": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@21st-dev/magic-mcp"
+      ],
+      "description": "21st.dev Magic MCP server for AI component generation and UI catalog discovery (21st-dev/magic-mcp)"
     }
   }
 }
