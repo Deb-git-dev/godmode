@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "harnessName": "OpenClaw 2.0",
+  "vendor": "OpenClaw AI",
+  "version": "2.0.0",
+  "architecture": "self-hosted-agent-gateway",
+  "runtime": "Node.js / TypeScript",
+  "gateway": {
+    "port": 18789,
+    "channels": [
+      "discord",
+      "slack",
+      "telegram",
+      "whatsapp",
+      "webhook"
+    ],
+    "statePersistence": "sqlite",
+    "sandboxing": "container-isolated"
+  },
+  "agentFeatures": {
+    "autonomousLoop": true,
+    "persistentMemory": true,
+    "browserControl": true,
+    "multiStepScheduling": true,
+    "mcpSupport": true
+  },
+  "companionConfig": "config/openclaw.json"
+}

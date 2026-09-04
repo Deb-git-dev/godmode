@@ -227,6 +227,22 @@ async def list_gateways():
                 "models": ["nvidia/nemotron-4-340b-instruct", "meta/llama-3.1-70b-instruct"],
                 "status": "ready",
                 "zero_local_compute": True
+            },
+            {
+                "id": "deepseek",
+                "name": "DeepSeek Cloud Gateway",
+                "role": "Deep Reasoning & Technical Coding (R1/V3)",
+                "models": ["deepseek/deepseek-r1", "deepseek/deepseek-chat"],
+                "status": "ready",
+                "zero_local_compute": True
+            },
+            {
+                "id": "qwen",
+                "name": "Qwen Cloud Gateway (2.5 / 27B / 72B)",
+                "role": "Multilingual & Polyglot Code Synthesis",
+                "models": ["qwen/qwen-2.5-coder-32b-instruct", "qwen/qwen-2.5-72b-instruct", "qwen/qwen-max"],
+                "status": "ready",
+                "zero_local_compute": True
             }
         ]
     }

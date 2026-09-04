@@ -10,7 +10,9 @@ from backend.app.routers import (
     provenance_router,
     health_router,
     serverless_endpoints,
-    omniroute_bridge
+    omniroute_bridge,
+    crawler_router,
+    media_router
 )
 
 # Configure logging
@@ -41,6 +43,8 @@ app.include_router(provenance_router.router)
 app.include_router(health_router.router)
 app.include_router(serverless_endpoints.router)
 app.include_router(omniroute_bridge.router)
+app.include_router(crawler_router.router)
+app.include_router(media_router.router)
 
 @app.on_event("startup")
 async def startup_event():

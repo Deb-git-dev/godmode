@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "harnessName": "DeepSeek Harness",
+  "vendor": "DeepSeek / OpenRouter / NVIDIA NIM",
+  "version": "1.0.0",
+  "models": {
+    "reasoning": "deepseek-reasoner",
+    "general": "deepseek-chat",
+    "cloudProviders": [
+      {
+        "name": "OpenRouter",
+        "modelId": "deepseek/deepseek-r1",
+        "baseUrl": "https://openrouter.ai/api/v1"
+      },
+      {
+        "name": "NVIDIA NIM",
+        "modelId": "deepseek-ai/deepseek-r1",
+        "baseUrl": "https://integrate.api.nvidia.com/v1"
+      },
+      {
+        "name": "DeepSeek Official",
+        "modelId": "deepseek-reasoner",
+        "baseUrl": "https://api.deepseek.com/v1"
+      }
+    ]
+  },
+  "capabilities": {
+    "chainOfThoughtStreaming": true,
+    "toolCalling": true,
+    "jsonMode": true,
+    "contextWindow": 64000,
+    "maxTokens": 8192
+  },
+  "constraints": {
+    "zeroLocalGpu": true,
+    "localWeightsForbidden": true,
+    "cloudApiOnly": true
+  }
+}

@@ -46,4 +46,18 @@
 | `thedotmack/claude-mem` | Persistent Memory | SQLite persistent observation logging and cross-session synthesis for Claude Code and coding agents. | `package.json`, `.claude-mem/config.json`, `.agents/skills/claude-mem/` |
 | `Anthropic/claude-code` | Agent Harness & Setup | Turn-key Claude Code configuration with slash commands, project guidelines, and permission settings. | `CLAUDE.md`, `.claude/settings.json`, `.claude/commands/`, `harnesses/claude_code_harness.json` |
 | `rebelytics/one-skill-to-rule-them-all` | Meta-Skill | Task Observer meta-skill for workflow friction logging, correction recording, and skill catalog evolution. | `.agents/skills/task-observer/`, `.claude/skills/task-observer/`, `memory/task_observer_log.md` |
+| `deepseek-ai` | Cloud Reasoning Harness | DeepSeek R1/V3 chain-of-thought cloud reasoning harness via OpenRouter & NIM. | `harnesses/deepseek_harness.json`, `backend/app/routers/llm_router.py` |
+| `openclaw/openclaw` | Autonomous Agent Gateway | OpenClaw 2.0 self-hosted gateway connecting messaging channels to agent state machines. | `harnesses/openclaw_harness.json`, `config/openclaw.json` |
+| `mendableai/firecrawl` | Web Scraper / Crawler MCP | Official Firecrawl v2 MCP server and client for LLM-ready markdown extraction. | `mcp_config.json`, `src/lib/firecrawl.ts`, `backend/app/routers/crawler_router.py` |
+| `getaibuild.com` | Rapid App Builder | Architecture reference for low-code/AI agent app generation and shipping. | `PROVENANCE.md`, `design_specs/` |
+| `godmod3.ai` | Multi-Model Interface | In-browser multi-model chat and red-teaming platform routing to 50+ models. | `PROVENANCE.md`, `docs/` |
+| `Qwen/Qwen2.5` | Cloud Model Gateway | Qwen 2.5/27B/72B polyglot code and reasoning model gateway via OpenRouter/NIM. | `backend/app/routers/llm_router.py` |
+| `obsidianmd` | Markdown Vault | Bidirectional wikilink knowledge graph and vault configuration for session notes. | `memory/obsidian/`, `memory/obsidian/.obsidian/app.json` |
+| `motionsites.ai` | Motion Design Library | Animated landing page prompt specifications, cinematic keyframes, and layout tokens. | `design_specs/`, `src/components/motion/` |
+| `clip.cafe` | Video Quote Database | Searchable video quote and dialogue retrieval API for media grounding. | `backend/app/routers/media_router.py` |
+| `TransitionalHooks.com` | Video Retention Hooks | Transition animation patterns and visual hooks for frontend micro-interactions. | `design_specs/`, `src/components/motion/` |
+| `Videoeffects.com` | Visual Effects Library | Motion templates, video overlays, and WebGL shader asset specifications. | `backend/app/routers/media_router.py` |
+| `Tokcomment.com` | Social Proof Generator | Realistic social media comment mockup component and verified feedback preview. | `src/components/social/TokCommentPreview.tsx` |
+| `HeyGen.com` | Cloud Avatar Video API | Cloud-based avatar synthesis and video generation API (zero local GPU). | `backend/app/routers/media_router.py`, `docs/CLOUD_MEDIA_ARCHITECTURE.md` |
+
 

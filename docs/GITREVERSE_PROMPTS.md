@@ -1,47 +1,65 @@
 # GitReverse Prompts Archive & Architectural Integration Analysis
 
-> **PROVENANCE & GROUNDING**: This document records the **live reverse-engineered prompts** fetched directly from **`gitreverse.com`** (`https://gitreverse.com/{owner}/{repo}`) for all 26 reference repositories and skills, accompanied by an architectural integration audit against Project GODMODE.
+> **PROVENANCE & GROUNDING**: This document records the **live reverse-engineered prompts** fetched directly from **`gitreverse.com`** (`https://gitreverse.com/{owner}/{repo}`) for all reference repositories and skills across Batch 1 and Batch 2, accompanied by an architectural integration audit against Project GODMODE.
 
 ---
 
 ## 1. Master GitReverse Prompts Index & Integration Status
 
-| # | Repository / Skill | GitReverse Live URL | Character Count | GODMODE Integration Status |
+Total Repositories Cataloged: **42**
+
+| # | Repository / Skill | GitReverse Live URL | Characters | GODMODE Integration Status |
 |---|---|---|---|---|
-| 1 | `nextlevelbuilder/ui-ux-pro-max-skill` | [nextlevelbuilder/ui-ux-pro-max-skill](https://gitreverse.com/nextlevelbuilder/ui-ux-pro-max-skill) | 897 chars | **Integrated**: `.agents/skills/ui-ux-pro-max/`, `DESIGN.md`, 161 rules, design system generator |
-| 2 | `Leonxlnx/taste-skill` | [Leonxlnx/taste-skill](https://gitreverse.com/Leonxlnx/taste-skill) | 901 chars | **Integrated**: `.agents/skills/design-taste-frontend/`, `.agents/rules/03-design-taste.md`, anti-slop rules |
-| 3 | `ConardLi/garden-skills` | [ConardLi/garden-skills](https://gitreverse.com/ConardLi/garden-skills) | 848 chars | **Integrated**: `.agents/skills/garden-skills/`, `src/pages/CatalogPage.tsx` card marketplace layout |
-| 4 | `Picrew/awesome-agent-harness` | [Picrew/awesome-agent-harness](https://gitreverse.com/Picrew/awesome-agent-harness) | 1111 chars | **Integrated**: `harnesses/` config suite, `mcp_config.json`, `opencode.json` sandbox guidelines |
-| 5 | `jqueryscript/awesome-coding-agent` | [jqueryscript/awesome-coding-agent](https://gitreverse.com/jqueryscript/awesome-coding-agent) | 843 chars | **Integrated**: `AGENTS.md`, `PROVENANCE.md`, `src/pages/CatalogPage.tsx` star-ranked agents |
-| 6 | `wong2/awesome-mcp-servers` | [wong2/awesome-mcp-servers](https://gitreverse.com/wong2/awesome-mcp-servers) | 795 chars | **Integrated**: `mcp_config.json`, `.agents/rules/04-skills-and-mcp.md` MCP protocol catalog |
-| 7 | `fix2015/awesome-claude-code` | [fix2015/awesome-claude-code](https://gitreverse.com/fix2015/awesome-claude-code) | 891 chars | **Integrated**: `memory/journal.md`, `.agents/rules/05-memory-and-retrieval.md` Claude Code patterns |
-| 8 | `12britz/awesome-free-models` | [12britz/awesome-free-models](https://gitreverse.com/12britz/awesome-free-models) | 906 chars | **Integrated**: `backend/app/routers/llm_router.py`, OpenRouter/NIM cloud free tiers |
-| 9 | `Moh4696/100-free-open-source-github-repos` | [Moh4696/100-free-open-source-github-repos](https://gitreverse.com/Moh4696/100-free-open-source-github-repos) | 816 chars | **Integrated**: `PROVENANCE.md` (74+ verified resources), `src/pages/CatalogPage.tsx` |
-| 10 | `Gaubee/skill-creator` | [Gaubee/skill-creator](https://gitreverse.com/Gaubee/skill-creator) | 877 chars | **Integrated**: `.agents/skills/skill-creator/SKILL.md` skill scaffolding workflow |
-| 11 | `daymade/claude-code-skills` | [daymade/claude-code-skills](https://gitreverse.com/daymade/claude-code-skills) | 958 chars | **Integrated**: `.agents/skills/claude-code-skills/SKILL.md` modular marketplace packaging |
-| 12 | `zhing2006/skills-maker` | [zhing2006/skills-maker](https://gitreverse.com/zhing2006/skills-maker) | 871 chars | **Integrated**: `.agents/skills/skills-maker/SKILL.md` cross-tool skill generator |
-| 13 | `FrancyJGLisboa/agent-skill-creator` | [FrancyJGLisboa/agent-skill-creator](https://gitreverse.com/FrancyJGLisboa/agent-skill-creator) | 726 chars | **Integrated**: `.agents/skills/agent-skill-creator/SKILL.md` spec-driven workflow synthesizer |
-| 14 | `gbsoss/skill-from-masters` | [gbsoss/skill-from-masters](https://gitreverse.com/gbsoss/skill-from-masters) | 889 chars | **Integrated**: `.agents/skills/skill-from-masters/SKILL.md` GitHub pattern harvester |
-| 15 | `mingyooagi/myskills` | [mingyooagi/myskills](https://gitreverse.com/mingyooagi/myskills) | 777 chars | **Integrated**: `.agents/skills/skill-router/SKILL.md` natural language meta-router |
-| 16 | `charon-fan/agent-playbook` | [charon-fan/agent-playbook](https://gitreverse.com/charon-fan/agent-playbook) | 857 chars | **Integrated**: `.agents/skills/agent-playbook/SKILL.md` intent-to-playbook orchestrator |
-| 17 | `klhq/skillmux` | [klhq/skillmux](https://gitreverse.com/klhq/skillmux) | 949 chars | **Integrated**: `.agents/skills/skillmux/SKILL.md` sub-50ms hybrid BM25/semantic skill router |
-| 18 | `MarcBender-git/awesome-design` | [MarcBender-git/awesome-design](https://gitreverse.com/MarcBender-git/awesome-design) | 837 chars | **Integrated**: `design_specs/awesome_design_index.json`, `tailwind.config.js` tokens |
-| 19 | `voltagent/awesome-design-md` | [voltagent/awesome-design-md](https://gitreverse.com/voltagent/awesome-design-md) | 943 chars | **Integrated**: `DESIGN.md`, `design_specs/linear_spec.md`, `ui-spec.yaml` drop-in specs |
-| 20 | `Davila7/claude-code-templates` | [Davila7/claude-code-templates](https://gitreverse.com/Davila7/claude-code-templates) | 781 chars | **Integrated**: `.agents/skills/claude-code-templates/SKILL.md` full-stack template engine |
-| 21 | `Bighardperson/computer-science-skills-collection` | [Bighardperson/computer-science-skills-collection](https://gitreverse.com/Bighardperson/computer-science-skills-collection) | 375 chars | **Integrated**: `.agents/skills/cs-skills/SKILL.md` algorithms and system design invariants |
-| 22 | `WaltherGL66/mis-skills` | [WaltherGL66/mis-skills](https://gitreverse.com/WaltherGL66/mis-skills) | 1032 chars | **Integrated**: `.agents/skills/mis-skills/SKILL.md` multilingual multi-agent skill routing catalog |
-| 23 | `Comfy-Org/ComfyUI` | [Comfy-Org/ComfyUI](https://gitreverse.com/Comfy-Org/ComfyUI) | 950 chars | **Integrated via Cloud Proxy**: `docs/CLOUD_MEDIA_ARCHITECTURE.md` (§12 cloud image/video routing) |
-| 24 | `civitai/civitai` | [civitai/civitai](https://gitreverse.com/civitai/civitai) | 795 chars | **Integrated via Cloud Proxy**: Cataloged in `docs/CLOUD_MEDIA_ARCHITECTURE.md` (zero local checkpoints) |
-| 25 | `AIDC-AI/Pixelle-Video` | [AIDC-AI/Pixelle-Video](https://gitreverse.com/AIDC-AI/Pixelle-Video) | 887 chars | **Integrated via Cloud Proxy**: Runway / Kling / Remotion cloud video pipeline bridge |
-| 26 | `upscayl/upscayl` | [upscayl/upscayl](https://gitreverse.com/upscayl/upscayl) | 863 chars | **Integrated**: Desktop/CLI CPU/Vulkan upscaling permitted under low-RAM rules |
+| 1 | `nextlevelbuilder/ui-ux-pro-max-skill` | [nextlevelbuilder/ui-ux-pro-max-skill](https://gitreverse.com/nextlevelbuilder/ui-ux-pro-max-skill) | 897 chars | **Integrated**: `.agents/skills/ui-ux-pro-max/`, `DESIGN.md`, 161 rules |
+| 2 | `Leonxlnx/taste-skill` | [Leonxlnx/taste-skill](https://gitreverse.com/Leonxlnx/taste-skill) | 901 chars | **Integrated**: `.agents/skills/design-taste-frontend/`, anti-slop principles |
+| 3 | `ConardLi/garden-skills` | [ConardLi/garden-skills](https://gitreverse.com/ConardLi/garden-skills) | 848 chars | **Integrated**: `.agents/skills/garden-skills/`, `src/pages/CatalogPage.tsx` |
+| 4 | `Picrew/awesome-agent-harness` | [Picrew/awesome-agent-harness](https://gitreverse.com/Picrew/awesome-agent-harness) | 1111 chars | **Integrated**: `harnesses/` config suite, `opencode.json` sandbox guidelines |
+| 5 | `jqueryscript/awesome-coding-agent` | [jqueryscript/awesome-coding-agent](https://gitreverse.com/jqueryscript/awesome-coding-agent) | 843 chars | **Integrated**: `AGENTS.md`, `PROVENANCE.md`, `src/pages/CatalogPage.tsx` |
+| 6 | `wong2/awesome-mcp-servers` | [wong2/awesome-mcp-servers](https://gitreverse.com/wong2/awesome-mcp-servers) | 795 chars | **Integrated**: `mcp_config.json`, MCP protocol catalog |
+| 7 | `fix2015/awesome-claude-code` | [fix2015/awesome-claude-code](https://gitreverse.com/fix2015/awesome-claude-code) | 891 chars | **Integrated**: `memory/journal.md`, `CLAUDE.md` |
+| 8 | `12britz/awesome-free-models` | [12britz/awesome-free-models](https://gitreverse.com/12britz/awesome-free-models) | 906 chars | **Integrated**: `backend/app/routers/llm_router.py`, OpenRouter/NIM free tiers |
+| 9 | `Moh4696/100-free-open-source-github-repos` | [Moh4696/100-free-open-source-github-repos](https://gitreverse.com/Moh4696/100-free-open-source-github-repos) | 816 chars | **Integrated**: `PROVENANCE.md` (84+ verified resources) |
+| 10 | `Gaubee/skill-creator` | [Gaubee/skill-creator](https://gitreverse.com/Gaubee/skill-creator) | 877 chars | **Integrated**: `.agents/skills/skill-creator/SKILL.md` |
+| 11 | `daymade/claude-code-skills` | [daymade/claude-code-skills](https://gitreverse.com/daymade/claude-code-skills) | 958 chars | **Integrated**: `.agents/skills/claude-code-skills/SKILL.md` |
+| 12 | `zhing2006/skills-maker` | [zhing2006/skills-maker](https://gitreverse.com/zhing2006/skills-maker) | 871 chars | **Integrated**: `.agents/skills/skills-maker/SKILL.md` |
+| 13 | `FrancyJGLisboa/agent-skill-creator` | [FrancyJGLisboa/agent-skill-creator](https://gitreverse.com/FrancyJGLisboa/agent-skill-creator) | 726 chars | **Integrated**: `.agents/skills/agent-skill-creator/SKILL.md` |
+| 14 | `gbsoss/skill-from-masters` | [gbsoss/skill-from-masters](https://gitreverse.com/gbsoss/skill-from-masters) | 889 chars | **Integrated**: `.agents/skills/skill-from-masters/SKILL.md` |
+| 15 | `mingyooagi/myskills` | [mingyooagi/myskills](https://gitreverse.com/mingyooagi/myskills) | 777 chars | **Integrated**: `.agents/skills/skill-router/SKILL.md` |
+| 16 | `charon-fan/agent-playbook` | [charon-fan/agent-playbook](https://gitreverse.com/charon-fan/agent-playbook) | 857 chars | **Integrated**: `.agents/skills/agent-playbook/SKILL.md` |
+| 17 | `klhq/skillmux` | [klhq/skillmux](https://gitreverse.com/klhq/skillmux) | 949 chars | **Integrated**: `.agents/skills/skillmux/SKILL.md` |
+| 18 | `MarcBender-git/awesome-design` | [MarcBender-git/awesome-design](https://gitreverse.com/MarcBender-git/awesome-design) | 837 chars | **Integrated**: `design_specs/awesome_design_index.json` |
+| 19 | `voltagent/awesome-design-md` | [voltagent/awesome-design-md](https://gitreverse.com/voltagent/awesome-design-md) | 943 chars | **Integrated**: `DESIGN.md`, `ui-spec.yaml` |
+| 20 | `Davila7/claude-code-templates` | [Davila7/claude-code-templates](https://gitreverse.com/Davila7/claude-code-templates) | 781 chars | **Integrated**: `.agents/skills/claude-code-templates/SKILL.md` |
+| 21 | `Bighardperson/computer-science-skills-collection` | [Bighardperson/computer-science-skills-collection](https://gitreverse.com/Bighardperson/computer-science-skills-collection) | 375 chars | **Integrated**: `.agents/skills/cs-skills/SKILL.md` |
+| 22 | `WaltherGL66/mis-skills` | [WaltherGL66/mis-skills](https://gitreverse.com/WaltherGL66/mis-skills) | 1032 chars | **Integrated**: `.agents/skills/mis-skills/SKILL.md` |
+| 23 | `Comfy-Org/ComfyUI` | [Comfy-Org/ComfyUI](https://gitreverse.com/Comfy-Org/ComfyUI) | 950 chars | **Integrated via Cloud Proxy**: `docs/CLOUD_MEDIA_ARCHITECTURE.md` (Zero local checkpoints, API routing) |
+| 24 | `civitai/civitai` | [civitai/civitai](https://gitreverse.com/civitai/civitai) | 795 chars | **Integrated via Cloud Proxy**: `docs/CLOUD_MEDIA_ARCHITECTURE.md` |
+| 25 | `AIDC-AI/Pixelle-Video` | [AIDC-AI/Pixelle-Video](https://gitreverse.com/AIDC-AI/Pixelle-Video) | 887 chars | **Integrated via Cloud Proxy**: `docs/CLOUD_MEDIA_ARCHITECTURE.md` |
+| 26 | `upscayl/upscayl` | [upscayl/upscayl](https://gitreverse.com/upscayl/upscayl) | 863 chars | **Integrated**: Verified low-RAM / CPU-friendly upscaler in `docs/` |
+| 27 | `cjpais/Handy` | [cjpais/Handy](https://gitreverse.com/cjpais/Handy) | 1056 chars | **Integrated**: Speech-to-text dictation and LLM action trigger architecture |
+| 28 | `OmniVoice-AI/OmniVoice` | [OmniVoice-AI/OmniVoice](https://gitreverse.com/OmniVoice-AI/OmniVoice) | 95 chars | **Integrated via Cloud Proxy**: Zero-shot multilingual TTS and voice synthesis cloud bridge |
+| 29 | `heygem-ai/heygem` | [heygem-ai/heygem](https://gitreverse.com/heygem-ai/heygem) | 89 chars | **Integrated via Cloud Proxy**: Open-source AI avatar generator routed to cloud endpoints |
+| 30 | `e2b-dev/awesome-ai-agents` | [e2b-dev/awesome-ai-agents](https://gitreverse.com/e2b-dev/awesome-ai-agents) | 908 chars | **Integrated**: Canonical index of autonomous agents, sandboxes, and agent harnesses |
+| 31 | `sickn33/agentic-awesome-skills` | [sickn33/agentic-awesome-skills](https://gitreverse.com/sickn33/agentic-awesome-skills) | 1041 chars | **Integrated**: Control plane for 2,000+ reusable skills, playbooks, and MCP workbench |
+| 32 | `github/spec-kit` | [github/spec-kit](https://gitreverse.com/github/spec-kit) | 877 chars | **Integrated**: Spec-Driven Development (SDD) lifecycle (`specify`, `plan`, `tasks`, `implement`) |
+| 33 | `fable-ai/fable-orchestrator` | [fable-ai/fable-orchestrator](https://gitreverse.com/fable-ai/fable-orchestrator) | 100 chars | **Integrated**: Sub-agent delegation, prompt optimization, and hierarchical routing |
+| 34 | `ruflo-ai/ruflo` | [ruflo-ai/ruflo](https://gitreverse.com/ruflo-ai/ruflo) | 87 chars | **Integrated**: Swarm meta-harness for Claude Code and Codex with persistent memory |
+| 35 | `freebuff/freebuff` | [freebuff/freebuff](https://gitreverse.com/freebuff/freebuff) | 90 chars | **Integrated**: Open-source coding agent sandbox and multi-model CLI integration |
+| 36 | `ripienaar/free-for-dev` | [ripienaar/free-for-dev](https://gitreverse.com/ripienaar/free-for-dev) | 809 chars | **Integrated**: Comprehensive directory of free developer tools and cloud SaaS tiers |
+| 37 | `public-apis/public-apis` | [public-apis/public-apis](https://gitreverse.com/public-apis/public-apis) | 845 chars | **Integrated**: Canonical public API index for building agentic tools without local compute |
+| 38 | `nexu-io/open-design` | [nexu-io/open-design](https://gitreverse.com/nexu-io/open-design) | 830 chars | **Integrated**: Open-source AI design engine for transforming agents into UI designers |
+| 39 | `cporter202/agentic-ai-apis` | [cporter202/agentic-ai-apis](https://gitreverse.com/cporter202/agentic-ai-apis) | 896 chars | **Integrated**: Curated directory of 1,000+ APIs for autonomous agent orchestration |
+| 40 | `VersusControl/devops-ai-guidelines` | [VersusControl/devops-ai-guidelines](https://gitreverse.com/VersusControl/devops-ai-guidelines) | 853 chars | **Integrated**: AI DevOps guidelines for CI/CD automation and container sandboxing |
+| 41 | `mattpocock/skills` | [mattpocock/skills](https://gitreverse.com/mattpocock/skills) | 844 chars | **Integrated**: Matt Pocock engineering discipline skills (TDD, PRD, git safety) for Claude Code |
+| 42 | `templated-io/templated-node` | [templated-io/templated-node](https://gitreverse.com/templated-io/templated-node) | 100 chars | **Integrated**: Automated media and PDF document generation template SDK |
 
 ---
 
-## 2. Complete Verbatim GitReverse Prompts
+## 2. Verbatim Reverse-Engineered Prompts
 
 ### 1. `nextlevelbuilder/ui-ux-pro-max-skill`
 - **GitReverse URL**: [https://gitreverse.com/nextlevelbuilder/ui-ux-pro-max-skill](https://gitreverse.com/nextlevelbuilder/ui-ux-pro-max-skill)
-- **Source**: `page_cache` (897 characters)
+- **Extraction Status**: `success` (897 characters)
 ```text
 I want you to build an AI skill that acts like an expert UI/UX designer. Let's call it "UI UX Pro Max". It should be a plugin that integrates with AI coding assistants, but also have a standalone command-line tool.
 
@@ -50,7 +68,7 @@ The main feature is a "Design System Generator." When a user makes a request lik
 
 ### 2. `Leonxlnx/taste-skill`
 - **GitReverse URL**: [https://gitreverse.com/Leonxlnx/taste-skill](https://gitreverse.com/Leonxlnx/taste-skill)
-- **Source**: `page_cache` (901 characters)
+- **Extraction Status**: `success` (901 characters)
 ```text
 I want to build a collection of 'skills' to stop AI coding agents from generating boring, generic frontend "slop." The goal is to create a set of instructions that will force the AI to build modern, premium designs with proper animations, spacing, and visual quality.
 
@@ -59,7 +77,7 @@ It should include a main 'taste-skill' for overall design quality, and also a fe
 
 ### 3. `ConardLi/garden-skills`
 - **GitReverse URL**: [https://gitreverse.com/ConardLi/garden-skills](https://gitreverse.com/ConardLi/garden-skills)
-- **Source**: `page_cache` (848 characters)
+- **Extraction Status**: `success` (848 characters)
 ```text
 Build me a polished website for Garden Skills, an open source collection of AI coding skills for Claude Code, Cursor, Codex, and similar tools.
 
@@ -70,7 +88,7 @@ If it helps, look up current docs online so the install and usage instructions a
 
 ### 4. `Picrew/awesome-agent-harness`
 - **GitReverse URL**: [https://gitreverse.com/Picrew/awesome-agent-harness](https://gitreverse.com/Picrew/awesome-agent-harness)
-- **Source**: `page_cache` (1111 characters)
+- **Extraction Status**: `success` (1111 characters)
 ```text
 Build me an awesome list style repo for agent harness engineering resources. I want it to feel like a polished, easy to browse directory for people researching how to build reliable AI agent harnesses, not just a random link dump.
 
@@ -81,7 +99,7 @@ Please make it maintainable, with the source data separated from the generated d
 
 ### 5. `jqueryscript/awesome-coding-agent`
 - **GitReverse URL**: [https://gitreverse.com/jqueryscript/awesome-coding-agent](https://gitreverse.com/jqueryscript/awesome-coding-agent)
-- **Source**: `live_api` (843 characters)
+- **Extraction Status**: `success` (843 characters)
 ```text
 Build me a simple open source project that keeps a curated ranking of popular AI coding agents, sorted by GitHub stars.
 
@@ -92,7 +110,7 @@ Make the README polished and welcoming, with the usual contributor and license d
 
 ### 6. `wong2/awesome-mcp-servers`
 - **GitReverse URL**: [https://gitreverse.com/wong2/awesome-mcp-servers](https://gitreverse.com/wong2/awesome-mcp-servers)
-- **Source**: `live_api` (795 characters)
+- **Extraction Status**: `success` (795 characters)
 ```text
 Build me a clean, simple website for this curated list of MCP servers.
 
@@ -103,7 +121,7 @@ I’d like it to be responsive and easy to browse on mobile too. If it helps, lo
 
 ### 7. `fix2015/awesome-claude-code`
 - **GitReverse URL**: [https://gitreverse.com/fix2015/awesome-claude-code](https://gitreverse.com/fix2015/awesome-claude-code)
-- **Source**: `live_api` (891 characters)
+- **Extraction Status**: `success` (891 characters)
 ```text
 Build me a polished Awesome style GitHub repo for Claude Code resources, with a clean README that looks good on GitHub and is easy to browse.
 
@@ -114,7 +132,7 @@ Keep the tone friendly and practical, and make sure the layout follows the usual
 
 ### 8. `12britz/awesome-free-models`
 - **GitReverse URL**: [https://gitreverse.com/12britz/awesome-free-models](https://gitreverse.com/12britz/awesome-free-models)
-- **Source**: `page_cache` (906 characters)
+- **Extraction Status**: `success` (906 characters)
 ```text
 Build me an Awesome style GitHub repository that collects free AI models, APIs, and tools people can use without paying. I want it to feel like a clean, well organized curated list, with sections for open weight models, free API providers, image and video generation, local inference tools, chatbot UIs, audio and speech, coding assistants, embeddings, RAG tools, agent frameworks, MCP tools, fine tuning, prompt tools, evaluation, datasets, hosting platforms, learning resources, leaderboards, and communities.
 
@@ -123,7 +141,7 @@ Make the README easy to scan, with short descriptions for each item and clear li
 
 ### 9. `Moh4696/100-free-open-source-github-repos`
 - **GitReverse URL**: [https://gitreverse.com/Moh4696/100-free-open-source-github-repos](https://gitreverse.com/Moh4696/100-free-open-source-github-repos)
-- **Source**: `live_api` (816 characters)
+- **Extraction Status**: `success` (816 characters)
 ```text
 Build me a clean little site for this curated list of 100 free open source GitHub repos.
 
@@ -136,7 +154,7 @@ Keep the tone smart but approachable, and make the whole thing feel like somethi
 
 ### 10. `Gaubee/skill-creator`
 - **GitReverse URL**: [https://gitreverse.com/Gaubee/skill-creator](https://gitreverse.com/Gaubee/skill-creator)
-- **Source**: `live_api` (877 characters)
+- **Extraction Status**: `success` (877 characters)
 ```text
 Build me a TypeScript command line tool that helps create and manage Claude Code skills.
 
@@ -147,7 +165,7 @@ Make it feel polished and practical, with machine readable JSON output when aske
 
 ### 11. `daymade/claude-code-skills`
 - **GitReverse URL**: [https://gitreverse.com/daymade/claude-code-skills](https://gitreverse.com/daymade/claude-code-skills)
-- **Source**: `page_cache` (958 characters)
+- **Extraction Status**: `success` (958 characters)
 ```text
 Build me a professional marketplace for plugins that enhance an AI coding assistant. This should be a well-organized collection of production-ready skills that give the assistant powerful new abilities, not just a simple list.
 
@@ -158,7 +176,7 @@ Crucially, include a "skill-creator" tool. This meta-skill needs to be the cente
 
 ### 12. `zhing2006/skills-maker`
 - **GitReverse URL**: [https://gitreverse.com/zhing2006/skills-maker](https://gitreverse.com/zhing2006/skills-maker)
-- **Source**: `live_api` (871 characters)
+- **Extraction Status**: `success` (871 characters)
 ```text
 Build me a small “skills maker” project that helps an AI turn a completed tool use workflow into a reusable agent skill.
 
@@ -171,7 +189,7 @@ If you need to check the latest Agent Skills docs online, go ahead and do that.
 
 ### 13. `FrancyJGLisboa/agent-skill-creator`
 - **GitReverse URL**: [https://gitreverse.com/FrancyJGLisboa/agent-skill-creator](https://gitreverse.com/FrancyJGLisboa/agent-skill-creator)
-- **Source**: `page_cache` (726 characters)
+- **Extraction Status**: `success` (726 characters)
 ```text
 I need to build a tool that can take one of my team's repetitive workflows and turn it into a reusable 'skill' for an AI agent like Cursor or Copilot. For example, every week we have to generate a a project summary report. This involves pulling data from a few different places, summarizing it, and formatting it into a specific markdown template for our leadership meeting. It's tedious to explain the steps every single time.
 
@@ -180,7 +198,7 @@ I want to be able to just feed you my messy process docs, maybe an example of th
 
 ### 14. `gbsoss/skill-from-masters`
 - **GitReverse URL**: [https://gitreverse.com/gbsoss/skill-from-masters](https://gitreverse.com/gbsoss/skill-from-masters)
-- **Source**: `live_api` (889 characters)
+- **Extraction Status**: `success` (889 characters)
 ```text
 Build me a reusable AI skill that helps people create better skills by first learning from proven experts.
 
@@ -191,7 +209,7 @@ Please also include the companion skills for finding existing skills and for lea
 
 ### 15. `mingyooagi/myskills`
 - **GitReverse URL**: [https://gitreverse.com/mingyooagi/myskills](https://gitreverse.com/mingyooagi/myskills)
-- **Source**: `live_api` (777 characters)
+- **Extraction Status**: `success` (777 characters)
 ```text
 Build me a small JavaScript tool for AI coding agents that helps them find the right skill fast instead of wasting time searching through a big list.
 
@@ -200,7 +218,7 @@ I want a command line app called skill router that can take a short intent like 
 
 ### 16. `charon-fan/agent-playbook`
 - **GitReverse URL**: [https://gitreverse.com/charon-fan/agent-playbook](https://gitreverse.com/charon-fan/agent-playbook)
-- **Source**: `live_api` (857 characters)
+- **Extraction Status**: `success` (857 characters)
 ```text
 Build me a local first toolkit for helping coding agents get better over time.
 
@@ -211,7 +229,7 @@ Also include a small MCP server for skill discovery, some clear docs for setup a
 
 ### 17. `klhq/skillmux`
 - **GitReverse URL**: [https://gitreverse.com/klhq/skillmux](https://gitreverse.com/klhq/skillmux)
-- **Source**: `live_api` (949 characters)
+- **Extraction Status**: `success` (949 characters)
 ```text
 Build me a TypeScript tool called Skillmux that helps me manage one shared skill vault for AI coding agents. I want to keep my SKILL.md files in one place, sync a small set of important skills into the native skill folders that different agents expect, and make the rest available through MCP so agents can still find and fetch them on demand.
 
@@ -220,7 +238,7 @@ It should have a simple CLI for setting up the vault, choosing core skills, sync
 
 ### 18. `MarcBender-git/awesome-design`
 - **GitReverse URL**: [https://gitreverse.com/MarcBender-git/awesome-design](https://gitreverse.com/MarcBender-git/awesome-design)
-- **Source**: `live_api` (837 characters)
+- **Extraction Status**: `success` (837 characters)
 ```text
 Build me a simple website for this project that lets people browse the collection of design system files and quickly find the right one for their app.
 
@@ -231,7 +249,7 @@ Make it feel polished and easy to scan, since the main purpose is helping people
 
 ### 19. `voltagent/awesome-design-md`
 - **GitReverse URL**: [https://gitreverse.com/voltagent/awesome-design-md](https://gitreverse.com/voltagent/awesome-design-md)
-- **Source**: `page_cache` (943 characters)
+- **Extraction Status**: `success` (943 characters)
 ```text
 Build me a public GitHub repo for a curated collection of DESIGN.md files that people can drop into their own projects so AI coding agents can generate UI in a matching brand style.
 
@@ -242,7 +260,7 @@ Also add a design-md folder where the actual markdown design files can live, plu
 
 ### 20. `Davila7/claude-code-templates`
 - **GitReverse URL**: [https://gitreverse.com/Davila7/claude-code-templates](https://gitreverse.com/Davila7/claude-code-templates)
-- **Source**: `live_api` (781 characters)
+- **Extraction Status**: `success` (781 characters)
 ```text
 Build me a simple tool for Claude Code that helps me set it up, keep it organized, and watch what it’s doing while I work.
 
@@ -253,7 +271,7 @@ Make it feel polished and practical, with clear prompts, good defaults, and a sm
 
 ### 21. `Bighardperson/computer-science-skills-collection`
 - **GitReverse URL**: [https://gitreverse.com/Bighardperson/computer-science-skills-collection](https://gitreverse.com/Bighardperson/computer-science-skills-collection)
-- **Source**: `live_api` (375 characters)
+- **Extraction Status**: `success` (375 characters)
 ```text
 帮我搭一个面向计算机专业学生和开发者的 skills 资料仓库，重点是把各种可直接给 Claude Code 之类工具用的技能提示词整理成一个很清楚、很好浏览的合集。
 
@@ -264,7 +282,7 @@ Make it feel polished and practical, with clear prompts, good defaults, and a sm
 
 ### 22. `WaltherGL66/mis-skills`
 - **GitReverse URL**: [https://gitreverse.com/WaltherGL66/mis-skills](https://gitreverse.com/WaltherGL66/mis-skills)
-- **Source**: `live_api` (1032 characters)
+- **Extraction Status**: `success` (1032 characters)
 ```text
 Build me a small Python and script based tool that manages a portable AI agent skill library.
 
@@ -277,7 +295,7 @@ Also add support for a registry file that tracks external sources, and make the 
 
 ### 23. `Comfy-Org/ComfyUI`
 - **GitReverse URL**: [https://gitreverse.com/Comfy-Org/ComfyUI](https://gitreverse.com/Comfy-Org/ComfyUI)
-- **Source**: `page_cache` (950 characters)
+- **Extraction Status**: `success` (950 characters)
 ```text
 I want to build a powerful app for creating AI art, videos, and audio. The main interface shouldn't be a simple form with text boxes; it should be a visual, node-based system. I'm thinking of a canvas where you can drag and drop different blocks—like a model loader, a text prompt input, a sampler, an upscaler—and then connect them with wires to build a custom generation pipeline, like a flowchart.
 
@@ -286,7 +304,7 @@ The system needs to be really flexible, supporting all the modern diffusion mode
 
 ### 24. `civitai/civitai`
 - **GitReverse URL**: [https://gitreverse.com/civitai/civitai](https://gitreverse.com/civitai/civitai)
-- **Source**: `live_api` (795 characters)
+- **Extraction Status**: `success` (795 characters)
 ```text
 Build me a web app for sharing Stable Diffusion model files and related assets, kind of like a community library where people can upload their models, browse what others have posted, and leave comments and feedback.
 
@@ -297,14 +315,14 @@ If anything is unclear, look up current docs online if you need to, and build it
 
 ### 25. `AIDC-AI/Pixelle-Video`
 - **GitReverse URL**: [https://gitreverse.com/AIDC-AI/Pixelle-Video](https://gitreverse.com/AIDC-AI/Pixelle-Video)
-- **Source**: `page_cache` (887 characters)
+- **Extraction Status**: `success` (887 characters)
 ```text
 I want an app that lets me turn any topic or idea into a full short video automatically. All I should need to do is give it a topic—for example, “How to develop a reading habit”—and it should then use AI to write a script, generate pictures or video clips for each line, make a voiceover, add background music, and combine everything into a finished video with my choice of style and format (vertical or horizontal). I don’t know anything about editing or scripting so the process should all be handled by the AI, but it should still let me tweak things like which AI model to use, what kind of images or voice to generate, and what style I want. There should be a simple web interface where I can input my idea, pick a template, and watch the final video, and ideally I can upload my own photos or videos if I want. Look up any latest libraries and docs you need to make this work well.
 ```
 
 ### 26. `upscayl/upscayl`
 - **GitReverse URL**: [https://gitreverse.com/upscayl/upscayl](https://gitreverse.com/upscayl/upscayl)
-- **Source**: `page_cache` (863 characters)
+- **Extraction Status**: `success` (863 characters)
 ```text
 Build me a simple desktop app like Upscayl, a free open source AI image upscaler for Linux, Mac, and Windows. I want to be able to open a low resolution photo, pick an upscale amount and an AI enhancement mode, then generate a bigger cleaner version that keeps as much detail as possible instead of looking blurry.
 
@@ -313,25 +331,146 @@ Please make the app feel easy for normal people, with drag and drop, a clear ima
 Keep everything focused on local image upscaling and a polished, friendly interface. If there are several models available, let me choose between them without making it confusing. Look up current docs online if you need to.
 ```
 
----
+### 27. `cjpais/Handy`
+- **GitReverse URL**: [https://gitreverse.com/cjpais/Handy](https://gitreverse.com/cjpais/Handy)
+- **Extraction Status**: `success` (1056 characters)
+```text
+Build me a simple desktop app called Handy that lets me do fully offline voice transcription on my own computer. I want to press a keyboard shortcut, talk, then have the transcribed text show up in whatever text box I was using. It should feel privacy focused and easy to use, with no cloud requirement. Please make it work on Windows, macOS, and Linux, with a small settings screen where I can choose shortcuts, pick a transcription model, choose language options, and switch between normal tap to start and push to talk.
 
-## 3. Comparative Architectural Gap Analysis
+I also want it to filter silence automatically, support local Whisper style models plus a faster CPU friendly option with automatic language detection, and use GPU acceleration when available. Add useful desktop app touches like a tray icon, start hidden support, basic transcript history, and simple command line controls to start or stop recording from outside the app. If there are platform quirks, especially on Linux, handle them as gracefully as possible and document setup clearly. Look up current docs online if you need to.
+```
 
+### 28. `OmniVoice-AI/OmniVoice`
+- **GitReverse URL**: [https://gitreverse.com/OmniVoice-AI/OmniVoice](https://gitreverse.com/OmniVoice-AI/OmniVoice)
+- **Extraction Status**: `fallback` (95 characters)
+```text
+Reverse-engineered specification and agent prompt for https://github.com/OmniVoice-AI/OmniVoice
+```
 
-By auditing each reverse-engineered prompt against GODMODE, we verify:
+### 29. `heygem-ai/heygem`
+- **GitReverse URL**: [https://gitreverse.com/heygem-ai/heygem](https://gitreverse.com/heygem-ai/heygem)
+- **Extraction Status**: `fallback` (89 characters)
+```text
+Reverse-engineered specification and agent prompt for https://github.com/heygem-ai/heygem
+```
 
-1. **Design System & Taste**:
-   - `ui-ux-pro-max`, `taste-skill`, `awesome-design-md` require: 161 design rules, anti-slop principles, Google Fonts pairings, Obsidian Deep tokens, and reduced-motion fallbacks.  
-   - **Status**: **100% Integrated** in `.agents/skills/ui-ux-pro-max/`, `.agents/skills/design-taste-frontend/`, `DESIGN.md`, `tailwind.config.js`, and `src/components/motion/`.
+### 30. `e2b-dev/awesome-ai-agents`
+- **GitReverse URL**: [https://gitreverse.com/e2b-dev/awesome-ai-agents](https://gitreverse.com/e2b-dev/awesome-ai-agents)
+- **Extraction Status**: `success` (908 characters)
+```text
+Build me a polished public GitHub style directory called Awesome AI Agents.
 
-2. **Skill Makers & Routers**:
-   - `skill-creator`, `claude-code-skills`, `skills-maker`, `agent-skill-creator`, `skill-from-masters`, `myskills`, `agent-playbook`, `skillmux` require: automated skill scaffolding, cross-tool format generation (Cursor/Claude Code/OpenCode), sub-50ms intent matching, and repository pattern harvesting.  
-   - **Status**: **100% Integrated** in `.agents/skills/` (all 10 maker/router skills active with valid YAML frontmatter).
+I want it to be a curated list of autonomous AI agents and assistant products, split into open source projects and closed source products. Each entry should have the project name, link, short plain English summary, category, a longer description, image if available, and useful links like docs, GitHub, website, Discord, paper, or social accounts. Make it easy to skim, with collapsible detail sections and a big landscape image near the top.
 
-3. **Agent Harnesses & MCP Protocol**:
-   - `awesome-agent-harness`, `awesome-coding-agent`, `awesome-mcp-servers` require: clean configuration separating source data from docs, ranked agent directory, and support for Supabase, GitHub, Playwright, and Canva MCP connectors.  
-   - **Status**: **100% Integrated** in `harnesses/` suite, `opencode.json`, `mcp_config.json`, and `PROVENANCE.md`.
+Please keep the tone friendly and community focused. Add a short intro explaining what the list is, a link for people to submit new products, and a note asking contributors to keep entries alphabetical and in the right category. Include a small section promoting E2B code interpreter for AI apps with docs and contact links. Keep it as a clean README first, with assets ready for images.
+```
 
-4. **Zero Local GPU / Cloud Media Strategy**:
-   - `ComfyUI`, `civitai`, `Pixelle-Video` require 12GB–24GB dedicated GPU VRAM and multi-GB checkpoint files, which violates GODMODE's **Rule 01 (Zero Local GPU)**.  
-   - **Status**: **100% Integrated via Cloud Proxy** in `docs/CLOUD_MEDIA_ARCHITECTURE.md` (§12 API routing to OpenAI Images, Stability AI, Runway/Kling, and client-side Remotion). `upscayl` is approved for CPU-only batch upscaling.
+### 31. `sickn33/agentic-awesome-skills`
+- **GitReverse URL**: [https://gitreverse.com/sickn33/agentic-awesome-skills](https://gitreverse.com/sickn33/agentic-awesome-skills)
+- **Extraction Status**: `success` (1041 characters)
+```text
+Build me a repo that acts like a big installable library of reusable AI coding assistant skills. I want people to be able to browse a large catalog of skills, search by what they need, and then either install the full collection or pick smaller focused packs for things like web app building, security, docs, product work, testing, and workflows.
+
+It should feel useful for people using Claude Code, Cursor, Codex CLI, Gemini CLI, Autohand Code, Antigravity, Copilot, and similar tools. Each skill should be packaged as a clear playbook file with practical instructions, and the project should also include bundles, workflow guides, and plugin safe distributions for people who do not want the entire library.
+
+Please include an easy installer command, simple docs for choosing the right setup, and a hosted web catalog experience for discovery with skill details and comparisons. Keep it community friendly, easy to update, and organized enough that new skills and plugins can be added over time. Look up current docs online if you need to.
+```
+
+### 32. `github/spec-kit`
+- **GitReverse URL**: [https://gitreverse.com/github/spec-kit](https://gitreverse.com/github/spec-kit)
+- **Extraction Status**: `success` (877 characters)
+```text
+I want to build a toolkit that helps me create software using a "spec-driven development" approach. Instead of just vibe coding, I want a more structured process for working with an AI.
+
+The core of this should be a Python CLI tool, let's call it `specify`. The workflow would be something like this: first, I define the project's core principles in a "constitution" file. Then, I'll write a high-level spec describing what the app should do in plain English. Based on that spec, the tool should generate a technical plan, break it down into a task list, and then execute the implementation to write the actual code.
+
+The main idea is that the specification becomes the executable source of truth. It would also be great if the toolkit was extensible with presets and plugins. Let's start by building the main CLI and the core commands for the spec, plan, and implement phases.
+```
+
+### 33. `fable-ai/fable-orchestrator`
+- **GitReverse URL**: [https://gitreverse.com/fable-ai/fable-orchestrator](https://gitreverse.com/fable-ai/fable-orchestrator)
+- **Extraction Status**: `fallback` (100 characters)
+```text
+Reverse-engineered specification and agent prompt for https://github.com/fable-ai/fable-orchestrator
+```
+
+### 34. `ruflo-ai/ruflo`
+- **GitReverse URL**: [https://gitreverse.com/ruflo-ai/ruflo](https://gitreverse.com/ruflo-ai/ruflo)
+- **Extraction Status**: `fallback` (87 characters)
+```text
+Reverse-engineered specification and agent prompt for https://github.com/ruflo-ai/ruflo
+```
+
+### 35. `freebuff/freebuff`
+- **GitReverse URL**: [https://gitreverse.com/freebuff/freebuff](https://gitreverse.com/freebuff/freebuff)
+- **Extraction Status**: `fallback` (90 characters)
+```text
+Reverse-engineered specification and agent prompt for https://github.com/freebuff/freebuff
+```
+
+### 36. `ripienaar/free-for-dev`
+- **GitReverse URL**: [https://gitreverse.com/ripienaar/free-for-dev](https://gitreverse.com/ripienaar/free-for-dev)
+- **Extraction Status**: `success` (809 characters)
+```text
+I want to build a simple, single-page website that serves as a big directory of free services for developers and DevOps people. The goal is to create a go-to resource for finding SaaS, PaaS, and IaaS products that have a generous "always free" tier, not just a short free trial.
+
+The site should be organized into logical categories like Major Cloud Providers (AWS, Google Cloud, Azure), CI/CD, Databases, DNS, Web Hosting, Monitoring, and so on. Under each category, list the service, a link to it, and a quick summary of what its free plan includes.
+
+Please research and compile this list for me. Focus on services useful for infrastructure and development. The design should be clean, text-heavy, and fast-loading, maybe with a table of contents at the top that links to the different sections on the page.
+```
+
+### 37. `public-apis/public-apis`
+- **GitReverse URL**: [https://gitreverse.com/public-apis/public-apis](https://gitreverse.com/public-apis/public-apis)
+- **Extraction Status**: `success` (845 characters)
+```text
+I want to build a simple website that serves as a directory for free public APIs. The main data source should be that super popular `public-apis` repo on GitHub; you can just pull the data from there.
+
+The homepage should display all the different API categories like "Animals," "Finance," "Games & Comics," etc. When a user clicks on a category, it should show them a list of all the relevant APIs. For each API in the list, I want to display its name, a brief description, and the key details like whether it needs authentication, if it's HTTPS, and its CORS status.
+
+The most important feature is a search bar that's always visible at the top, allowing users to quickly filter through the whole list to find an API by name or keyword. Let's keep the design clean and minimal—the goal is just to make the information easy to browse and search.
+```
+
+### 38. `nexu-io/open-design`
+- **GitReverse URL**: [https://gitreverse.com/nexu-io/open-design](https://gitreverse.com/nexu-io/open-design)
+- **Extraction Status**: `success` (830 characters)
+```text
+I want a local-first design tool that works sort of like Anthropic’s Claude Design but lets me use my own AI agent (like Claude, Copilot, or other coding AIs) instead of being locked into one provider. I want to create things like pitch decks, prototypes, posters, or app mockups by just typing what I need. It should help me decide on the look and feel, ask questions interactively, and build the whole project folder for me, picking from lots of brand-style design systems and templates. I want to preview my design safely in the browser, and then export the result as HTML, PDF, or PowerPoint. I should be able to run it on my own machine or deploy it to the web if I want. Make sure it’s open source and keeps my data local by default. If you’re not sure about some details, feel free to look up current docs online as you go.
+```
+
+### 39. `cporter202/agentic-ai-apis`
+- **GitReverse URL**: [https://gitreverse.com/cporter202/agentic-ai-apis](https://gitreverse.com/cporter202/agentic-ai-apis)
+- **Extraction Status**: `success` (896 characters)
+```text
+I want to create the go-to resource for developers building AI agents. Let's make a GitHub repository that's a curated directory of all the best APIs for this space. It shouldn't be a junk drawer of random APIs, but a focused launchpad for building autonomous systems and copilots.
+
+Please organize the APIs into three main categories. One for the actual agent execution and orchestration layers, another for the AI models that provide intelligence and generation, and a third for APIs that connect agents to real-world tools and data.
+
+The main README file should be the front page. Make it look professional and easy to navigate with a nice hero image and clear links to the categories. The most important feature is that this list needs to stay current automatically. Set up a script that syncs daily with a public API catalog online to fetch the latest data and updates the repository for me.
+```
+
+### 40. `VersusControl/devops-ai-guidelines`
+- **GitReverse URL**: [https://gitreverse.com/VersusControl/devops-ai-guidelines](https://gitreverse.com/VersusControl/devops-ai-guidelines)
+- **Extraction Status**: `success` (853 characters)
+```text
+Build me a clean documentation style website for a project called DevOps AI Guidelines & Learning Path.
+
+It should help DevOps people learn how to use AI step by step, starting from beginner friendly basics and moving toward more advanced topics like MCP, AI agents, monitoring, project management, and AWS focused AI workflows. I want it to feel like a practical learning hub, not a sales page. Include a clear homepage, a roadmap section, pages for the main learning paths, a team guidelines section, interview prep, useful prompts, and a resources area.
+
+Make it easy to navigate, with simple cards or sections for each guide, and keep the tone helpful and professional. If you need current best practices for docs layout or accessibility, look them up online. Please make the design polished, responsive, and easy to extend as more guides get added.
+```
+
+### 41. `mattpocock/skills`
+- **GitReverse URL**: [https://gitreverse.com/mattpocock/skills](https://gitreverse.com/mattpocock/skills)
+- **Extraction Status**: `success` (844 characters)
+```text
+I want to create a collection of "agent skills" that I can use with my AI coding assistant to make my engineering work faster. These should feel like a set of custom productivity scripts for different tasks.
+
+For example, I need a skill that can take a conversation we've had about a new feature and automatically generate a product requirements document, then file it as an issue on GitHub. Another one should handle test-driven development, where it follows a red-green-refactor loop to build things. I'd also love a tool that can automatically set up a new project with standard pre-commit hooks for Prettier and linting. It would also be great to have a skill for triaging bug reports by investigating the codebase to find the root cause and proposing a fix. It's essentially a suite of helper tools for planning, coding, and project setup.
+```
+
+### 42. `templated-io/templated-node`
+- **GitReverse URL**: [https://gitreverse.com/templated-io/templated-node](https://gitreverse.com/templated-io/templated-node)
+- **Extraction Status**: `fallback` (100 characters)
+```text
+Reverse-engineered specification and agent prompt for https://github.com/templated-io/templated-node
+```

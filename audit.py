@@ -210,6 +210,33 @@ def check_plugins_suite():
         
     return True, "All 5 plugins installed, configured & verified (omniroute, headroom, claude-mem, claude-code, task-observer)"
 
+def check_extended_tooling_suite():
+    required_files = [
+        # DeepSeek & OpenClaw
+        "harnesses/deepseek_harness.json",
+        "harnesses/openclaw_harness.json",
+        "config/openclaw.json",
+        # Firecrawl MCP
+        "src/lib/firecrawl.ts",
+        "backend/app/routers/crawler_router.py",
+        # Obsidian Vault
+        "memory/obsidian/GODMODE_VAULT.md",
+        "memory/obsidian/.obsidian/app.json",
+        # Media & Social Proof
+        "src/components/social/TokCommentPreview.tsx",
+        "backend/app/routers/media_router.py"
+    ]
+    missing = [f for f in required_files if not os.path.exists(f)]
+    if missing:
+        return False, f"Missing extended tooling files: {missing}"
+        
+    with open("mcp_config.json", "r", encoding="utf-8") as f:
+        mcp_data = json.load(f)
+    if "firecrawl" not in mcp_data.get("mcpServers", {}):
+        return False, "Firecrawl MCP server not found in mcp_config.json"
+        
+    return True, "All extended tools verified (DeepSeek, OpenClaw 2.0, Firecrawl v2, Obsidian, TokComment, Media Router)"
+
 def main():
     print("================================================================")
     print("           GODMODE 20-POINT VERIFICATION AUDITOR               ")
@@ -227,6 +254,7 @@ def main():
         ("In-Browser PDF-Lib & Named 3D Primitives (§9)", check_pdf_lib_and_named_primitives),
         ("Multi-Page Route Architecture (§12)", check_multi_page_routes),
         ("Plugin Suite Integration (OmniRoute, Headroom, Claude-Mem, Setup, Observer)", check_plugins_suite),
+        ("Extended Tooling Suite (DeepSeek, OpenClaw, Firecrawl, Obsidian, Media)", check_extended_tooling_suite),
         ("Backend Cloud Orchestration API Health", check_backend_api)
     ]
     

@@ -52,6 +52,14 @@
       "command": "npx",
       "args": ["-y", "headroom-ai", "mcp"],
       "description": "Headroom CCR context compression, retrieval, and token savings MCP server"
+    },
+    "firecrawl": {
+      "type": "remote",
+      "url": "https://mcp.firecrawl.dev/v2/mcp",
+      "headers": {
+        "Authorization": "Bearer fc-142efcf8619f4221b6b43495bf2b6dd0"
+      },
+      "description": "Official Firecrawl MCP server for web search, scrape, crawl, and LLM-ready markdown extraction"
     }
   }
 }

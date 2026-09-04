@@ -1,0 +1,23 @@
+{
+  "name": "GODMODE OpenClaw 2.0 Gateway",
+  "version": "2.0.0",
+  "host": "localhost",
+  "port": 18789,
+  "defaultAgent": "godmode-orchestrator",
+  "channels": {
+    "webhook": {
+      "enabled": true,
+      "path": "/api/openclaw/webhook"
+    }
+  },
+  "memory": {
+    "type": "sqlite",
+    "path": ".claude-mem/openclaw_state.db"
+  },
+  "mcpServers": [
+    "firecrawl",
+    "supabase",
+    "github",
+    "headroom"
+  ]
+}
