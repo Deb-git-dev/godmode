@@ -171,6 +171,45 @@ def check_backend_api():
     except Exception as e:
         return False, f"API test failure: {str(e)}"
 
+def check_plugins_suite():
+    required_files = [
+        # OmniRoute
+        "config/omniroute.json",
+        "backend/app/routers/omniroute_bridge.py",
+        "node_modules/omniroute",
+        # Headroom
+        "config/headroom.json",
+        "src/lib/headroom.ts",
+        "backend/app/core/headroom.py",
+        "node_modules/headroom-ai",
+        # Claude-Mem
+        ".claude-mem/config.json",
+        ".agents/skills/claude-mem/SKILL.md",
+        ".claude/skills/claude-mem/SKILL.md",
+        "node_modules/claude-mem",
+        # Claude Code Setup
+        "CLAUDE.md",
+        ".claude/settings.json",
+        ".claude/commands/audit.md",
+        ".claude/commands/recheck.md",
+        ".claude/commands/ground.md",
+        "harnesses/claude_code_harness.json",
+        # Task Observer
+        ".agents/skills/task-observer/SKILL.md",
+        ".claude/skills/task-observer/SKILL.md",
+        "memory/task_observer_log.md"
+    ]
+    missing = [f for f in required_files if not os.path.exists(f)]
+    if missing:
+        return False, f"Missing plugin files: {missing}"
+        
+    with open("mcp_config.json", "r", encoding="utf-8") as f:
+        mcp_data = json.load(f)
+    if "headroom" not in mcp_data.get("mcpServers", {}):
+        return False, "Headroom MCP server not found in mcp_config.json"
+        
+    return True, "All 5 plugins installed, configured & verified (omniroute, headroom, claude-mem, claude-code, task-observer)"
+
 def main():
     print("================================================================")
     print("           GODMODE 20-POINT VERIFICATION AUDITOR               ")
@@ -187,6 +226,7 @@ def main():
         ("Serverless Microservices Suite (§10)", check_serverless_microservices),
         ("In-Browser PDF-Lib & Named 3D Primitives (§9)", check_pdf_lib_and_named_primitives),
         ("Multi-Page Route Architecture (§12)", check_multi_page_routes),
+        ("Plugin Suite Integration (OmniRoute, Headroom, Claude-Mem, Setup, Observer)", check_plugins_suite),
         ("Backend Cloud Orchestration API Health", check_backend_api)
     ]
     

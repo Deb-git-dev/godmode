@@ -1,0 +1,19 @@
+{
+  "name": "GODMODE Claude-Mem Persistent Memory",
+  "version": "13.24.0",
+  "database": {
+    "type": "sqlite",
+    "filename": ".claude-mem/memory.db",
+    "autoSave": true,
+    "saveIntervalSeconds": 60
+  },
+  "observations": {
+    "trackFriction": true,
+    "trackFixes": true,
+    "trackDecisions": true,
+    "compressionRatioTarget": 0.2
+  },
+  "sync": {
+    "markdownJournal": "memory/journal.md"
+  }
+}

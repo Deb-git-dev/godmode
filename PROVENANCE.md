@@ -41,3 +41,9 @@
 | `vite` | Build Tooling | Rapid HMR and production bundle optimization (zero TypeScript errors). | `vite.config.ts` |
 | `fastapi` | Backend Microservices | Asynchronous, typed HTTP microservices returning explicit 200 OK statuses. | `backend/app/main.py` |
 | `Moh4696/100-free-open-source-github-repos` | Master Index | Master curated repository index reverse-engineered into GODMODE architecture. | `PROVENANCE.md`, `src/pages/CatalogPage.tsx` |
+| `diegosouzapw/OmniRoute` | AI Gateway Proxy | Multi-provider AI gateway proxy connecting 290+ providers with auto-fallback and RTK compression. | `package.json`, `config/omniroute.json`, `backend/app/routers/omniroute_bridge.py` |
+| `headroomlabs-ai/headroom` | Context Compression | Compress-Cache-Retrieve (CCR) context compression layer and MCP server for token reduction. | `package.json`, `config/headroom.json`, `src/lib/headroom.ts`, `mcp_config.json` |
+| `thedotmack/claude-mem` | Persistent Memory | SQLite persistent observation logging and cross-session synthesis for Claude Code and coding agents. | `package.json`, `.claude-mem/config.json`, `.agents/skills/claude-mem/` |
+| `Anthropic/claude-code` | Agent Harness & Setup | Turn-key Claude Code configuration with slash commands, project guidelines, and permission settings. | `CLAUDE.md`, `.claude/settings.json`, `.claude/commands/`, `harnesses/claude_code_harness.json` |
+| `rebelytics/one-skill-to-rule-them-all` | Meta-Skill | Task Observer meta-skill for workflow friction logging, correction recording, and skill catalog evolution. | `.agents/skills/task-observer/`, `.claude/skills/task-observer/`, `memory/task_observer_log.md` |
+

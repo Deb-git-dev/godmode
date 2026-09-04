@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "GODMODE OmniRoute Gateway",
+  "port": 20128,
+  "host": "localhost",
+  "dashboard": {
+    "enabled": true,
+    "path": "/dashboard"
+  },
+  "gateway": {
+    "defaultProvider": "openrouter",
+    "providers": {
+      "openrouter": {
+        "enabled": true,
+        "baseUrl": "https://openrouter.ai/api/v1",
+        "models": [
+          "anthropic/claude-3.5-sonnet",
+          "openai/gpt-4o",
+          "meta-llama/llama-3.3-70b-instruct",
+          "deepseek/deepseek-chat"
+        ]
+      },
+      "nvidia_nim": {
+        "enabled": true,
+        "baseUrl": "https://integrate.api.nvidia.com/v1",
+        "models": [
+          "meta/llama-3.3-70b-instruct",
+          "nvidia/llama-3.1-nemotron-70b-instruct"
+        ]
+      },
+      "anthropic": {
+        "enabled": true,
+        "baseUrl": "https://api.anthropic.com/v1",
+        "models": [
+          "claude-3-7-sonnet-20250219",
+          "claude-3-5-sonnet-20241022",
+          "claude-3-5-haiku-20241022"
+        ]
+      }
+    },
+    "compression": {
+      "engine": "rtk",
+      "cavemanEnabled": true,
+      "compressionTargetRatio": 0.35,
+      "preserveCodeBlocks": true
+    },
+    "failover": {
+      "autoFallback": true,
+      "fallbackOrder": [
+        "openrouter",
+        "nvidia_nim",
+        "anthropic"
+      ],
+      "maxRetries": 3,
+      "circuitBreakerThreshold": 5
+    }
+  }
+}

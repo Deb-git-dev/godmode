@@ -20,8 +20,9 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
-lib64/
+/lib/
+/lib64/
+!src/lib/
 parts/
 sdist/
 var/
@@ -54,3 +55,7 @@ ENV/
 Thumbs.db
 .vscode/
 .idea/
+
+# Local databases
+*.db
+.claude-mem/*.db

@@ -46,6 +46,12 @@
         "ASANA_ACCESS_TOKEN": "${ASANA_ACCESS_TOKEN}"
       },
       "description": "Asana task and project tracking MCP server"
+    },
+    "headroom": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "headroom-ai", "mcp"],
+      "description": "Headroom CCR context compression, retrieval, and token savings MCP server"
     }
   }
 }

@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "GODMODE Headroom Context Compression",
+  "version": "0.37.0",
+  "compression": {
+    "strategy": "CCR",
+    "description": "Compress-Cache-Retrieve reversible context compression",
+    "smartCrusher": {
+      "enabled": true,
+      "jsonArrayThreshold": 5,
+      "maxObjectDepth": 4
+    },
+    "codeCompressor": {
+      "enabled": true,
+      "astAware": true,
+      "supportedLanguages": [
+        "typescript",
+        "javascript",
+        "python",
+        "html",
+        "css"
+      ]
+    },
+    "cache": {
+      "type": "local-lru",
+      "maxEntries": 1000,
+      "ttlSeconds": 86400
+    }
+  },
+  "mcp": {
+    "enabled": true,
+    "tools": [
+      "headroom_compress",
+      "headroom_retrieve",
+      "headroom_stats"
+    ]
+  }
+}

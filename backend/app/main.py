@@ -9,7 +9,8 @@ from backend.app.routers import (
     skills_router,
     provenance_router,
     health_router,
-    serverless_endpoints
+    serverless_endpoints,
+    omniroute_bridge
 )
 
 # Configure logging
@@ -39,6 +40,7 @@ app.include_router(skills_router.router)
 app.include_router(provenance_router.router)
 app.include_router(health_router.router)
 app.include_router(serverless_endpoints.router)
+app.include_router(omniroute_bridge.router)
 
 @app.on_event("startup")
 async def startup_event():

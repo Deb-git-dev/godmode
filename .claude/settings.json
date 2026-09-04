@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json.schemastore.org/claude-settings.json",
+  "project": "GODMODE",
+  "plugins": {
+    "omniroute": {
+      "enabled": true,
+      "port": 20128,
+      "config": "config/omniroute.json"
+    },
+    "headroom": {
+      "enabled": true,
+      "config": "config/headroom.json"
+    },
+    "claude-mem": {
+      "enabled": true,
+      "database": ".claude-mem/memory.db"
+    },
+    "task-observer": {
+      "enabled": true,
+      "logFile": "memory/task_observer_log.md"
+    }
+  },
+  "skills": [
+    ".claude/skills/claude-mem",
+    ".claude/skills/task-observer",
+    ".agents/skills/ui-ux-pro-max",
+    ".agents/skills/design-taste-frontend",
+    ".agents/skills/skill-router"
+  ],
+  "mcpConfigFile": "mcp_config.json"
+}
