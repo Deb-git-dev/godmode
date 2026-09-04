@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowLeft, ShieldCheck, FileCode } from 'lucide-react';
-import { CertificateGenerator } from '../components/documents/CertificateGenerator.tsx';
+import { CertificateGenerator } from '../components/documents/CertificateGenerator';
 
 interface EntityDetailPageProps {
   entityId: string;

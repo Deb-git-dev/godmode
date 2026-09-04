@@ -11,22 +11,22 @@ import {
   Lock,
   Play
 } from 'lucide-react';
-import { GridSweep } from './components/primitives/MotionPrimitives.tsx';
-import { AmbientCanvas3D } from './components/motion/AmbientCanvas3D.tsx';
-import { CustomCursor3D } from './components/motion/CustomCursor3D.tsx';
-import { ModelRouterVisualizer } from './components/router/ModelRouterVisualizer.tsx';
-import { SkillsRegistryView } from './components/skills/SkillsRegistryView.tsx';
-import { MemoryJournalView } from './components/memory/MemoryJournalView.tsx';
-import { ProvenanceAuditView } from './components/audit/ProvenanceAuditView.tsx';
-import { AssistantWidget } from './components/ai/AssistantWidget.tsx';
-import { HomePage } from './pages/HomePage.tsx';
-import { AboutPage } from './pages/AboutPage.tsx';
-import { CatalogPage } from './pages/CatalogPage.tsx';
-import { EntityDetailPage } from './pages/EntityDetailPage.tsx';
-import { DashboardPage } from './pages/DashboardPage.tsx';
-import { AuthPage } from './pages/AuthPage.tsx';
-import { ContactPage } from './pages/ContactPage.tsx';
-import { ActionLedgerModal } from './components/modals/ActionLedgerModal.tsx';
+import { GridSweep } from './components/primitives/MotionPrimitives';
+import { AmbientCanvas3D } from './components/motion/AmbientCanvas3D';
+import { CustomCursor3D } from './components/motion/CustomCursor3D';
+import { ModelRouterVisualizer } from './components/router/ModelRouterVisualizer';
+import { SkillsRegistryView } from './components/skills/SkillsRegistryView';
+import { MemoryJournalView } from './components/memory/MemoryJournalView';
+import { ProvenanceAuditView } from './components/audit/ProvenanceAuditView';
+import { AssistantWidget } from './components/ai/AssistantWidget';
+import { HomePage } from './pages/HomePage';
+import { AboutPage } from './pages/AboutPage';
+import { CatalogPage } from './pages/CatalogPage';
+import { EntityDetailPage } from './pages/EntityDetailPage';
+import { DashboardPage } from './pages/DashboardPage';
+import { AuthPage } from './pages/AuthPage';
+import { ContactPage } from './pages/ContactPage';
+import { ActionLedgerModal } from './components/modals/ActionLedgerModal';
 
 export const App: React.FC = () => {
   const [currentRoute, setCurrentRoute] = useState<string>('/');

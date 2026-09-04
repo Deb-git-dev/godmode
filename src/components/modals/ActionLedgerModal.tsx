@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { X, Play, CheckCircle2, ShieldCheck, Database } from 'lucide-react';
-import { CertificateGenerator } from '../documents/CertificateGenerator.tsx';
+import { CertificateGenerator } from '../documents/CertificateGenerator';
 
 interface ActionLedgerModalProps {
   isOpen: boolean;

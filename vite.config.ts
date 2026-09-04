@@ -7,6 +7,11 @@ const isGitHubPages = process.env.GITHUB_ACTIONS === 'true' || (process.env.GITH
 export default defineConfig({
   plugins: [react()],
   base: isGitHubPages ? '/godmode/' : '/',
+  resolve: {
+    alias: {
+      'pdf-lib': 'pdf-lib/dist/pdf-lib.esm.js'
+    }
+  },
   server: {
     port: 3000,
     proxy: {

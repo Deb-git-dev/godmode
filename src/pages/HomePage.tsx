@@ -1,9 +1,9 @@
 import React from 'react';
 import { ArrowRight, ShieldCheck, Zap, Server, Cpu, Play } from 'lucide-react';
-import { ShaderGradientHero } from '../components/motion/ShaderGradientHero.tsx';
-import { SplineScene3D } from '../components/motion/SplineScene3D.tsx';
-import { TiltCard3D } from '../components/motion/TiltCard3D.tsx';
-import { CertificateGenerator } from '../components/documents/CertificateGenerator.tsx';
+import { ShaderGradientHero } from '../components/motion/ShaderGradientHero';
+import { SplineScene3D } from '../components/motion/SplineScene3D';
+import { TiltCard3D } from '../components/motion/TiltCard3D';
+import { CertificateGenerator } from '../components/documents/CertificateGenerator';
 
 interface HomePageProps {
   onNavigate: (route: string) => void;

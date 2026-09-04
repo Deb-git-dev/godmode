@@ -1,5 +1,5 @@
 import React from 'react';
-import { ParallaxTotem } from '../primitives/MotionPrimitives.tsx';
+import { ParallaxTotem } from '../primitives/MotionPrimitives';
 
 interface TiltCard3DProps {
   children: React.ReactNode;

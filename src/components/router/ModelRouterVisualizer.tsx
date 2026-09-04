@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Cpu, Server, Zap, CheckCircle2, ArrowRight, RefreshCw } from 'lucide-react';
-import { ParallaxTotem, MotionFocus } from '../primitives/MotionPrimitives.tsx';
+import { ParallaxTotem, MotionFocus } from '../primitives/MotionPrimitives';
 
 interface GatewayStatus {
   id: string;

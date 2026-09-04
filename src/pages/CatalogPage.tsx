@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Search, ArrowRight } from 'lucide-react';
-import { MotionColumn, MotionFocus } from '../components/primitives/MotionPrimitives.tsx';
+import { MotionColumn, MotionFocus } from '../components/primitives/MotionPrimitives';
 
 interface CatalogPageProps {
   onSelectEntity: (id: string) => void;

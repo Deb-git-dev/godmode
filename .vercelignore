@@ -1,11 +1,11 @@
 # Exclude local backend and documentation from Vercel build
-backend/
-tests/
-docs/
-memory/
-.claude/
-.claude-mem/
-.agents/
-design_specs/
-audit.py
-*.py
+/backend/
+/tests/
+/docs/
+/memory/
+/.claude/
+/.claude-mem/
+/.agents/
+/design_specs/
+/audit.py
+/*.py

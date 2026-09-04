@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Search, Database, Globe, Play, CheckCircle2, Bot } from 'lucide-react';
-import { MotionColumn, MotionFocus } from '../primitives/MotionPrimitives.tsx';
+import { MotionColumn, MotionFocus } from '../primitives/MotionPrimitives';
 
 interface SkillItem {
   id: string;

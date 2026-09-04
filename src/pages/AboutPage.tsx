@@ -1,6 +1,6 @@
 import React from 'react';
 import { ShieldCheck } from 'lucide-react';
-import { StatutoryGroundingCard } from '../components/compliance/StatutoryGroundingCard.tsx';
+import { StatutoryGroundingCard } from '../components/compliance/StatutoryGroundingCard';
 
 export const AboutPage: React.FC = () => {
   const tenets = [

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FileDown, ShieldCheck, Check } from 'lucide-react';
-import { downloadCertificate, CertificateData } from '../../lib/certificateGenerator.ts';
+import { downloadCertificate, CertificateData } from '../../lib/certificateGenerator';
 
 interface CertificateGeneratorProps {
   actionId?: string;
