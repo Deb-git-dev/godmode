@@ -1,0 +1,12 @@
+{
+  "harness": "cline",
+  "version": "3.0.0",
+  "name": "Cline (Claude Dev) GODMODE Harness",
+  "api_provider": "anthropic",
+  "api_model": "claude-3-5-sonnet-20241022",
+  "custom_instructions": "Follow AGENTS.md and DESIGN.md. Zero local weights allowed. Use cloud APIs only.",
+  "mcp_enabled": true,
+  "mcp_config_path": "mcp_config.json",
+  "strict_grounding": true,
+  "auto_audit_on_task_complete": "python audit.py"
+}

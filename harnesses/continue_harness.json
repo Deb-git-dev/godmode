@@ -1,0 +1,26 @@
+{
+  "harness": "continue",
+  "models": [
+    {
+      "title": "Claude 3.5 Sonnet (GODMODE Primary)",
+      "provider": "anthropic",
+      "model": "claude-3-5-sonnet-20241022"
+    },
+    {
+      "title": "OpenRouter Fallback",
+      "provider": "openrouter",
+      "model": "anthropic/claude-3.5-haiku"
+    },
+    {
+      "title": "NVIDIA NIM Nemotron (Fast TTFT)",
+      "provider": "openai",
+      "apiBase": "https://integrate.api.nvidia.com/v1",
+      "model": "nvidia/nemotron-4-340b-instruct"
+    }
+  ],
+  "contextProviders": [
+    { "name": "file", "params": { "path": "AGENTS.md" } },
+    { "name": "file", "params": { "path": "DESIGN.md" } },
+    { "name": "file", "params": { "path": "memory/journal.md" } }
+  ]
+}

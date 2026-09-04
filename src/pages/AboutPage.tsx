@@ -1,5 +1,6 @@
 import React from 'react';
 import { ShieldCheck } from 'lucide-react';
+import { StatutoryGroundingCard } from '../components/compliance/StatutoryGroundingCard.tsx';
 
 export const AboutPage: React.FC = () => {
   const tenets = [
@@ -80,6 +81,9 @@ export const AboutPage: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Statutory Grounding Section (Tribeni Minati Foundation Pattern) */}
+      <StatutoryGroundingCard />
     </div>
   );
 };

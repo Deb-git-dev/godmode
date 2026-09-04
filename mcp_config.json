@@ -28,6 +28,24 @@
       "command": "npx",
       "args": ["-y", "@executeautomation/playwright-mcp-server"],
       "description": "Browser automation and UI visual testing server"
+    },
+    "canva": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "canva-mcp"],
+      "env": {
+        "CANVA_API_KEY": "${CANVA_API_KEY}"
+      },
+      "description": "Canva asset generation & design management MCP server (registry.npmjs.org/canva-mcp)"
+    },
+    "asana": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-asana"],
+      "env": {
+        "ASANA_ACCESS_TOKEN": "${ASANA_ACCESS_TOKEN}"
+      },
+      "description": "Asana task and project tracking MCP server"
     }
   }
 }

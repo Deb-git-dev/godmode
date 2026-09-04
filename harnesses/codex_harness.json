@@ -1,0 +1,7 @@
+{
+  "harness": "codex-cli",
+  "default_model": "claude-3-5-sonnet",
+  "grounding_prompt": "Ground all outputs strictly in memory/journal.md verified facts. Enforce zero local GPU.",
+  "system_instructions_file": "AGENTS.md",
+  "verification_command": "python audit.py"
+}

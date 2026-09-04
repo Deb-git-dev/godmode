@@ -1,0 +1,11 @@
+{
+  "harness": "aider",
+  "version": "0.54.0",
+  "model": "anthropic/claude-3-5-sonnet-20241022",
+  "edit_format": "diff",
+  "auto_commits": true,
+  "attribute_commits": false,
+  "chat_history_file": "memory/journal.md",
+  "lint_cmd": "python audit.py",
+  "test_cmd": "npm run check"
+}

@@ -1,0 +1,31 @@
+{
+  "curated_by": ["MarcBender-git/awesome-design", "voltagent/awesome-design-md", "VoltAgent/design-md", "Digiflex-solution/awesome-design-md"],
+  "description": "Collection of production-grade DESIGN.md specifications reverse-engineered into GODMODE.",
+  "total_benchmarks": 64,
+  "flagship_specs": [
+    {
+      "name": "Linear Dark",
+      "canvas": "#0B0F19",
+      "surface": "#111827",
+      "accent": "#6366F1",
+      "typography": "Space Grotesk + Inter",
+      "file": "design_specs/linear_spec.md"
+    },
+    {
+      "name": "Vercel Obsidian",
+      "canvas": "#000000",
+      "surface": "#111111",
+      "accent": "#0070F3",
+      "typography": "Geist + Geist Mono",
+      "file": "design_specs/vercel_spec.md"
+    },
+    {
+      "name": "Stripe Horizon",
+      "canvas": "#0A2540",
+      "surface": "#1A1F36",
+      "accent": "#635BFF",
+      "typography": "Söhne + Space Mono",
+      "file": "design_specs/stripe_spec.md"
+    }
+  ]
+}
