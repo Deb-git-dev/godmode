@@ -59,5 +59,7 @@
 | `Videoeffects.com` | Visual Effects Library | Motion templates, video overlays, and WebGL shader asset specifications. | `backend/app/routers/media_router.py` |
 | `Tokcomment.com` | Social Proof Generator | Realistic social media comment mockup component and verified feedback preview. | `src/components/social/TokCommentPreview.tsx` |
 | `HeyGen.com` | Cloud Avatar Video API | Cloud-based avatar synthesis and video generation API (zero local GPU). | `backend/app/routers/media_router.py`, `docs/CLOUD_MEDIA_ARCHITECTURE.md` |
+| `templatical/sdk` | Email Template SDK | Visual drag-and-drop email editor SDK with JSON, MJML, and HTML export. | `docs/GITREVERSE_PROMPTS.md` |
+
 
 

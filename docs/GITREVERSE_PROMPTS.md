@@ -37,21 +37,21 @@ Total Repositories Cataloged: **42**
 | 25 | `AIDC-AI/Pixelle-Video` | [AIDC-AI/Pixelle-Video](https://gitreverse.com/AIDC-AI/Pixelle-Video) | 887 chars | **Integrated via Cloud Proxy**: `docs/CLOUD_MEDIA_ARCHITECTURE.md` |
 | 26 | `upscayl/upscayl` | [upscayl/upscayl](https://gitreverse.com/upscayl/upscayl) | 863 chars | **Integrated**: Verified low-RAM / CPU-friendly upscaler in `docs/` |
 | 27 | `cjpais/Handy` | [cjpais/Handy](https://gitreverse.com/cjpais/Handy) | 1056 chars | **Integrated**: Speech-to-text dictation and LLM action trigger architecture |
-| 28 | `OmniVoice-AI/OmniVoice` | [OmniVoice-AI/OmniVoice](https://gitreverse.com/OmniVoice-AI/OmniVoice) | 95 chars | **Integrated via Cloud Proxy**: Zero-shot multilingual TTS and voice synthesis cloud bridge |
-| 29 | `heygem-ai/heygem` | [heygem-ai/heygem](https://gitreverse.com/heygem-ai/heygem) | 89 chars | **Integrated via Cloud Proxy**: Open-source AI avatar generator routed to cloud endpoints |
+| 28 | `k2-fsa/OmniVoice` | [k2-fsa/OmniVoice](https://gitreverse.com/k2-fsa/OmniVoice) | 843 chars | **Integrated via Cloud Proxy**: Zero-shot multilingual TTS and voice cloning cloud bridge |
+| 29 | `GuijiAI/HeyGem.ai` | [GuijiAI/HeyGem.ai](https://gitreverse.com/GuijiAI/HeyGem.ai) | 992 chars | **Integrated via Cloud Proxy**: Open-source AI avatar generator routed to cloud endpoints |
 | 30 | `e2b-dev/awesome-ai-agents` | [e2b-dev/awesome-ai-agents](https://gitreverse.com/e2b-dev/awesome-ai-agents) | 908 chars | **Integrated**: Canonical index of autonomous agents, sandboxes, and agent harnesses |
 | 31 | `sickn33/agentic-awesome-skills` | [sickn33/agentic-awesome-skills](https://gitreverse.com/sickn33/agentic-awesome-skills) | 1041 chars | **Integrated**: Control plane for 2,000+ reusable skills, playbooks, and MCP workbench |
 | 32 | `github/spec-kit` | [github/spec-kit](https://gitreverse.com/github/spec-kit) | 877 chars | **Integrated**: Spec-Driven Development (SDD) lifecycle (`specify`, `plan`, `tasks`, `implement`) |
-| 33 | `fable-ai/fable-orchestrator` | [fable-ai/fable-orchestrator](https://gitreverse.com/fable-ai/fable-orchestrator) | 100 chars | **Integrated**: Sub-agent delegation, prompt optimization, and hierarchical routing |
-| 34 | `ruflo-ai/ruflo` | [ruflo-ai/ruflo](https://gitreverse.com/ruflo-ai/ruflo) | 87 chars | **Integrated**: Swarm meta-harness for Claude Code and Codex with persistent memory |
-| 35 | `freebuff/freebuff` | [freebuff/freebuff](https://gitreverse.com/freebuff/freebuff) | 90 chars | **Integrated**: Open-source coding agent sandbox and multi-model CLI integration |
+| 33 | `BuildContext/fable-orchestrator` | [BuildContext/fable-orchestrator](https://gitreverse.com/BuildContext/fable-orchestrator) | 979 chars | **Integrated**: Sub-agent delegation, prompt optimization, and hierarchical routing |
+| 34 | `ruvnet/ruflo` | [ruvnet/ruflo](https://gitreverse.com/ruvnet/ruflo) | 1032 chars | **Integrated**: Swarm meta-harness for Claude Code and Codex with persistent memory |
+| 35 | `CodebuffAI/freebuff` | [CodebuffAI/freebuff](https://gitreverse.com/CodebuffAI/freebuff) | 751 chars | **Integrated**: Open-source coding agent sandbox and multi-model CLI integration |
 | 36 | `ripienaar/free-for-dev` | [ripienaar/free-for-dev](https://gitreverse.com/ripienaar/free-for-dev) | 809 chars | **Integrated**: Comprehensive directory of free developer tools and cloud SaaS tiers |
 | 37 | `public-apis/public-apis` | [public-apis/public-apis](https://gitreverse.com/public-apis/public-apis) | 845 chars | **Integrated**: Canonical public API index for building agentic tools without local compute |
 | 38 | `nexu-io/open-design` | [nexu-io/open-design](https://gitreverse.com/nexu-io/open-design) | 830 chars | **Integrated**: Open-source AI design engine for transforming agents into UI designers |
 | 39 | `cporter202/agentic-ai-apis` | [cporter202/agentic-ai-apis](https://gitreverse.com/cporter202/agentic-ai-apis) | 896 chars | **Integrated**: Curated directory of 1,000+ APIs for autonomous agent orchestration |
 | 40 | `VersusControl/devops-ai-guidelines` | [VersusControl/devops-ai-guidelines](https://gitreverse.com/VersusControl/devops-ai-guidelines) | 853 chars | **Integrated**: AI DevOps guidelines for CI/CD automation and container sandboxing |
 | 41 | `mattpocock/skills` | [mattpocock/skills](https://gitreverse.com/mattpocock/skills) | 844 chars | **Integrated**: Matt Pocock engineering discipline skills (TDD, PRD, git safety) for Claude Code |
-| 42 | `templated-io/templated-node` | [templated-io/templated-node](https://gitreverse.com/templated-io/templated-node) | 100 chars | **Integrated**: Automated media and PDF document generation template SDK |
+| 42 | `templatical/sdk` | [templatical/sdk](https://www.gitreverse.com/templatical/sdk) | 910 chars | **Integrated**: Drag and drop visual email template editor SDK (JSON/MJML/HTML) |
 
 ---
 
@@ -340,18 +340,34 @@ Build me a simple desktop app called Handy that lets me do fully offline voice t
 I also want it to filter silence automatically, support local Whisper style models plus a faster CPU friendly option with automatic language detection, and use GPU acceleration when available. Add useful desktop app touches like a tray icon, start hidden support, basic transcript history, and simple command line controls to start or stop recording from outside the app. If there are platform quirks, especially on Linux, handle them as gracefully as possible and document setup clearly. Look up current docs online if you need to.
 ```
 
-### 28. `OmniVoice-AI/OmniVoice`
-- **GitReverse URL**: [https://gitreverse.com/OmniVoice-AI/OmniVoice](https://gitreverse.com/OmniVoice-AI/OmniVoice)
-- **Extraction Status**: `fallback` (95 characters)
+### 28. `k2-fsa/OmniVoice`
+- **GitReverse URL**: [https://gitreverse.com/k2-fsa/OmniVoice](https://gitreverse.com/k2-fsa/OmniVoice)
+- **Length**: 843 characters
+- **Status**: Verified live reverse-engineered prompt
+
 ```text
-Reverse-engineered specification and agent prompt for https://github.com/OmniVoice-AI/OmniVoice
+I'd like to build a powerful text-to-speech application in Python. The main thing it should do is high-quality voice cloning with very little reference audio—ideally just a few seconds. It should feel responsive, with low latency, and support both streaming and non-streaming modes so it could be used for interactive stuff like voice assistants.
+
+It's super important that it's multilingual right out of the box, handling major languages like English, Chinese, Japanese, and others without needing a bunch of different models. I also want control over the output, like adjusting speech speed, and the ability to influence the emotion or tone through a text prompt.
+
+For the architecture, let's use a modern neural codec approach, probably something with flow matching for the diffusion side to keep quality high. It would be great to have a Gradio web interface for easy testing, along with a clean Python API for integrating it into other projects.
 ```
 
-### 29. `heygem-ai/heygem`
-- **GitReverse URL**: [https://gitreverse.com/heygem-ai/heygem](https://gitreverse.com/heygem-ai/heygem)
-- **Extraction Status**: `fallback` (89 characters)
+### 29. `GuijiAI/HeyGem.ai`
+- **GitReverse URL**: [https://gitreverse.com/GuijiAI/HeyGem.ai](https://gitreverse.com/GuijiAI/HeyGem.ai)
+- **Length**: 992 characters
+- **Status**: Verified live reverse-engineered prompt
+
 ```text
-Reverse-engineered specification and agent prompt for https://github.com/heygem-ai/heygem
+Build me a simple desktop app for creating an AI avatar on my own computer, mainly for Windows, and support Ubuntu if it's not too much trouble.
+
+I want to select a short source video of myself, pick an audio file, and have the app generate a new video where my lips and head move naturally to the audio, with realistic blinks and small expressions. It should feel like a local, private version of HeyGen.
+
+Please make the UI easy to use: let me preview the input video, play the audio, see a live progress bar while it processes, and preview or save the final MP4.
+
+Under the hood, package the necessary voice and face AI models so they run locally with GPU acceleration on CUDA, but include fallback instructions if someone needs CPU mode. Keep the setup simple by bundling or scripting the dependencies, and include basic settings like choosing output resolution, processing speed vs quality presets, and language options if applicable.
+
+Look up current docs online if you need to, especially for dependencies and packaging.
 ```
 
 ### 30. `e2b-dev/awesome-ai-agents`
@@ -387,25 +403,52 @@ The core of this should be a Python CLI tool, let's call it `specify`. The workf
 The main idea is that the specification becomes the executable source of truth. It would also be great if the toolkit was extensible with presets and plugins. Let's start by building the main CLI and the core commands for the spec, plan, and implement phases.
 ```
 
-### 33. `fable-ai/fable-orchestrator`
-- **GitReverse URL**: [https://gitreverse.com/fable-ai/fable-orchestrator](https://gitreverse.com/fable-ai/fable-orchestrator)
-- **Extraction Status**: `fallback` (100 characters)
+### 33. `BuildContext/fable-orchestrator`
+- **GitReverse URL**: [https://gitreverse.com/BuildContext/fable-orchestrator](https://gitreverse.com/BuildContext/fable-orchestrator)
+- **Length**: 979 characters
+- **Status**: Verified live reverse-engineered prompt
+
 ```text
-Reverse-engineered specification and agent prompt for https://github.com/fable-ai/fable-orchestrator
+Build me a Claude Code plugin and shell based orchestrator for long running React Native and Expo work, where Claude acts as the project manager instead of doing all the typing itself.
+
+I want a system where I can give a high level mobile task, and the orchestrator breaks it down into phases, generates a clear plan, runs automated checks, and calls Claude Code subagents or CLI tools to make changes safely. It should track progress in a ledger style file, run TypeScript and lint checks between steps, and stop with a clear error report if a verification step fails.
+
+Please include helpful developer commands for starting tasks, resuming paused runs, and checking status. Add safety rails so it won't overwrite important configs without warning, and make sure it works well with Expo CLI and React Native workflows.
+
+Keep the setup simple: document any required Claude Code settings, provide clear command examples, and write clean shell scripts or node helpers to glue it all together. Look up current docs online if you need to.
 ```
 
-### 34. `ruflo-ai/ruflo`
-- **GitReverse URL**: [https://gitreverse.com/ruflo-ai/ruflo](https://gitreverse.com/ruflo-ai/ruflo)
-- **Extraction Status**: `fallback` (87 characters)
+### 34. `ruvnet/ruflo`
+- **GitReverse URL**: [https://gitreverse.com/ruvnet/ruflo](https://gitreverse.com/ruvnet/ruflo)
+- **Length**: 1032 characters
+- **Status**: Verified live reverse-engineered prompt
+
 ```text
-Reverse-engineered specification and agent prompt for https://github.com/ruflo-ai/ruflo
+Build me an advanced AI agent orchestration platform, let's call it Ruflo. The main idea is to create a system that can coordinate a whole "swarm" of specialized agents to tackle complex software projects collaboratively, instead of just using a single AI assistant.
+
+I need it to support different swarm topologies, like hierarchical where a lead agent delegates to specialists, or a mesh where agents communicate more peer-to-peer. It should include agents for specific roles like architect, coder, tester, and reviewer.
+
+Key requirements:
+- Native integration with tools like Claude Code, Codex, and Gemini.
+- A strong Model Context Protocol (MCP) server so other tools can tap into the swarm.
+- Persistent memory and a shared knowledge base (RAG) so the agents learn over time and don't forget context.
+- A smart routing engine that can dynamically pick the best model for each task to optimize for cost and speed.
+- A clean CLI for managing everything: `ruflo init`, `ruflo swarm`, etc.
+
+The whole thing should feel robust and enterprise-ready, with telemetry, logging, and security built-in.
 ```
 
-### 35. `freebuff/freebuff`
-- **GitReverse URL**: [https://gitreverse.com/freebuff/freebuff](https://gitreverse.com/freebuff/freebuff)
-- **Extraction Status**: `fallback` (90 characters)
+### 35. `CodebuffAI/freebuff`
+- **GitReverse URL**: [https://gitreverse.com/CodebuffAI/freebuff](https://gitreverse.com/CodebuffAI/freebuff)
+- **Length**: 751 characters
+- **Status**: Verified live reverse-engineered prompt
+
 ```text
-Reverse-engineered specification and agent prompt for https://github.com/freebuff/freebuff
+Build me a free AI coding assistant called Freebuff that works in the terminal and can also support a desktop app, web app, and cloud sandboxes.
+
+I want to open it in any repo, ask it to explain code, fix bugs, or build new features, and have it read files, run terminal commands, and write changes directly. It should support free and unmetered models like DeepSeek, GLM, and other open options, with a clean menu to switch models easily.
+
+Please include good terminal ergonomics: a clear chat view, simple keyboard shortcuts, syntax highlighted diffs before applying changes, and an easy installer for macOS, Linux, and Windows. Add an option to connect to cloud sandboxes so I can run agents remotely on GitHub repos. Look up current docs online if you need to.
 ```
 
 ### 36. `ripienaar/free-for-dev`
@@ -468,9 +511,15 @@ I want to create a collection of "agent skills" that I can use with my AI coding
 For example, I need a skill that can take a conversation we've had about a new feature and automatically generate a product requirements document, then file it as an issue on GitHub. Another one should handle test-driven development, where it follows a red-green-refactor loop to build things. I'd also love a tool that can automatically set up a new project with standard pre-commit hooks for Prettier and linting. It would also be great to have a skill for triaging bug reports by investigating the codebase to find the root cause and proposing a fix. It's essentially a suite of helper tools for planning, coding, and project setup.
 ```
 
-### 42. `templated-io/templated-node`
-- **GitReverse URL**: [https://gitreverse.com/templated-io/templated-node](https://gitreverse.com/templated-io/templated-node)
-- **Extraction Status**: `fallback` (100 characters)
+### 42. `templatical/sdk`
+- **GitReverse URL**: [https://www.gitreverse.com/templatical/sdk](https://www.gitreverse.com/templatical/sdk)
+- **Length**: 910 characters
+- **Status**: Verified live reverse-engineered prompt
+
 ```text
-Reverse-engineered specification and agent prompt for https://github.com/templated-io/templated-node
+Build me a drag and drop email editor that I can drop into a web app with one simple setup call.
+
+I want users to be able to create email templates visually, move blocks around, edit text and images, and save everything as JSON so it can be stored and loaded later. The editor should also export clean MJML and HTML so the emails render properly in email clients. It should feel polished and production ready, with a live preview, undo and redo, reusable blocks, basic theming, and support for common email sections like text, image, button, divider, social links, menus, tables, and custom HTML.
+
+Make it framework agnostic if possible, so it can work in plain JavaScript as well as popular frontend apps. Use Vue and TipTap under the hood if that fits the project, and keep the editor isolated so it does not mess with the rest of the page styling. If you need to, look up current docs online while building.
 ```
