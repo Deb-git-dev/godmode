@@ -1,9 +1,12 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
+const isGitHubPages = process.env.GITHUB_ACTIONS === 'true' || (process.env.GITHUB_PAGES || '').trim() === 'true';
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  base: isGitHubPages ? '/godmode/' : '/',
   server: {
     port: 3000,
     proxy: {
