@@ -8,7 +8,8 @@ from backend.app.routers import (
     memory_router,
     skills_router,
     provenance_router,
-    health_router
+    health_router,
+    serverless_endpoints
 )
 
 # Configure logging
@@ -37,6 +38,7 @@ app.include_router(memory_router.router)
 app.include_router(skills_router.router)
 app.include_router(provenance_router.router)
 app.include_router(health_router.router)
+app.include_router(serverless_endpoints.router)
 
 @app.on_event("startup")
 async def startup_event():

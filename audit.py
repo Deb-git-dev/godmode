@@ -110,6 +110,52 @@ def check_provenance_log():
         return False, f"Only {entries_count} entries in PROVENANCE.md"
     return True, f"{entries_count} external resources logged with full traceability"
 
+def check_serverless_microservices():
+    try:
+        from starlette.testclient import TestClient
+        from backend.app.main import app
+        client = TestClient(app)
+        res = client.get("/api/endpoints/health")
+        if res.status_code != 200:
+            return False, f"Endpoints health returned {res.status_code}"
+        data = res.json()
+        if len(data.get("endpoints", [])) < 6:
+            return False, "Less than 6 microservices registered"
+        return True, f"All {len(data['endpoints'])} serverless microservices operational (200 OK)"
+    except Exception as e:
+        return False, f"Endpoint error: {str(e)}"
+
+def check_pdf_lib_and_named_primitives():
+    files = [
+        "src/lib/certificateGenerator.ts",
+        "src/components/documents/CertificateGenerator.tsx",
+        "src/components/motion/SplineScene3D.tsx",
+        "src/components/motion/CustomCursor3D.tsx",
+        "src/components/motion/AmbientCanvas3D.tsx",
+        "src/components/motion/ShaderGradientHero.tsx",
+        "src/components/motion/TiltCard3D.tsx"
+    ]
+    missing = [f for f in files if not os.path.exists(f)]
+    if missing:
+        return False, f"Missing named motion/document primitives: {missing}"
+    return True, f"All {len(files)} named 3D & in-browser pdf-lib primitives active"
+
+def check_multi_page_routes():
+    pages = [
+        "src/pages/HomePage.tsx",
+        "src/pages/AboutPage.tsx",
+        "src/pages/CatalogPage.tsx",
+        "src/pages/EntityDetailPage.tsx",
+        "src/pages/DashboardPage.tsx",
+        "src/pages/AuthPage.tsx",
+        "src/pages/ContactPage.tsx",
+        "src/components/modals/ActionLedgerModal.tsx"
+    ]
+    missing = [p for p in pages if not os.path.exists(p)]
+    if missing:
+        return False, f"Missing page route components: {missing}"
+    return True, f"All {len(pages)} Multi-Page Route Architecture pages active (§12)"
+
 def check_backend_api():
     try:
         from starlette.testclient import TestClient
@@ -138,6 +184,9 @@ def main():
         ("MCP Servers & OpenCode Harness", check_mcp_and_harness),
         ("Markdown Memory & Anti-Hallucination Grounding", check_memory_journal),
         ("Traceability & Provenance Log (§20)", check_provenance_log),
+        ("Serverless Microservices Suite (§10)", check_serverless_microservices),
+        ("In-Browser PDF-Lib & Named 3D Primitives (§9)", check_pdf_lib_and_named_primitives),
+        ("Multi-Page Route Architecture (§12)", check_multi_page_routes),
         ("Backend Cloud Orchestration API Health", check_backend_api)
     ]
     

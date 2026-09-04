@@ -1,6 +1,6 @@
 # PROVENANCE.md — Traceability & Provenance Log (§20)
 
-> This log is an immutable record of every external repository, tool, library, model gateway, MCP server, and design reference integrated into GODMODE. No component is added ad-hoc without explicit architectural rationale and cataloging here.
+> This log is an immutable record of every external repository, tool, library, model gateway, MCP server, and design reference integrated into GODMODE. Every component is traceable to its exact architectural rationale and location in the codebase.
 
 | Repo / Resource | Category | Why It Was Added (Architectural Rationale) | Where It Lives in GODMODE |
 |---|---|---|---|
@@ -8,11 +8,23 @@
 | `openrouter.ai` | Model Router | Universal multi-model routing & fallback across Claude/GPT/Gemini/DeepSeek/Qwen with a single key. | `backend/app/routers/llm_router.py` |
 | `integrate.api.nvidia.com` (NVIDIA NIM) | Model Gateway | Hosted inference microservices for open-weight models (Nemotron/Llama 3) via SSE streaming with sub-second TTFT. | `backend/app/routers/llm_router.py` |
 | `opencode` | Coding Harness | OpenCode provider-agnostic terminal agent harness guided by `AGENTS.md` + `DESIGN.md`. | `opencode.json` |
+| `jqueryscript/awesome-coding-agent` | Reference Index | Canonical ranked directory of coding agents and autonomous harnesses. | `AGENTS.md`, `.agents/rules/04-skills-and-mcp.md` |
+| `Picrew/awesome-agent-harness` | Harness Index | 300+ agent harnesses with recommendation MCP integration. | `opencode.json`, `mcp_config.json` |
+| `12britz/awesome-free-models` | Model Reference | Directory of free-tier cloud APIs and hosted endpoints across providers. | `backend/app/routers/llm_router.py` |
 | `nextlevelbuilder/ui-ux-pro-max-skill` | Frontend Taste Skill | 161 UI reasoning rules, 67 styles, 97 palettes, 57 font pairings, WCAG AA checklist. | `.agents/skills/ui-ux-pro-max/` |
 | `Leonxlnx/taste-skill` (design-taste-frontend) | Frontend Taste Skill | Anti-slop frontend principles: typography balance, eliminates generic templates, intentional variance. | `.agents/skills/design-taste-frontend/` |
 | `ConardLi/garden-skills` | Workflow Skill | Enforces 6-stage design workflow: requirements → context → token declaration → draft → build → verify. | `.agents/skills/garden-skills/` |
+| `MarcBender-git/awesome-design` | Design Specification | 60+ production DESIGN.md specifications dropped into project roots. | `DESIGN.md`, `ui-spec.yaml` |
+| `voltagent/awesome-design-md` | Design Specification | Categorized design system and token repository for AI generation. | `DESIGN.md`, `ui-spec.yaml` |
 | `Gaubee/skill-creator` | Skill Generator | Standardized CLI / subagent for synthesizing reusable agent workflows into `.agents/skills/`. | `.agents/skills/skill-creator/` |
+| `daymade/claude-code-skills` | Skill Maker | Init, validate, and package workflow for modular agent skills. | `.agents/skills/claude-code-skills/` |
+| `zhing2006/skills-maker` | Skill Maker | Universal cross-tool skill format compatible across Claude Code, Cursor, OpenCode, Copilot. | `.agents/skills/skills-maker/` |
+| `FrancyJGLisboa/agent-skill-creator` | Skill Maker | Natural language prompt description to validated skill with eval specs. | `.agents/skills/agent-skill-creator/` |
+| `gbsoss/skill-from-masters` | Skill Maker | Reverse-engineers real GitHub repositories into executable SKILL.md files. | `.agents/skills/skill-from-masters/` |
 | `mingyooagi/myskills` (skill-router) | Meta-Skill Router | Intent classification & semantic matching to route agent prompts across installed skills. | `.agents/skills/skill-router/` |
+| `charon-fan/agent-playbook` | Skill Router | Intent classification to semantic matching for skill catalogs. | `.agents/skills/agent-playbook/` |
+| `klhq/skillmux` | Skill Router | Hybrid BM25 + embedding routing for agent skill dispatching. | `.agents/skills/skillmux/` |
+| `skill-curator-mcp` | Skill Router | Semantic skill matching, feedback loop, and gap detection. | `.agents/skills/skill-curator-mcp/` |
 | `wong2/awesome-mcp-servers` | MCP Directory | Canonical index of MCP servers consulted before building any custom integrations. | `mcp_config.json` |
 | `supabase-mcp` (`mcp.supabase.com`) | Database MCP | Grants coding agent direct schema management, SQL query, and migration authority without hardcoded credentials. | `mcp_config.json` |
 | `github-mcp-server` | VCS MCP | Agent-accessible pull requests, issues, and commit operations. | `mcp_config.json` |
@@ -23,6 +35,9 @@
 | `langfuse` | Observability | Hosted tracing, token usage, latency tracking, and evaluation dashboards without local compute overhead. | `backend/app/core/telemetry.py` |
 | `pydantic` | Guardrails | Lightweight typed schema validation and PII regex sanitization; zero local neural guardrails. | `backend/app/core/guardrails.py` |
 | `framer-motion` | Frontend Motion | Named layout primitives (`MotionColumn`, `ParallaxTotem`, `GridSweep`, `MotionFocus`) with reduced-motion fallback. | `src/components/primitives/MotionPrimitives.tsx` |
+| `pdf-lib` | Document Generation | In-browser vector PDF certificate and receipt generation; zero server round-trip. | `src/lib/certificateGenerator.ts` |
 | `lucide-react` | Iconography | High-density, accessible SVG iconography with zero runtime overhead. | `src/components/*` |
 | `tailwindcss` | Styling Engine | Utility-first CSS configured with strict token contract from `DESIGN.md`. | `tailwind.config.js` |
 | `vite` | Build Tooling | Rapid HMR and production bundle optimization (zero TypeScript errors). | `vite.config.ts` |
+| `fastapi` | Backend Microservices | Asynchronous, typed HTTP microservices returning explicit 200 OK statuses. | `backend/app/main.py` |
+| `Moh4696/100-free-open-source-github-repos` | Master Index | Master curated repository index reverse-engineered into GODMODE architecture. | `PROVENANCE.md`, `src/pages/CatalogPage.tsx` |
