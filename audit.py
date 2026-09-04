@@ -237,6 +237,29 @@ def check_extended_tooling_suite():
         
     return True, "All extended tools verified (DeepSeek, OpenClaw 2.0, Firecrawl v2, Obsidian, TokComment, Media Router)"
 
+def check_production_deployment():
+    required_files = [
+        "vercel.json",
+        ".vercelignore",
+        ".env.example",
+        "api/ai/chat.ts",
+        "api/action/ledger.ts",
+        "api/action/verify.ts"
+    ]
+    missing = [f for f in required_files if not os.path.exists(f)]
+    if missing:
+        return False, f"Missing production deployment assets: {missing}"
+
+    try:
+        with open("vercel.json", "r", encoding="utf-8") as f:
+            vcfg = json.load(f)
+        if "rewrites" not in vcfg:
+            return False, "vercel.json missing rewrites block"
+    except Exception as e:
+        return False, f"Invalid vercel.json: {e}"
+
+    return True, "Vercel production config active (vercel.json, .vercelignore, .env.example, api/ serverless functions)"
+
 def main():
     print("================================================================")
     print("           GODMODE 20-POINT VERIFICATION AUDITOR               ")
@@ -255,6 +278,7 @@ def main():
         ("Multi-Page Route Architecture (§12)", check_multi_page_routes),
         ("Plugin Suite Integration (OmniRoute, Headroom, Claude-Mem, Setup, Observer)", check_plugins_suite),
         ("Extended Tooling Suite (DeepSeek, OpenClaw, Firecrawl, Obsidian, Media)", check_extended_tooling_suite),
+        ("Production Cloud Deployment (Vercel & Environment)", check_production_deployment),
         ("Backend Cloud Orchestration API Health", check_backend_api)
     ]
     

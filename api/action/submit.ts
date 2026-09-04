@@ -1,4 +1,4 @@
-import { db } from '../lib/db';
+import { db } from '../lib/db.js';
 
 export default async function handler(req: any, res: any) {
   if (req.method !== 'POST') {

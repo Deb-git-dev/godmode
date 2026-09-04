@@ -14,8 +14,10 @@
 ---
 
 ## 1. Repository & Deployment Infrastructure
-- **VCS**: Git tracking on `main`. Clean commits, zero uncommitted stray files.
-- **Production Host**: Vercel / Cloud hosted endpoints.
+- **VCS**: Git tracking on `main` (`https://github.com/Deb-git-dev/godmode`). Clean commits, zero uncommitted stray files.
+- **Production Host**: Vercel (`tribeni-minati-foundation/godmode`).
+- **Primary Production URL**: `https://godmode-lemon-rho.vercel.app`
+- **Active Deployment Alias**: `https://godmode-6gazafur1-tribeni-minati-foundation.vercel.app`
 - **Build Tooling**: Vite + TypeScript + Rolldown/ESBuild. Strict type checking (0 errors).
 
 ## 2. Foundation Models / AI Layer (API-Based, Zero Local GPU)
