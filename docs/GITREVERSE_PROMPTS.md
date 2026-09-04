@@ -6,7 +6,7 @@
 
 ## 1. Master GitReverse Prompts Index & Integration Status
 
-Total Repositories Cataloged: **42**
+Total Repositories Cataloged: **49**
 
 | # | Repository / Skill | GitReverse Live URL | Characters | GODMODE Integration Status |
 |---|---|---|---|---|
@@ -52,6 +52,13 @@ Total Repositories Cataloged: **42**
 | 40 | `VersusControl/devops-ai-guidelines` | [VersusControl/devops-ai-guidelines](https://gitreverse.com/VersusControl/devops-ai-guidelines) | 853 chars | **Integrated**: AI DevOps guidelines for CI/CD automation and container sandboxing |
 | 41 | `mattpocock/skills` | [mattpocock/skills](https://gitreverse.com/mattpocock/skills) | 844 chars | **Integrated**: Matt Pocock engineering discipline skills (TDD, PRD, git safety) for Claude Code |
 | 42 | `templatical/sdk` | [templatical/sdk](https://www.gitreverse.com/templatical/sdk) | 910 chars | **Integrated**: Drag and drop visual email template editor SDK (JSON/MJML/HTML) |
+| 43 | `anthropics/skills` | [anthropics/skills](https://gitreverse.com/anthropics/skills) | 919 chars | **Integrated**: `.agents/skills/frontend-design/` (Official Anthropic aesthetic conviction & design tokens) |
+| 44 | `Jpisnice/shadcn-ui-mcp-server` | [Jpisnice/shadcn-ui-mcp-server](https://gitreverse.com/Jpisnice/shadcn-ui-mcp-server) | 793 chars | **Integrated**: `mcp_config.json` (Real-time shadcn/ui v4 component catalog and blocks MCP) |
+| 45 | `21st-dev/magic-mcp` | [21st-dev/magic-mcp](https://gitreverse.com/21st-dev/magic-mcp) | 972 chars | **Integrated**: `mcp_config.json` (21st.dev Magic MCP server for AI component generation) |
+| 46 | `vercel-labs/agent-skills` | [vercel-labs/agent-skills](https://gitreverse.com/vercel-labs/agent-skills) | 691 chars | **Integrated**: `.agents/skills/vercel-react-best-practices/`, `.agents/skills/vercel-react-native-skills/` (Performance & mobile) |
+| 47 | `greensock/gsap-skills` | [greensock/gsap-skills](https://gitreverse.com/greensock/gsap-skills) | 776 chars | **Integrated**: `.agents/skills/gsap-master/` (Official GSAP ScrollTrigger pinning and `useGSAP()` React teardown) |
+| 48 | `freshtechbro/claudedesignskills` | [freshtechbro/claudedesignskills](https://gitreverse.com/freshtechbro/claudedesignskills) | 1063 chars | **Integrated**: `.agents/skills/motion-framer/` (Framer Motion spring physics and layoutId shared transitions) |
+| 49 | `get-convex/agent-skills` | [get-convex/agent-skills](https://gitreverse.com/get-convex/agent-skills) | 843 chars | **Integrated**: `.agents/skills/convex-create-component/` (Convex reactive backend components and transactions) |
 
 ---
 
@@ -522,4 +529,102 @@ Build me a drag and drop email editor that I can drop into a web app with one si
 I want users to be able to create email templates visually, move blocks around, edit text and images, and save everything as JSON so it can be stored and loaded later. The editor should also export clean MJML and HTML so the emails render properly in email clients. It should feel polished and production ready, with a live preview, undo and redo, reusable blocks, basic theming, and support for common email sections like text, image, button, divider, social links, menus, tables, and custom HTML.
 
 Make it framework agnostic if possible, so it can work in plain JavaScript as well as popular frontend apps. Use Vue and TipTap under the hood if that fits the project, and keep the editor isolated so it does not mess with the rest of the page styling. If you need to, look up current docs online while building.
+```
+
+
+## 3. Batch 3: ALPHENEX.AI Top Claude Frontend Design Suite (Prompts 43–49)
+
+### 43. `anthropics/skills`
+- **GitReverse URL**: [https://gitreverse.com/anthropics/skills](https://gitreverse.com/anthropics/skills)
+- **Length**: 919 characters
+- **Status**: Verified live reverse-engineered prompt (ALPHENEX.AI Suite)
+
+```text
+I want to create a framework for defining 'skills' that an AI agent can learn and use. The idea is that a skill is just a self-contained folder with instructions and any necessary resources that teach an AI how to perform a specialized task in a repeatable way. For example, I'd want skills for common business tasks like generating a PowerPoint or Word document using my company's branding, analyzing data with a specific workflow, or automating certain communications.
+
+The main part of a skill should be a simple markdown file with some basic metadata like a name and description at the top. Please set up the main project structure, include a simple template folder for creating a new skill, and then create a variety of example skills to show what's possible. Include ones for creating popular document types like PDF, DOCX, and XLSX, plus a few others for more technical or creative tasks to serve as inspiration.
+```
+
+
+### 44. `Jpisnice/shadcn-ui-mcp-server`
+- **GitReverse URL**: [https://gitreverse.com/Jpisnice/shadcn-ui-mcp-server](https://gitreverse.com/Jpisnice/shadcn-ui-mcp-server)
+- **Length**: 793 characters
+- **Status**: Verified live reverse-engineered prompt (ALPHENEX.AI Suite)
+
+```text
+Build me an MCP server for shadcn ui v4 that helps AI assistants understand the components, blocks, demos, metadata, and install steps, so it can answer questions and generate code for React, Svelte, Vue, and React Native.
+
+I want it to work as a normal CLI server by default, and also support SSE so it can be used over HTTP with multiple clients. Please include easy setup with an optional GitHub token for better rate limits, caching so it does not hit GitHub too hard, and a clean way to switch the target framework and the React UI library choice when needed.
+
+It should also be easy to run in Docker, and simple enough to connect to Claude Desktop or Claude Code without much setup. If you need to check the current MCP or shadcn docs while building it, go ahead and look them up online.
+```
+
+
+### 45. `21st-dev/magic-mcp`
+- **GitReverse URL**: [https://gitreverse.com/21st-dev/magic-mcp](https://gitreverse.com/21st-dev/magic-mcp)
+- **Length**: 972 characters
+- **Status**: Verified live reverse-engineered prompt (ALPHENEX.AI Suite)
+
+```text
+Build me a TypeScript tool called Magic AI Agent that works as an MCP server for frontend developers inside Cursor, Windsurf, VS Code, Cline, and Claude.
+
+The main idea is simple. A developer should type something like `/ui create a modern responsive navbar` in their AI coding chat, and the tool should generate a polished, editable React UI component that fits into the existing project. It should use a 21st.dev style component library, support TypeScript, and be able to include professional brand logos through SVGL when needed.
+
+Please include a smooth setup flow where the user adds their 21st.dev API key, then installs the server with one command or by copying a small config block into their IDE settings. Make the README really clear for non experts, with setup steps, examples, supported editors, FAQ, and beta notice.
+
+Keep the code clean, safe, and focused on only creating or changing component related files. Look up current MCP docs online if you need to.
+```
+
+
+### 46. `vercel-labs/agent-skills`
+- **GitReverse URL**: [https://gitreverse.com/vercel-labs/agent-skills](https://gitreverse.com/vercel-labs/agent-skills)
+- **Length**: 691 characters
+- **Status**: Verified live reverse-engineered prompt (ALPHENEX.AI Suite)
+
+```text
+Hey, I'd like you to build me a modern web app. Please use a framework like Next.js. As you build it, I want you to focus heavily on performance and best practices. Follow Vercel's own engineering guidelines to make sure it's fast and optimized—check for things like bundle size and efficient data fetching.
+
+The user experience is also really important. Please audit the UI as you go, making sure it’s accessible and follows modern web design rules for things like forms, typography, and dark mode. For navigation, let's add some really smooth, app-like page transitions. Finally, once you have something ready, please deploy it to Vercel and send me the preview link so I can check it out.
+```
+
+
+### 47. `greensock/gsap-skills`
+- **GitReverse URL**: [https://gitreverse.com/greensock/gsap-skills](https://gitreverse.com/greensock/gsap-skills)
+- **Length**: 776 characters
+- **Status**: Verified live reverse-engineered prompt (ALPHENEX.AI Suite)
+
+```text
+I need a modern, single-page website to act as a portfolio. It should be built with React and feel really slick and interactive, with lots of smooth animations.
+
+When the page first loads, I want the main headline to animate in, maybe with the letters appearing one by one. Then, as you scroll down the page, different content sections, like my projects and bio, should gracefully fade and slide into view. It would be really cool if one of the sections could "pin" to the screen for a moment while you scroll, with some text or images changing as you pass through that pinned area.
+
+Please make sure the animations are high-performance and don't cause any lag. You should use a professional library for this, like GSAP, to manage all the scroll-based triggers and sequencing.
+```
+
+
+### 48. `freshtechbro/claudedesignskills`
+- **GitReverse URL**: [https://gitreverse.com/freshtechbro/claudedesignskills](https://gitreverse.com/freshtechbro/claudedesignskills)
+- **Length**: 1063 characters
+- **Status**: Verified live reverse-engineered prompt (ALPHENEX.AI Suite)
+
+```text
+Build me a Claude Code plugin marketplace for modern web design skills, focused on 3D graphics, animation, scroll effects, and interactive websites.
+
+I want it to feel like a professional design agency skill pack. It should include installable skills for things like Three.js, WebGL, React Three Fiber, GSAP ScrollTrigger, Framer Motion, Babylon.js, Lottie, Spline, Rive, Blender workflows, and modern web design patterns. Each skill should have clear instructions, helpful references, starter templates, small generator scripts, and slash commands so Claude can quickly create scenes, animations, components, and boilerplate.
+
+Please also make category bundles, like core 3D animation, scroll effects, animation components, authoring tools, and general integration patterns. Add specialized agents for the main domains, plus documentation that explains how to install the marketplace, install individual skills, upload skills to Claude, and validate or package everything correctly.
+
+Use current Claude Code plugin and skill docs if you need to look anything up.
+```
+
+
+### 49. `get-convex/agent-skills`
+- **GitReverse URL**: [https://gitreverse.com/get-convex/agent-skills](https://gitreverse.com/get-convex/agent-skills)
+- **Length**: 843 characters
+- **Status**: Verified live reverse-engineered prompt (ALPHENEX.AI Suite)
+
+```text
+Build me a small TypeScript project that packages a set of Convex skills for common agent workflows.
+
+I want one place where an AI coding assistant can learn how to help with Convex setup, authentication, reusable components, safe migrations, and performance troubleshooting. Make it easy to install just one skill or all of them, and include clear instructions for using them in tools like Cursor, Claude Code, VS Code, Windsurf, and Codex. Keep the skills focused on doing the job, not just explaining Convex. Add a top level skill that points to the right one when needed, plus good examples and simple checklists in each skill. Include the basic repo files, formatting, and a README that explains what the skills are for and how to use them. If you need to confirm current Convex or agent skills docs, look them up online before finishing.
 ```
