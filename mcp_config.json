@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json.schemastore.org/mcp-config.json",
+  "mcpServers": {
+    "supabase": {
+      "type": "remote",
+      "url": "https://mcp.supabase.com/mcp",
+      "description": "Hosted Supabase MCP for schema inspection, database migrations, and queries",
+      "headers": {
+        "Authorization": "Bearer ${SUPABASE_ACCESS_TOKEN}"
+      }
+    },
+    "github": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_TOKEN}"
+      },
+      "description": "Official GitHub MCP server for repo, PR, and issue management"
+    },
+    "gitmcp": {
+      "type": "remote",
+      "url": "https://gitmcp.io/api",
+      "description": "Remote GitMCP for grounding on public GitHub repositories without local clones"
+    },
+    "playwright": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@executeautomation/playwright-mcp-server"],
+      "description": "Browser automation and UI visual testing server"
+    }
+  }
+}

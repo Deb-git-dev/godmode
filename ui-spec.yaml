@@ -1,0 +1,49 @@
+version: "1.0.0"
+theme: "dark-obsidian"
+tokens:
+  colors:
+    canvas: "#0B0F19"
+    surface_subtle: "#111827"
+    surface_elevated: "#1E293B"
+    border_subtle: "#1E293B"
+    border_prominent: "#334155"
+    accent_primary: "#6366F1"
+    accent_secondary: "#06B6D4"
+    accent_success: "#10B981"
+    accent_warning: "#F59E0B"
+    accent_danger: "#F43F5E"
+    text_primary: "#F8FAFC"
+    text_secondary: "#94A3B8"
+    text_muted: "#64748B"
+  typography:
+    heading:
+      font_family: "Space Grotesk, sans-serif"
+      letter_spacing: "-0.02em"
+      wrapping: "text-balance"
+    body:
+      font_family: "Inter, sans-serif"
+      line_height: "1.6"
+      wrapping: "text-pretty"
+    mono:
+      font_family: "JetBrains Mono, monospace"
+      letter_spacing: "0.05em"
+  geometry:
+    card_radius: "16px"
+    panel_radius: "12px"
+    button_radius: "8px"
+    border_width: "1px"
+    backdrop_blur: "12px"
+  motion:
+    primitives:
+      - name: "MotionColumn"
+        stagger_delay: 0.08
+        reduced_motion_fallback: "static"
+      - name: "ParallaxTotem"
+        max_tilt_deg: 6
+        reduced_motion_fallback: "disabled"
+      - name: "GridSweep"
+        duration_sec: 14
+        reduced_motion_fallback: "static_gradient"
+      - name: "MotionFocus"
+        glow_radius_px: 240
+        reduced_motion_fallback: "border_highlight"

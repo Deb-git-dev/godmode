@@ -1,0 +1,26 @@
+{
+  "$schema": "https://opencode.dev/schema.json",
+  "project": "GODMODE",
+  "rules": [
+    "AGENTS.md",
+    "GEMINI.md",
+    ".agents/rules/01-environment-and-compute.md",
+    ".agents/rules/02-llm-routing.md",
+    ".agents/rules/03-design-taste.md",
+    ".agents/rules/04-skills-and-mcp.md",
+    ".agents/rules/05-memory-and-retrieval.md",
+    ".agents/rules/06-verification-and-provenance.md",
+    ".agents/rules/07-loop-recheck.md"
+  ],
+  "design": "DESIGN.md",
+  "ui_spec": "ui-spec.yaml",
+  "models": {
+    "primary": "anthropic/claude-3-5-sonnet",
+    "router": "openrouter/auto",
+    "fast_open": "nvidia/nemotron-4-340b-instruct"
+  },
+  "skills_dir": ".agents/skills",
+  "memory_file": "memory/journal.md",
+  "provenance_log": "PROVENANCE.md",
+  "enforce_zero_local_gpu": true
+}
