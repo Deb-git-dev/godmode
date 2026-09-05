@@ -1,66 +1,109 @@
 import React from 'react';
-import { ArrowUpRight, Award, ArrowLeft } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, Award } from 'lucide-react';
 
 export const KintaroAwwwardsPage: React.FC<{ onBack?: () => void }> = ({ onBack }) => {
+  const PROJECTS = [
+    {
+      num: "01",
+      name: "CHRONO STUDIO",
+      category: "Digital Experience / Identity",
+      year: "2025",
+      img: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      num: "02",
+      name: "HYPERION KINETIC",
+      category: "Creative Direction & WebGL",
+      year: "2024",
+      img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      num: "03",
+      name: "VOLT MONOGRAPH",
+      category: "Typography & Spatial Exhibition",
+      year: "2025",
+      img: "https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&w=1200&q=80"
+    }
+  ];
+
   return (
-    <div className="min-h-screen bg-[#0A0B0E] text-white selection:bg-cyan-400 selection:text-black font-body">
-      {/* Top Bar */}
-      <nav className="p-6 flex items-center justify-between border-b border-slate-800/80">
-        <button 
-          onClick={onBack || (() => window.location.hash = '/showcase')}
-          className="flex items-center gap-2 text-xs font-mono text-slate-400 hover:text-white transition-colors"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          <span>Back to Showcase Hub</span>
-        </button>
-        <span className="text-xs font-mono px-3 py-1 rounded-full bg-cyan-950/80 border border-cyan-800 text-cyan-300">
-          AWWWARDS SITE OF THE DAY • REF 01
-        </span>
-      </nav>
-
-      {/* Hero Section */}
-      <section className="px-6 py-20 max-w-6xl mx-auto space-y-12">
-        <div className="space-y-4">
-          <p className="text-xs font-mono uppercase tracking-widest text-cyan-400">Independent Creative Director & Developer</p>
-          <h1 className="text-5xl sm:text-7xl lg:text-8xl font-heading font-extrabold tracking-tight leading-none text-white">
-            KINTARO STUDIO
-          </h1>
-          <p className="text-lg sm:text-2xl text-slate-400 max-w-2xl font-light leading-relaxed">
-            Crafting hyper-kinetic digital experiences, brand worlds, and award-winning interactive platforms.
-          </p>
-        </div>
-
-        {/* Selected Works Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8">
-          {[
-            { title: "HYPER-VOID", category: "WebGL / Brand Experience", year: "2026", award: "Site of the Day" },
-            { title: "NEURAL HORIZON", category: "Kinetic E-Commerce", year: "2026", award: "Developer Award" },
-            { title: "CHRONO MONOLITH", category: "3D Spatial Experience", year: "2025", award: "FWA of the Month" },
-            { title: "AURA PROTOCOL", category: "Interactive OS", year: "2025", award: "Site of the Year Nominee" },
-          ].map((item, idx) => (
-            <div 
-              key={idx}
-              className="p-8 rounded-3xl bg-slate-900/60 border border-slate-800 hover:border-cyan-400/80 transition-all group cursor-pointer shadow-xl flex flex-col justify-between h-80 relative overflow-hidden"
+    <div className="relative min-h-screen bg-[#FFFDF9] text-black font-body selection:bg-yellow-400 selection:text-black">
+      {/* Top Header */}
+      <header className="sticky top-0 z-40 bg-[#FFFDF9]/90 backdrop-blur-md border-b-2 border-black px-8 py-5">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <div className="flex items-center gap-6">
+            <button 
+              onClick={onBack || (() => window.location.hash = '/showcase')}
+              className="flex items-center gap-2 px-3.5 py-1.5 rounded-none bg-black text-white text-xs font-mono uppercase tracking-widest hover:bg-yellow-400 hover:text-black transition-colors"
             >
-              <div className="absolute -top-12 -right-12 w-40 h-40 bg-cyan-500/10 rounded-full blur-2xl group-hover:scale-150 transition-transform" />
-              <div className="flex justify-between items-start">
-                <span className="text-xs font-mono text-slate-500">0{idx + 1} / 04</span>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-cyan-950 text-cyan-300 border border-cyan-800 flex items-center gap-1">
-                  <Award className="w-3 h-3 text-cyan-400" />
-                  <span>{item.award}</span>
-                </span>
-              </div>
-              <div className="space-y-1">
-                <h3 className="text-2xl font-heading font-bold text-white group-hover:text-cyan-300 transition-colors flex items-center justify-between">
-                  <span>{item.title}</span>
-                  <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                </h3>
-                <p className="text-xs font-mono text-slate-400">{item.category} • {item.year}</p>
-              </div>
-            </div>
-          ))}
+              <ArrowLeft className="w-3.5 h-3.5" />
+              <span>Index</span>
+            </button>
+            <span className="font-heading font-black text-2xl tracking-tighter">
+              KINTARO / AWWWARDS
+            </span>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-yellow-300 text-black border border-black text-xs font-mono font-bold uppercase">
+              <Award className="w-3.5 h-3.5" />
+              Site of the Day Winner
+            </span>
+          </div>
         </div>
-      </section>
+      </header>
+
+      {/* Main Hero */}
+      <main className="max-w-7xl mx-auto px-8 pt-16 pb-32 space-y-24">
+        <section className="space-y-6">
+          <span className="text-xs font-mono uppercase tracking-[0.25em] text-slate-600">
+            Independent Creative Direction & Interactive Design
+          </span>
+          <h1 className="text-6xl sm:text-8xl lg:text-9xl font-heading font-black uppercase tracking-tighter leading-[0.9]">
+            RADICAL CRAFT.
+          </h1>
+          <p className="text-xl max-w-2xl font-light text-slate-700 leading-relaxed">
+            Crafting award-winning digital flagships and interactive brand identities that challenge convention.
+          </p>
+        </section>
+
+        {/* Project Cards */}
+        <section className="space-y-16">
+          {PROJECTS.map((p) => (
+            <article key={p.num} className="border-t-2 border-black pt-8 group">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div className="lg:col-span-5 space-y-4">
+                  <span className="text-4xl font-heading font-black text-yellow-500">{p.num}</span>
+                  <h2 className="text-4xl sm:text-5xl font-heading font-black tracking-tight group-hover:text-yellow-600 transition-colors">
+                    {p.name}
+                  </h2>
+                  <p className="text-sm font-mono uppercase tracking-wider text-slate-600">
+                    {p.category} — {p.year}
+                  </p>
+                  <div className="pt-2">
+                    <button className="inline-flex items-center gap-2 px-5 py-2.5 bg-black text-white hover:bg-yellow-400 hover:text-black font-mono text-xs uppercase tracking-widest font-bold transition-all">
+                      <span>Launch Case Study</span>
+                      <ArrowUpRight className="w-4 h-4" />
+                    </button>
+                  </div>
+                </div>
+
+                <div className="lg:col-span-7 aspect-[16/9] overflow-hidden border-2 border-black">
+                  <img 
+                    src={p.img} 
+                    alt={p.name} 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                  />
+                </div>
+              </div>
+            </article>
+          ))}
+        </section>
+      </main>
+
+      <footer className="border-t-2 border-black bg-yellow-300 py-8 text-center text-xs font-mono uppercase tracking-widest text-black font-bold">
+        Kintaro Portfolio • Authentic Awwwards Swiss Editorial Aesthetic from @xkintaro
+      </footer>
     </div>
   );
 };

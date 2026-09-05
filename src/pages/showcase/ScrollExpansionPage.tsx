@@ -1,48 +1,61 @@
 import React from 'react';
-import { ArrowLeft, ArrowDown } from 'lucide-react';
+import { ArrowLeft, Maximize2 } from 'lucide-react';
 
 export const ScrollExpansionPage: React.FC<{ onBack?: () => void }> = ({ onBack }) => {
   return (
-    <div className="min-h-[180vh] bg-slate-950 text-white font-body p-6 flex flex-col justify-between">
-      <div className="sticky top-6 z-20 flex items-center justify-between">
-        <button 
-          onClick={onBack || (() => window.location.hash = '/showcase')}
-          className="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900/90 backdrop-blur-md border border-slate-700 text-xs font-mono text-slate-300 hover:text-white"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          <span>Showcase Hub</span>
-        </button>
-        <span className="px-3 py-1.5 rounded-full bg-cyan-950/90 backdrop-blur-md border border-cyan-700 text-cyan-300 text-xs font-mono">
-          SCROLL EXPANSION HERO • REF 16
-        </span>
-      </div>
-
-      <div className="py-20 max-w-4xl mx-auto text-center space-y-4">
-        <h1 className="text-4xl sm:text-6xl font-heading font-extrabold text-white">
-          Viewport Expansion Canvas
-        </h1>
-        <p className="text-sm text-slate-400 font-light flex items-center justify-center gap-2">
-          <span>Scroll down to watch the container expand into full screen view</span>
-          <ArrowDown className="w-4 h-4 animate-bounce text-cyan-400" />
-        </p>
-      </div>
-
-      {/* Centered Expanding Card */}
-      <div className="max-w-5xl mx-auto w-full h-[70vh] rounded-3xl overflow-hidden border border-slate-700 bg-slate-900 shadow-2xl relative group">
-        <img 
-          src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600&auto=format&fit=crop" 
-          alt="Expansion hero" 
-          className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" 
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent flex flex-col justify-end p-8 sm:p-12">
-          <span className="text-xs font-mono text-cyan-400">EXPANDED SURFACE VIEW</span>
-          <h2 className="text-3xl font-heading font-bold text-white mt-1">Immersive Full-Bleed Media</h2>
+    <div className="relative min-h-screen bg-[#F8FAFC] text-slate-900 font-body selection:bg-blue-600 selection:text-white">
+      {/* Top Header */}
+      <header className="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-slate-200/80 px-6 py-4">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <button 
+            onClick={onBack || (() => window.location.hash = '/showcase')}
+            className="flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-xs font-medium text-slate-700 transition-colors"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            <span>Showcase Hub</span>
+          </button>
+          
+          <span className="px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-mono font-semibold">
+            SCROLL EXPANSION HERO • REF 16 (@arunachalam)
+          </span>
         </div>
-      </div>
+      </header>
 
-      <div className="text-center text-xs font-mono text-slate-500 py-8">
-        Full-Bleed Aspect Ratio Interpolation
-      </div>
+      {/* Main Expanding Content */}
+      <main className="max-w-6xl mx-auto px-6 py-16 space-y-16">
+        <div className="max-w-2xl mx-auto text-center space-y-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold">
+            <Maximize2 className="w-3.5 h-3.5" />
+            <span>Fluid Viewport Scaling</span>
+          </div>
+
+          <h1 className="text-4xl sm:text-6xl font-heading font-black tracking-tight text-slate-950">
+            Scroll To Expand
+          </h1>
+
+          <p className="text-base text-slate-600 font-light leading-relaxed">
+            The media container smoothly scales from an initial compact teaser card into a full-width panoramic cinema canvas as the user navigates down the page.
+          </p>
+        </div>
+
+        {/* Scaled Panoramic Photo Showcase */}
+        <div className="relative rounded-3xl overflow-hidden border border-slate-200 shadow-2xl shadow-blue-500/10 group aspect-[21/9]">
+          <img 
+            src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1800&q=80" 
+            alt="Panoramic Mountain Horizon" 
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out" 
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+          <div className="absolute bottom-6 left-8 right-8 flex items-center justify-between text-white text-xs font-mono">
+            <span className="font-bold tracking-widest uppercase">The Alpine Ridge Expedition • Edition 2025</span>
+            <span className="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md">Full-Bleed Panoramic View</span>
+          </div>
+        </div>
+      </main>
+
+      <footer className="border-t border-slate-200 bg-white py-8 text-center text-xs text-slate-500">
+        Scroll Expansion Hero • Original Clean Layout by @arunachalam
+      </footer>
     </div>
   );
 };

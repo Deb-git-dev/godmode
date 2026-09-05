@@ -1,126 +1,184 @@
 import React, { useState } from 'react';
-import { ArrowLeft, Sparkles, Download } from 'lucide-react';
+import { ArrowLeft, Sparkles, Wand2, RefreshCw } from 'lucide-react';
+
+const PRESET_STYLES = [
+  { name: "Photorealistic", color: "from-amber-400 to-orange-500" },
+  { name: "Cyberpunk Anime", color: "from-pink-500 to-violet-600" },
+  { name: "Oil Painting", color: "from-emerald-500 to-teal-600" },
+  { name: "3D Render", color: "from-blue-500 to-indigo-600" },
+  { name: "Minimalist Vector", color: "from-rose-500 to-red-600" }
+];
+
+const SAMPLE_GALLERY = [
+  {
+    title: "Cyberpunk Neon Tokyo Skyline",
+    prompt: "Ultra-detailed futuristic Tokyo street in rain, neon reflections, cinematic lighting, 8k octane render",
+    aspect: "16:9",
+    img: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1200&q=80"
+  },
+  {
+    title: "Bioluminescent Rainforest Flora",
+    prompt: "Glowing fungi and exotic flora in twilight rainforest, volumetric god rays, hyper-detailed botanical illustration",
+    aspect: "4:3",
+    img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80"
+  },
+  {
+    title: "Monolithic Desert Pavilion",
+    prompt: "Modern brutalist concrete structure rising from red sand dunes, warm golden hour sun, architectural digest photo",
+    aspect: "1:1",
+    img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"
+  }
+];
 
 export const AiImageGenerationPage: React.FC<{ onBack?: () => void }> = ({ onBack }) => {
-  const [prompt, setPrompt] = useState('Hyper-detailed futuristic cybernetic cityscape at dusk with neon reflections');
-  const [aspectRatio, setAspectRatio] = useState('16:9');
-  const [style, setStyle] = useState('Photorealistic');
+  const [prompt, setPrompt] = useState("A luminous glass crystal dispersing rainbow light across a minimal ivory table, editorial photo");
+  const [selectedRatio, setSelectedRatio] = useState("16:9");
+  const [activeStyle, setActiveStyle] = useState("Photorealistic");
   const [isGenerating, setIsGenerating] = useState(false);
-
-  const styles = ['Photorealistic', 'Anime Studio', 'Cyberpunk', '3D Octane', 'Oil Painting'];
-
-  const sampleImages = [
-    'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?w=800&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop',
-  ];
 
   const handleGenerate = () => {
     setIsGenerating(true);
-    setTimeout(() => setIsGenerating(false), 800);
+    setTimeout(() => setIsGenerating(false), 1200);
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-white font-body p-6 flex flex-col justify-between">
-      <div className="flex items-center justify-between">
-        <button 
-          onClick={onBack || (() => window.location.hash = '/showcase')}
-          className="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs font-mono text-slate-300 hover:text-white"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          <span>Showcase Hub</span>
-        </button>
-        <span className="px-3 py-1.5 rounded-full bg-purple-950 border border-purple-700 text-purple-300 text-xs font-mono">
-          AI CHAT & IMAGE GENERATION • REF 07
-        </span>
-      </div>
-
-      <div className="max-w-5xl mx-auto w-full py-10 grid grid-cols-1 lg:grid-cols-12 gap-8">
-        {/* Controls Column */}
-        <div className="lg:col-span-5 space-y-5 p-6 rounded-3xl bg-slate-900/80 border border-slate-800 shadow-2xl">
-          <div className="flex items-center gap-2 text-xs font-mono text-purple-400">
-            <Sparkles className="w-4 h-4" />
-            <span>CLOUD DIFFUSION INTERFACE</span>
-          </div>
-
-          <div className="space-y-2">
-            <label className="text-xs font-mono text-slate-400">Generation Prompt:</label>
-            <textarea
-              rows={4}
-              value={prompt}
-              onChange={(e) => setPrompt(e.target.value)}
-              className="w-full p-4 rounded-2xl bg-slate-950 border border-slate-800 text-xs font-mono text-slate-200 focus:outline-none focus:border-purple-500 resize-none"
-            />
-          </div>
-
-          <div className="space-y-2">
-            <label className="text-xs font-mono text-slate-400">Aspect Ratio:</label>
-            <div className="grid grid-cols-3 gap-2">
-              {['1:1', '16:9', '9:16'].map((r) => (
-                <button
-                  key={r}
-                  onClick={() => setAspectRatio(r)}
-                  className={`py-2 rounded-xl text-xs font-mono border transition-all ${
-                    aspectRatio === r ? 'bg-purple-950 border-purple-500 text-purple-300' : 'bg-slate-950 border-slate-800 text-slate-400'
-                  }`}
-                >
-                  {r}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div className="space-y-2">
-            <label className="text-xs font-mono text-slate-400">Visual Aesthetic Style:</label>
-            <div className="flex flex-wrap gap-2">
-              {styles.map((s) => (
-                <button
-                  key={s}
-                  onClick={() => setStyle(s)}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-mono border transition-all ${
-                    style === s ? 'bg-indigo-950 border-indigo-500 text-indigo-300' : 'bg-slate-950 border-slate-800 text-slate-400'
-                  }`}
-                >
-                  {s}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <button
-            onClick={handleGenerate}
-            disabled={isGenerating}
-            className="w-full py-3.5 rounded-2xl bg-gradient-to-r from-purple-500 to-indigo-600 text-white font-mono text-xs font-semibold shadow-lg hover:shadow-purple-500/30 transition-all flex items-center justify-center gap-2"
+    <div className="relative min-h-screen bg-[#F8FAFC] text-slate-900 font-body selection:bg-indigo-600 selection:text-white">
+      {/* Top Header */}
+      <header className="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-slate-200/80 px-6 py-4">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <button 
+            onClick={onBack || (() => window.location.hash = '/showcase')}
+            className="flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-xs font-medium text-slate-700 transition-colors"
           >
-            <Sparkles className={`w-4 h-4 ${isGenerating ? 'animate-spin' : ''}`} />
-            <span>{isGenerating ? 'Synthesizing Diffusion...' : 'Generate Image'}</span>
+            <ArrowLeft className="w-4 h-4" />
+            <span>Showcase Hub</span>
           </button>
+          
+          <span className="px-3 py-1 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs font-mono font-semibold">
+            AI CHAT & IMAGE STUDIO • REF 07 (@gonzalochale)
+          </span>
+        </div>
+      </header>
+
+      {/* Main Studio Area */}
+      <main className="max-w-6xl mx-auto px-6 py-12 space-y-12">
+        <div className="max-w-2xl space-y-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs font-semibold">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Clean Studio Workspace</span>
+          </div>
+          <h1 className="text-4xl sm:text-5xl font-heading font-black tracking-tight text-slate-900">
+            Generative Image Studio
+          </h1>
+          <p className="text-sm text-slate-600 font-light leading-relaxed">
+            Compose high-fidelity image prompts with aspect-ratio framing, lighting chips, and instant generation preview.
+          </p>
         </div>
 
-        {/* Gallery Column */}
-        <div className="lg:col-span-7 space-y-4">
-          <span className="text-xs font-mono text-slate-400">LIVE GENERATION PREVIEW ({aspectRatio} • {style})</span>
-          <div className="rounded-3xl border border-slate-800 overflow-hidden bg-slate-900 shadow-2xl relative group">
-            <img 
-              src={sampleImages[0]} 
-              alt="Generated preview" 
-              className="w-full h-80 sm:h-96 object-cover group-hover:scale-105 transition-transform duration-500" 
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent flex items-end p-6">
-              <div className="flex items-center justify-between w-full">
-                <p className="text-xs font-mono text-slate-200 line-clamp-1 max-w-sm">{prompt}</p>
-                <button className="p-2 rounded-xl bg-slate-900/80 hover:bg-slate-800 text-white border border-slate-700">
-                  <Download className="w-4 h-4" />
-                </button>
+        {/* Studio Composer Card */}
+        <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-xl shadow-slate-100 space-y-6">
+          <div className="space-y-2">
+            <label className="text-xs font-mono font-bold text-slate-700 uppercase tracking-wider">
+              Prompt Composer
+            </label>
+            <div className="relative">
+              <textarea
+                value={prompt}
+                onChange={(e) => setPrompt(e.target.value)}
+                rows={3}
+                className="w-full p-4 rounded-2xl bg-slate-50 border border-slate-200 text-slate-900 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent resize-none transition-all"
+                placeholder="Describe the visual scene in vivid sensory detail..."
+              />
+            </div>
+          </div>
+
+          {/* Controls: Ratios & Styles */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
+            <div className="space-y-2">
+              <span className="text-xs font-mono font-bold text-slate-600 uppercase">Aspect Ratio</span>
+              <div className="flex items-center gap-2">
+                {["1:1", "16:9", "4:3", "9:16"].map(ratio => (
+                  <button
+                    key={ratio}
+                    onClick={() => setSelectedRatio(ratio)}
+                    className={`px-3 py-1.5 rounded-xl text-xs font-mono font-semibold transition-all ${
+                      selectedRatio === ratio 
+                        ? 'bg-indigo-600 text-white shadow-md shadow-indigo-100' 
+                        : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+                    }`}
+                  >
+                    {ratio}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <span className="text-xs font-mono font-bold text-slate-600 uppercase">Style Presets</span>
+              <div className="flex flex-wrap items-center gap-2">
+                {PRESET_STYLES.map(s => (
+                  <button
+                    key={s.name}
+                    onClick={() => setActiveStyle(s.name)}
+                    className={`px-3 py-1 rounded-xl text-xs font-medium transition-all ${
+                      activeStyle === s.name 
+                        ? 'bg-slate-900 text-white shadow-sm' 
+                        : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+                    }`}
+                  >
+                    {s.name}
+                  </button>
+                ))}
               </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      <div className="text-center text-xs font-mono text-slate-500">
-        Cloud Media Interface Layer • Zero Local GPU Required
-      </div>
+          <div className="pt-4 flex items-center justify-between border-t border-slate-100">
+            <span className="text-xs text-slate-500 font-mono">Model: Flux Schnell • Zero Local GPU</span>
+            <button
+              onClick={handleGenerate}
+              disabled={isGenerating}
+              className="flex items-center gap-2 px-6 py-3 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-sm shadow-lg shadow-indigo-200 transition-all hover:scale-105"
+            >
+              {isGenerating ? <RefreshCw className="w-4 h-4 animate-spin" /> : <Wand2 className="w-4 h-4" />}
+              <span>{isGenerating ? 'Synthesizing...' : 'Generate Still'}</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Gallery of Generated Stills */}
+        <div className="space-y-6">
+          <div className="flex items-center justify-between">
+            <h2 className="text-2xl font-heading font-bold text-slate-900">Recent Studio Generations</h2>
+            <span className="text-xs font-mono text-slate-500">3 Saved Stills</span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {SAMPLE_GALLERY.map((g, i) => (
+              <div key={i} className="rounded-2xl overflow-hidden bg-white border border-slate-200 shadow-md shadow-slate-100 group space-y-3 p-4">
+                <div className="relative rounded-xl overflow-hidden aspect-[4/3]">
+                  <img 
+                    src={g.img} 
+                    alt={g.title} 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                  />
+                  <span className="absolute top-2.5 right-2.5 px-2 py-0.5 rounded bg-black/60 backdrop-blur-md text-[10px] font-mono font-bold text-white">
+                    {g.aspect}
+                  </span>
+                </div>
+                <div className="space-y-1">
+                  <h3 className="text-sm font-heading font-bold text-slate-900">{g.title}</h3>
+                  <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed">{g.prompt}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </main>
+
+      <footer className="border-t border-slate-200 bg-white py-8 text-center text-xs text-slate-500">
+        AI Chat & Image Generation Studio • Clean Light Interface by @gonzalochale
+      </footer>
     </div>
   );
 };

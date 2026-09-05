@@ -1,77 +1,93 @@
 import React from 'react';
-import { ArrowLeft, Check } from 'lucide-react';
+import { ArrowLeft, TrendingUp, Users, Shield, ArrowRight, Zap } from 'lucide-react';
 
 export const SaaSTemplatePage: React.FC<{ onBack?: () => void }> = ({ onBack }) => {
   return (
-    <div className="min-h-screen bg-slate-950 text-white font-body p-6 flex flex-col justify-between">
-      <div className="flex items-center justify-between border-b border-slate-800 pb-4">
-        <button 
-          onClick={onBack || (() => window.location.hash = '/showcase')}
-          className="flex items-center gap-2 text-xs font-mono text-slate-400 hover:text-white"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          <span>Showcase Hub</span>
-        </button>
-        <span className="text-xs font-mono px-3 py-1 rounded-full bg-indigo-950 border border-indigo-700 text-indigo-300">
-          WALEED SAAS TEMPLATE • REF 24
-        </span>
-      </div>
-
-      {/* Main SaaS Section */}
-      <div className="max-w-6xl mx-auto py-16 space-y-16">
-        <div className="text-center space-y-4 max-w-2xl mx-auto">
-          <h1 className="text-4xl sm:text-6xl font-heading font-extrabold text-white">
-            Everything Your Startup Needs
-          </h1>
-          <p className="text-sm sm:text-base text-slate-300 font-light">
-            All-in-one developer platform with authentication, database pooling, and edge deployments.
-          </p>
-        </div>
-
-        {/* Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {[
-            { tier: "Hobby", price: "$0", desc: "Perfect for experiments", features: ["1 Project", "Community Support", "10k API calls"] },
-            { tier: "Pro", price: "$29", desc: "For scaling teams", popular: true, features: ["Unlimited Projects", "Sub-second TTFT", "24/7 Support", "Zero-GPU Fallback"] },
-            { tier: "Enterprise", price: "Custom", desc: "Dedicated sovereignty", features: ["Dedicated VPC", "Custom SLA", "Audit Logging", "Role Governance"] },
-          ].map((card, i) => (
-            <div 
-              key={i} 
-              className={`p-8 rounded-3xl border flex flex-col justify-between space-y-6 ${
-                card.popular ? 'bg-slate-900 border-indigo-500/80 shadow-2xl shadow-indigo-500/10' : 'bg-slate-900/60 border-slate-800'
-              }`}
+    <div className="relative min-h-screen bg-white text-slate-900 font-body selection:bg-blue-600 selection:text-white">
+      {/* Top Header */}
+      <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-100 px-6 py-4">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <div className="flex items-center gap-6">
+            <button 
+              onClick={onBack || (() => window.location.hash = '/showcase')}
+              className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-xs font-medium text-slate-700 transition-colors"
             >
-              <div className="space-y-2">
-                <div className="flex justify-between items-center">
-                  <h3 className="font-heading font-bold text-lg text-white">{card.tier}</h3>
-                  {card.popular && <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-indigo-500 text-white">POPULAR</span>}
-                </div>
-                <div className="text-4xl font-extrabold font-heading text-white">{card.price}</div>
-                <p className="text-xs text-slate-400 font-mono">{card.desc}</p>
-              </div>
-
-              <div className="space-y-3">
-                {card.features.map((f, fi) => (
-                  <div key={fi} className="flex items-center gap-2 text-xs text-slate-300">
-                    <Check className="w-4 h-4 text-emerald-400 shrink-0" />
-                    <span>{f}</span>
-                  </div>
-                ))}
-              </div>
-
-              <button className={`w-full py-3 rounded-xl font-mono text-xs font-bold transition-all ${
-                card.popular ? 'bg-indigo-600 hover:bg-indigo-500 text-white shadow-lg' : 'bg-slate-800 hover:bg-slate-700 text-slate-200'
-              }`}>
-                Choose {card.tier}
-              </button>
+              <ArrowLeft className="w-4 h-4" />
+              <span>Showcase</span>
+            </button>
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-blue-600" />
+              <span className="font-heading font-extrabold text-base text-slate-900">Apex SaaS</span>
+              <span className="px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 text-[10px] font-semibold">
+                REF 24 • @waleedkibhen
+              </span>
             </div>
-          ))}
-        </div>
-      </div>
+          </div>
 
-      <div className="border-t border-slate-800 pt-4 text-center text-xs font-mono text-slate-500">
-        Full-Featured High-Converting SaaS Landing Template
-      </div>
+          <button className="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold shadow-md shadow-blue-100 transition-all">
+            Get Started Free
+          </button>
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="max-w-7xl mx-auto px-6 py-16 space-y-20">
+        <section className="max-w-3xl mx-auto text-center space-y-6">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold">
+            <Zap className="w-3.5 h-3.5" />
+            <span>Modern Billing & Multi-Tenant Infrastructure</span>
+          </div>
+
+          <h1 className="text-5xl sm:text-6xl font-heading font-black tracking-tight text-slate-900">
+            Scale your software business with <span className="text-blue-600">frictionless billing</span>.
+          </h1>
+
+          <p className="text-base text-slate-600 max-w-xl mx-auto font-light leading-relaxed">
+            The complete toolkit for SaaS companies: automated invoicing, revenue recovery, usage meters, and multi-currency payouts in 140+ countries.
+          </p>
+
+          <div className="flex items-center justify-center gap-4 pt-2">
+            <button className="flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm shadow-xl shadow-blue-200 transition-all">
+              <span>Start Free 14-Day Trial</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
+        </section>
+
+        {/* Live Metrics Showcase */}
+        <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 shadow-sm space-y-2">
+            <div className="flex items-center justify-between text-slate-500 text-xs font-medium">
+              <span>Monthly Recurring Revenue</span>
+              <TrendingUp className="w-4 h-4 text-emerald-600" />
+            </div>
+            <div className="text-3xl font-heading font-black text-slate-900">$248,390</div>
+            <div className="text-xs font-semibold text-emerald-600">+18.4% from last month</div>
+          </div>
+
+          <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 shadow-sm space-y-2">
+            <div className="flex items-center justify-between text-slate-500 text-xs font-medium">
+              <span>Active Subscribers</span>
+              <Users className="w-4 h-4 text-blue-600" />
+            </div>
+            <div className="text-3xl font-heading font-black text-slate-900">14,290</div>
+            <div className="text-xs font-semibold text-blue-600">+1,420 new this week</div>
+          </div>
+
+          <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 shadow-sm space-y-2">
+            <div className="flex items-center justify-between text-slate-500 text-xs font-medium">
+              <span>Failed Payment Recovery</span>
+              <Shield className="w-4 h-4 text-indigo-600" />
+            </div>
+            <div className="text-3xl font-heading font-black text-slate-900">99.4%</div>
+            <div className="text-xs font-semibold text-indigo-600">Smart retry active</div>
+          </div>
+        </section>
+      </main>
+
+      <footer className="border-t border-slate-100 py-8 text-center text-xs text-slate-400">
+        SaaS Template • Original Bright Modern UI from 21st.dev @waleedkibhen
+      </footer>
     </div>
   );
 };

@@ -344,9 +344,9 @@ export const ShowcaseIndexPage: React.FC<{ onNavigate: (route: string) => void }
   return (
     <div className="space-y-8 pb-16 font-body">
       {/* Hero Header */}
-      <div className="relative overflow-hidden rounded-3xl p-8 border border-slate-700/60 bg-gradient-to-br from-slate-900 via-indigo-950/40 to-slate-950 shadow-2xl">
-        <div className="absolute -top-24 -right-24 w-96 h-96 bg-gradient-to-br from-cyan-500/20 via-indigo-500/20 to-purple-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-gradient-to-tr from-emerald-500/15 via-purple-500/15 to-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="relative overflow-hidden rounded-3xl p-8 sm:p-12 border border-slate-700/60 bg-gradient-to-br from-indigo-900/90 via-purple-900/80 to-slate-950 shadow-2xl">
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-gradient-to-br from-cyan-400/30 via-pink-500/30 to-purple-500/20 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-gradient-to-tr from-emerald-400/25 via-amber-500/25 to-blue-500/20 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="space-y-3 max-w-2xl">

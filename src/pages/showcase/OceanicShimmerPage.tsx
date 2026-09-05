@@ -1,53 +1,57 @@
 import React from 'react';
-import { ArrowLeft, Waves, Droplets } from 'lucide-react';
+import { ArrowLeft, Droplets, Waves } from 'lucide-react';
 import { ShaderCanvas } from '../../components/effects/ShaderCanvas';
 import { VIBRANT_OCEANIC_CAUSTICS } from '../../components/effects/vibrant-shaders';
 
 export const OceanicShimmerPage: React.FC<{ onBack?: () => void }> = ({ onBack }) => {
   return (
-    <div className="relative min-h-screen bg-[#07090e] text-white overflow-hidden">
+    <div className="relative min-h-screen text-slate-900 font-body overflow-hidden flex flex-col justify-between">
+      {/* Full-bleed Shader Canvas */}
       <div className="absolute inset-0 z-0">
         <ShaderCanvas fragment={VIBRANT_OCEANIC_CAUSTICS} />
       </div>
 
-      <div className="relative z-10 p-6 flex flex-col justify-between min-h-screen pointer-events-none">
-        <div className="flex items-center justify-between pointer-events-auto">
-          <button 
-            onClick={onBack || (() => window.location.hash = '/showcase')}
-            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900/80 backdrop-blur-md border border-teal-500/30 text-xs font-mono text-teal-300 hover:text-white shadow-lg shadow-teal-950/40"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            <span>Showcase Hub</span>
-          </button>
-          <span className="px-3 py-1.5 rounded-full bg-teal-950/80 backdrop-blur-md border border-teal-500/60 text-teal-300 text-xs font-mono shadow-[0_0_15px_rgba(20,184,166,0.3)]">
-            OCEANIC BIOLUMINESCENCE • REF 23
-          </span>
-        </div>
+      {/* Top Header */}
+      <header className="relative z-10 p-6 flex items-center justify-between">
+        <button 
+          onClick={onBack || (() => window.location.hash = '/showcase')}
+          className="flex items-center gap-2 px-4 py-2 rounded-2xl bg-white/90 backdrop-blur-md border border-white/40 text-xs font-semibold text-slate-900 shadow-xl hover:bg-white transition-all"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          <span>Showcase Hub</span>
+        </button>
 
-        <div className="max-w-xl mx-auto text-center space-y-4 pointer-events-auto p-8 rounded-3xl bg-slate-950/80 backdrop-blur-xl border border-teal-500/30 shadow-[0_0_40px_rgba(20,184,166,0.15)]">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/20 text-teal-300 text-xs font-mono border border-teal-400/40">
-            <Waves className="w-3.5 h-3.5 text-teal-400" />
-            <span>Multi-Octave Caustic Light Wave Interference</span>
+        <span className="px-4 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-white/40 text-xs font-mono font-bold text-teal-800 shadow-xl">
+          OCEANIC SHIMMER • REF 23
+        </span>
+      </header>
+
+      {/* Floating Center Frost Glass Card */}
+      <main className="relative z-10 max-w-xl mx-auto px-6 py-8">
+        <div className="p-8 sm:p-10 rounded-3xl bg-white/85 backdrop-blur-2xl border border-white/60 shadow-2xl shadow-teal-950/20 text-center space-y-5">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-teal-50 border border-teal-200 text-teal-700 text-xs font-mono font-bold">
+            <Waves className="w-3.5 h-3.5" />
+            <span>Tropical Caustic Light Refraction</span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl font-heading font-extrabold bg-gradient-to-r from-teal-300 via-cyan-200 to-sky-400 bg-clip-text text-transparent">
+          <h1 className="text-4xl sm:text-5xl font-heading font-black tracking-tight text-slate-900">
             Oceanic Shimmer
           </h1>
 
-          <p className="text-xs sm:text-sm text-slate-300 font-body leading-relaxed">
-            Deep Caribbean turquoise, glowing bioluminescent cyan, and crystalline seafoam caustics modeled with high-frequency procedural wave harmonic simulation.
+          <p className="text-sm text-slate-700 leading-relaxed font-light">
+            Bioluminescent Caribbean turquoise, azure ripples, and sunlight caustics filling the entire viewport. Procedurally computed at 60 FPS on client GPU.
           </p>
 
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-teal-900/40 border border-teal-500/30 text-xs font-mono text-teal-300">
-            <Droplets className="w-3.5 h-3.5" />
-            <span>Refractive Index: 1.333 (Water Caustic Matrix)</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-teal-100/80 text-teal-900 font-mono text-xs font-semibold">
+            <Droplets className="w-4 h-4 text-teal-600" />
+            <span>Full-Bleed Natural Water Matrix</span>
           </div>
         </div>
+      </main>
 
-        <div className="text-center text-xs font-mono text-teal-400/70">
-          Hardware Shader Caustic Surface • Procedural Dispersion
-        </div>
-      </div>
+      <footer className="relative z-10 p-6 text-center text-xs font-semibold text-teal-950/90">
+        Original 21st.dev Gradient Shimmer • Vibrant Oceanic Caustic Aesthetics
+      </footer>
     </div>
   );
 };
