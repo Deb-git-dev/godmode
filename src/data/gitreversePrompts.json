@@ -1,0 +1,443 @@
+[
+  {
+    "id": "nextlevelbuilder-ui-ux-pro-max-skill",
+    "name": "nextlevelbuilder/ui-ux-pro-max-skill",
+    "url": "https://gitreverse.com/nextlevelbuilder/ui-ux-pro-max-skill",
+    "category": "Design & Frontend Taste",
+    "prompt": "I want you to build an AI skill that acts like an expert UI/UX designer. Let's call it \"UI UX Pro Max\". It should be a plugin that integrates with AI coding assistants, but also have a standalone command-line tool.\n\nThe main feature is a \"Design System Generator.\" When a user makes a request like, \"Build a landing page for my wellness spa,\" this skill should first generate a complete design plan. This plan needs to be super detailed, recommending a layout pattern, a visual style, a full color palette with hex codes, and a specific typography pairing (maybe from Google Fonts). It should also suggest key CSS effects, list anti-patterns to avoid, and include a pre-build checklist for things like accessibility and responsiveness. The whole point is to provide design intelligence to guide the AI to build a really polished and professional final product. Let's use Python for the core logic.",
+    "charCount": 897,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "leonxlnx-taste-skill",
+    "name": "Leonxlnx/taste-skill",
+    "url": "https://gitreverse.com/Leonxlnx/taste-skill",
+    "category": "Design & Frontend Taste",
+    "prompt": "I want to build a collection of 'skills' to stop AI coding agents from generating boring, generic frontend \"slop.\" The goal is to create a set of instructions that will force the AI to build modern, premium designs with proper animations, spacing, and visual quality.\n\nIt should include a main 'taste-skill' for overall design quality, and also a few specialized ones. For example, a 'soft-skill' for an expensive, clean UI with smooth spring animations and lots of whitespace, and a 'minimalist-skill' for clean interfaces like Notion or Linear. Please also add a utility skill that stops the AI from being lazy by leaving placeholder comments or unfinished code blocks. For the main skill, I want to be able to adjust things like design variance and motion intensity with simple settings at the top of the file. The output should be a set of portable instruction files that I can use in my projects.",
+    "charCount": 901,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "conardli-garden-skills",
+    "name": "ConardLi/garden-skills",
+    "url": "https://gitreverse.com/ConardLi/garden-skills",
+    "category": "Design & Frontend Taste",
+    "prompt": "Build me a polished website for Garden Skills, an open source collection of AI coding skills for Claude Code, Cursor, Codex, and similar tools.\n\nI want a clean landing page that shows the skills gallery, with cards for each skill, short descriptions, and links into each skill\u2019s details. It should also explain what a skill is, how to install them, and how to use them in a simple way that a normal person can follow. Make it feel production ready, modern, and easy to browse, with good typography, responsive layouts, and nice visuals for the featured skills like web video presentation, web design, image generation, and article cleanup.\n\nIf it helps, look up current docs online so the install and usage instructions are accurate. Keep the experience smooth, readable, and friendly, and make sure the site works well in both light and dark mode.",
+    "charCount": 848,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "picrew-awesome-agent-harness",
+    "name": "Picrew/awesome-agent-harness",
+    "url": "https://gitreverse.com/Picrew/awesome-agent-harness",
+    "category": "Coding Agents & Harnesses",
+    "prompt": "Build me an awesome list style repo for agent harness engineering resources. I want it to feel like a polished, easy to browse directory for people researching how to build reliable AI agent harnesses, not just a random link dump.\n\nIt should have a main README and a Chinese version, show a quick stats summary at the top like total entries, GitHub share, category counts, and last verified date, then highlight a handful of important blog posts and group the full catalog into clear sections like architecture, context, sandboxing, tool interfaces, evaluation, observability, security, reference implementations, and essential reading. Each entry should show the project name, link, stars, tags, and a short plain English summary.\n\nPlease make it maintainable, with the source data separated from the generated docs, plus scripts or reports that can help verify links, update metadata, and keep counts accurate over time. Keep the tone practical and implementation focused. If you need to, look up current docs or examples online and make it feel like a real curated resource people would want to star and use.",
+    "charCount": 1111,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "jqueryscript-awesome-coding-agent",
+    "name": "jqueryscript/awesome-coding-agent",
+    "url": "https://gitreverse.com/jqueryscript/awesome-coding-agent",
+    "category": "Coding Agents & Harnesses",
+    "prompt": "Build me a simple open source project that keeps a curated ranking of popular AI coding agents, sorted by GitHub stars.\n\nI want it to be easy to update the list over time, with the project names, repo links, star counts, short descriptions, and a clear rule for which projects qualify. The main page should read like an awesome list, with a short explanation of what an AI coding agent is, then the ranked list underneath. It should also have a clean way to regenerate the data, and some basic tests so the ranking stays correct and sorted properly.\n\nMake the README polished and welcoming, with the usual contributor and license details. If you need to check current repository details or star counts, look them up online. Keep it lightweight and maintainable, since the whole point is to make it easy for someone to keep the ranking current.",
+    "charCount": 843,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "wong2-awesome-mcp-servers",
+    "name": "wong2/awesome-mcp-servers",
+    "url": "https://gitreverse.com/wong2/awesome-mcp-servers",
+    "category": "MCP Servers & Connectors",
+    "prompt": "Build me a clean, simple website for this curated list of MCP servers.\n\nIt should feel like an \u201cawesome list\u201d page, with a clear title, a short note that people should submit new servers on the website instead of opening PRs, and sections for sponsor content, reference servers, official servers, and the rest of the list. Make it easy to scan, with good spacing, nice cards or rows, and clickable links for each project. Use the logo image in the assets folder where it fits, and keep the design polished but lightweight.\n\nI\u2019d like it to be responsive and easy to browse on mobile too. If it helps, look up current docs online for any MCP related wording or best practices, but keep the main goal focused on making this repository into a well organized public directory people can actually use.",
+    "charCount": 795,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "fix2015-awesome-claude-code",
+    "name": "fix2015/awesome-claude-code",
+    "url": "https://gitreverse.com/fix2015/awesome-claude-code",
+    "category": "General",
+    "prompt": "Build me a polished Awesome style GitHub repo for Claude Code resources, with a clean README that looks good on GitHub and is easy to browse.\n\nI want it to be a curated list of useful Claude Code plugins, MCP servers, hooks, tips, templates, integrations, and other resources, grouped into clear sections so people can quickly find what they need. Make the README feel welcoming, with a short intro, a table of contents, and organized headings for the main categories. Include a contributing guide that tells people how to suggest new entries and keep the list high quality.\n\nKeep the tone friendly and practical, and make sure the layout follows the usual Awesome list style. If you need to check current official docs or popular projects online to fill in good examples, go ahead and look them up. Focus on making the repo look ready to share publicly and easy for others to contribute to.",
+    "charCount": 891,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "12britz-awesome-free-models",
+    "name": "12britz/awesome-free-models",
+    "url": "https://gitreverse.com/12britz/awesome-free-models",
+    "category": "Free APIs & Models",
+    "prompt": "Build me an Awesome style GitHub repository that collects free AI models, APIs, and tools people can use without paying. I want it to feel like a clean, well organized curated list, with sections for open weight models, free API providers, image and video generation, local inference tools, chatbot UIs, audio and speech, coding assistants, embeddings, RAG tools, agent frameworks, MCP tools, fine tuning, prompt tools, evaluation, datasets, hosting platforms, learning resources, leaderboards, and communities.\n\nMake the README easy to scan, with short descriptions for each item and clear links. It should feel useful for someone who wants to start using AI right away, either locally or through free tiers. Please also include badges, a contents section, and a brief intro that explains why this list exists. Keep it practical and current, and look up current docs online if you need to verify anything.",
+    "charCount": 906,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "moh4696-100-free-open-source-github-repos",
+    "name": "Moh4696/100-free-open-source-github-repos",
+    "url": "https://gitreverse.com/Moh4696/100-free-open-source-github-repos",
+    "category": "Free APIs & Models",
+    "prompt": "Build me a clean little site for this curated list of 100 free open source GitHub repos.\n\nI want it to feel like a practical guide for builders, creators, and curious people, not a boring directory. It should show the 10 sections, let people browse each section, and open a full article page with all the picks. Each repo should include a short honest note about the catch, like if it is only free with limits, needs self hosting, or comes with tradeoffs.\n\nMake it easy to read on mobile, simple to navigate, and nice enough to share. Include the section by section view and make the article easy to update later. If you need to, look up current docs online for any tooling choices.\n\nKeep the tone smart but approachable, and make the whole thing feel like something I could publish as a helpful resource right away.",
+    "charCount": 816,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "gaubee-skill-creator",
+    "name": "Gaubee/skill-creator",
+    "url": "https://gitreverse.com/Gaubee/skill-creator",
+    "category": "Skill Synthesizers",
+    "prompt": "Build me a TypeScript command line tool that helps create and manage Claude Code skills.\n\nI want it to work in two ways, as a normal CLI and as a subagent that can handle the whole workflow for me. It should let me search npm packages, get package info, create a skill folder with the right package and version naming, and save skills either in the project or in my user Claude folder. It should also be able to find the best Context7 project id, download the right docs for that package, and slice them into the skill. Add a simple local search for existing skill content, plus a way to add custom notes with deduping or forced updates.\n\nMake it feel polished and practical, with machine readable JSON output when asked, and make the default flow non interactive unless I explicitly ask for prompts. If you need to check current docs or APIs online, go ahead and look them up.",
+    "charCount": 877,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "daymade-claude-code-skills",
+    "name": "daymade/claude-code-skills",
+    "url": "https://gitreverse.com/daymade/claude-code-skills",
+    "category": "General",
+    "prompt": "Build me a professional marketplace for plugins that enhance an AI coding assistant. This should be a well-organized collection of production-ready skills that give the assistant powerful new abilities, not just a simple list.\n\nIt should be packed with a variety of useful tools. For example, I want skills for downloading YouTube videos, automating tasks in Excel, helping with remote desktop on Windows, generating CLI demos, and even designing UIs. It should also include troubleshooters for things like Cloudflare or network tunnels.\n\nCrucially, include a \"skill-creator\" tool. This meta-skill needs to be the centerpiece, guiding users through building, validating, and securely packaging their own custom skills. It should be a production-hardened tool that warns users about common mistakes and helps them research before they build. The overall project should feel like a complete, professional ecosystem for extending an AI assistant's capabilities.",
+    "charCount": 958,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "zhing2006-skills-maker",
+    "name": "zhing2006/skills-maker",
+    "url": "https://gitreverse.com/zhing2006/skills-maker",
+    "category": "Skill Synthesizers",
+    "prompt": "Build me a small \u201cskills maker\u201d project that helps an AI turn a completed tool use workflow into a reusable agent skill.\n\nI want it to inspect the conversation, decide whether it was a real tool usage task or just coding work, and if it was a good fit, walk me through a few simple questions like the skill name, what it should cover, and what language I want the docs in, English or Chinese.\n\nThen it should generate the new skill folder with a clear skill file, copy over any scripts or tools that were used, and make sure the result follows the Agent Skills format. It should work in the common skills folders for tools like Claude Code and Cursor, and keep the instructions simple enough that someone can just say, \u201cCreate a skill from this workflow,\u201d and have it guide them from there.\n\nIf you need to check the latest Agent Skills docs online, go ahead and do that.",
+    "charCount": 871,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "francyjglisboa-agent-skill-creator",
+    "name": "FrancyJGLisboa/agent-skill-creator",
+    "url": "https://gitreverse.com/FrancyJGLisboa/agent-skill-creator",
+    "category": "Skill Synthesizers",
+    "prompt": "I need to build a tool that can take one of my team's repetitive workflows and turn it into a reusable 'skill' for an AI agent like Cursor or Copilot. For example, every week we have to generate a a project summary report. This involves pulling data from a few different places, summarizing it, and formatting it into a specific markdown template for our leadership meeting. It's tedious to explain the steps every single time.\n\nI want to be able to just feed you my messy process docs, maybe an example of the final report, and have you create a simple command like /generate-summary that my whole team can use. The final skill should be easy to share and should work for everyone, no matter which AI tool they prefer to use.",
+    "charCount": 726,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "gbsoss-skill-from-masters",
+    "name": "gbsoss/skill-from-masters",
+    "url": "https://gitreverse.com/gbsoss/skill-from-masters",
+    "category": "Skill Synthesizers",
+    "prompt": "Build me a reusable AI skill that helps people create better skills by first learning from proven experts.\n\nI want it to work in Claude Code, Codex, and similar agent tools, and when someone asks to make a new skill it should first look through a local database of expert methods, then search the web for well known practitioners, then find strong real world examples and common mistakes to avoid. It should cross check the advice from multiple sources, surface the best options to the user, and then hand off the chosen approach to the skill creator so the final skill is grounded in real methodology.\n\nPlease also include the companion skills for finding existing skills and for learning from GitHub projects, with clear docs and examples so it feels easy to use. Keep it practical and polished, and if you need to verify current docs or best practices online, go ahead and look them up.",
+    "charCount": 889,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "mingyooagi-myskills",
+    "name": "mingyooagi/myskills",
+    "url": "https://gitreverse.com/mingyooagi/myskills",
+    "category": "Skill Routers",
+    "prompt": "Build me a small JavaScript tool for AI coding agents that helps them find the right skill fast instead of wasting time searching through a big list.\n\nI want a command line app called skill router that can take a short intent like debug failing test or create feature, then suggest the best matching skill with a confidence score. It should also let me search skills, list them by category, and show details for one skill. Skills should be discovered from simple YAML frontmatter, and I want it to work cleanly in Claude Code, Codex, and OpenCode style skill folders. Please include an install script, a simple programmatic API, and a README that shows how to use it from the terminal and from code. If you need to check current docs for best practices, go look them up online.",
+    "charCount": 777,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "charon-fan-agent-playbook",
+    "name": "charon-fan/agent-playbook",
+    "url": "https://gitreverse.com/charon-fan/agent-playbook",
+    "category": "Skill Routers",
+    "prompt": "Build me a local first toolkit for helping coding agents get better over time.\n\nI want a command line app that can install and manage reusable agent skills, keep a Behavior Inbox for repeated mistakes and regressions, run simple baseline and candidate checks, and help turn good fixes into reviewed Behavior Change Proposals. It should work with Claude Code, Codex, Gemini, and DeepSeek Harness, and it should stay portable so I can use it across different projects without baking in private company details.\n\nAlso include a small MCP server for skill discovery, some clear docs for setup and workflow, and a way to capture self improvement notes locally as Markdown. Keep the first pass practical and easy to run from the terminal, and make the default experience safe and reversible. If you need current docs for any host integration, look them up online.",
+    "charCount": 857,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "klhq-skillmux",
+    "name": "klhq/skillmux",
+    "url": "https://gitreverse.com/klhq/skillmux",
+    "category": "Skill Routers",
+    "prompt": "Build me a TypeScript tool called Skillmux that helps me manage one shared skill vault for AI coding agents. I want to keep my SKILL.md files in one place, sync a small set of important skills into the native skill folders that different agents expect, and make the rest available through MCP so agents can still find and fetch them on demand.\n\nIt should have a simple CLI for setting up the vault, choosing core skills, syncing them, checking that everything looks right, and starting a local MCP server for one machine. It should also be able to run as a shared HTTP service for multiple clients, with sensible defaults and a config file only when needed. Use the README\u2019s flow as the guide, including the idea that Git owns replication and freshness, not the app. Please include clear commands for initial setup, indexing skills, serving MCP, and basic diagnostics. If you need current docs for MCP or embedding models, look them up online first.",
+    "charCount": 949,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "marcbender-git-awesome-design",
+    "name": "MarcBender-git/awesome-design",
+    "url": "https://gitreverse.com/MarcBender-git/awesome-design",
+    "category": "Design & Frontend Taste",
+    "prompt": "Build me a simple website for this project that lets people browse the collection of design system files and quickly find the right one for their app.\n\nI want a clean homepage that shows all 60 company design systems in a searchable, filterable gallery, with each card showing the company name and a short visual vibe summary. Clicking one should open a detail page with the DESIGN.md content, an easy way to copy it, and a clear explanation of what kind of UI it works best for.\n\nMake it feel polished and easy to scan, since the main purpose is helping people pick a style for their AI coding agent. Add a few featured collections like AI tools, developer tools, and enterprise brands. Keep the design itself very minimal and focused on the content. If anything is unclear, look up the current docs online and match the format closely.",
+    "charCount": 837,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "voltagent-awesome-design-md",
+    "name": "voltagent/awesome-design-md",
+    "url": "https://gitreverse.com/voltagent/awesome-design-md",
+    "category": "Design & Frontend Taste",
+    "prompt": "Build me a public GitHub repo for a curated collection of DESIGN.md files that people can drop into their own projects so AI coding agents can generate UI in a matching brand style.\n\nThe main thing should be a polished README that explains what DESIGN.md is in simple terms, why markdown is useful for AI agents, and how someone can copy one into their project and say \u201cbuild me a page that looks like this.\u201d Include a big collection section grouped by categories like AI platforms, developer tools, databases, SaaS, design tools, fintech, and ecommerce. Each item should link to a DESIGN.md page and have a short plain English description of the visual style.\n\nAlso add a design-md folder where the actual markdown design files can live, plus basic contributing and license files. Make it feel like an awesome list, with badges, a short intro, a request link for new design files, and sponsor space. Keep it clean, useful, and easy to browse.",
+    "charCount": 943,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "davila7-claude-code-templates",
+    "name": "Davila7/claude-code-templates",
+    "url": "https://gitreverse.com/Davila7/claude-code-templates",
+    "category": "Design & Frontend Taste",
+    "prompt": "Build me a simple tool for Claude Code that helps me set it up, keep it organized, and watch what it\u2019s doing while I work.\n\nI want a command line app I can run to install ready made templates for things like agents, custom commands, settings, hooks, and integrations, and I want it to be easy to browse what\u2019s available and pick what I need. It should also include a way to check if my Claude Code setup is healthy, show live analytics for active sessions, and let me view conversations in a clean, mobile friendly screen. If possible, include a plugin dashboard too so I can see what\u2019s installed and manage access in one place.\n\nMake it feel polished and practical, with clear prompts, good defaults, and a smooth setup flow. If you need to look up current docs online, go for it.",
+    "charCount": 781,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "bighardperson-computer-science-skills-collection",
+    "name": "Bighardperson/computer-science-skills-collection",
+    "url": "https://gitreverse.com/Bighardperson/computer-science-skills-collection",
+    "category": "General",
+    "prompt": "\u5e2e\u6211\u642d\u4e00\u4e2a\u9762\u5411\u8ba1\u7b97\u673a\u4e13\u4e1a\u5b66\u751f\u548c\u5f00\u53d1\u8005\u7684 skills \u8d44\u6599\u4ed3\u5e93\uff0c\u91cd\u70b9\u662f\u628a\u5404\u79cd\u53ef\u76f4\u63a5\u7ed9 Claude Code \u4e4b\u7c7b\u5de5\u5177\u7528\u7684\u6280\u80fd\u63d0\u793a\u8bcd\u6574\u7406\u6210\u4e00\u4e2a\u5f88\u6e05\u695a\u3001\u5f88\u597d\u6d4f\u89c8\u7684\u5408\u96c6\u3002\n\n\u6211\u60f3\u8981\u5b83\u5305\u542b\u4e00\u4e2a\u603b\u76ee\u5f55\uff0c\u4e00\u4e2a\u5b66\u4e60\u8def\u7ebf\u8bf4\u660e\uff0c\u4e00\u4e9b\u5206\u7c7b\u9875\u9762\uff0c\u8fd8\u6709\u6bcf\u4e2a skill \u81ea\u5df1\u7684 Markdown \u6587\u4ef6\uff0c\u5185\u5bb9\u8986\u76d6\u7f16\u7a0b\u8bed\u8a00\uff0c\u524d\u540e\u7aef\uff0c\u4e91\u5e73\u53f0\uff0cAI Agent\uff0c\u6d4f\u89c8\u5668\u81ea\u52a8\u5316\uff0c\u79d1\u7814\uff0c\u6587\u6863\u529e\u516c\uff0c\u5b89\u5168\u5ba1\u8ba1\u548c\u6548\u7387\u5de5\u4f5c\u6d41\u8fd9\u4e9b\u65b9\u5411\u3002\u5e0c\u671b\u6574\u4e2a\u4ed3\u5e93\u770b\u8d77\u6765\u50cf\u4e00\u4e2a\u80fd\u6301\u7eed\u6269\u5145\u7684\u77e5\u8bc6\u5e93\uff0c\u800c\u4e0d\u662f\u968f\u4fbf\u5806\u8d44\u6599\uff0c\u6700\u597d\u8fd8\u5e26\u4e00\u4e2a\u7b80\u5355\u7684\u5b89\u88c5\u811a\u672c\uff0c\u65b9\u4fbf\u628a skills \u590d\u5236\u5230\u672c\u673a\u7684 skills \u76ee\u5f55\u91cc\u3002\u4e5f\u5e2e\u6211\u628a README \u5199\u5f97\u50cf\u4e00\u4e2a\u80fd\u76f4\u63a5\u53d1\u5e03\u5230 GitHub \u7684\u9879\u76ee\u9996\u9875\uff0c\u8bf4\u660e\u600e\u4e48\u7528\uff0c\u600e\u4e48\u4e0b\u8f7d\uff0c\u600e\u4e48\u8d21\u732e\u3002  \n\n\u5982\u679c\u9700\u8981\u7684\u8bdd\uff0c\u53ef\u4ee5\u987a\u624b\u628a\u76ee\u5f55\u7d22\u5f15\u548c\u5206\u7c7b\u9875\u9762\u4e5f\u4e00\u8d77\u751f\u6210\u597d\uff0c\u5185\u5bb9\u5c3d\u91cf\u7ed3\u6784\u6e05\u695a\uff0c\u9002\u5408\u540e\u9762\u7ee7\u7eed\u4e8c\u6b21\u5f00\u53d1\u3002",
+    "charCount": 375,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "walthergl66-mis-skills",
+    "name": "WaltherGL66/mis-skills",
+    "url": "https://gitreverse.com/WaltherGL66/mis-skills",
+    "category": "Skill Routers",
+    "prompt": "Build me a small Python and script based tool that manages a portable AI agent skill library.\n\nI want one canonical skill folder under `.agents/skills`, and a mirrored public `skills/` folder that can be published for `npx skills add`. Each skill should live in its own folder with a required `SKILL.md`, and it can also include resources, examples, or helper scripts.\n\nPlease include commands to install skills from a registry, copy the shared skills into another project, sync the canonical skills into agent specific adapters, generate a skills catalog in `docs/SKILLS.md`, and validate naming, frontmatter, and duplicate metadata. Make it work on both Windows PowerShell and bash friendly systems, with simple scripts for bootstrap, sync, inventory, validate, and install. \n\nAlso add support for a registry file that tracks external sources, and make the repo easy to use with Codex, Cursor, Claude Code, Gemini CLI, Copilot, and similar tools. If you need to check current docs or conventions online, feel free to look them up.",
+    "charCount": 1032,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "comfy-org-comfyui",
+    "name": "Comfy-Org/ComfyUI",
+    "url": "https://gitreverse.com/Comfy-Org/ComfyUI",
+    "category": "Cloud Media & Diffusion",
+    "prompt": "I want to build a powerful app for creating AI art, videos, and audio. The main interface shouldn't be a simple form with text boxes; it should be a visual, node-based system. I'm thinking of a canvas where you can drag and drop different blocks\u2014like a model loader, a text prompt input, a sampler, an upscaler\u2014and then connect them with wires to build a custom generation pipeline, like a flowchart.\n\nThe system needs to be really flexible, supporting all the modern diffusion models like SDXL and SD3, but also stuff for video like Stable Video Diffusion and audio. It should handle ControlNets, LoRAs, and inpainting. It's important that it's smart about performance, only re-running the parts of the flowchart that have changed. A killer feature would be saving the entire workflow directly into the generated image file, so I can just drag and drop a PNG to load the exact process I used to create it. It should be built with Python and PyTorch.",
+    "charCount": 950,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "civitai-civitai",
+    "name": "civitai/civitai",
+    "url": "https://gitreverse.com/civitai/civitai",
+    "category": "Cloud Media & Diffusion",
+    "prompt": "Build me a web app for sharing Stable Diffusion model files and related assets, kind of like a community library where people can upload their models, browse what others have posted, and leave comments and feedback.\n\nI want users to be able to sign up, log in, create a profile, upload a model with details like description, tags, and preview images, then browse and search through everything easily. Make the experience feel like a modern creator community, with clear pages for model listings, individual model detail pages, and a simple way to discuss and rate or react to posts. Use a clean UI that feels good on desktop and mobile.\n\nIf anything is unclear, look up current docs online if you need to, and build it in a way that can handle lots of content and uploads without feeling clunky.",
+    "charCount": 795,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "aidc-ai-pixelle-video",
+    "name": "AIDC-AI/Pixelle-Video",
+    "url": "https://gitreverse.com/AIDC-AI/Pixelle-Video",
+    "category": "Cloud Media & Diffusion",
+    "prompt": "I want an app that lets me turn any topic or idea into a full short video automatically. All I should need to do is give it a topic\u2014for example, \u201cHow to develop a reading habit\u201d\u2014and it should then use AI to write a script, generate pictures or video clips for each line, make a voiceover, add background music, and combine everything into a finished video with my choice of style and format (vertical or horizontal). I don\u2019t know anything about editing or scripting so the process should all be handled by the AI, but it should still let me tweak things like which AI model to use, what kind of images or voice to generate, and what style I want. There should be a simple web interface where I can input my idea, pick a template, and watch the final video, and ideally I can upload my own photos or videos if I want. Look up any latest libraries and docs you need to make this work well.",
+    "charCount": 887,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "upscayl-upscayl",
+    "name": "upscayl/upscayl",
+    "url": "https://gitreverse.com/upscayl/upscayl",
+    "category": "Cloud Media & Diffusion",
+    "prompt": "Build me a simple desktop app like Upscayl, a free open source AI image upscaler for Linux, Mac, and Windows. I want to be able to open a low resolution photo, pick an upscale amount and an AI enhancement mode, then generate a bigger cleaner version that keeps as much detail as possible instead of looking blurry.\n\nPlease make the app feel easy for normal people, with drag and drop, a clear image preview, before and after comparison, progress while it runs, and an obvious save button for the final image. It should support common image files and make it clear that a Vulkan compatible GPU may be needed for the upscaling to work well.\n\nKeep everything focused on local image upscaling and a polished, friendly interface. If there are several models available, let me choose between them without making it confusing. Look up current docs online if you need to.",
+    "charCount": 863,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "cjpais-handy",
+    "name": "cjpais/Handy",
+    "url": "https://gitreverse.com/cjpais/Handy",
+    "category": "General",
+    "prompt": "Build me a simple desktop app called Handy that lets me do fully offline voice transcription on my own computer. I want to press a keyboard shortcut, talk, then have the transcribed text show up in whatever text box I was using. It should feel privacy focused and easy to use, with no cloud requirement. Please make it work on Windows, macOS, and Linux, with a small settings screen where I can choose shortcuts, pick a transcription model, choose language options, and switch between normal tap to start and push to talk.\n\nI also want it to filter silence automatically, support local Whisper style models plus a faster CPU friendly option with automatic language detection, and use GPU acceleration when available. Add useful desktop app touches like a tray icon, start hidden support, basic transcript history, and simple command line controls to start or stop recording from outside the app. If there are platform quirks, especially on Linux, handle them as gracefully as possible and document setup clearly. Look up current docs online if you need to.",
+    "charCount": 1056,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "k2-fsa-omnivoice",
+    "name": "k2-fsa/OmniVoice",
+    "url": "https://gitreverse.com/k2-fsa/OmniVoice",
+    "category": "General",
+    "prompt": "I'd like to build a powerful text-to-speech application in Python. The main thing it should do is high-quality voice cloning with very little reference audio\u2014ideally just a few seconds. It should feel responsive, with low latency, and support both streaming and non-streaming modes so it could be used for interactive stuff like voice assistants.\n\nIt's super important that it's multilingual right out of the box, handling major languages like English, Chinese, Japanese, and others without needing a bunch of different models. I also want control over the output, like adjusting speech speed, and the ability to influence the emotion or tone through a text prompt.\n\nFor the architecture, let's use a modern neural codec approach, probably something with flow matching for the diffusion side to keep quality high. It would be great to have a Gradio web interface for easy testing, along with a clean Python API for integrating it into other projects.",
+    "charCount": 950,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "guijiai-heygem-ai",
+    "name": "GuijiAI/HeyGem.ai",
+    "url": "https://gitreverse.com/GuijiAI/HeyGem.ai",
+    "category": "General",
+    "prompt": "Build me a simple desktop app for creating an AI avatar on my own computer, mainly for Windows, and support Ubuntu if it's not too much trouble.\n\nI want to select a short source video of myself, pick an audio file, and have the app generate a new video where my lips and head move naturally to the audio, with realistic blinks and small expressions. It should feel like a local, private version of HeyGen.\n\nPlease make the UI easy to use: let me preview the input video, play the audio, see a live progress bar while it processes, and preview or save the final MP4.\n\nUnder the hood, package the necessary voice and face AI models so they run locally with GPU acceleration on CUDA, but include fallback instructions if someone needs CPU mode. Keep the setup simple by bundling or scripting the dependencies, and include basic settings like choosing output resolution, processing speed vs quality presets, and language options if applicable.\n\nLook up current docs online if you need to, especially for dependencies and packaging.",
+    "charCount": 1027,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "e2b-dev-awesome-ai-agents",
+    "name": "e2b-dev/awesome-ai-agents",
+    "url": "https://gitreverse.com/e2b-dev/awesome-ai-agents",
+    "category": "General",
+    "prompt": "Build me a polished public GitHub style directory called Awesome AI Agents.\n\nI want it to be a curated list of autonomous AI agents and assistant products, split into open source projects and closed source products. Each entry should have the project name, link, short plain English summary, category, a longer description, image if available, and useful links like docs, GitHub, website, Discord, paper, or social accounts. Make it easy to skim, with collapsible detail sections and a big landscape image near the top.\n\nPlease keep the tone friendly and community focused. Add a short intro explaining what the list is, a link for people to submit new products, and a note asking contributors to keep entries alphabetical and in the right category. Include a small section promoting E2B code interpreter for AI apps with docs and contact links. Keep it as a clean README first, with assets ready for images.",
+    "charCount": 908,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "sickn33-agentic-awesome-skills",
+    "name": "sickn33/agentic-awesome-skills",
+    "url": "https://gitreverse.com/sickn33/agentic-awesome-skills",
+    "category": "General",
+    "prompt": "Build me a repo that acts like a big installable library of reusable AI coding assistant skills. I want people to be able to browse a large catalog of skills, search by what they need, and then either install the full collection or pick smaller focused packs for things like web app building, security, docs, product work, testing, and workflows.\n\nIt should feel useful for people using Claude Code, Cursor, Codex CLI, Gemini CLI, Autohand Code, Antigravity, Copilot, and similar tools. Each skill should be packaged as a clear playbook file with practical instructions, and the project should also include bundles, workflow guides, and plugin safe distributions for people who do not want the entire library.\n\nPlease include an easy installer command, simple docs for choosing the right setup, and a hosted web catalog experience for discovery with skill details and comparisons. Keep it community friendly, easy to update, and organized enough that new skills and plugins can be added over time. Look up current docs online if you need to.",
+    "charCount": 1041,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "github-spec-kit",
+    "name": "github/spec-kit",
+    "url": "https://gitreverse.com/github/spec-kit",
+    "category": "General",
+    "prompt": "I want to build a toolkit that helps me create software using a \"spec-driven development\" approach. Instead of just vibe coding, I want a more structured process for working with an AI.\n\nThe core of this should be a Python CLI tool, let's call it `specify`. The workflow would be something like this: first, I define the project's core principles in a \"constitution\" file. Then, I'll write a high-level spec describing what the app should do in plain English. Based on that spec, the tool should generate a technical plan, break it down into a task list, and then execute the implementation to write the actual code.\n\nThe main idea is that the specification becomes the executable source of truth. It would also be great if the toolkit was extensible with presets and plugins. Let's start by building the main CLI and the core commands for the spec, plan, and implement phases.",
+    "charCount": 877,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "buildcontext-fable-orchestrator",
+    "name": "BuildContext/fable-orchestrator",
+    "url": "https://gitreverse.com/BuildContext/fable-orchestrator",
+    "category": "General",
+    "prompt": "Build me a Claude Code plugin and shell based orchestrator for long running React Native and Expo work, where Claude acts as the project manager instead of doing all the typing itself.\n\nI want a system where I can give a high level mobile task, and the orchestrator breaks it down into phases, generates a clear plan, runs automated checks, and calls Claude Code subagents or CLI tools to make changes safely. It should track progress in a ledger style file, run TypeScript and lint checks between steps, and stop with a clear error report if a verification step fails.\n\nPlease include helpful developer commands for starting tasks, resuming paused runs, and checking status. Add safety rails so it won't overwrite important configs without warning, and make sure it works well with Expo CLI and React Native workflows.\n\nKeep the setup simple: document any required Claude Code settings, provide clear command examples, and write clean shell scripts or node helpers to glue it all together. Look up current docs online if you need to.",
+    "charCount": 1034,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "ruvnet-ruflo",
+    "name": "ruvnet/ruflo",
+    "url": "https://gitreverse.com/ruvnet/ruflo",
+    "category": "General",
+    "prompt": "Build me an advanced AI agent orchestration platform, let's call it Ruflo. The main idea is to create a system that can coordinate a whole \"swarm\" of specialized agents to tackle complex software projects collaboratively, instead of just using a single AI assistant.\n\nI need it to support different swarm topologies, like hierarchical where a lead agent delegates to specialists, or a mesh where agents communicate more peer-to-peer. It should include agents for specific roles like architect, coder, tester, and reviewer.\n\nKey requirements:\n- Native integration with tools like Claude Code, Codex, and Gemini.\n- A strong Model Context Protocol (MCP) server so other tools can tap into the swarm.\n- Persistent memory and a shared knowledge base (RAG) so the agents learn over time and don't forget context.\n- A smart routing engine that can dynamically pick the best model for each task to optimize for cost and speed.\n- A clean CLI for managing everything: `ruflo init`, `ruflo swarm`, etc.\n\nThe whole thing should feel robust and enterprise-ready, with telemetry, logging, and security built-in.",
+    "charCount": 1097,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "codebuffai-freebuff",
+    "name": "CodebuffAI/freebuff",
+    "url": "https://gitreverse.com/CodebuffAI/freebuff",
+    "category": "Free APIs & Models",
+    "prompt": "Build me a free AI coding assistant called Freebuff that works in the terminal and can also support a desktop app, web app, and cloud sandboxes.\n\nI want to open it in any repo, ask it to explain code, fix bugs, or build new features, and have it read files, run terminal commands, and write changes directly. It should support free and unmetered models like DeepSeek, GLM, and other open options, with a clean menu to switch models easily.\n\nPlease include good terminal ergonomics: a clear chat view, simple keyboard shortcuts, syntax highlighted diffs before applying changes, and an easy installer for macOS, Linux, and Windows. Add an option to connect to cloud sandboxes so I can run agents remotely on GitHub repos. Look up current docs online if you need to.",
+    "charCount": 764,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "ripienaar-free-for-dev",
+    "name": "ripienaar/free-for-dev",
+    "url": "https://gitreverse.com/ripienaar/free-for-dev",
+    "category": "Free APIs & Models",
+    "prompt": "I want to build a simple, single-page website that serves as a big directory of free services for developers and DevOps people. The goal is to create a go-to resource for finding SaaS, PaaS, and IaaS products that have a generous \"always free\" tier, not just a short free trial.\n\nThe site should be organized into logical categories like Major Cloud Providers (AWS, Google Cloud, Azure), CI/CD, Databases, DNS, Web Hosting, Monitoring, and so on. Under each category, list the service, a link to it, and a quick summary of what its free plan includes.\n\nPlease research and compile this list for me. Focus on services useful for infrastructure and development. The design should be clean, text-heavy, and fast-loading, maybe with a table of contents at the top that links to the different sections on the page.",
+    "charCount": 809,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "public-apis-public-apis",
+    "name": "public-apis/public-apis",
+    "url": "https://gitreverse.com/public-apis/public-apis",
+    "category": "Free APIs & Models",
+    "prompt": "I want to build a simple website that serves as a directory for free public APIs. The main data source should be that super popular `public-apis` repo on GitHub; you can just pull the data from there.\n\nThe homepage should display all the different API categories like \"Animals,\" \"Finance,\" \"Games & Comics,\" etc. When a user clicks on a category, it should show them a list of all the relevant APIs. For each API in the list, I want to display its name, a brief description, and the key details like whether it needs authentication, if it's HTTPS, and its CORS status.\n\nThe most important feature is a search bar that's always visible at the top, allowing users to quickly filter through the whole list to find an API by name or keyword. Let's keep the design clean and minimal\u2014the goal is just to make the information easy to browse and search.",
+    "charCount": 845,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "nexu-io-open-design",
+    "name": "nexu-io/open-design",
+    "url": "https://gitreverse.com/nexu-io/open-design",
+    "category": "Design & Frontend Taste",
+    "prompt": "I want a local-first design tool that works sort of like Anthropic\u2019s Claude Design but lets me use my own AI agent (like Claude, Copilot, or other coding AIs) instead of being locked into one provider. I want to create things like pitch decks, prototypes, posters, or app mockups by just typing what I need. It should help me decide on the look and feel, ask questions interactively, and build the whole project folder for me, picking from lots of brand-style design systems and templates. I want to preview my design safely in the browser, and then export the result as HTML, PDF, or PowerPoint. I should be able to run it on my own machine or deploy it to the web if I want. Make sure it\u2019s open source and keeps my data local by default. If you\u2019re not sure about some details, feel free to look up current docs online as you go.",
+    "charCount": 830,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "cporter202-agentic-ai-apis",
+    "name": "cporter202/agentic-ai-apis",
+    "url": "https://gitreverse.com/cporter202/agentic-ai-apis",
+    "category": "Free APIs & Models",
+    "prompt": "I want to create the go-to resource for developers building AI agents. Let's make a GitHub repository that's a curated directory of all the best APIs for this space. It shouldn't be a junk drawer of random APIs, but a focused launchpad for building autonomous systems and copilots.\n\nPlease organize the APIs into three main categories. One for the actual agent execution and orchestration layers, another for the AI models that provide intelligence and generation, and a third for APIs that connect agents to real-world tools and data.\n\nThe main README file should be the front page. Make it look professional and easy to navigate with a nice hero image and clear links to the categories. The most important feature is that this list needs to stay current automatically. Set up a script that syncs daily with a public API catalog online to fetch the latest data and updates the repository for me.",
+    "charCount": 896,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "versuscontrol-devops-ai-guidelines",
+    "name": "VersusControl/devops-ai-guidelines",
+    "url": "https://gitreverse.com/VersusControl/devops-ai-guidelines",
+    "category": "General",
+    "prompt": "Build me a clean documentation style website for a project called DevOps AI Guidelines & Learning Path.\n\nIt should help DevOps people learn how to use AI step by step, starting from beginner friendly basics and moving toward more advanced topics like MCP, AI agents, monitoring, project management, and AWS focused AI workflows. I want it to feel like a practical learning hub, not a sales page. Include a clear homepage, a roadmap section, pages for the main learning paths, a team guidelines section, interview prep, useful prompts, and a resources area.\n\nMake it easy to navigate, with simple cards or sections for each guide, and keep the tone helpful and professional. If you need current best practices for docs layout or accessibility, look them up online. Please make the design polished, responsive, and easy to extend as more guides get added.",
+    "charCount": 853,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "mattpocock-skills",
+    "name": "mattpocock/skills",
+    "url": "https://gitreverse.com/mattpocock/skills",
+    "category": "General",
+    "prompt": "I want to create a collection of \"agent skills\" that I can use with my AI coding assistant to make my engineering work faster. These should feel like a set of custom productivity scripts for different tasks.\n\nFor example, I need a skill that can take a conversation we've had about a new feature and automatically generate a product requirements document, then file it as an issue on GitHub. Another one should handle test-driven development, where it follows a red-green-refactor loop to build things. I'd also love a tool that can automatically set up a new project with standard pre-commit hooks for Prettier and linting. It would also be great to have a skill for triaging bug reports by investigating the codebase to find the root cause and proposing a fix. It's essentially a suite of helper tools for planning, coding, and project setup.",
+    "charCount": 844,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "templatical-sdk",
+    "name": "templatical/sdk",
+    "url": "https://www.gitreverse.com/templatical/sdk",
+    "category": "General",
+    "prompt": "Build me a drag and drop email editor that I can drop into a web app with one simple setup call.\n\nI want users to be able to create email templates visually, move blocks around, edit text and images, and save everything as JSON so it can be stored and loaded later. The editor should also export clean MJML and HTML so the emails render properly in email clients. It should feel polished and production ready, with a live preview, undo and redo, reusable blocks, basic theming, and support for common email sections like text, image, button, divider, social links, menus, tables, and custom HTML.\n\nMake it framework agnostic if possible, so it can work in plain JavaScript as well as popular frontend apps. Use Vue and TipTap under the hood if that fits the project, and keep the editor isolated so it does not mess with the rest of the page styling. If you need to, look up current docs online while building.",
+    "charCount": 910,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "anthropics-skills",
+    "name": "anthropics/skills",
+    "url": "https://gitreverse.com/anthropics/skills",
+    "category": "General",
+    "prompt": "I want to create a framework for defining 'skills' that an AI agent can learn and use. The idea is that a skill is just a self-contained folder with instructions and any necessary resources that teach an AI how to perform a specialized task in a repeatable way. For example, I'd want skills for common business tasks like generating a PowerPoint or Word document using my company's branding, analyzing data with a specific workflow, or automating certain communications.\n\nThe main part of a skill should be a simple markdown file with some basic metadata like a name and description at the top. Please set up the main project structure, include a simple template folder for creating a new skill, and then create a variety of example skills to show what's possible. Include ones for creating popular document types like PDF, DOCX, and XLSX, plus a few others for more technical or creative tasks to serve as inspiration.",
+    "charCount": 919,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "jpisnice-shadcn-ui-mcp-server",
+    "name": "Jpisnice/shadcn-ui-mcp-server",
+    "url": "https://gitreverse.com/Jpisnice/shadcn-ui-mcp-server",
+    "category": "MCP Servers & Connectors",
+    "prompt": "Build me an MCP server for shadcn ui v4 that helps AI assistants understand the components, blocks, demos, metadata, and install steps, so it can answer questions and generate code for React, Svelte, Vue, and React Native.\n\nI want it to work as a normal CLI server by default, and also support SSE so it can be used over HTTP with multiple clients. Please include easy setup with an optional GitHub token for better rate limits, caching so it does not hit GitHub too hard, and a clean way to switch the target framework and the React UI library choice when needed.\n\nIt should also be easy to run in Docker, and simple enough to connect to Claude Desktop or Claude Code without much setup. If you need to check the current MCP or shadcn docs while building it, go ahead and look them up online.",
+    "charCount": 793,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "21st-dev-magic-mcp",
+    "name": "21st-dev/magic-mcp",
+    "url": "https://gitreverse.com/21st-dev/magic-mcp",
+    "category": "MCP Servers & Connectors",
+    "prompt": "Build me a TypeScript tool called Magic AI Agent that works as an MCP server for frontend developers inside Cursor, Windsurf, VS Code, Cline, and Claude.\n\nThe main idea is simple. A developer should type something like `/ui create a modern responsive navbar` in their AI coding chat, and the tool should generate a polished, editable React UI component that fits into the existing project. It should use a 21st.dev style component library, support TypeScript, and be able to include professional brand logos through SVGL when needed.\n\nPlease include a smooth setup flow where the user adds their 21st.dev API key, then installs the server with one command or by copying a small config block into their IDE settings. Make the README really clear for non experts, with setup steps, examples, supported editors, FAQ, and beta notice.\n\nKeep the code clean, safe, and focused on only creating or changing component related files. Look up current MCP docs online if you need to.",
+    "charCount": 972,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "vercel-labs-agent-skills",
+    "name": "vercel-labs/agent-skills",
+    "url": "https://gitreverse.com/vercel-labs/agent-skills",
+    "category": "General",
+    "prompt": "Hey, I'd like you to build me a modern web app. Please use a framework like Next.js. As you build it, I want you to focus heavily on performance and best practices. Follow Vercel's own engineering guidelines to make sure it's fast and optimized\u2014check for things like bundle size and efficient data fetching.\n\nThe user experience is also really important. Please audit the UI as you go, making sure it\u2019s accessible and follows modern web design rules for things like forms, typography, and dark mode. For navigation, let's add some really smooth, app-like page transitions. Finally, once you have something ready, please deploy it to Vercel and send me the preview link so I can check it out.",
+    "charCount": 691,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "greensock-gsap-skills",
+    "name": "greensock/gsap-skills",
+    "url": "https://gitreverse.com/greensock/gsap-skills",
+    "category": "General",
+    "prompt": "I need a modern, single-page website to act as a portfolio. It should be built with React and feel really slick and interactive, with lots of smooth animations.\n\nWhen the page first loads, I want the main headline to animate in, maybe with the letters appearing one by one. Then, as you scroll down the page, different content sections, like my projects and bio, should gracefully fade and slide into view. It would be really cool if one of the sections could \"pin\" to the screen for a moment while you scroll, with some text or images changing as you pass through that pinned area.\n\nPlease make sure the animations are high-performance and don't cause any lag. You should use a professional library for this, like GSAP, to manage all the scroll-based triggers and sequencing.",
+    "charCount": 776,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "freshtechbro-claudedesignskills",
+    "name": "freshtechbro/claudedesignskills",
+    "url": "https://gitreverse.com/freshtechbro/claudedesignskills",
+    "category": "Design & Frontend Taste",
+    "prompt": "Build me a Claude Code plugin marketplace for modern web design skills, focused on 3D graphics, animation, scroll effects, and interactive websites.\n\nI want it to feel like a professional design agency skill pack. It should include installable skills for things like Three.js, WebGL, React Three Fiber, GSAP ScrollTrigger, Framer Motion, Babylon.js, Lottie, Spline, Rive, Blender workflows, and modern web design patterns. Each skill should have clear instructions, helpful references, starter templates, small generator scripts, and slash commands so Claude can quickly create scenes, animations, components, and boilerplate.\n\nPlease also make category bundles, like core 3D animation, scroll effects, animation components, authoring tools, and general integration patterns. Add specialized agents for the main domains, plus documentation that explains how to install the marketplace, install individual skills, upload skills to Claude, and validate or package everything correctly.\n\nUse current Claude Code plugin and skill docs if you need to look anything up.",
+    "charCount": 1063,
+    "targetDomain": "Cloud/Edge"
+  },
+  {
+    "id": "get-convex-agent-skills",
+    "name": "get-convex/agent-skills",
+    "url": "https://gitreverse.com/get-convex/agent-skills",
+    "category": "General",
+    "prompt": "Build me a small TypeScript project that packages a set of Convex skills for common agent workflows.\n\nI want one place where an AI coding assistant can learn how to help with Convex setup, authentication, reusable components, safe migrations, and performance troubleshooting. Make it easy to install just one skill or all of them, and include clear instructions for using them in tools like Cursor, Claude Code, VS Code, Windsurf, and Codex. Keep the skills focused on doing the job, not just explaining Convex. Add a top level skill that points to the right one when needed, plus good examples and simple checklists in each skill. Include the basic repo files, formatting, and a README that explains what the skills are for and how to use them. If you need to confirm current Convex or agent skills docs, look them up online before finishing.",
+    "charCount": 843,
+    "targetDomain": "Cloud/Edge"
+  }
+]

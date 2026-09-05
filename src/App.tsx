@@ -28,6 +28,10 @@ import { AuthPage } from './pages/AuthPage';
 import { ContactPage } from './pages/ContactPage';
 import { BlackHoleShowcasePage } from './pages/BlackHoleShowcasePage';
 import { ScrollHeroShowcasePage } from './pages/ScrollHeroShowcasePage';
+import { MultiCrawlerPage } from './pages/MultiCrawlerPage';
+import { GitReversePromptsPage } from './pages/GitReversePromptsPage';
+import { DesignLabPage } from './pages/DesignLabPage';
+import { CliTerminalPage } from './pages/CliTerminalPage';
 import { ActionLedgerModal } from './components/modals/ActionLedgerModal';
 import debPhoto from './assets/deb.jpg';
 
@@ -53,6 +57,10 @@ export const App: React.FC = () => {
         else if (hash === '/login') setCurrentRoute('/auth');
         else if (hash === '/blackhole' || hash === '/black-hole') setCurrentRoute('/black-hole');
         else if (hash === '/scrollhero' || hash === '/scroll-hero') setCurrentRoute('/scroll-hero');
+        else if (hash === '/crawler' || hash === '/firecrawl') setCurrentRoute('/crawler');
+        else if (hash === '/prompts' || hash === '/gitreverse') setCurrentRoute('/prompts');
+        else if (hash === '/design-lab' || hash === '/designs') setCurrentRoute('/design-lab');
+        else if (hash === '/terminal' || hash === '/cli') setCurrentRoute('/terminal');
         else setCurrentRoute(hash);
       }
     };
@@ -74,13 +82,19 @@ export const App: React.FC = () => {
       else if (path === '/login') setCurrentRoute('/auth');
       else if (path === '/blackhole' || path === '/black-hole') setCurrentRoute('/black-hole');
       else if (path === '/scrollhero' || path === '/scroll-hero') setCurrentRoute('/scroll-hero');
+      else if (path === '/crawler' || path === '/firecrawl') setCurrentRoute('/crawler');
+      else if (path === '/prompts' || hashAlias(path) === '/prompts') setCurrentRoute('/prompts');
+      else if (path === '/design-lab' || path === '/designs') setCurrentRoute('/design-lab');
+      else if (path === '/terminal' || path === '/cli') setCurrentRoute('/terminal');
       else setCurrentRoute(path);
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const hashAlias = (p: string) => (p === '/gitreverse' ? '/prompts' : p);
+
   const handleSelectEntity = (id: string) => {
-    if (id === 'black-hole' || id === 'scroll-hero') {
+    if (id === 'black-hole' || id === 'scroll-hero' || id === 'crawler' || id === 'prompts' || id === 'design-lab' || id === 'terminal') {
       navigate(`/${id}`);
       return;
     }
@@ -284,6 +298,49 @@ export const App: React.FC = () => {
 
             <span className="text-border-prominent mx-1">|</span>
 
+            {/* Multi-Crawler, Prompts, Design Lab & Terminal Studio */}
+            <button
+              onClick={() => navigate('/crawler')}
+              className={`px-2 py-1 rounded-lg transition-all text-[11px] font-mono flex items-center gap-1 ${
+                currentRoute === '/crawler' ? 'bg-cyan-950 text-cyan-300 border border-cyan-500 shadow-sm' : 'text-text-muted hover:text-cyan-300'
+              }`}
+              title="Multi-Vector Web, Tech & Visual Crawler"
+            >
+              <span>Crawler</span>
+            </button>
+
+            <button
+              onClick={() => navigate('/prompts')}
+              className={`px-2 py-1 rounded-lg transition-all text-[11px] font-mono flex items-center gap-1 ${
+                currentRoute === '/prompts' ? 'bg-indigo-950 text-indigo-300 border border-indigo-500 shadow-sm' : 'text-text-muted hover:text-indigo-300'
+              }`}
+              title="GitReverse Prompt Vault"
+            >
+              <span>Prompts</span>
+            </button>
+
+            <button
+              onClick={() => navigate('/design-lab')}
+              className={`px-2 py-1 rounded-lg transition-all text-[11px] font-mono flex items-center gap-1 ${
+                currentRoute === '/design-lab' ? 'bg-rose-950 text-rose-300 border border-rose-500 shadow-sm' : 'text-text-muted hover:text-rose-300'
+              }`}
+              title="Design System & Component Lab"
+            >
+              <span>Design Lab</span>
+            </button>
+
+            <button
+              onClick={() => navigate('/terminal')}
+              className={`px-2 py-1 rounded-lg transition-all text-[11px] font-mono flex items-center gap-1 ${
+                currentRoute === '/terminal' ? 'bg-emerald-950 text-emerald-300 border border-emerald-500 shadow-sm' : 'text-text-muted hover:text-emerald-300'
+              }`}
+              title="Agent CLI & Terminal Playground"
+            >
+              <span>Terminal</span>
+            </button>
+
+            <span className="text-border-prominent mx-1">|</span>
+
             {/* shadcn Interactive Visualizers */}
             <button
               onClick={() => navigate('/black-hole')}
@@ -336,6 +393,14 @@ export const App: React.FC = () => {
           <ScrollHeroShowcasePage onBack={() => navigate('/')} />
         )}
 
+        {/* Multi-Crawler, Prompts, Design Lab & Terminal Studio */}
+        {currentRoute === '/crawler' && <MultiCrawlerPage />}
+        {currentRoute === '/prompts' && (
+          <GitReversePromptsPage onNavigateToStudio={() => navigate('/studio')} />
+        )}
+        {currentRoute === '/design-lab' && <DesignLabPage />}
+        {currentRoute === '/terminal' && <CliTerminalPage />}
+
         {/* Operational Viewers */}
         {currentRoute === '/router-view' && <ModelRouterVisualizer />}
         {currentRoute === '/skills-view' && <SkillsRegistryView />}
@@ -360,9 +425,13 @@ export const App: React.FC = () => {
             <span className="text-rose-400">Tribeni Minati Foundation NGO</span>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center gap-4">
             <button onClick={() => navigate('/about')} className="hover:text-text-secondary">About</button>
             <button onClick={() => navigate('/studio')} className="text-cyan-300 hover:underline">AI Studio</button>
+            <button onClick={() => navigate('/crawler')} className="hover:text-cyan-300">Crawler</button>
+            <button onClick={() => navigate('/prompts')} className="hover:text-indigo-300">Prompts</button>
+            <button onClick={() => navigate('/design-lab')} className="hover:text-rose-300">Design Lab</button>
+            <button onClick={() => navigate('/terminal')} className="hover:text-emerald-300">Terminal</button>
             <button onClick={() => navigate('/catalog')} className="hover:text-text-secondary">Skills</button>
             <button onClick={() => navigate('/contact')} className="hover:text-text-secondary">Contact</button>
             <button onClick={() => setIsActionModalOpen(true)} className="text-accent-success hover:underline flex items-center gap-1">

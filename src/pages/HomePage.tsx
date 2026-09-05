@@ -11,7 +11,9 @@ import {
   HeartHandshake, 
   Mail, 
   Layers,
-  Award
+  Award,
+  Globe,
+  Terminal
 } from 'lucide-react';
 import { ShaderGradientHero } from '../components/motion/ShaderGradientHero';
 import { SplineScene3D } from '../components/motion/SplineScene3D';
@@ -262,13 +264,13 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenActionModa
             </div>
             <div className="flex items-center justify-between pt-4 border-t border-border-subtle text-xs font-mono">
               <button
-                onClick={() => onNavigate('/catalog')}
+                onClick={() => onNavigate('/prompts')}
                 className="flex items-center gap-1.5 text-accent-secondary hover:text-white transition-colors"
               >
                 <span>Browse Prompts Directory</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
-              <span className="text-text-muted">docs/GITREVERSE_PROMPTS.md</span>
+              <span className="text-text-muted">49 Sourced Prompts</span>
             </div>
           </div>
 
@@ -300,6 +302,112 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenActionModa
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
               <span className="text-text-muted">FastAPI + Vercel</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Interactive Engineering & Decompilation Suites */}
+      <div>
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-6">
+          <div>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/80 border border-cyan-700/60 text-cyan-300 text-xs font-mono mb-2">
+              <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+              <span>Multi-Vector Decompilation Suites</span>
+            </div>
+            <h2 className="text-2xl font-heading font-bold text-text-primary">
+              Live Crawlers, Prompt Vaults & Sandbox Environments
+            </h2>
+          </div>
+          <span className="text-xs font-mono text-cyan-400">4 New Dedicated Pages Live</span>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {/* Card 1: Multi-Crawler */}
+          <div 
+            onClick={() => onNavigate('/crawler')}
+            className="p-6 rounded-3xl bg-surface-subtle border border-border-subtle hover:border-cyan-400/60 transition-all cursor-pointer group shadow-xl flex flex-col justify-between hover:bg-slate-900/60"
+          >
+            <div>
+              <div className="w-10 h-10 rounded-2xl bg-cyan-950/80 border border-cyan-700/60 flex items-center justify-center text-cyan-400 mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                <Globe className="w-5 h-5" />
+              </div>
+              <h3 className="text-base font-heading font-bold text-white group-hover:text-cyan-300 transition-colors">
+                Firecrawl Multi-Vector Studio
+              </h3>
+              <p className="text-xs text-text-secondary mt-2 leading-relaxed font-body">
+                Deconstruct 28 reference websites into Web structure, Tech stack signatures, and LLM-ready markdown (<code className="text-cyan-300">llms.txt</code>).
+              </p>
+            </div>
+            <div className="pt-4 mt-4 border-t border-slate-800 flex items-center justify-between text-xs font-mono text-cyan-400">
+              <span>Launch Multi-Crawler</span>
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </div>
+
+          {/* Card 2: GitReverse Vault */}
+          <div 
+            onClick={() => onNavigate('/prompts')}
+            className="p-6 rounded-3xl bg-surface-subtle border border-border-subtle hover:border-indigo-400/60 transition-all cursor-pointer group shadow-xl flex flex-col justify-between hover:bg-slate-900/60"
+          >
+            <div>
+              <div className="w-10 h-10 rounded-2xl bg-indigo-950/80 border border-indigo-700/60 flex items-center justify-center text-indigo-400 mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                <Sparkles className="w-5 h-5" />
+              </div>
+              <h3 className="text-base font-heading font-bold text-white group-hover:text-indigo-300 transition-colors">
+                GitReverse Prompt Vault
+              </h3>
+              <p className="text-xs text-text-secondary mt-2 leading-relaxed font-body">
+                Explore and copy 49 reverse-engineered system prompts verbatim from leading repositories, agents, and skills.
+              </p>
+            </div>
+            <div className="pt-4 mt-4 border-t border-slate-800 flex items-center justify-between text-xs font-mono text-indigo-400">
+              <span>Explore 49 Prompts</span>
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </div>
+
+          {/* Card 3: Design Lab */}
+          <div 
+            onClick={() => onNavigate('/design-lab')}
+            className="p-6 rounded-3xl bg-surface-subtle border border-border-subtle hover:border-rose-400/60 transition-all cursor-pointer group shadow-xl flex flex-col justify-between hover:bg-slate-900/60"
+          >
+            <div>
+              <div className="w-10 h-10 rounded-2xl bg-rose-950/80 border border-rose-700/60 flex items-center justify-center text-rose-400 mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                <Layers className="w-5 h-5" />
+              </div>
+              <h3 className="text-base font-heading font-bold text-white group-hover:text-rose-300 transition-colors">
+                Design System & Component Lab
+              </h3>
+              <p className="text-xs text-text-secondary mt-2 leading-relaxed font-body">
+                Interactive token inspector (§18), typography scales, and copy-paste components from 21st.dev and Uiverse.
+              </p>
+            </div>
+            <div className="pt-4 mt-4 border-t border-slate-800 flex items-center justify-between text-xs font-mono text-rose-400">
+              <span>Open Design Lab</span>
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </div>
+
+          {/* Card 4: Agent Terminal */}
+          <div 
+            onClick={() => onNavigate('/terminal')}
+            className="p-6 rounded-3xl bg-surface-subtle border border-border-subtle hover:border-emerald-400/60 transition-all cursor-pointer group shadow-xl flex flex-col justify-between hover:bg-slate-900/60"
+          >
+            <div>
+              <div className="w-10 h-10 rounded-2xl bg-emerald-950/80 border border-emerald-700/60 flex items-center justify-center text-emerald-400 mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                <Terminal className="w-5 h-5" />
+              </div>
+              <h3 className="text-base font-heading font-bold text-white group-hover:text-emerald-300 transition-colors">
+                Agent CLI & Terminal Sandbox
+              </h3>
+              <p className="text-xs text-text-secondary mt-2 leading-relaxed font-body">
+                In-browser interactive terminal to execute OpenCode, Claude slash commands (/design-md), and Firecrawl CLI.
+              </p>
+            </div>
+            <div className="pt-4 mt-4 border-t border-slate-800 flex items-center justify-between text-xs font-mono text-emerald-400">
+              <span>Launch Terminal</span>
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
             </div>
           </div>
         </div>
