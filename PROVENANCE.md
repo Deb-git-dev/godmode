@@ -76,3 +76,30 @@
 | `gitreverse/prompt-vault` | Reverse-Engineered Prompts | Interactive vault of 49 complete system prompts extracted from leading AI agents and skills. | `src/data/gitreversePrompts.json`, `src/pages/GitReversePromptsPage.tsx` |
 | `godmode/design-lab` | Design System Studio | Token inspector (§18), typography scales, and interactive double-bezel 3D component playground. | `src/pages/DesignLabPage.tsx` |
 | `godmode/cli-terminal` | Agent Terminal Sandbox | Interactive in-browser CLI emulator supporting OpenCode, Claude Code (/design-md), and Firecrawl commands. | `src/pages/CliTerminalPage.tsx` |
+| `21st.dev/kintaro-walkway-awwwards` | Interactive Canvas/WebGL | Kinetic typography & gallery with dual-tone lighting inspired by Awwwards winners. | `src/pages/showcase/KintaroAwwwardsPage.tsx` |
+| `21st.dev/designali-in/web-gl-shader` | WebGL Shader Primitive | GLSL fragment shader canvas with interactive mouse coordinate uniforms and color blending. | `src/components/animations/webgl-shader.tsx`, `src/pages/showcase/WebGLShaderPage.tsx` |
+| `21st.dev/designali-in/neural-noise` | Procedural Canvas | Simplex/Perlin procedural noise field with dynamic frequency sliders and wave turbulence. | `src/components/animations/neural-noise.tsx`, `src/pages/showcase/NeuralNoisePage.tsx` |
+| `21st.dev/minhxthanh/neon-orbs` | Canvas Particle Primitive | Multi-layered glowing neon orb clusters with mouse reactivity & particle blur blending. | `src/components/animations/neon-orbs.tsx`, `src/pages/showcase/NeonOrbsPage.tsx` |
+| `21st.dev/dillionverma/orbiting-circles` | SVG/CSS Motion Primitive | SVG and CSS orbit trajectory simulation with customizable speed, radius, and inner glow. | `src/components/animations/orbiting-circles.tsx`, `src/pages/showcase/OrbitingCirclesPage.tsx` |
+| `21st.dev/Shatlyk1011/link-hover` | Micro-Interaction Primitive | Dynamic magnetic and slide hover effects for buttons, links, and navigation items. | `src/components/animations/link-hover.tsx`, `src/pages/showcase/LinkHoverPage.tsx` |
+| `21st.dev/shadcn/ai-image-generation` | Interactive Studio | AI image generation workspace with aspect ratio selectors, preset chips, and prompt composer. | `src/pages/showcase/AiImageGenerationPage.tsx` |
+| `21st.dev/chamaac/dancing-letters` | Kinetic Typography Primitive | Physics-driven typography with mouse repulsion, elastic damping, and spring dynamics. | `src/components/animations/dancing-letters.tsx`, `src/pages/showcase/DancingLettersPage.tsx` |
+| `21st.dev/black-hole-showcase` | 3D WebGL Primitive | Relativistic gravitational lensing and particle accretion disk showcase page. | `src/pages/showcase/BlackHoleShowcasePage.tsx` |
+| `21st.dev/prism-hero` | Hero Component | Chromatic dispersion prism hero section with glassmorphism badge elements. | `src/pages/showcase/PrismHeroPage.tsx` |
+| `21st.dev/vetra-template` | SaaS Template | High-converting dark-mode SaaS landing page with feature metrics and pricing matrix. | `src/pages/showcase/VetraTemplatePage.tsx` |
+| `21st.dev/velaris` | Portfolio Template | Editorial architecture & luxury agency portfolio with split-screen imagery and typography. | `src/pages/showcase/VelarisPage.tsx` |
+| `21st.dev/scroll-locked-video` | Scroll Motion Component | Viewport-locked cinematic frame scrubbing simulation with sticky scroll stages. | `src/pages/showcase/ScrollLockedVideoPage.tsx` |
+| `21st.dev/manuarora700/aurora-background` | Gradient Wave Primitive | Ambient fluid aurora gradient waves with customizable blur, blend modes, and animation pacing. | `src/components/animations/aurora-background.tsx`, `src/pages/showcase/AuroraBackgroundPage.tsx` |
+| `21st.dev/chowlol202/liquid-metal-hero` | Fluid Shader Primitive | Organic chrome liquid metal shader with cursor lighting and surface distortion. | `src/components/animations/liquid-metal.tsx`, `src/pages/showcase/LiquidMetalPage.tsx` |
+| `21st.dev/scroll-expansion` | Viewport Scroll Component | Dynamic container expanding on viewport scroll to reveal deep card context. | `src/pages/showcase/ScrollExpansionPage.tsx` |
+| `21st.dev/manuarora700/container-scroll-animation` | 3D Scroll Primitive | 3D perspective card container scroll with dynamic tilt, scale, and perspective depth. | `src/components/animations/container-scroll.tsx`, `src/pages/showcase/ContainerScrollPage.tsx` |
+| `21st.dev/splite` | 3D Hero Component | 3D interactive hero with embedded Spline/Three.js viewports and ambient glow. | `src/pages/showcase/SpliteHeroPage.tsx` |
+| `21st.dev/hero` | Developer Hero Component | Reuno-style modern developer infrastructure landing page with live terminal sandbox. | `src/pages/showcase/ReunoHeroPage.tsx` |
+| `21st.dev/prisma` | Database Hero Component | Prisma-inspired database & backend developer tool hero with schema preview. | `src/pages/showcase/PrismaHeroPage.tsx` |
+| `21st.dev/hero-3` | Cyberpunk Hero Component | Cyberpunk telemetry hero with glowing grid radar and live latency counters. | `src/pages/showcase/Hero3Page.tsx` |
+| `21st.dev/gradient-recipe` | CSS/SVG Gradient Studio | Interactive CSS and SVG radial gradient cookbook with exportable code snippets. | `src/pages/showcase/GradientRecipePage.tsx` |
+| `21st.dev/oceanic-shimmer` | Caustic Shader Primitive | Deep ocean iridescent caustic ripple effect with light refraction and flow simulation. | `src/pages/showcase/OceanicShimmerPage.tsx` |
+| `21st.dev/saa-template` | SaaS Dashboard Template | Enterprise multi-tenant SaaS dashboard template with KPI widgets and analytics charts. | `src/pages/showcase/SaaSTemplatePage.tsx` |
+| `21st.dev/responsive-hero` | Layout Primitive | Ultra-fluid responsive hero layout with dynamic column collapse and viewport scaling. | `src/pages/showcase/ResponsiveHeroPage.tsx` |
+| `21st.dev/bento` | Bento Grid Component | Knife/Apple-grade asymmetric bento grid with interactive hover illumination. | `src/pages/showcase/KinfeBentoPage.tsx` |
+| `21st.dev/showcase-hub` | Showcase Navigation | Central showcase index featuring category filter tabs, live search, and direct launch triggers for all 26 experiences. | `src/pages/ShowcaseIndexPage.tsx` |

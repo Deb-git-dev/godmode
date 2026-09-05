@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  ShieldCheck, 
   Home, 
   Compass, 
-  Info, 
-  LayoutDashboard, 
-  Mail, 
-  Play,
-  Sparkles,
-  Github
+  Sparkles, 
+  Github, 
+  Box 
 } from 'lucide-react';
 import { GridSweep } from './components/primitives/MotionPrimitives';
 import { AmbientCanvas3D } from './components/motion/AmbientCanvas3D';
@@ -32,8 +28,36 @@ import { MultiCrawlerPage } from './pages/MultiCrawlerPage';
 import { GitReversePromptsPage } from './pages/GitReversePromptsPage';
 import { DesignLabPage } from './pages/DesignLabPage';
 import { CliTerminalPage } from './pages/CliTerminalPage';
+import { ShowcaseIndexPage } from './pages/ShowcaseIndexPage';
 import { ActionLedgerModal } from './components/modals/ActionLedgerModal';
 import debPhoto from './assets/deb.jpg';
+
+// 21st.dev 26 Showcase Pages
+import { KintaroAwwwardsPage } from './pages/showcase/KintaroAwwwardsPage';
+import { WebGLShaderPage } from './pages/showcase/WebGLShaderPage';
+import { NeuralNoisePage } from './pages/showcase/NeuralNoisePage';
+import { NeonOrbsPage } from './pages/showcase/NeonOrbsPage';
+import { OrbitingCirclesPage } from './pages/showcase/OrbitingCirclesPage';
+import { LinkHoverPage } from './pages/showcase/LinkHoverPage';
+import { AiImageGenerationPage } from './pages/showcase/AiImageGenerationPage';
+import { DancingLettersPage } from './pages/showcase/DancingLettersPage';
+import { PrismHeroPage } from './pages/showcase/PrismHeroPage';
+import { VetraTemplatePage } from './pages/showcase/VetraTemplatePage';
+import { VelarisPage } from './pages/showcase/VelarisPage';
+import { ScrollLockedVideoPage } from './pages/showcase/ScrollLockedVideoPage';
+import { AuroraBackgroundPage } from './pages/showcase/AuroraBackgroundPage';
+import { LiquidMetalPage } from './pages/showcase/LiquidMetalPage';
+import { ScrollExpansionPage } from './pages/showcase/ScrollExpansionPage';
+import { ContainerScrollPage } from './pages/showcase/ContainerScrollPage';
+import { SpliteHeroPage } from './pages/showcase/SpliteHeroPage';
+import { ReunoHeroPage } from './pages/showcase/ReunoHeroPage';
+import { PrismaHeroPage } from './pages/showcase/PrismaHeroPage';
+import { Hero3Page } from './pages/showcase/Hero3Page';
+import { GradientRecipePage } from './pages/showcase/GradientRecipePage';
+import { OceanicShimmerPage } from './pages/showcase/OceanicShimmerPage';
+import { SaaSTemplatePage } from './pages/showcase/SaaSTemplatePage';
+import { ResponsiveHeroPage } from './pages/showcase/ResponsiveHeroPage';
+import { KinfeBentoPage } from './pages/showcase/KinfeBentoPage';
 
 export const App: React.FC = () => {
   const [currentRoute, setCurrentRoute] = useState<string>('/');
@@ -55,7 +79,7 @@ export const App: React.FC = () => {
         else if (hash === '/directory' || hash === '/projects') setCurrentRoute('/catalog');
         else if (hash === '/generator') setCurrentRoute('/studio');
         else if (hash === '/login') setCurrentRoute('/auth');
-        else if (hash === '/blackhole' || hash === '/black-hole') setCurrentRoute('/black-hole');
+        else if (hash === '/blackhole' || hash === '/black-hole' || hash === '/showcase/blackhole') setCurrentRoute('/black-hole');
         else if (hash === '/scrollhero' || hash === '/scroll-hero') setCurrentRoute('/scroll-hero');
         else if (hash === '/crawler' || hash === '/firecrawl') setCurrentRoute('/crawler');
         else if (hash === '/prompts' || hash === '/gitreverse') setCurrentRoute('/prompts');
@@ -80,10 +104,10 @@ export const App: React.FC = () => {
       else if (path === '/directory' || path === '/projects') setCurrentRoute('/catalog');
       else if (path === '/generator') setCurrentRoute('/studio');
       else if (path === '/login') setCurrentRoute('/auth');
-      else if (path === '/blackhole' || path === '/black-hole') setCurrentRoute('/black-hole');
+      else if (path === '/blackhole' || path === '/black-hole' || path === '/showcase/blackhole') setCurrentRoute('/black-hole');
       else if (path === '/scrollhero' || path === '/scroll-hero') setCurrentRoute('/scroll-hero');
       else if (path === '/crawler' || path === '/firecrawl') setCurrentRoute('/crawler');
-      else if (path === '/prompts' || hashAlias(path) === '/prompts') setCurrentRoute('/prompts');
+      else if (path === '/prompts' || path === '/gitreverse') setCurrentRoute('/prompts');
       else if (path === '/design-lab' || path === '/designs') setCurrentRoute('/design-lab');
       else if (path === '/terminal' || path === '/cli') setCurrentRoute('/terminal');
       else setCurrentRoute(path);
@@ -91,10 +115,8 @@ export const App: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const hashAlias = (p: string) => (p === '/gitreverse' ? '/prompts' : p);
-
   const handleSelectEntity = (id: string) => {
-    if (id === 'black-hole' || id === 'scroll-hero' || id === 'crawler' || id === 'prompts' || id === 'design-lab' || id === 'terminal') {
+    if (id === 'black-hole' || id === 'scroll-hero' || id === 'crawler' || id === 'prompts' || id === 'design-lab' || id === 'terminal' || id === 'showcase') {
       navigate(`/${id}`);
       return;
     }
@@ -102,91 +124,42 @@ export const App: React.FC = () => {
     navigate(`/detail/${id}`);
   };
 
+  const isFullBleedPage = 
+    currentRoute === '/scroll-hero' || 
+    currentRoute === '/black-hole' || 
+    currentRoute.startsWith('/showcase/');
+
   return (
-    <div className="relative min-h-screen bg-canvas text-text-primary flex flex-col font-body selection:bg-accent-primary/30">
-      {/* Background Ambience Primitives (§9) */}
+    <div className="min-h-screen bg-canvas text-text-primary flex flex-col selection:bg-accent-primary selection:text-white relative overflow-x-hidden font-body">
+      <CustomCursor3D />
       <AmbientCanvas3D />
       <GridSweep />
-      <CustomCursor3D />
 
-      {/* Top System Invariant Bar */}
-      <div className="border-b border-border-subtle bg-slate-950/90 backdrop-blur-md px-6 py-2 z-30 flex flex-wrap items-center justify-between gap-4 text-xs font-mono">
-        <div className="flex items-center gap-3">
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-accent-success animate-pulse" />
-            <span className="font-bold text-text-primary">DEBAPRIYA BHATTACHARYYA</span>
-          </div>
-          <span className="text-border-prominent">|</span>
-          <span className="text-text-muted hidden sm:inline">Role: <span className="text-accent-secondary font-semibold">AI Architect & Full-Stack</span></span>
-          <span className="text-border-prominent hidden md:inline">|</span>
-          <span className="text-text-muted hidden md:inline">Foundation: <span className="text-rose-400 font-semibold">Tribeni Minati NGO</span></span>
-        </div>
-
-        <div className="flex items-center gap-3">
-          {/* Facebook Link */}
-          <a
-            href="https://www.facebook.com/deb2remember"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1 text-blue-400 hover:text-blue-300 transition-colors"
-          >
-            <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-            </svg>
-            <span className="hidden sm:inline">Facebook</span>
-          </a>
-
-          <span className="text-border-prominent">|</span>
-
-          {/* GitHub Link */}
-          <a
-            href="https://github.com/Deb-git-dev"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1 text-text-secondary hover:text-white transition-colors"
-          >
-            <Github className="w-3.5 h-3.5" />
-            <span className="hidden sm:inline">GitHub</span>
-          </a>
-
-          <span className="text-border-prominent">|</span>
-
-          <button
-            onClick={() => setIsActionModalOpen(true)}
-            className="flex items-center gap-1 text-accent-secondary hover:text-white transition-colors"
-          >
-            <Play className="w-3 h-3 fill-accent-secondary" />
-            <span>Action Ledger</span>
-          </button>
-        </div>
-      </div>
-
-      {/* Main Sticky Header & Navigation */}
-      <header className="border-b border-border-subtle bg-surface-subtle/90 backdrop-blur-md sticky top-0 z-30 px-6 py-3">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
-          {/* Profile Identity & Thumbnail */}
-          <div
-            onClick={() => navigate('/')}
-            className="flex items-center gap-3 cursor-pointer group"
-          >
-            <div className="relative">
-              <div className="w-11 h-11 rounded-full overflow-hidden border-2 border-accent-primary/60 shadow-lg shadow-accent-primary/20 group-hover:border-accent-primary transition-colors">
-                <img
-                  src={debPhoto}
-                  alt="Debapriya Bhattacharyya"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform"
-                />
-              </div>
-              <span className="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-accent-success border-2 border-slate-950" />
+      {/* Global Invariant Header */}
+      <header className="sticky top-0 z-40 bg-slate-950/80 backdrop-blur-md border-b border-border-subtle px-4 py-2.5">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
+          
+          {/* Identity & Status */}
+          <div className="flex items-center gap-3">
+            <div className="relative cursor-pointer" onClick={() => navigate('/')}>
+              <img 
+                src={debPhoto} 
+                alt="Debapriya Bhattacharyya" 
+                className="w-10 h-10 rounded-full object-cover border-2 border-accent-primary shadow-lg hover:scale-105 transition-transform"
+              />
+              <span className="absolute bottom-0 right-0 w-3 h-3 bg-accent-success rounded-full border-2 border-slate-950 animate-pulse" />
             </div>
-
+            
             <div>
               <div className="flex items-center gap-2">
-                <h1 className="font-heading font-extrabold text-base text-text-primary tracking-tight">
-                  Debapriya Bhattacharyya
-                </h1>
-                <span className="px-2 py-0.5 text-[10px] font-mono rounded-full bg-accent-primary/20 text-accent-primary border border-accent-primary/30">
-                  Deb-git-dev
+                <span 
+                  onClick={() => navigate('/')} 
+                  className="font-heading font-bold text-sm tracking-tight text-white hover:text-accent-secondary transition-colors cursor-pointer"
+                >
+                  DEBAPRIYA BHATTACHARYYA
+                </span>
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-indigo-950 border border-indigo-800 text-indigo-300">
+                  GODMODE
                 </span>
               </div>
               <p className="text-[11px] text-text-secondary font-mono">
@@ -196,7 +169,7 @@ export const App: React.FC = () => {
           </div>
 
           {/* Navigation Bar */}
-          <nav className="flex items-center gap-1 p-1 bg-slate-950/80 rounded-xl border border-border-subtle overflow-x-auto text-xs font-semibold">
+          <nav className="flex items-center gap-1 p-1 bg-slate-950/80 rounded-xl border border-border-subtle overflow-x-auto text-xs font-semibold max-w-full">
             <button
               onClick={() => navigate('/')}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
@@ -208,13 +181,24 @@ export const App: React.FC = () => {
             </button>
 
             <button
+              onClick={() => navigate('/showcase')}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
+                currentRoute.startsWith('/showcase') ? 'bg-gradient-to-r from-cyan-500 to-indigo-600 text-white shadow-md' : 'text-cyan-300 hover:text-white'
+              }`}
+              title="21st.dev Visual Showcase (26 Experiences)"
+            >
+              <Box className="w-3.5 h-3.5 text-cyan-400" />
+              <span>Showcase (26)</span>
+            </button>
+
+            <button
               onClick={() => navigate('/studio')}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
                 currentRoute === '/studio' ? 'bg-accent-primary text-white shadow-md' : 'text-text-secondary hover:text-text-primary'
               }`}
             >
               <Sparkles className="w-3.5 h-3.5 text-cyan-300" />
-              <span>AI Studio</span>
+              <span>Studio</span>
             </button>
 
             <button
@@ -224,87 +208,15 @@ export const App: React.FC = () => {
               }`}
             >
               <Compass className="w-3.5 h-3.5" />
-              <span>Projects & Skills</span>
+              <span>Catalog</span>
             </button>
 
-            <button
-              onClick={() => navigate('/about')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
-                currentRoute === '/about' ? 'bg-accent-primary text-white shadow-md' : 'text-text-secondary hover:text-text-primary'
-              }`}
-            >
-              <Info className="w-3.5 h-3.5" />
-              <span>About & NGO</span>
-            </button>
-
-            <button
-              onClick={() => navigate('/dashboard')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
-                currentRoute === '/dashboard' ? 'bg-accent-primary text-white shadow-md' : 'text-text-secondary hover:text-text-primary'
-              }`}
-            >
-              <LayoutDashboard className="w-3.5 h-3.5" />
-              <span>Telemetry</span>
-            </button>
-
-            <button
-              onClick={() => navigate('/contact')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
-                currentRoute === '/contact' ? 'bg-accent-primary text-white shadow-md' : 'text-text-secondary hover:text-text-primary'
-              }`}
-            >
-              <Mail className="w-3.5 h-3.5" />
-              <span>Contact</span>
-            </button>
-
-            <span className="text-border-prominent mx-1">|</span>
-
-            {/* Quick Operational Views */}
-            <button
-              onClick={() => navigate('/router-view')}
-              className={`px-2 py-1 rounded-lg transition-all text-[11px] font-mono ${
-                currentRoute === '/router-view' ? 'bg-indigo-950 text-indigo-300 border border-indigo-700' : 'text-text-muted hover:text-text-secondary'
-              }`}
-            >
-              Router
-            </button>
-
-            <button
-              onClick={() => navigate('/skills-view')}
-              className={`px-2 py-1 rounded-lg transition-all text-[11px] font-mono ${
-                currentRoute === '/skills-view' ? 'bg-cyan-950 text-cyan-300 border border-cyan-700' : 'text-text-muted hover:text-text-secondary'
-              }`}
-            >
-              Skills
-            </button>
-
-            <button
-              onClick={() => navigate('/memory-view')}
-              className={`px-2 py-1 rounded-lg transition-all text-[11px] font-mono ${
-                currentRoute === '/memory-view' ? 'bg-emerald-950 text-emerald-300 border border-emerald-700' : 'text-text-muted hover:text-text-secondary'
-              }`}
-            >
-              Journal
-            </button>
-
-            <button
-              onClick={() => navigate('/audit-view')}
-              className={`px-2 py-1 rounded-lg transition-all text-[11px] font-mono ${
-                currentRoute === '/audit-view' ? 'bg-amber-950 text-amber-300 border border-amber-700' : 'text-text-muted hover:text-text-secondary'
-              }`}
-            >
-              Audit
-            </button>
-
-            <span className="text-border-prominent mx-1">|</span>
-
-            {/* Multi-Crawler, Prompts, Design Lab & Terminal Studio */}
             <button
               onClick={() => navigate('/crawler')}
               className={`px-2 py-1 rounded-lg transition-all text-[11px] font-mono flex items-center gap-1 ${
-                currentRoute === '/crawler' ? 'bg-cyan-950 text-cyan-300 border border-cyan-500 shadow-sm' : 'text-text-muted hover:text-cyan-300'
+                currentRoute === '/crawler' ? 'bg-cyan-950 text-cyan-300 border border-cyan-500' : 'text-text-muted hover:text-cyan-300'
               }`}
-              title="Multi-Vector Web, Tech & Visual Crawler"
+              title="Multi-Vector Crawler"
             >
               <span>Crawler</span>
             </button>
@@ -312,7 +224,7 @@ export const App: React.FC = () => {
             <button
               onClick={() => navigate('/prompts')}
               className={`px-2 py-1 rounded-lg transition-all text-[11px] font-mono flex items-center gap-1 ${
-                currentRoute === '/prompts' ? 'bg-indigo-950 text-indigo-300 border border-indigo-500 shadow-sm' : 'text-text-muted hover:text-indigo-300'
+                currentRoute === '/prompts' ? 'bg-indigo-950 text-indigo-300 border border-indigo-500' : 'text-text-muted hover:text-indigo-300'
               }`}
               title="GitReverse Prompt Vault"
             >
@@ -322,9 +234,9 @@ export const App: React.FC = () => {
             <button
               onClick={() => navigate('/design-lab')}
               className={`px-2 py-1 rounded-lg transition-all text-[11px] font-mono flex items-center gap-1 ${
-                currentRoute === '/design-lab' ? 'bg-rose-950 text-rose-300 border border-rose-500 shadow-sm' : 'text-text-muted hover:text-rose-300'
+                currentRoute === '/design-lab' ? 'bg-rose-950 text-rose-300 border border-rose-500' : 'text-text-muted hover:text-rose-300'
               }`}
-              title="Design System & Component Lab"
+              title="Design Lab"
             >
               <span>Design Lab</span>
             </button>
@@ -332,42 +244,18 @@ export const App: React.FC = () => {
             <button
               onClick={() => navigate('/terminal')}
               className={`px-2 py-1 rounded-lg transition-all text-[11px] font-mono flex items-center gap-1 ${
-                currentRoute === '/terminal' ? 'bg-emerald-950 text-emerald-300 border border-emerald-500 shadow-sm' : 'text-text-muted hover:text-emerald-300'
+                currentRoute === '/terminal' ? 'bg-emerald-950 text-emerald-300 border border-emerald-500' : 'text-text-muted hover:text-emerald-300'
               }`}
-              title="Agent CLI & Terminal Playground"
+              title="Agent Terminal"
             >
               <span>Terminal</span>
-            </button>
-
-            <span className="text-border-prominent mx-1">|</span>
-
-            {/* shadcn Interactive Visualizers */}
-            <button
-              onClick={() => navigate('/black-hole')}
-              className={`px-2 py-1 rounded-lg transition-all text-[11px] font-mono flex items-center gap-1 ${
-                currentRoute === '/black-hole' ? 'bg-cyan-950 text-cyan-300 border border-cyan-500 shadow-sm' : 'text-text-muted hover:text-cyan-300'
-              }`}
-              title="Relativistic Black Hole Simulation"
-            >
-              <Sparkles className="w-3 h-3 text-cyan-400" />
-              <span>Black Hole</span>
-            </button>
-
-            <button
-              onClick={() => navigate('/scroll-hero')}
-              className={`px-2 py-1 rounded-lg transition-all text-[11px] font-mono flex items-center gap-1 ${
-                currentRoute === '/scroll-hero' ? 'bg-amber-950 text-amber-300 border border-amber-500 shadow-sm' : 'text-text-muted hover:text-amber-300'
-              }`}
-              title="GSAP Scroll Landing Animation"
-            >
-              <span>Scroll Hero</span>
             </button>
           </nav>
         </div>
       </header>
 
       {/* Main Routed Page Container */}
-      <main className={`flex-1 w-full z-10 ${currentRoute === '/scroll-hero' ? '' : 'max-w-7xl mx-auto p-6'}`}>
+      <main className={`flex-1 w-full z-10 ${isFullBleedPage ? '' : 'max-w-7xl mx-auto p-6'}`}>
         {currentRoute === '/' && (
           <HomePage onNavigate={navigate} onOpenActionModal={() => setIsActionModalOpen(true)} />
         )}
@@ -385,21 +273,103 @@ export const App: React.FC = () => {
         {currentRoute === '/auth' && <AuthPage />}
         {currentRoute === '/contact' && <ContactPage />}
 
-        {/* Dedicated shadcn Showcase Pages */}
+        {/* Existing Dedicated Showcase Pages */}
         {currentRoute === '/black-hole' && (
-          <BlackHoleShowcasePage onBack={() => navigate('/')} />
+          <BlackHoleShowcasePage onBack={() => navigate('/showcase')} />
         )}
         {currentRoute === '/scroll-hero' && (
-          <ScrollHeroShowcasePage onBack={() => navigate('/')} />
+          <ScrollHeroShowcasePage onBack={() => navigate('/showcase')} />
         )}
 
         {/* Multi-Crawler, Prompts, Design Lab & Terminal Studio */}
-        {currentRoute === '/crawler' && <MultiCrawlerPage />}
+        {currentRoute === '/crawler' && <MultiCrawlerPage onNavigateToStudio={() => navigate('/studio')} />}
         {currentRoute === '/prompts' && (
           <GitReversePromptsPage onNavigateToStudio={() => navigate('/studio')} />
         )}
         {currentRoute === '/design-lab' && <DesignLabPage />}
         {currentRoute === '/terminal' && <CliTerminalPage />}
+
+        {/* Central 21st.dev Showcase Index */}
+        {currentRoute === '/showcase' && (
+          <ShowcaseIndexPage onNavigate={navigate} />
+        )}
+
+        {/* 21st.dev 26 Individual Showcase Experiences */}
+        {currentRoute === '/showcase/kintaro-awwwards' && (
+          <KintaroAwwwardsPage onBack={() => navigate('/showcase')} />
+        )}
+        {currentRoute === '/showcase/webgl-shader' && (
+          <WebGLShaderPage onBack={() => navigate('/showcase')} />
+        )}
+        {currentRoute === '/showcase/neural-noise' && (
+          <NeuralNoisePage onBack={() => navigate('/showcase')} />
+        )}
+        {currentRoute === '/showcase/neon-orbs' && (
+          <NeonOrbsPage onBack={() => navigate('/showcase')} />
+        )}
+        {currentRoute === '/showcase/orbiting-circles' && (
+          <OrbitingCirclesPage onBack={() => navigate('/showcase')} />
+        )}
+        {currentRoute === '/showcase/link-hover' && (
+          <LinkHoverPage onBack={() => navigate('/showcase')} />
+        )}
+        {currentRoute === '/showcase/ai-image-generation' && (
+          <AiImageGenerationPage onBack={() => navigate('/showcase')} />
+        )}
+        {currentRoute === '/showcase/dancing-letters' && (
+          <DancingLettersPage onBack={() => navigate('/showcase')} />
+        )}
+        {currentRoute === '/showcase/prism' && (
+          <PrismHeroPage onBack={() => navigate('/showcase')} />
+        )}
+        {currentRoute === '/showcase/vetra' && (
+          <VetraTemplatePage onBack={() => navigate('/showcase')} />
+        )}
+        {currentRoute === '/showcase/velaris' && (
+          <VelarisPage onBack={() => navigate('/showcase')} />
+        )}
+        {currentRoute === '/showcase/scroll-locked-video' && (
+          <ScrollLockedVideoPage onBack={() => navigate('/showcase')} />
+        )}
+        {currentRoute === '/showcase/aurora' && (
+          <AuroraBackgroundPage onBack={() => navigate('/showcase')} />
+        )}
+        {currentRoute === '/showcase/liquid-metal' && (
+          <LiquidMetalPage onBack={() => navigate('/showcase')} />
+        )}
+        {currentRoute === '/showcase/scroll-expansion' && (
+          <ScrollExpansionPage onBack={() => navigate('/showcase')} />
+        )}
+        {currentRoute === '/showcase/container-scroll' && (
+          <ContainerScrollPage onBack={() => navigate('/showcase')} />
+        )}
+        {currentRoute === '/showcase/splite' && (
+          <SpliteHeroPage onBack={() => navigate('/showcase')} />
+        )}
+        {currentRoute === '/showcase/hero' && (
+          <ReunoHeroPage onBack={() => navigate('/showcase')} />
+        )}
+        {currentRoute === '/showcase/prisma' && (
+          <PrismaHeroPage onBack={() => navigate('/showcase')} />
+        )}
+        {currentRoute === '/showcase/hero-3' && (
+          <Hero3Page onBack={() => navigate('/showcase')} />
+        )}
+        {currentRoute === '/showcase/gradient-recipe' && (
+          <GradientRecipePage onBack={() => navigate('/showcase')} />
+        )}
+        {currentRoute === '/showcase/oceanic-shimmer' && (
+          <OceanicShimmerPage onBack={() => navigate('/showcase')} />
+        )}
+        {currentRoute === '/showcase/saa-template' && (
+          <SaaSTemplatePage onBack={() => navigate('/showcase')} />
+        )}
+        {currentRoute === '/showcase/responsive-hero' && (
+          <ResponsiveHeroPage onBack={() => navigate('/showcase')} />
+        )}
+        {currentRoute === '/showcase/bento' && (
+          <KinfeBentoPage onBack={() => navigate('/showcase')} />
+        )}
 
         {/* Operational Viewers */}
         {currentRoute === '/router-view' && <ModelRouterVisualizer />}
@@ -414,41 +384,54 @@ export const App: React.FC = () => {
           <div className="flex flex-wrap items-center gap-2">
             <span className="font-bold text-text-primary">Debapriya Bhattacharyya</span>
             <span>•</span>
-            <a href="https://github.com/Deb-git-dev" target="_blank" rel="noopener noreferrer" className="text-accent-secondary hover:underline">
-              GitHub (Deb-git-dev)
-            </a>
+            <span className="text-cyan-400">Tribeni Minati Foundation</span>
             <span>•</span>
-            <a href="https://www.facebook.com/deb2remember" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">
-              Facebook (deb2remember)
-            </a>
-            <span>•</span>
-            <span className="text-rose-400">Tribeni Minati Foundation NGO</span>
+            <span>Zero-Local-GPU Protocol</span>
           </div>
 
-          <div className="flex flex-wrap items-center gap-4">
-            <button onClick={() => navigate('/about')} className="hover:text-text-secondary">About</button>
-            <button onClick={() => navigate('/studio')} className="text-cyan-300 hover:underline">AI Studio</button>
-            <button onClick={() => navigate('/crawler')} className="hover:text-cyan-300">Crawler</button>
-            <button onClick={() => navigate('/prompts')} className="hover:text-indigo-300">Prompts</button>
-            <button onClick={() => navigate('/design-lab')} className="hover:text-rose-300">Design Lab</button>
-            <button onClick={() => navigate('/terminal')} className="hover:text-emerald-300">Terminal</button>
-            <button onClick={() => navigate('/catalog')} className="hover:text-text-secondary">Skills</button>
-            <button onClick={() => navigate('/contact')} className="hover:text-text-secondary">Contact</button>
-            <button onClick={() => setIsActionModalOpen(true)} className="text-accent-success hover:underline flex items-center gap-1">
-              <ShieldCheck className="w-3.5 h-3.5" />
-              <span>Verifiable Ledger</span>
+          <div className="flex flex-wrap items-center gap-4 text-xs">
+            <button onClick={() => navigate('/showcase')} className="hover:text-cyan-400 transition-colors">
+              Showcase (26)
             </button>
+            <button onClick={() => navigate('/crawler')} className="hover:text-cyan-400 transition-colors">
+              Crawler
+            </button>
+            <button onClick={() => navigate('/prompts')} className="hover:text-cyan-400 transition-colors">
+              Prompts
+            </button>
+            <button onClick={() => navigate('/design-lab')} className="hover:text-cyan-400 transition-colors">
+              Design Lab
+            </button>
+            <button onClick={() => navigate('/terminal')} className="hover:text-cyan-400 transition-colors">
+              Terminal
+            </button>
+            <a 
+              href="https://www.facebook.com/deb2remember" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-text-secondary hover:text-text-primary transition-colors"
+            >
+              Facebook
+            </a>
+            <a 
+              href="https://github.com/Deb-git-dev" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-text-secondary hover:text-text-primary transition-colors flex items-center gap-1"
+            >
+              <Github className="w-3.5 h-3.5" />
+              <span>GitHub</span>
+            </a>
           </div>
         </div>
       </footer>
 
-      {/* In-Browser Action Conversion & Ledger Modal (#action) */}
-      <ActionLedgerModal
-        isOpen={isActionModalOpen}
-        onClose={() => setIsActionModalOpen(false)}
-      />
+      {/* Global Invariant Action Modal */}
+      {isActionModalOpen && (
+        <ActionLedgerModal isOpen={isActionModalOpen} onClose={() => setIsActionModalOpen(false)} />
+      )}
 
-      {/* Grounded AI Assistant Modal Widget */}
+      {/* Floating AI Assistant Widget */}
       <AssistantWidget />
     </div>
   );
