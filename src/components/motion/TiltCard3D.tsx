@@ -13,9 +13,9 @@ interface TiltCard3DProps {
 export const TiltCard3D: React.FC<TiltCard3DProps> = ({ children, className = '' }) => {
   return (
     <ParallaxTotem className={`rounded-2xl transition-all duration-300 ${className}`}>
-      <div className="relative p-6 rounded-2xl bg-surface-subtle/80 backdrop-blur-md border border-border-subtle hover:border-border-prominent shadow-xl shadow-indigo-950/20 hover:shadow-indigo-500/10 transition-all">
+      <div className="relative p-6 rounded-2xl bg-white/90 backdrop-blur-md border border-slate-200/80 hover:border-indigo-400/80 shadow-lg hover:shadow-xl transition-all">
         {/* Inner subtle bezel highlight */}
-        <div className="pointer-events-none absolute inset-px rounded-[15px] border border-white/[0.04]" />
+        <div className="pointer-events-none absolute inset-px rounded-[15px] border border-slate-100" />
         {children}
       </div>
     </ParallaxTotem>

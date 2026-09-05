@@ -197,28 +197,29 @@ Compression Ratio: 3.4x (Lossless pruning active)`
   return (
     <div className="space-y-6">
       {/* Header Card */}
-      <div className="p-6 md:p-8 bg-surface-subtle border border-border-subtle rounded-3xl relative overflow-hidden shadow-2xl">
+      {/* Hero Header */}
+      <div className="p-6 md:p-8 bg-white border border-slate-200 rounded-3xl relative overflow-hidden shadow-sm">
         <div className="flex flex-wrap items-center justify-between gap-4 mb-3">
           <div className="flex items-center gap-2">
-            <span className="px-3 py-1 rounded-full bg-cyan-950/80 border border-cyan-700/60 text-cyan-300 text-xs font-mono flex items-center gap-1.5">
-              <TerminalIcon className="w-3.5 h-3.5 text-cyan-400" />
+            <span className="px-3 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-cyan-700 text-xs font-mono flex items-center gap-1.5 font-semibold">
+              <TerminalIcon className="w-3.5 h-3.5 text-cyan-600" />
               <span>Agent CLI & Harness Playground</span>
             </span>
-            <span className="px-3 py-1 rounded-full bg-indigo-950/80 border border-indigo-700/60 text-indigo-300 text-xs font-mono">
+            <span className="px-3 py-1 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs font-mono font-semibold">
               OpenCode • Claude Code • Firecrawl CLI
             </span>
           </div>
 
-          <div className="flex items-center gap-2 text-xs font-mono text-emerald-400">
+          <div className="flex items-center gap-2 text-xs font-mono text-emerald-600 font-semibold">
             <ShieldCheck className="w-4 h-4" />
             <span>Pure In-Browser REPL Simulator</span>
           </div>
         </div>
 
-        <h1 className="text-2xl md:text-4xl font-heading font-extrabold text-white tracking-tight">
+        <h1 className="text-2xl md:text-4xl font-heading font-extrabold text-slate-900 tracking-tight">
           Agent CLI & Terminal Sandbox
         </h1>
-        <p className="text-text-secondary text-xs md:text-sm mt-2 max-w-3xl leading-relaxed font-body">
+        <p className="text-slate-600 text-xs md:text-sm mt-2 max-w-3xl leading-relaxed font-body">
           Interact with the underlying CLI tools, slash commands, and harnesses configured in Project GODMODE. Run automated invariant audits, execute Firecrawl crawls, or test Claude Code slash extensions directly in your browser.
         </p>
 
@@ -228,9 +229,9 @@ Compression Ratio: 3.4x (Lossless pruning active)`
             <button
               key={idx}
               onClick={() => executeCommand(chip.cmd)}
-              className="px-3 py-1.5 rounded-lg bg-slate-950 hover:bg-slate-900 text-slate-300 hover:text-cyan-300 border border-slate-800 hover:border-cyan-500/50 text-xs font-mono transition-all flex items-center gap-1.5 shadow-sm"
+              className="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-indigo-600 border border-slate-200 text-xs font-mono transition-all flex items-center gap-1.5 shadow-sm"
             >
-              <Play className="w-2.5 h-2.5 text-cyan-400" />
+              <Play className="w-2.5 h-2.5 text-indigo-600" />
               <span>{chip.label}</span>
             </button>
           ))}

@@ -44,32 +44,32 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({ onSelectEntity }) => {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="p-6 md:p-8 bg-surface-subtle border border-border-subtle rounded-3xl">
+      <div className="p-6 md:p-8 bg-white border border-slate-200 rounded-3xl shadow-sm">
         <div className="flex items-center gap-2 mb-2">
-          <span className="px-2.5 py-0.5 text-xs font-mono rounded-full bg-accent-primary/20 text-accent-primary border border-accent-primary/30">
+          <span className="px-2.5 py-0.5 text-xs font-mono rounded-full bg-indigo-50 text-indigo-700 border border-indigo-200 font-semibold">
             Deb's Technical Arsenal
           </span>
-          <span className="px-2.5 py-0.5 text-xs font-mono rounded-full bg-accent-success/20 text-accent-success border border-accent-success/30">
+          <span className="px-2.5 py-0.5 text-xs font-mono rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 font-semibold">
             50 Modular Skills Grounded
           </span>
         </div>
-        <h1 className="text-2xl md:text-3xl font-heading font-extrabold text-text-primary">
+        <h1 className="text-2xl md:text-3xl font-heading font-extrabold text-slate-900">
           AI Architecture & Skills Catalog
         </h1>
-        <p className="text-xs md:text-sm text-text-secondary mt-1 font-body">
+        <p className="text-xs md:text-sm text-slate-600 mt-1 font-body">
           Explore all 50 verified model gateways, modular agent skills, and full-stack connectors integrated into Debapriya's portfolio architecture.
         </p>
 
         {/* Filter & Search Bar */}
-        <div className="flex flex-col md:flex-row items-center gap-3 mt-4 pt-4 border-t border-border-subtle">
+        <div className="flex flex-col md:flex-row items-center gap-3 mt-4 pt-4 border-t border-slate-100">
           <div className="relative flex-1 w-full">
-            <Search className="w-4 h-4 absolute left-3 top-3 text-text-muted" />
+            <Search className="w-4 h-4 absolute left-3 top-3 text-slate-400" />
             <input
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search components, skills, models..."
-              className="w-full bg-surface-elevated border border-border-subtle rounded-xl pl-9 pr-4 py-2 text-xs text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent-primary"
+              className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-9 pr-4 py-2 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-indigo-600 focus:bg-white transition-colors"
             />
           </div>
 
@@ -80,8 +80,8 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({ onSelectEntity }) => {
                 onClick={() => setFilter(c)}
                 className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
                   filter === c
-                    ? 'bg-accent-primary text-white shadow-sm'
-                    : 'bg-surface-elevated text-text-secondary hover:text-text-primary border border-border-subtle'
+                    ? 'bg-indigo-600 text-white shadow-sm'
+                    : 'bg-slate-50 text-slate-600 hover:text-slate-900 border border-slate-200'
                 }`}
               >
                 {c === 'all' ? 'All Items' : c}
@@ -96,21 +96,21 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({ onSelectEntity }) => {
         {filteredItems.map((item) => (
           <MotionFocus
             key={item.id}
-            className="p-5 bg-surface-subtle border border-border-subtle hover:border-border-prominent rounded-2xl flex flex-col justify-between transition-all shadow-md group cursor-pointer"
+            className="p-5 bg-white border border-slate-200/90 hover:border-indigo-400 rounded-2xl flex flex-col justify-between transition-all shadow-sm hover:shadow-md group cursor-pointer"
           >
             <div onClick={() => onSelectEntity(item.id)}>
               <div className="flex items-center justify-between mb-2">
-                <span className="px-2 py-0.5 text-[10px] font-mono rounded bg-slate-800 text-text-secondary border border-slate-700">
+                <span className="px-2 py-0.5 text-[10px] font-mono rounded bg-slate-100 text-slate-700 border border-slate-200">
                   {item.category}
                 </span>
-                <span className="px-2 py-0.5 text-[10px] font-mono rounded bg-indigo-950/60 text-indigo-300 border border-indigo-800/40">
+                <span className="px-2 py-0.5 text-[10px] font-mono rounded bg-indigo-50 text-indigo-700 border border-indigo-200">
                   {item.tag}
                 </span>
               </div>
-              <h3 className="text-base font-heading font-bold text-text-primary group-hover:text-accent-primary transition-colors">
+              <h3 className="text-base font-heading font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">
                 {item.title}
               </h3>
-              <p className="text-xs text-text-secondary mt-1.5 leading-relaxed">
+              <p className="text-xs text-slate-600 mt-1.5 leading-relaxed">
                 {item.desc}
               </p>
             </div>

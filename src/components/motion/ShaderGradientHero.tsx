@@ -18,8 +18,8 @@ export const ShaderGradientHero: React.FC<{ children?: React.ReactNode; classNam
       <div
         className={`absolute inset-0 transition-opacity duration-1000 ${
           shouldReduceMotion
-            ? 'bg-gradient-to-br from-indigo-950/50 via-slate-900 to-slate-950'
-            : 'bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-900/30 via-slate-950 to-[#0B0F19]'
+            ? 'bg-gradient-to-br from-indigo-50 via-white to-sky-50'
+            : 'bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-100/70 via-white to-sky-50/80'
         }`}
       />
 

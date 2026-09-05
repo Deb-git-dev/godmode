@@ -93,10 +93,10 @@ export const ContactPage: React.FC = () => {
           className="p-6 rounded-3xl bg-surface-subtle border border-border-subtle hover:border-accent-primary/50 transition-all shadow-xl group flex flex-col justify-between"
         >
           <div>
-            <div className="w-12 h-12 rounded-2xl bg-indigo-950/60 border border-indigo-700/50 flex items-center justify-center text-accent-primary mb-4 group-hover:scale-105 transition-transform">
+            <div className="w-12 h-12 rounded-2xl bg-indigo-50 border border-indigo-200 flex items-center justify-center text-indigo-600 mb-4 group-hover:scale-105 transition-transform">
               <Github className="w-6 h-6" />
             </div>
-            <div className="text-xs font-mono text-accent-secondary mb-1">Open Source & Repos</div>
+            <div className="text-xs font-mono text-indigo-600 mb-1">Open Source & Repos</div>
             <h3 className="font-heading font-bold text-base text-text-primary">
               GitHub Profile
             </h3>
@@ -104,7 +104,7 @@ export const ContactPage: React.FC = () => {
               github.com/Deb-git-dev
             </p>
           </div>
-          <div className="pt-4 mt-4 border-t border-border-subtle flex items-center justify-between text-xs font-mono text-indigo-300">
+          <div className="pt-4 mt-4 border-t border-border-subtle flex items-center justify-between text-xs font-mono text-indigo-600">
             <span>View Repositories</span>
             <ExternalLink className="w-3.5 h-3.5" />
           </div>
@@ -116,10 +116,10 @@ export const ContactPage: React.FC = () => {
           className="p-6 rounded-3xl bg-surface-subtle border border-border-subtle hover:border-emerald-500/50 transition-all shadow-xl group flex flex-col justify-between"
         >
           <div>
-            <div className="w-12 h-12 rounded-2xl bg-emerald-950/60 border border-emerald-700/50 flex items-center justify-center text-emerald-400 mb-4 group-hover:scale-105 transition-transform">
+            <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 mb-4 group-hover:scale-105 transition-transform">
               <Mail className="w-6 h-6" />
             </div>
-            <div className="text-xs font-mono text-emerald-400 mb-1">Direct Communication</div>
+            <div className="text-xs font-mono text-emerald-600 mb-1">Direct Communication</div>
             <h3 className="font-heading font-bold text-base text-text-primary">
               Direct Email
             </h3>
@@ -127,7 +127,7 @@ export const ContactPage: React.FC = () => {
               bhattacharyya.debapriya571@gmail.com
             </p>
           </div>
-          <div className="pt-4 mt-4 border-t border-border-subtle flex items-center justify-between text-xs font-mono text-emerald-300">
+          <div className="pt-4 mt-4 border-t border-border-subtle flex items-center justify-between text-xs font-mono text-emerald-600">
             <span>Send Email</span>
             <ExternalLink className="w-3.5 h-3.5" />
           </div>
@@ -154,8 +154,8 @@ export const ContactPage: React.FC = () => {
         </div>
 
         {submittedTicket ? (
-          <div className="p-8 bg-slate-950/80 border border-accent-success/40 rounded-2xl space-y-4 text-center">
-            <div className="w-14 h-14 rounded-full bg-emerald-950/60 border border-emerald-700/50 flex items-center justify-center text-accent-success mx-auto">
+          <div className="p-8 bg-white border border-accent-success/40 rounded-2xl space-y-4 text-center shadow-lg">
+            <div className="w-14 h-14 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center text-accent-success mx-auto">
               <CheckCircle2 className="w-7 h-7" />
             </div>
             <h3 className="font-heading font-bold text-text-primary text-lg">
@@ -164,7 +164,7 @@ export const ContactPage: React.FC = () => {
             <p className="text-xs text-text-secondary font-body max-w-md mx-auto">
               Thank you for reaching out to Debapriya. Your message has been logged with verifiable tracking ticket:
             </p>
-            <div className="font-mono text-xs text-accent-secondary bg-slate-900 px-4 py-2 rounded-xl inline-block border border-slate-800">
+            <div className="font-mono text-xs text-indigo-600 bg-slate-50 px-4 py-2 rounded-xl inline-block border border-slate-200">
               Ticket ID: {submittedTicket}
             </div>
             <div className="pt-2">

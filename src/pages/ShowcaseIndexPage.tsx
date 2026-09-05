@@ -344,7 +344,7 @@ export const ShowcaseIndexPage: React.FC<{ onNavigate: (route: string) => void }
   return (
     <div className="space-y-8 pb-16 font-body">
       {/* Hero Header */}
-      <div className="relative overflow-hidden rounded-3xl p-8 sm:p-12 border border-slate-700/60 bg-gradient-to-br from-indigo-900/90 via-purple-900/80 to-slate-950 shadow-2xl">
+      <div className="relative overflow-hidden rounded-3xl p-8 sm:p-12 border border-indigo-200/50 bg-gradient-to-r from-indigo-600 via-purple-600 to-cyan-600 shadow-xl text-white">
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-gradient-to-br from-cyan-400/30 via-pink-500/30 to-purple-500/20 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-gradient-to-tr from-emerald-400/25 via-amber-500/25 to-blue-500/20 rounded-full blur-3xl pointer-events-none" />
 
@@ -365,7 +365,7 @@ export const ShowcaseIndexPage: React.FC<{ onNavigate: (route: string) => void }
           <div className="flex items-center gap-3">
             <button
               onClick={() => onNavigate('/')}
-              className="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs font-mono text-slate-200 transition-colors shadow-md"
+              className="flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-white/20 hover:bg-white/30 border border-white/30 text-xs font-mono text-white transition-colors shadow-sm backdrop-blur-sm"
             >
               <ArrowLeft className="w-4 h-4" />
               <span>Return to Portfolio</span>
@@ -383,7 +383,7 @@ export const ShowcaseIndexPage: React.FC<{ onNavigate: (route: string) => void }
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search across 26 experiences by title, technology, author, or keywords..."
-            className="w-full pl-11 pr-4 py-3.5 bg-slate-900/90 border border-slate-700 rounded-2xl text-sm text-white placeholder-slate-400 focus:outline-none focus:border-cyan-400 transition-colors shadow-inner font-mono"
+            className="w-full pl-11 pr-4 py-3.5 bg-white border border-slate-200 rounded-2xl text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-indigo-500 transition-colors shadow-sm font-mono"
           />
         </div>
 
@@ -395,8 +395,8 @@ export const ShowcaseIndexPage: React.FC<{ onNavigate: (route: string) => void }
               onClick={() => setSelectedCategory(cat)}
               className={`px-3.5 py-1.5 rounded-full text-xs font-mono font-medium transition-all shrink-0 capitalize ${
                 selectedCategory === cat
-                  ? 'bg-gradient-to-r from-cyan-500 to-indigo-600 text-white shadow-md shadow-indigo-500/20'
-                  : 'bg-slate-900/80 text-slate-400 hover:text-slate-200 border border-slate-800 hover:border-slate-700'
+                  ? 'bg-indigo-600 text-white shadow-md shadow-indigo-200'
+                  : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200 hover:border-slate-300 shadow-sm'
               }`}
             >
               {cat === 'all' ? 'All (26)' : cat}
@@ -411,35 +411,35 @@ export const ShowcaseIndexPage: React.FC<{ onNavigate: (route: string) => void }
           <div
             key={item.id}
             onClick={() => onNavigate(item.route)}
-            className="p-6 rounded-3xl bg-slate-900/80 border border-slate-800 hover:border-cyan-400/80 transition-all cursor-pointer group shadow-xl hover:shadow-cyan-500/15 flex flex-col justify-between relative overflow-hidden h-80"
+            className="p-6 rounded-3xl bg-white border border-slate-200/90 hover:border-indigo-400 transition-all cursor-pointer group shadow-md hover:shadow-xl flex flex-col justify-between relative overflow-hidden h-80"
           >
             <div className={`absolute -top-12 -right-12 w-40 h-40 bg-gradient-to-br ${item.gradient} rounded-full blur-2xl pointer-events-none group-hover:scale-150 transition-transform`} />
 
             <div>
               <div className="flex items-center justify-between gap-2 mb-3">
-                <span className="text-xs font-mono text-cyan-400 font-bold">{item.refNum}</span>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700">
+                <span className="text-xs font-mono text-indigo-600 font-bold">{item.refNum}</span>
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
                   {item.category}
                 </span>
               </div>
-              <h3 className="text-lg font-heading font-bold text-white group-hover:text-cyan-300 transition-colors">
+              <h3 className="text-lg font-heading font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">
                 {item.title}
               </h3>
-              <p className="text-xs font-mono text-slate-400 mt-1">{item.author}</p>
-              <p className="text-xs text-slate-300 mt-3 line-clamp-3 leading-relaxed font-light">
+              <p className="text-xs font-mono text-slate-500 mt-1">{item.author}</p>
+              <p className="text-xs text-slate-600 mt-3 line-clamp-3 leading-relaxed font-normal">
                 {item.desc}
               </p>
             </div>
 
-            <div className="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono">
+            <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-mono">
               <div className="flex items-center gap-1.5">
                 {item.tags.slice(0, 2).map((t, idx) => (
-                  <span key={idx} className="text-[10px] px-2 py-0.5 rounded bg-slate-950 text-slate-400 border border-slate-800">
+                  <span key={idx} className="text-[10px] px-2 py-0.5 rounded bg-slate-50 text-slate-600 border border-slate-200">
                     #{t}
                   </span>
                 ))}
               </div>
-              <span className="text-cyan-400 group-hover:text-cyan-300 flex items-center gap-1 font-semibold">
+              <span className="text-indigo-600 group-hover:text-indigo-700 flex items-center gap-1 font-semibold">
                 <span>Launch</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </span>

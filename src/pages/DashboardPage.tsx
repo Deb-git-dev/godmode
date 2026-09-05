@@ -54,11 +54,11 @@ export const DashboardPage: React.FC = () => {
         </div>
 
         <div className="flex items-center gap-3 text-xs font-mono">
-          <div className="p-3 bg-slate-950/60 border border-slate-800 rounded-xl text-center">
+          <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl text-center">
             <div className="text-text-muted text-[10px]">LOCAL GPU</div>
             <div className="text-accent-success font-bold text-sm">0 MB</div>
           </div>
-          <div className="p-3 bg-slate-950/60 border border-slate-800 rounded-xl text-center">
+          <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl text-center">
             <div className="text-text-muted text-[10px]">LEDGER BLOCKS</div>
             <div className="text-accent-secondary font-bold text-sm">#{10000 + ledgerCount}</div>
           </div>
@@ -96,7 +96,7 @@ export const DashboardPage: React.FC = () => {
                 <tr key={i} className="hover:bg-surface-elevated/40 transition-colors">
                   <td className="py-3 text-text-primary font-bold">{ep.path}</td>
                   <td className="py-3">
-                    <span className="px-2 py-0.5 text-[10px] rounded bg-indigo-950/60 text-indigo-300 border border-indigo-800/40">
+                    <span className="px-2 py-0.5 text-[10px] rounded bg-indigo-50 text-indigo-700 border border-indigo-200">
                       {ep.method}
                     </span>
                   </td>
@@ -134,11 +134,11 @@ export const DashboardPage: React.FC = () => {
             </div>
             <div className="flex justify-between">
               <span className="text-text-muted">Mirror (MongoDB Atlas):</span>
-              <span className="text-cyan-400 font-semibold">Async Fail-Safe Active</span>
+              <span className="text-cyan-600 font-semibold">Async Fail-Safe Active</span>
             </div>
             <div className="flex justify-between">
               <span className="text-text-muted">Client LocalStorage:</span>
-              <span className="text-indigo-400 font-semibold">Parallel (Non-Sensitive)</span>
+              <span className="text-indigo-600 font-semibold">Parallel (Non-Sensitive)</span>
             </div>
           </div>
         </div>

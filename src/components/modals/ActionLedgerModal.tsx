@@ -87,26 +87,26 @@ export const ActionLedgerModal: React.FC<ActionLedgerModalProps> = ({ isOpen, on
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
-      <div className="relative w-full max-w-2xl bg-surface-subtle border border-border-prominent rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-sm">
+      <div className="relative w-full max-w-2xl bg-white border border-slate-200 rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
         {/* Header */}
-        <div className="p-6 border-b border-border-subtle bg-slate-900/80 flex items-center justify-between">
+        <div className="p-6 border-b border-slate-100 bg-white flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-accent-primary/20 border border-accent-primary/30 flex items-center justify-center text-accent-primary">
-              <Play className="w-5 h-5 fill-accent-primary" />
+            <div className="w-10 h-10 rounded-xl bg-indigo-50 border border-indigo-200 flex items-center justify-center text-indigo-600">
+              <Play className="w-5 h-5 fill-indigo-600" />
             </div>
             <div>
-              <h3 className="font-heading font-bold text-text-primary text-base">
+              <h3 className="font-heading font-bold text-slate-900 text-base">
                 Trigger Core Conversion Action (§10)
               </h3>
-              <p className="text-xs text-text-secondary">
+              <p className="text-xs text-slate-500">
                 Writes to dual-write engine, verifies status, and updates public audited ledger.
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg text-text-secondary hover:text-text-primary hover:bg-surface-elevated transition-colors"
+            className="p-1.5 rounded-lg text-slate-400 hover:text-slate-800 hover:bg-slate-100 transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
@@ -115,14 +115,14 @@ export const ActionLedgerModal: React.FC<ActionLedgerModalProps> = ({ isOpen, on
         {/* Content */}
         <div className="p-6 overflow-y-auto space-y-6">
           {/* Action Form */}
-          <form onSubmit={handleExecuteAction} className="p-5 bg-slate-950/60 rounded-2xl border border-slate-800 space-y-4">
+          <form onSubmit={handleExecuteAction} className="p-5 bg-slate-50 rounded-2xl border border-slate-200 space-y-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-mono text-text-muted mb-1">Target Skill</label>
+                <label className="block text-xs font-mono text-slate-500 mb-1">Target Skill</label>
                 <select
                   value={targetSkill}
                   onChange={(e) => setTargetSkill(e.target.value)}
-                  className="w-full bg-surface-elevated border border-border-subtle rounded-xl px-3 py-2 text-xs text-text-primary font-mono focus:outline-none focus:border-accent-primary"
+                  className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-900 font-mono focus:outline-none focus:border-indigo-600"
                 >
                   <option value="ui-ux-pro-max">ui-ux-pro-max</option>
                   <option value="garden-skills">garden-skills</option>
@@ -133,11 +133,11 @@ export const ActionLedgerModal: React.FC<ActionLedgerModalProps> = ({ isOpen, on
               </div>
 
               <div>
-                <label className="block text-xs font-mono text-text-muted mb-1">Action Type</label>
+                <label className="block text-xs font-mono text-slate-500 mb-1">Action Type</label>
                 <select
                   value={actionType}
                   onChange={(e) => setActionType(e.target.value)}
-                  className="w-full bg-surface-elevated border border-border-subtle rounded-xl px-3 py-2 text-xs text-text-primary font-mono focus:outline-none focus:border-accent-primary"
+                  className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-900 font-mono focus:outline-none focus:border-indigo-600"
                 >
                   <option value="TOKEN_AUDIT_EXECUTION">TOKEN_AUDIT_EXECUTION</option>
                   <option value="SKILL_SYNTHESIS">SKILL_SYNTHESIS</option>
@@ -150,7 +150,7 @@ export const ActionLedgerModal: React.FC<ActionLedgerModalProps> = ({ isOpen, on
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3 bg-accent-primary hover:bg-accent-primary/90 disabled:opacity-50 text-white rounded-xl text-xs font-bold transition-all shadow-md active:scale-95 flex items-center justify-center gap-2"
+              className="w-full py-3 bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white rounded-xl text-xs font-bold transition-all shadow-md active:scale-95 flex items-center justify-center gap-2"
             >
               <Play className="w-4 h-4 fill-white" />
               <span>{loading ? 'Committing Dual-Write...' : 'Dispatch Action to Ledger'}</span>
@@ -160,12 +160,12 @@ export const ActionLedgerModal: React.FC<ActionLedgerModalProps> = ({ isOpen, on
           {/* Success & PDF Generator Card */}
           {submittedRecord && (
             <div className="space-y-3">
-              <div className="p-4 bg-emerald-950/40 border border-emerald-700/50 rounded-2xl flex items-center justify-between text-xs font-mono">
-                <div className="flex items-center gap-2 text-accent-success">
+              <div className="p-4 bg-emerald-50 border border-emerald-200 rounded-2xl flex items-center justify-between text-xs font-mono">
+                <div className="flex items-center gap-2 text-emerald-700">
                   <CheckCircle2 className="w-4 h-4" />
                   <span className="font-bold">Committed to Ledger Block #{submittedRecord.block}</span>
                 </div>
-                <span className="text-text-muted">{submittedRecord.id}</span>
+                <span className="text-slate-500">{submittedRecord.id}</span>
               </div>
 
               <CertificateGenerator

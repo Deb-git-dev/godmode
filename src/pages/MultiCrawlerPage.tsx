@@ -62,7 +62,7 @@ export const MultiCrawlerPage: React.FC<MultiCrawlerPageProps> = ({ onNavigateTo
   return (
     <div className="space-y-8 pb-16">
       {/* Vibrant Hero Header */}
-      <div className="relative overflow-hidden rounded-3xl p-8 border border-slate-700/50 bg-gradient-to-br from-slate-900 via-indigo-950/40 to-slate-950 shadow-2xl">
+      <div className="relative overflow-hidden rounded-3xl p-8 border border-indigo-200/50 bg-gradient-to-r from-cyan-600 via-indigo-600 to-purple-600 shadow-xl text-white">
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-gradient-to-br from-cyan-500/20 via-indigo-500/20 to-pink-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-gradient-to-tr from-emerald-500/15 via-purple-500/15 to-blue-500/10 rounded-full blur-3xl pointer-events-none" />
         
@@ -91,7 +91,7 @@ export const MultiCrawlerPage: React.FC<MultiCrawlerPageProps> = ({ onNavigateTo
             </button>
             <button
               onClick={() => handleCopy(JSON.stringify(selectedSite, null, 2), 'export-json')}
-              className="px-4 py-3 rounded-2xl bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 text-slate-200 text-xs font-mono transition-all flex items-center justify-center gap-2"
+              className="px-4 py-3 rounded-2xl bg-white/20 hover:bg-white/30 border border-white/30 text-white text-xs font-mono transition-all flex items-center justify-center gap-2 backdrop-blur-sm"
             >
               {copiedText === 'export-json' ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
               <span>Export Telemetry</span>
@@ -129,7 +129,7 @@ export const MultiCrawlerPage: React.FC<MultiCrawlerPageProps> = ({ onNavigateTo
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search by tool name, domain, prompt keywords, or framework..."
-              className="w-full pl-11 pr-4 py-3 bg-slate-900/90 border border-slate-700 rounded-2xl text-sm text-white placeholder-slate-400 focus:outline-none focus:border-cyan-400 transition-colors shadow-inner"
+              className="w-full pl-11 pr-4 py-3 bg-white border border-slate-200 rounded-2xl text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-indigo-500 transition-colors shadow-sm"
             />
           </div>
         </div>
@@ -143,8 +143,8 @@ export const MultiCrawlerPage: React.FC<MultiCrawlerPageProps> = ({ onNavigateTo
               onClick={() => setSelectedCategory(cat)}
               className={`px-3.5 py-1.5 rounded-full text-xs font-mono font-medium transition-all shrink-0 capitalize ${
                 selectedCategory === cat
-                  ? 'bg-gradient-to-r from-cyan-500 to-indigo-600 text-white shadow-md shadow-indigo-500/20'
-                  : 'bg-slate-900/80 text-slate-400 hover:text-slate-200 border border-slate-800 hover:border-slate-700'
+                  ? 'bg-indigo-600 text-white shadow-md shadow-indigo-200'
+                  : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200 hover:border-slate-300 shadow-sm'
               }`}
             >
               {cat}
@@ -170,8 +170,8 @@ export const MultiCrawlerPage: React.FC<MultiCrawlerPageProps> = ({ onNavigateTo
                 onClick={() => setSelectedSiteId(site.id)}
                 className={`p-4 rounded-2xl cursor-pointer transition-all border relative overflow-hidden group ${
                   isSelected
-                    ? 'bg-gradient-to-br from-slate-900 to-indigo-950/60 border-cyan-400/80 shadow-lg shadow-cyan-500/15'
-                    : 'bg-slate-900/60 border-slate-800/80 hover:border-slate-700 hover:bg-slate-900'
+                    ? 'bg-indigo-50/90 border-indigo-500 shadow-md'
+                    : 'bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 shadow-sm'
                 }`}
               >
                 {/* Glowing Top Edge for Active Site */}
@@ -181,22 +181,22 @@ export const MultiCrawlerPage: React.FC<MultiCrawlerPageProps> = ({ onNavigateTo
 
                 <div className="flex items-start justify-between gap-2">
                   <div>
-                    <h3 className={`font-heading font-bold text-sm ${isSelected ? 'text-white' : 'text-slate-200 group-hover:text-cyan-300'}`}>
+                    <h3 className={`font-heading font-bold text-sm ${isSelected ? 'text-indigo-900 font-extrabold' : 'text-slate-900 group-hover:text-indigo-600'}`}>
                       {site.name}
                     </h3>
-                    <p className="text-xs text-slate-400 font-mono mt-0.5">{site.web.domain}</p>
+                    <p className="text-xs text-slate-500 font-mono mt-0.5">{site.web.domain}</p>
                   </div>
                   <span className={`text-[10px] font-mono px-2 py-0.5 rounded-full border ${site.badgeColor}`}>
                     {site.web.category}
                   </span>
                 </div>
 
-                <p className="text-xs text-slate-300 line-clamp-2 mt-2 leading-relaxed">
+                <p className="text-xs text-slate-600 line-clamp-2 mt-2 leading-relaxed">
                   {site.web.summary}
                 </p>
 
-                <div className="flex items-center justify-between mt-3 pt-2.5 border-t border-slate-800/80 text-[11px] font-mono">
-                  <span className="text-indigo-300 flex items-center gap-1">
+                <div className="flex items-center justify-between mt-3 pt-2.5 border-t border-slate-100 text-[11px] font-mono">
+                  <span className="text-indigo-600 flex items-center gap-1">
                     <Sparkles className="w-3 h-3 text-cyan-400" />
                     <span>{site.prompts?.length || 1} Prompts</span>
                   </span>
@@ -213,7 +213,7 @@ export const MultiCrawlerPage: React.FC<MultiCrawlerPageProps> = ({ onNavigateTo
         {/* Right Column: Selected Site Interactive Inspector */}
         <div className="lg:col-span-8 space-y-5">
           {/* Site Overview Banner with Dynamic Gradient */}
-          <div className="p-6 rounded-3xl border border-slate-700/60 bg-slate-900/90 shadow-xl relative overflow-hidden">
+          <div className="p-6 rounded-3xl border border-slate-200 bg-white shadow-md relative overflow-hidden text-slate-900">
             <div className={`absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl ${selectedSite.gradient} opacity-20 blur-3xl pointer-events-none`} />
 
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 relative z-10">
@@ -224,7 +224,7 @@ export const MultiCrawlerPage: React.FC<MultiCrawlerPageProps> = ({ onNavigateTo
                   </span>
                   <span className="text-xs font-mono text-slate-400">ID: {selectedSite.id}</span>
                 </div>
-                <h2 className="text-2xl font-heading font-extrabold text-white">
+                <h2 className="text-2xl font-heading font-extrabold text-slate-900">
                   {selectedSite.name}
                 </h2>
                 <a 
@@ -241,7 +241,7 @@ export const MultiCrawlerPage: React.FC<MultiCrawlerPageProps> = ({ onNavigateTo
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => handleCopy(selectedSite.web.llmMarkdown, 'copy-markdown')}
-                  className="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs font-mono text-slate-200 flex items-center gap-1.5 transition-all"
+                  className="px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs font-mono text-slate-700 flex items-center gap-1.5 transition-all"
                 >
                   {copiedText === 'copy-markdown' ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
                   <span>Copy llms.txt</span>
@@ -250,13 +250,13 @@ export const MultiCrawlerPage: React.FC<MultiCrawlerPageProps> = ({ onNavigateTo
             </div>
 
             {/* Navigation Tabs */}
-            <div className="flex items-center gap-1 mt-6 border-b border-slate-800 pb-2 overflow-x-auto">
+            <div className="flex items-center gap-1 mt-6 border-b border-slate-200 pb-2 overflow-x-auto">
               <button
                 onClick={() => setActiveTab('prompts')}
                 className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-mono font-medium transition-all ${
                   activeTab === 'prompts'
                     ? 'bg-gradient-to-r from-cyan-500 to-indigo-600 text-white shadow-md'
-                    : 'text-slate-400 hover:text-slate-200'
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                 }`}
               >
                 <Sparkles className="w-3.5 h-3.5 text-cyan-300" />
@@ -268,7 +268,7 @@ export const MultiCrawlerPage: React.FC<MultiCrawlerPageProps> = ({ onNavigateTo
                 className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-mono font-medium transition-all ${
                   activeTab === 'mockup'
                     ? 'bg-gradient-to-r from-cyan-500 to-indigo-600 text-white shadow-md'
-                    : 'text-slate-400 hover:text-slate-200'
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                 }`}
               >
                 <Palette className="w-3.5 h-3.5 text-pink-400" />
@@ -280,7 +280,7 @@ export const MultiCrawlerPage: React.FC<MultiCrawlerPageProps> = ({ onNavigateTo
                 className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-mono font-medium transition-all ${
                   activeTab === 'web'
                     ? 'bg-gradient-to-r from-cyan-500 to-indigo-600 text-white shadow-md'
-                    : 'text-slate-400 hover:text-slate-200'
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                 }`}
               >
                 <Globe className="w-3.5 h-3.5 text-indigo-400" />
@@ -292,7 +292,7 @@ export const MultiCrawlerPage: React.FC<MultiCrawlerPageProps> = ({ onNavigateTo
                 className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-mono font-medium transition-all ${
                   activeTab === 'tech'
                     ? 'bg-gradient-to-r from-cyan-500 to-indigo-600 text-white shadow-md'
-                    : 'text-slate-400 hover:text-slate-200'
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                 }`}
               >
                 <Cpu className="w-3.5 h-3.5 text-emerald-400" />
@@ -304,7 +304,7 @@ export const MultiCrawlerPage: React.FC<MultiCrawlerPageProps> = ({ onNavigateTo
                 className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-mono font-medium transition-all ${
                   activeTab === 'markdown'
                     ? 'bg-gradient-to-r from-cyan-500 to-indigo-600 text-white shadow-md'
-                    : 'text-slate-400 hover:text-slate-200'
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                 }`}
               >
                 <FileText className="w-3.5 h-3.5 text-amber-400" />
@@ -328,14 +328,14 @@ export const MultiCrawlerPage: React.FC<MultiCrawlerPageProps> = ({ onNavigateTo
                 selectedSite.prompts.map((p, idx) => (
                   <div 
                     key={idx}
-                    className="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-slate-700 transition-all space-y-3 shadow-lg"
+                    className="p-5 rounded-2xl bg-white border border-slate-200 hover:border-indigo-300 transition-all space-y-3 shadow-md"
                   >
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                       <div className="flex items-center gap-2">
                         <span className="w-6 h-6 rounded-lg bg-indigo-500/20 text-indigo-300 border border-indigo-500/40 flex items-center justify-center text-xs font-mono font-bold">
                           {idx + 1}
                         </span>
-                        <h4 className="font-heading font-bold text-white text-sm sm:text-base">
+                        <h4 className="font-heading font-bold text-slate-900 text-sm sm:text-base">
                           {p.title}
                         </h4>
                       </div>
@@ -345,7 +345,7 @@ export const MultiCrawlerPage: React.FC<MultiCrawlerPageProps> = ({ onNavigateTo
                         </span>
                         <button
                           onClick={() => handleCopy(p.prompt, `prompt-${idx}`)}
-                          className="px-3 py-1.5 rounded-lg bg-cyan-950 hover:bg-cyan-900 border border-cyan-800 text-cyan-300 text-xs font-mono flex items-center gap-1 transition-all"
+                          className="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-700 text-xs font-mono flex items-center gap-1 transition-all"
                         >
                           {copiedText === `prompt-${idx}` ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3" />}
                           <span>{copiedText === `prompt-${idx}` ? 'Copied' : 'Copy Prompt'}</span>
@@ -362,14 +362,14 @@ export const MultiCrawlerPage: React.FC<MultiCrawlerPageProps> = ({ onNavigateTo
                       </div>
                     </div>
 
-                    <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 font-mono text-xs text-slate-200 leading-relaxed whitespace-pre-wrap select-all">
+                    <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 font-mono text-xs text-slate-800 leading-relaxed whitespace-pre-wrap select-all">
                       {p.prompt}
                     </div>
 
                     <div className="flex flex-wrap items-center justify-between gap-2 pt-1 text-[11px] font-mono text-slate-400">
                       <div className="flex items-center gap-1.5">
                         {p.tags.map((t, tidx) => (
-                          <span key={tidx} className="px-2 py-0.5 rounded-md bg-slate-800/80 text-slate-300 border border-slate-700">
+                          <span key={tidx} className="px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 border border-slate-200">
                             #{t}
                           </span>
                         ))}
@@ -388,7 +388,7 @@ export const MultiCrawlerPage: React.FC<MultiCrawlerPageProps> = ({ onNavigateTo
 
           {/* TAB 2: LIVE VISUAL MOCKUP */}
           {activeTab === 'mockup' && (
-            <div className="p-6 rounded-3xl bg-slate-900/90 border border-slate-800 space-y-6 shadow-xl">
+            <div className="p-6 rounded-3xl bg-white border border-slate-200 space-y-6 shadow-md">
               <div className="flex items-center justify-between">
                 <div>
                   <span className="text-xs font-mono text-cyan-400">VISUAL SIMULATION CANVAS</span>

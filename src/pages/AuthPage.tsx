@@ -34,7 +34,7 @@ export const AuthPage: React.FC = () => {
     <div className="max-w-md mx-auto space-y-6 pt-6">
       <div className="p-8 bg-surface-subtle border border-border-subtle rounded-3xl space-y-6 shadow-2xl">
         <div className="text-center space-y-2">
-          <div className="w-12 h-12 rounded-2xl bg-indigo-950/60 border border-indigo-700/50 flex items-center justify-center text-accent-primary mx-auto">
+          <div className="w-12 h-12 rounded-2xl bg-indigo-50 border border-indigo-200 flex items-center justify-center text-indigo-600 mx-auto">
             <Lock className="w-6 h-6" />
           </div>
           <h1 className="text-2xl font-heading font-extrabold text-text-primary tracking-tight">
@@ -46,7 +46,7 @@ export const AuthPage: React.FC = () => {
         </div>
 
         {/* Method Switcher */}
-        <div className="grid grid-cols-3 gap-1.5 p-1 bg-slate-950/80 rounded-xl border border-border-subtle text-xs font-semibold">
+        <div className="grid grid-cols-3 gap-1.5 p-1 bg-slate-100 rounded-xl border border-slate-200 text-xs font-semibold">
           <button
             onClick={() => setAuthMethod('oauth')}
             className={`py-1.5 rounded-lg transition-all ${

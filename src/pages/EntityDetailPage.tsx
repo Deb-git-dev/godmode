@@ -39,35 +39,35 @@ export const EntityDetailPage: React.FC<EntityDetailPageProps> = ({ entityId, on
             </p>
           </div>
 
-          <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-950/70 border border-slate-800 text-xs font-mono text-text-secondary">
-            <ShieldCheck className="w-4 h-4 text-accent-success" />
+          <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-50 border border-slate-200 text-xs font-mono text-slate-700">
+            <ShieldCheck className="w-4 h-4 text-emerald-600" />
             <span>Provenance Verified</span>
           </div>
         </div>
 
         {/* Technical Attributes */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-border-subtle text-xs font-mono">
-          <div className="p-4 bg-slate-950/60 rounded-xl border border-slate-800/80">
-            <div className="text-text-muted">Compute Footprint</div>
-            <div className="text-accent-success font-bold text-sm mt-1">0 MB Local GPU</div>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-slate-100 text-xs font-mono">
+          <div className="p-4 bg-slate-50 rounded-xl border border-slate-200">
+            <div className="text-slate-500">Compute Footprint</div>
+            <div className="text-emerald-600 font-bold text-sm mt-1">0 MB Local GPU</div>
           </div>
-          <div className="p-4 bg-slate-950/60 rounded-xl border border-slate-800/80">
-            <div className="text-text-muted">Invocation Mode</div>
-            <div className="text-accent-secondary font-bold text-sm mt-1">Cloud REST / SSE</div>
+          <div className="p-4 bg-slate-50 rounded-xl border border-slate-200">
+            <div className="text-slate-500">Invocation Mode</div>
+            <div className="text-cyan-600 font-bold text-sm mt-1">Cloud REST / SSE</div>
           </div>
-          <div className="p-4 bg-slate-950/60 rounded-xl border border-slate-800/80">
-            <div className="text-text-muted">Verification Score</div>
-            <div className="text-indigo-400 font-bold text-sm mt-1">20/20 PASSED</div>
+          <div className="p-4 bg-slate-50 rounded-xl border border-slate-200">
+            <div className="text-slate-500">Verification Score</div>
+            <div className="text-indigo-600 font-bold text-sm mt-1">20/20 PASSED</div>
           </div>
         </div>
 
         {/* Architecture Spec Code Block */}
         <div className="space-y-2">
-          <h3 className="text-xs font-mono text-text-muted uppercase tracking-wider flex items-center gap-1.5">
-            <FileCode className="w-4 h-4 text-accent-primary" />
+          <h3 className="text-xs font-mono text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
+            <FileCode className="w-4 h-4 text-indigo-600" />
             Active Architecture Interface Definition
           </h3>
-          <pre className="p-5 bg-slate-950/90 border border-slate-800 rounded-xl font-mono text-xs text-text-secondary overflow-x-auto leading-relaxed">
+          <pre className="p-5 bg-slate-50 border border-slate-200 rounded-xl font-mono text-xs text-slate-800 overflow-x-auto leading-relaxed">
 {`// GODMODE Unified Interface Definition for: ${entityId}
 export interface ${entityId.replace(/-/g, '')}Config {
   readonly id: "${entityId}";

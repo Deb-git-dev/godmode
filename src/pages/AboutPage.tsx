@@ -45,8 +45,8 @@ export const AboutPage: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
           {/* Avatar & Badges */}
           <div className="md:col-span-4 flex flex-col items-center text-center">
-            <div className="relative p-2 rounded-3xl bg-slate-900 border border-slate-700 shadow-2xl mb-4 group">
-              <div className="w-40 h-40 rounded-2xl overflow-hidden border border-slate-800">
+            <div className="relative p-2 rounded-3xl bg-white border border-slate-200 shadow-xl mb-4 group">
+              <div className="w-40 h-40 rounded-2xl overflow-hidden border border-slate-100">
                 <img
                   src={debPhoto}
                   alt="Debapriya Bhattacharyya"
@@ -65,7 +65,7 @@ export const AboutPage: React.FC = () => {
                 href="https://github.com/Deb-git-dev"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-xl bg-surface-elevated hover:bg-slate-800 text-text-secondary hover:text-white border border-border-prominent transition-all"
+                className="p-2 rounded-xl bg-white hover:bg-slate-50 text-slate-700 hover:text-indigo-600 border border-slate-200 transition-all shadow-sm"
                 title="GitHub"
               >
                 <Github className="w-4 h-4" />
@@ -74,7 +74,7 @@ export const AboutPage: React.FC = () => {
                 href="https://www.facebook.com/deb2remember"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-xl bg-surface-elevated hover:bg-slate-800 text-text-secondary hover:text-blue-400 border border-border-prominent transition-all"
+                className="p-2 rounded-xl bg-white hover:bg-slate-50 text-slate-700 hover:text-blue-600 border border-slate-200 transition-all shadow-sm"
                 title="Facebook"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
