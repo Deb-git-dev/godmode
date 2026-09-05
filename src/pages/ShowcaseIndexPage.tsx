@@ -21,6 +21,17 @@ export interface ShowcaseCard {
 
 export const SHOWCASE_ITEMS: ShowcaseCard[] = [
   {
+    id: 'velora-atelier',
+    refNum: 'MASTER SUITE',
+    title: 'Velora Motion Atelier (9-Room Suite)',
+    category: 'Templates & Portfolios',
+    desc: 'Cohesive 9-room master motion atelier connecting Event Horizon, Pin Scroll, Neural Field, Prism, Quicksilver, Cinema, Atelier, Imagine, and Product Matrix in radiant chromatic vibrancy.',
+    route: '/showcase/velora',
+    author: '@velora-atelier',
+    tags: ['9 Rooms', 'Shaders', 'WebGL', 'Awwwards', 'Vibrant'],
+    gradient: 'from-cyan-500/30 via-indigo-500/20 to-purple-500/30'
+  },
+  {
     id: 'kintaro-awwwards',
     refNum: 'REF 01',
     title: 'Kintaro Awwwards Portfolio',

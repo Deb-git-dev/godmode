@@ -58,6 +58,7 @@ import { OceanicShimmerPage } from './pages/showcase/OceanicShimmerPage';
 import { SaaSTemplatePage } from './pages/showcase/SaaSTemplatePage';
 import { ResponsiveHeroPage } from './pages/showcase/ResponsiveHeroPage';
 import { KinfeBentoPage } from './pages/showcase/KinfeBentoPage';
+import { VeloraAtelierPage } from './pages/showcase/VeloraAtelierPage';
 
 export const App: React.FC = () => {
   const [currentRoute, setCurrentRoute] = useState<string>('/');
@@ -369,6 +370,9 @@ export const App: React.FC = () => {
         )}
         {currentRoute === '/showcase/bento' && (
           <KinfeBentoPage onBack={() => navigate('/showcase')} />
+        )}
+        {(currentRoute === '/showcase/velora' || currentRoute === '/velora' || currentRoute === '/atelier') && (
+          <VeloraAtelierPage onBack={() => navigate('/showcase')} />
         )}
 
         {/* Operational Viewers */}

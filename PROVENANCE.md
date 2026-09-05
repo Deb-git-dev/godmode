@@ -103,3 +103,12 @@
 | `21st.dev/responsive-hero` | Layout Primitive | Ultra-fluid responsive hero layout with dynamic column collapse and viewport scaling. | `src/pages/showcase/ResponsiveHeroPage.tsx` |
 | `21st.dev/bento` | Bento Grid Component | Knife/Apple-grade asymmetric bento grid with interactive hover illumination. | `src/pages/showcase/KinfeBentoPage.tsx` |
 | `21st.dev/showcase-hub` | Showcase Navigation | Central showcase index featuring category filter tabs, live search, and direct launch triggers for all 26 experiences. | `src/pages/ShowcaseIndexPage.tsx` |
+| `grok-workspace/shader-engine` | WebGL Shader Engine | Hardware-accelerated client-side fragment shader canvas with pointer uniforms and DPR capping; zero local GPU overhead. | `src/components/effects/ShaderCanvas.tsx`, `src/components/effects/vibrant-shaders.ts` |
+| `grok-workspace/velora-atelier` | Multi-Room Motion Gallery | 9-room master atelier connecting Event Horizon, Pin Scroll, Neural Field, Prism, Quicksilver, Cinema, Atelier, Imagine, and Product Matrix in radiant chromatic vibrancy. | `src/pages/showcase/VeloraAtelierPage.tsx` |
+| `grok-workspace/building-games` | Game Architecture Skill | 3D libraries, Babylon.js, Three.js, Phaser, physics, ECS architecture, audio, AI pathfinding, procedural gen, and genres. | `.agents/skills/grok-building-games/` |
+| `grok-workspace/threejs` | Three.js & TSL Skill | Three.js API, TSL Shading Language, custom materials, shaders, GLTF loading, OrbitControls, and post-processing. | `.agents/skills/grok-threejs/` |
+| `grok-workspace/controls` | Input & Physics Skill | WASD, camera orientation, mouse look, vehicle physics, and gamepad input integration. | `.agents/skills/grok-controls/` |
+| `grok-workspace/design-ui` | UI Chrome Skill | Polished non-generic UI, design tokens, responsive layout, anti-slop rules, and motion orchestration. | `.agents/skills/grok-design-ui/` |
+| `grok-workspace/multiplayer-p2p` | P2P Multiplayer Skill | Peer-to-peer realtime multiplayer over WebRTC data channels with mesh state synchronization. | `.agents/skills/grok-multiplayer-p2p/` |
+| `grok-workspace/game-asset-core` | Asset Generation Skill | Spec checklists, style anchoring, sprite sheets, tilesets, UI icons, and character consistency. | `.agents/skills/grok-game-asset-core/` |
+| `grok-workspace/xai-api` | Grok API Skill | xAI Grok API integration patterns for chat, vision, and voice. | `.agents/skills/grok-xai-api/` |
