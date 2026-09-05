@@ -19,7 +19,7 @@ export const AssistantWidget: React.FC = () => {
     {
       id: 'welcome',
       role: 'assistant',
-      content: 'Hello! I am the GODMODE AI Assistant. My responses are strictly grounded in verified workspace facts (zero hallucination policy). All heavy compute runs on hosted Cloud APIs (Zero local GPU). How can I assist you?',
+      content: "Hello! I am Debapriya's AI Portfolio Assistant. I am grounded in Deb's full-stack AI engineering projects (GODMODE, Tribeni Minati Foundation NGO, 50 skills catalog). How can I assist you with exploring his work or getting in touch?",
       provider: 'Claude 3.5 Sonnet',
       latency: 42,
       grounded: true

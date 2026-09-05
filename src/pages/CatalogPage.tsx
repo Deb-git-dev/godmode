@@ -42,12 +42,20 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({ onSelectEntity }) => {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="p-6 bg-surface-subtle border border-border-subtle rounded-2xl">
-        <h1 className="text-2xl font-heading font-bold text-text-primary">
-          GODMODE Autonomous Catalog & Registry
+      <div className="p-6 md:p-8 bg-surface-subtle border border-border-subtle rounded-3xl">
+        <div className="flex items-center gap-2 mb-2">
+          <span className="px-2.5 py-0.5 text-xs font-mono rounded-full bg-accent-primary/20 text-accent-primary border border-accent-primary/30">
+            Deb's Technical Arsenal
+          </span>
+          <span className="px-2.5 py-0.5 text-xs font-mono rounded-full bg-accent-success/20 text-accent-success border border-accent-success/30">
+            50 Modular Skills Grounded
+          </span>
+        </div>
+        <h1 className="text-2xl md:text-3xl font-heading font-extrabold text-text-primary">
+          AI Architecture & Skills Catalog
         </h1>
-        <p className="text-xs text-text-secondary mt-1">
-          Explore all verified model gateways, modular skills, and full-stack connectors integrated into the architecture.
+        <p className="text-xs md:text-sm text-text-secondary mt-1 font-body">
+          Explore all 50 verified model gateways, modular agent skills, and full-stack connectors integrated into Debapriya's portfolio architecture.
         </p>
 
         {/* Filter & Search Bar */}

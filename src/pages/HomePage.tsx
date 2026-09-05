@@ -1,9 +1,24 @@
 import React from 'react';
-import { ArrowRight, ShieldCheck, Zap, Server, Cpu, Play } from 'lucide-react';
+import { 
+  ArrowRight, 
+  ExternalLink, 
+  ShieldCheck, 
+  Zap, 
+  Server, 
+  Cpu, 
+  Sparkles, 
+  Github, 
+  HeartHandshake, 
+  Mail, 
+  Layers,
+  Award
+} from 'lucide-react';
 import { ShaderGradientHero } from '../components/motion/ShaderGradientHero';
 import { SplineScene3D } from '../components/motion/SplineScene3D';
 import { TiltCard3D } from '../components/motion/TiltCard3D';
 import { CertificateGenerator } from '../components/documents/CertificateGenerator';
+import { GenerativeAIStudio } from '../components/ai/GenerativeAIStudio';
+import debPhoto from '../assets/deb.jpg';
 
 interface HomePageProps {
   onNavigate: (route: string) => void;
@@ -12,42 +27,283 @@ interface HomePageProps {
 
 export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenActionModal }) => {
   return (
-    <div className="space-y-12">
-      {/* Hero Section */}
-      <ShaderGradientHero className="p-8 md:p-14 border border-border-subtle shadow-2xl">
-        <div className="max-w-3xl space-y-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-primary/20 border border-accent-primary/30 text-xs font-mono text-indigo-300">
-            <Zap className="w-3.5 h-3.5 text-accent-secondary" />
-            <span>The Rule of Everything • Zero Local GPU</span>
+    <div className="space-y-16">
+      {/* Hero Section: Debapriya's Personal Portfolio & Identity */}
+      <ShaderGradientHero className="p-8 md:p-14 border border-border-subtle shadow-2xl overflow-hidden relative">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          {/* Left Column: Bio & Call to Action (7 Cols) */}
+          <div className="lg:col-span-7 space-y-6">
+            {/* Status Beacon */}
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-primary/20 border border-accent-primary/30 text-xs font-mono text-indigo-300">
+              <span className="w-2 h-2 rounded-full bg-accent-success animate-pulse" />
+              <span>Available for High-Impact AI & Full-Stack Roles</span>
+            </div>
+
+            {/* Main Headline */}
+            <div className="space-y-2">
+              <h2 className="text-xs md:text-sm font-mono tracking-wider text-accent-secondary uppercase font-semibold">
+                Debapriya Bhattacharyya (Deb) • AI Architect
+              </h2>
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-extrabold text-text-primary tracking-tight leading-[1.1] text-balance">
+                Architecting Autonomous AI & Resilient Web Systems.
+              </h1>
+            </div>
+
+            {/* Subtitle / Bio */}
+            <p className="text-sm md:text-base text-text-secondary leading-relaxed font-body text-pretty max-w-2xl">
+              Full-Stack Developer, Cloud AI Systems Architect, and Founder of the <strong className="text-text-primary font-semibold">Tribeni Minati Foundation NGO</strong>. I build zero-local-compute multi-model orchestration pipelines, sub-second TTFT cloud inference microservices, and mathematical, anti-slop digital platforms.
+            </p>
+
+            {/* Action Buttons */}
+            <div className="flex flex-wrap items-center gap-3 pt-2">
+              <a
+                href="#studio"
+                className="flex items-center gap-2 px-5 py-3 bg-gradient-to-r from-accent-primary to-indigo-600 hover:from-accent-primary/90 hover:to-indigo-500 text-white rounded-xl text-xs font-bold transition-all shadow-xl shadow-accent-primary/25 active:scale-95 group"
+              >
+                <Sparkles className="w-4 h-4 text-cyan-200" />
+                <span>Launch AI Studio</span>
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              </a>
+
+              <a
+                href="https://github.com/Deb-git-dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-4 py-3 bg-surface-elevated hover:bg-slate-800 text-text-primary border border-border-prominent rounded-xl text-xs font-semibold transition-all shadow-md active:scale-95"
+              >
+                <Github className="w-4 h-4 text-text-secondary" />
+                <span>GitHub Profile</span>
+                <ExternalLink className="w-3 h-3 text-text-muted" />
+              </a>
+
+              <a
+                href="https://www.facebook.com/deb2remember"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-4 py-3 bg-surface-elevated hover:bg-slate-800 text-text-primary border border-border-prominent rounded-xl text-xs font-semibold transition-all shadow-md active:scale-95"
+              >
+                <svg className="w-4 h-4 text-blue-400 fill-current" viewBox="0 0 24 24">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+                <span>Facebook Profile</span>
+                <ExternalLink className="w-3 h-3 text-text-muted" />
+              </a>
+
+              <button
+                onClick={() => onNavigate('/contact')}
+                className="flex items-center gap-2 px-4 py-3 bg-surface-elevated hover:bg-slate-800 text-text-primary border border-border-prominent rounded-xl text-xs font-semibold transition-all shadow-md active:scale-95"
+              >
+                <Mail className="w-4 h-4 text-accent-secondary" />
+                <span>Contact Me</span>
+              </button>
+            </div>
           </div>
 
-          <h1 className="text-4xl md:text-6xl font-heading font-extrabold text-text-primary tracking-tight leading-[1.1]">
-            Architected for Pure Cloud Intelligence.
-          </h1>
+          {/* Right Column: Deb's Portrait & Double-Bezel Card (5 Cols) */}
+          <div className="lg:col-span-5 flex justify-center lg:justify-end">
+            <div className="relative group">
+              {/* Decorative Accent Glow Behind Portrait */}
+              <div className="absolute -inset-1.5 bg-gradient-to-r from-accent-primary via-accent-secondary to-indigo-500 rounded-3xl blur-xl opacity-40 group-hover:opacity-60 transition duration-500" />
 
-          <p className="text-base md:text-lg text-text-secondary leading-relaxed font-body">
-            GODMODE unifies Claude API reasoning, OpenRouter failover, and NVIDIA NIM hosted microservices into an uncompromising, anti-slop developer architecture. Every asset, skill, and tool is traceable with full provenance.
-          </p>
-
-          <div className="flex flex-wrap items-center gap-4 pt-2">
-            <button
-              onClick={() => onNavigate('/catalog')}
-              className="flex items-center gap-2 px-6 py-3.5 bg-accent-primary hover:bg-accent-primary/90 text-white rounded-xl text-sm font-bold transition-all shadow-xl shadow-accent-primary/25 active:scale-95 group"
-            >
-              <span>Explore AI Catalog</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
-
-            <button
-              onClick={onOpenActionModal}
-              className="flex items-center gap-2 px-6 py-3.5 bg-surface-elevated hover:bg-slate-800 text-text-primary border border-border-prominent rounded-xl text-sm font-semibold transition-all shadow-md active:scale-95"
-            >
-              <Play className="w-4 h-4 text-accent-secondary" />
-              <span>Trigger Verified Action</span>
-            </button>
+              {/* Double Bezel Outer Container */}
+              <div className="relative p-2.5 bg-slate-900/90 rounded-3xl border border-slate-700/80 backdrop-blur-xl shadow-2xl">
+                <div className="relative rounded-2xl overflow-hidden border border-slate-800 max-w-[320px] aspect-square">
+                  <img
+                    src={debPhoto}
+                    alt="Debapriya Bhattacharyya"
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
+                  
+                  {/* Floating Badge on Portrait */}
+                  <div className="absolute bottom-3 left-3 right-3 p-3 bg-slate-950/90 border border-slate-800/90 rounded-xl backdrop-blur-md">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <div className="font-heading font-bold text-xs text-text-primary">
+                          Debapriya Bhattacharyya
+                        </div>
+                        <div className="text-[10px] font-mono text-text-muted">
+                          Kolkata, WB • Tribeni Minati Foundation
+                        </div>
+                      </div>
+                      <span className="w-2.5 h-2.5 rounded-full bg-accent-success shadow-lg shadow-emerald-500/50 animate-pulse" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </ShaderGradientHero>
+
+      {/* Live Generative AI Studio Section */}
+      <div id="studio" className="scroll-mt-24">
+        <GenerativeAIStudio onOpenActionModal={onOpenActionModal} />
+      </div>
+
+      {/* Featured Engineering Projects */}
+      <div className="space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+          <div>
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent-secondary/15 text-accent-secondary border border-accent-secondary/30 text-xs font-mono mb-2">
+              <Layers className="w-3 h-3" />
+              <span>Flagship Engineering Portfolio</span>
+            </div>
+            <h2 className="text-2xl md:text-3xl font-heading font-extrabold text-text-primary tracking-tight">
+              Featured Systems & Initiatives
+            </h2>
+          </div>
+          <button
+            onClick={() => onNavigate('/catalog')}
+            className="text-xs font-mono text-accent-secondary hover:underline flex items-center gap-1"
+          >
+            <span>Explore 50 Skills & Integrations</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </button>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Project 1: GODMODE */}
+          <div className="p-7 rounded-3xl bg-surface-subtle border border-border-subtle hover:border-accent-primary/50 transition-all shadow-xl group flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <span className="px-2.5 py-0.5 text-xs font-mono rounded-full bg-accent-primary/20 text-accent-primary border border-accent-primary/30">
+                  AI Architecture
+                </span>
+                <span className="text-xs font-mono text-accent-success flex items-center gap-1">
+                  <ShieldCheck className="w-3.5 h-3.5" />
+                  <span>Production Verified</span>
+                </span>
+              </div>
+              <h3 className="text-xl font-heading font-bold text-text-primary group-hover:text-accent-primary transition-colors">
+                GODMODE — Unified Cloud AI Architecture
+              </h3>
+              <p className="text-xs text-text-secondary leading-relaxed mt-2.5 mb-6 font-body">
+                Full-stack reference architecture implementing 50 modular agent skills, OpenCode terminal coding harness, and zero-local-compute inference routing across Anthropic Claude, OpenRouter, and NVIDIA NIM hosted microservices.
+              </p>
+            </div>
+            <div className="flex items-center justify-between pt-4 border-t border-border-subtle text-xs font-mono">
+              <a
+                href="https://github.com/Deb-git-dev/godmode"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-accent-secondary hover:text-white transition-colors"
+              >
+                <Github className="w-4 h-4" />
+                <span>Deb-git-dev/godmode</span>
+                <ExternalLink className="w-3 h-3" />
+              </a>
+              <button
+                onClick={() => onNavigate('/catalog')}
+                className="text-text-muted hover:text-text-primary"
+              >
+                View Skills &rarr;
+              </button>
+            </div>
+          </div>
+
+          {/* Project 2: Tribeni Minati Foundation */}
+          <div className="p-7 rounded-3xl bg-surface-subtle border border-border-subtle hover:border-rose-500/50 transition-all shadow-xl group flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <span className="px-2.5 py-0.5 text-xs font-mono rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/30">
+                  Social Impact & NGO
+                </span>
+                <span className="text-xs font-mono text-emerald-400 flex items-center gap-1">
+                  <HeartHandshake className="w-3.5 h-3.5" />
+                  <span>Grassroots Welfare</span>
+                </span>
+              </div>
+              <h3 className="text-xl font-heading font-bold text-text-primary group-hover:text-rose-400 transition-colors">
+                Tribeni Minati Foundation Platform
+              </h3>
+              <p className="text-xs text-text-secondary leading-relaxed mt-2.5 mb-6 font-body">
+                Full-stack web platform powering the Tribeni Minati Foundation NGO. Built to bring radical transparency to humanitarian aid, field telemetry reporting, donor lifecycle management, and verified community welfare projects.
+              </p>
+            </div>
+            <div className="flex items-center justify-between pt-4 border-t border-border-subtle text-xs font-mono">
+              <a
+                href="https://github.com/Deb-git-dev/tribeni-minati-foundation-website"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-rose-300 hover:text-white transition-colors"
+              >
+                <Github className="w-4 h-4" />
+                <span>Foundation Repository</span>
+                <ExternalLink className="w-3 h-3" />
+              </a>
+              <a
+                href="https://www.facebook.com/deb2remember"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-text-muted hover:text-text-primary flex items-center gap-1"
+              >
+                <span>Updates</span>
+                <ExternalLink className="w-3 h-3" />
+              </a>
+            </div>
+          </div>
+
+          {/* Project 3: GitReverse Prompt Engine */}
+          <div className="p-7 rounded-3xl bg-surface-subtle border border-border-subtle hover:border-accent-secondary/50 transition-all shadow-xl group flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <span className="px-2.5 py-0.5 text-xs font-mono rounded-full bg-accent-secondary/20 text-accent-secondary border border-accent-secondary/30">
+                  Prompt Engineering
+                </span>
+                <span className="text-xs font-mono text-text-muted">49 Repos Verified</span>
+              </div>
+              <h3 className="text-xl font-heading font-bold text-text-primary group-hover:text-accent-secondary transition-colors">
+                GitReverse Prompt Engineering Catalog
+              </h3>
+              <p className="text-xs text-text-secondary leading-relaxed mt-2.5 mb-6 font-body">
+                Curated reverse-engineered system prompt specifications extracted across 49 production repositories (ALPHENEX.AI Claude frontend suite, DeepSeek harnesses, OpenClaw 2.0, Firecrawl v2, and media pipelines).
+              </p>
+            </div>
+            <div className="flex items-center justify-between pt-4 border-t border-border-subtle text-xs font-mono">
+              <button
+                onClick={() => onNavigate('/catalog')}
+                className="flex items-center gap-1.5 text-accent-secondary hover:text-white transition-colors"
+              >
+                <span>Browse Prompts Directory</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+              <span className="text-text-muted">docs/GITREVERSE_PROMPTS.md</span>
+            </div>
+          </div>
+
+          {/* Project 4: Cloud Model Router Visualizer */}
+          <div className="p-7 rounded-3xl bg-surface-subtle border border-border-subtle hover:border-indigo-500/50 transition-all shadow-xl group flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <span className="px-2.5 py-0.5 text-xs font-mono rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+                  Edge Router
+                </span>
+                <span className="text-xs font-mono text-accent-success flex items-center gap-1">
+                  <Zap className="w-3.5 h-3.5" />
+                  <span>Sub-380ms TTFT</span>
+                </span>
+              </div>
+              <h3 className="text-xl font-heading font-bold text-text-primary group-hover:text-indigo-400 transition-colors">
+                Autonomous Multi-Model Cloud Router
+              </h3>
+              <p className="text-xs text-text-secondary leading-relaxed mt-2.5 mb-6 font-body">
+                High-performance edge routing layer capable of instant fallback between Claude 3.5 Sonnet, OpenAI GPT-4o, OpenRouter DeepSeek-V3, and NVIDIA NIM streaming microservices, with cryptographic dual-write ledger persistence.
+              </p>
+            </div>
+            <div className="flex items-center justify-between pt-4 border-t border-border-subtle text-xs font-mono">
+              <button
+                onClick={() => onNavigate('/dashboard')}
+                className="flex items-center gap-1.5 text-indigo-300 hover:text-white transition-colors"
+              >
+                <span>Inspect Live Telemetry</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+              <span className="text-text-muted">FastAPI + Vercel</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* 3D Scene Viewport */}
       <div>
@@ -56,16 +312,16 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenActionModa
             <h2 className="text-xl font-heading font-bold text-text-primary">
               Interactive 3D Orchestration Topology (§9)
             </h2>
-            <p className="text-xs text-text-secondary mt-0.5">
-              Self-contained SplineScene3D primitive with deterministic WebGL & reduced-motion fallback.
+            <p className="text-xs text-text-secondary mt-0.5 font-body">
+              WebGL 2.0 viewport powered by SplineScene3D with graceful reduced-motion fallbacks.
             </p>
           </div>
-          <span className="text-xs font-mono text-accent-success">WebGL 2.0 / SVG Fallback Ready</span>
+          <span className="text-xs font-mono text-accent-success">WebGL 2.0 Active</span>
         </div>
         <SplineScene3D />
       </div>
 
-      {/* Three Pillar Cards */}
+      {/* Core Architectural Pillars */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <TiltCard3D>
           <div className="w-10 h-10 rounded-xl bg-indigo-950/40 border border-indigo-700/40 flex items-center justify-center text-indigo-400 mb-4">
@@ -74,7 +330,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenActionModa
           <h3 className="text-base font-heading font-bold text-text-primary mb-2">
             Zero Local Compute
           </h3>
-          <p className="text-xs text-text-secondary leading-relaxed mb-4">
+          <p className="text-xs text-text-secondary leading-relaxed mb-4 font-body">
             No local model weights, no local diffusion inference. 100% of compute delegated to cloud APIs, preserving development machine RAM.
           </p>
           <div className="text-[11px] font-mono text-accent-primary">Rule 01 Enforced</div>
@@ -87,8 +343,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenActionModa
           <h3 className="text-base font-heading font-bold text-text-primary mb-2">
             Autonomous Meta-Router
           </h3>
-          <p className="text-xs text-text-secondary leading-relaxed mb-4">
-            34+ specialized skills with hybrid BM25 and semantic intent dispatching. Agents self-select without human coordination overhead.
+          <p className="text-xs text-text-secondary leading-relaxed mb-4 font-body">
+            50 specialized skills with hybrid BM25 and semantic intent dispatching. Agents self-select without human coordination overhead.
           </p>
           <div className="text-[11px] font-mono text-accent-secondary">Rule 04 Enforced</div>
         </TiltCard3D>
@@ -98,21 +354,36 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenActionModa
             <ShieldCheck className="w-5 h-5" />
           </div>
           <h3 className="text-base font-heading font-bold text-text-primary mb-2">
-            Dual-Write Persistence
+            Verifiable Action Ledger
           </h3>
-          <p className="text-xs text-text-secondary leading-relaxed mb-4">
-            Supabase Postgres primary combined with MongoDB Atlas async mirror and LocalStorage cache for zero data loss risk.
+          <p className="text-xs text-text-secondary leading-relaxed mb-4 font-body">
+            Dual-write persistence with client-side PDF receipt generation, ensuring complete auditability for system actions and donor disbursements.
           </p>
-          <div className="text-[11px] font-mono text-accent-success">Section 11 Enforced</div>
+          <div className="text-[11px] font-mono text-accent-success">Rule 06 Enforced</div>
         </TiltCard3D>
       </div>
 
-      {/* In-Browser PDF Clearance Certificate Section */}
-      <CertificateGenerator
-        actionId="rec_godmode_core_init"
-        blockNumber={10009}
-        recipientName="Lead Architecture Auditor"
-      />
+      {/* In-Browser PDF Certificate Generator */}
+      <div className="p-8 bg-surface-subtle border border-border-subtle rounded-3xl shadow-xl">
+        <div className="max-w-2xl mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-primary/20 text-accent-primary border border-accent-primary/30 text-xs font-mono mb-2">
+            <Award className="w-3.5 h-3.5" />
+            <span>Cryptographic Proof & Verification</span>
+          </div>
+          <h2 className="text-xl font-heading font-bold text-text-primary">
+            Generate Verifiable Portfolio Audit Certificate
+          </h2>
+          <p className="text-xs text-text-secondary mt-1 font-body">
+            Uses in-browser PDF-Lib to construct an audited vector receipt validating Deb's system invariants and portfolio authenticity.
+          </p>
+        </div>
+
+        <CertificateGenerator
+          recipientName="Debapriya Bhattacharyya (Deb-git-dev)"
+          actionId="ACT_PORTFOLIO_VERIFY_2026"
+          blockNumber={10049}
+        />
+      </div>
     </div>
   );
 };

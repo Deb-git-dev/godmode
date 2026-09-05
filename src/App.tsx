@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { 
   ShieldCheck, 
-  Zap,
-  GitBranch,
-  Home,
-  Compass,
-  Info,
-  LayoutDashboard,
-  Mail,
-  Lock,
-  Play
+  Home, 
+  Compass, 
+  Info, 
+  LayoutDashboard, 
+  Mail, 
+  Play,
+  Sparkles,
+  Github
 } from 'lucide-react';
 import { GridSweep } from './components/primitives/MotionPrimitives';
 import { AmbientCanvas3D } from './components/motion/AmbientCanvas3D';
@@ -19,6 +18,7 @@ import { SkillsRegistryView } from './components/skills/SkillsRegistryView';
 import { MemoryJournalView } from './components/memory/MemoryJournalView';
 import { ProvenanceAuditView } from './components/audit/ProvenanceAuditView';
 import { AssistantWidget } from './components/ai/AssistantWidget';
+import { GenerativeAIStudio } from './components/ai/GenerativeAIStudio';
 import { HomePage } from './pages/HomePage';
 import { AboutPage } from './pages/AboutPage';
 import { CatalogPage } from './pages/CatalogPage';
@@ -27,6 +27,7 @@ import { DashboardPage } from './pages/DashboardPage';
 import { AuthPage } from './pages/AuthPage';
 import { ContactPage } from './pages/ContactPage';
 import { ActionLedgerModal } from './components/modals/ActionLedgerModal';
+import debPhoto from './assets/deb.jpg';
 
 export const App: React.FC = () => {
   const [currentRoute, setCurrentRoute] = useState<string>('/');
@@ -45,7 +46,8 @@ export const App: React.FC = () => {
       } else {
         // Handle route aliases
         if (hash === '/team' || hash === '/leadership') setCurrentRoute('/about');
-        else if (hash === '/directory') setCurrentRoute('/catalog');
+        else if (hash === '/directory' || hash === '/projects') setCurrentRoute('/catalog');
+        else if (hash === '/generator') setCurrentRoute('/studio');
         else if (hash === '/login') setCurrentRoute('/auth');
         else setCurrentRoute(hash);
       }
@@ -63,7 +65,8 @@ export const App: React.FC = () => {
       setCurrentRoute('/detail');
     } else {
       if (path === '/team' || path === '/leadership') setCurrentRoute('/about');
-      else if (path === '/directory') setCurrentRoute('/catalog');
+      else if (path === '/directory' || path === '/projects') setCurrentRoute('/catalog');
+      else if (path === '/generator') setCurrentRoute('/studio');
       else if (path === '/login') setCurrentRoute('/auth');
       else setCurrentRoute(path);
     }
@@ -83,66 +86,92 @@ export const App: React.FC = () => {
       <CustomCursor3D />
 
       {/* Top System Invariant Bar */}
-      <div className="border-b border-border-subtle bg-slate-950/80 backdrop-blur-md px-6 py-2 z-30 flex flex-wrap items-center justify-between gap-4 text-xs font-mono">
-        <div className="flex items-center gap-4">
+      <div className="border-b border-border-subtle bg-slate-950/90 backdrop-blur-md px-6 py-2 z-30 flex flex-wrap items-center justify-between gap-4 text-xs font-mono">
+        <div className="flex items-center gap-3">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-accent-success animate-pulse" />
-            <span className="font-bold text-text-primary">GODMODE V1.0.0</span>
+            <span className="font-bold text-text-primary">DEBAPRIYA BHATTACHARYYA</span>
           </div>
           <span className="text-border-prominent">|</span>
-          <span className="text-text-muted">Compute: <span className="text-accent-secondary font-semibold">100% Cloud API</span></span>
-          <span className="text-border-prominent hidden sm:inline">|</span>
-          <span className="text-text-muted hidden sm:inline">Local GPU: <span className="text-accent-success font-semibold">0 MB</span></span>
+          <span className="text-text-muted hidden sm:inline">Role: <span className="text-accent-secondary font-semibold">AI Architect & Full-Stack</span></span>
+          <span className="text-border-prominent hidden md:inline">|</span>
+          <span className="text-text-muted hidden md:inline">Foundation: <span className="text-rose-400 font-semibold">Tribeni Minati NGO</span></span>
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
+          {/* Facebook Link */}
+          <a
+            href="https://www.facebook.com/deb2remember"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1 text-blue-400 hover:text-blue-300 transition-colors"
+          >
+            <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+            <span className="hidden sm:inline">Facebook</span>
+          </a>
+
+          <span className="text-border-prominent">|</span>
+
+          {/* GitHub Link */}
+          <a
+            href="https://github.com/Deb-git-dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1 text-text-secondary hover:text-white transition-colors"
+          >
+            <Github className="w-3.5 h-3.5" />
+            <span className="hidden sm:inline">GitHub</span>
+          </a>
+
+          <span className="text-border-prominent">|</span>
+
           <button
             onClick={() => setIsActionModalOpen(true)}
-            className="flex items-center gap-1.5 text-accent-secondary hover:text-white transition-colors"
+            className="flex items-center gap-1 text-accent-secondary hover:text-white transition-colors"
           >
-            <Play className="w-3.5 h-3.5 fill-accent-secondary" />
-            <span>Trigger Action (#action)</span>
+            <Play className="w-3 h-3 fill-accent-secondary" />
+            <span>Action Ledger</span>
           </button>
-          <span className="text-border-prominent">|</span>
-          <div className="flex items-center gap-1 text-accent-success">
-            <ShieldCheck className="w-3.5 h-3.5" />
-            <span>20/20 Invariants Verified</span>
-          </div>
-          <span className="text-border-prominent">|</span>
-          <div className="flex items-center gap-1 text-text-secondary">
-            <GitBranch className="w-3.5 h-3.5 text-accent-primary" />
-            <span>main</span>
-          </div>
         </div>
       </div>
 
       {/* Main Sticky Header & Navigation */}
-      <header className="border-b border-border-subtle bg-surface-subtle/85 backdrop-blur-md sticky top-0 z-30 px-6 py-3.5">
+      <header className="border-b border-border-subtle bg-surface-subtle/90 backdrop-blur-md sticky top-0 z-30 px-6 py-3">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
-          {/* Logo & Brand */}
+          {/* Profile Identity & Thumbnail */}
           <div
             onClick={() => navigate('/')}
             className="flex items-center gap-3 cursor-pointer group"
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-accent-primary to-accent-secondary flex items-center justify-center text-white shadow-lg shadow-accent-primary/20 group-hover:scale-105 transition-transform">
-              <Zap className="w-5 h-5 fill-white" />
+            <div className="relative">
+              <div className="w-11 h-11 rounded-full overflow-hidden border-2 border-accent-primary/60 shadow-lg shadow-accent-primary/20 group-hover:border-accent-primary transition-colors">
+                <img
+                  src={debPhoto}
+                  alt="Debapriya Bhattacharyya"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                />
+              </div>
+              <span className="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-accent-success border-2 border-slate-950" />
             </div>
+
             <div>
               <div className="flex items-center gap-2">
-                <h1 className="font-heading font-bold text-lg text-text-primary tracking-tight">
-                  GODMODE
+                <h1 className="font-heading font-extrabold text-base text-text-primary tracking-tight">
+                  Debapriya Bhattacharyya
                 </h1>
                 <span className="px-2 py-0.5 text-[10px] font-mono rounded-full bg-accent-primary/20 text-accent-primary border border-accent-primary/30">
-                  Obsidian
+                  Deb-git-dev
                 </span>
               </div>
-              <p className="text-[11px] text-text-secondary">
-                The Rule of Everything • Zero Local GPU
+              <p className="text-[11px] text-text-secondary font-mono">
+                AI Architect • Tribeni Minati Foundation
               </p>
             </div>
           </div>
 
-          {/* Navigation Bar (§12 Multi-Page Route Architecture) */}
+          {/* Navigation Bar */}
           <nav className="flex items-center gap-1 p-1 bg-slate-950/80 rounded-xl border border-border-subtle overflow-x-auto text-xs font-semibold">
             <button
               onClick={() => navigate('/')}
@@ -155,13 +184,23 @@ export const App: React.FC = () => {
             </button>
 
             <button
+              onClick={() => navigate('/studio')}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
+                currentRoute === '/studio' ? 'bg-accent-primary text-white shadow-md' : 'text-text-secondary hover:text-text-primary'
+              }`}
+            >
+              <Sparkles className="w-3.5 h-3.5 text-cyan-300" />
+              <span>AI Studio</span>
+            </button>
+
+            <button
               onClick={() => navigate('/catalog')}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
                 currentRoute === '/catalog' ? 'bg-accent-primary text-white shadow-md' : 'text-text-secondary hover:text-text-primary'
               }`}
             >
               <Compass className="w-3.5 h-3.5" />
-              <span>Catalog</span>
+              <span>Projects & Skills</span>
             </button>
 
             <button
@@ -171,7 +210,7 @@ export const App: React.FC = () => {
               }`}
             >
               <Info className="w-3.5 h-3.5" />
-              <span>About</span>
+              <span>About & NGO</span>
             </button>
 
             <button
@@ -181,7 +220,7 @@ export const App: React.FC = () => {
               }`}
             >
               <LayoutDashboard className="w-3.5 h-3.5" />
-              <span>Dashboard</span>
+              <span>Telemetry</span>
             </button>
 
             <button
@@ -194,31 +233,21 @@ export const App: React.FC = () => {
               <span>Contact</span>
             </button>
 
-            <button
-              onClick={() => navigate('/auth')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
-                currentRoute === '/auth' ? 'bg-accent-primary text-white shadow-md' : 'text-text-secondary hover:text-text-primary'
-              }`}
-            >
-              <Lock className="w-3.5 h-3.5" />
-              <span>Auth</span>
-            </button>
-
             <span className="text-border-prominent mx-1">|</span>
 
-            {/* Core Tool Viewers */}
+            {/* Quick Operational Views */}
             <button
               onClick={() => navigate('/router-view')}
-              className={`px-2.5 py-1.5 rounded-lg transition-all text-[11px] font-mono ${
+              className={`px-2 py-1 rounded-lg transition-all text-[11px] font-mono ${
                 currentRoute === '/router-view' ? 'bg-indigo-950 text-indigo-300 border border-indigo-700' : 'text-text-muted hover:text-text-secondary'
               }`}
             >
-              Gateway
+              Router
             </button>
 
             <button
               onClick={() => navigate('/skills-view')}
-              className={`px-2.5 py-1.5 rounded-lg transition-all text-[11px] font-mono ${
+              className={`px-2 py-1 rounded-lg transition-all text-[11px] font-mono ${
                 currentRoute === '/skills-view' ? 'bg-cyan-950 text-cyan-300 border border-cyan-700' : 'text-text-muted hover:text-text-secondary'
               }`}
             >
@@ -227,7 +256,7 @@ export const App: React.FC = () => {
 
             <button
               onClick={() => navigate('/memory-view')}
-              className={`px-2.5 py-1.5 rounded-lg transition-all text-[11px] font-mono ${
+              className={`px-2 py-1 rounded-lg transition-all text-[11px] font-mono ${
                 currentRoute === '/memory-view' ? 'bg-emerald-950 text-emerald-300 border border-emerald-700' : 'text-text-muted hover:text-text-secondary'
               }`}
             >
@@ -236,7 +265,7 @@ export const App: React.FC = () => {
 
             <button
               onClick={() => navigate('/audit-view')}
-              className={`px-2.5 py-1.5 rounded-lg transition-all text-[11px] font-mono ${
+              className={`px-2 py-1 rounded-lg transition-all text-[11px] font-mono ${
                 currentRoute === '/audit-view' ? 'bg-amber-950 text-amber-300 border border-amber-700' : 'text-text-muted hover:text-text-secondary'
               }`}
             >
@@ -250,6 +279,11 @@ export const App: React.FC = () => {
       <main className="flex-1 max-w-7xl w-full mx-auto p-6 z-10">
         {currentRoute === '/' && (
           <HomePage onNavigate={navigate} onOpenActionModal={() => setIsActionModalOpen(true)} />
+        )}
+        {currentRoute === '/studio' && (
+          <div className="space-y-6">
+            <GenerativeAIStudio onOpenActionModal={() => setIsActionModalOpen(true)} />
+          </div>
         )}
         {currentRoute === '/about' && <AboutPage />}
         {currentRoute === '/catalog' && <CatalogPage onSelectEntity={handleSelectEntity} />}
@@ -268,21 +302,30 @@ export const App: React.FC = () => {
       </main>
 
       {/* Persistent Footer */}
-      <footer className="border-t border-border-subtle bg-slate-950/80 px-6 py-4 z-20 text-xs font-mono text-text-muted">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
-          <div className="flex items-center gap-2">
-            <span>Project: GODMODE</span>
+      <footer className="border-t border-border-subtle bg-slate-950/90 px-6 py-6 z-20 text-xs font-mono text-text-muted">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="font-bold text-text-primary">Debapriya Bhattacharyya</span>
             <span>•</span>
-            <span>Zero Local GPU</span>
+            <a href="https://github.com/Deb-git-dev" target="_blank" rel="noopener noreferrer" className="text-accent-secondary hover:underline">
+              GitHub (Deb-git-dev)
+            </a>
             <span>•</span>
-            <span className="text-accent-success font-semibold">Continuous Loop Recheck Active</span>
+            <a href="https://www.facebook.com/deb2remember" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">
+              Facebook (deb2remember)
+            </a>
+            <span>•</span>
+            <span className="text-rose-400">Tribeni Minati Foundation NGO</span>
           </div>
+
           <div className="flex items-center gap-4">
             <button onClick={() => navigate('/about')} className="hover:text-text-secondary">About</button>
-            <button onClick={() => navigate('/catalog')} className="hover:text-text-secondary">Catalog</button>
-            <button onClick={() => navigate('/dashboard')} className="hover:text-text-secondary">Dashboard</button>
-            <button onClick={() => setIsActionModalOpen(true)} className="text-accent-secondary hover:underline">
-              Trigger Conversion Action
+            <button onClick={() => navigate('/studio')} className="text-cyan-300 hover:underline">AI Studio</button>
+            <button onClick={() => navigate('/catalog')} className="hover:text-text-secondary">Skills</button>
+            <button onClick={() => navigate('/contact')} className="hover:text-text-secondary">Contact</button>
+            <button onClick={() => setIsActionModalOpen(true)} className="text-accent-success hover:underline flex items-center gap-1">
+              <ShieldCheck className="w-3.5 h-3.5" />
+              <span>Verifiable Ledger</span>
             </button>
           </div>
         </div>

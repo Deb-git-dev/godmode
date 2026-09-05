@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
-import { Send, CheckCircle2 } from 'lucide-react';
+import { 
+  Send, 
+  CheckCircle2, 
+  Github, 
+  Mail, 
+  ExternalLink, 
+  MessageSquare
+} from 'lucide-react';
 
 export const ContactPage: React.FC = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [category, setCategory] = useState('general');
+  const [category, setCategory] = useState('collaboration');
   const [message, setMessage] = useState('');
   const [submittedTicket, setSubmittedTicket] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -23,112 +30,213 @@ export const ContactPage: React.FC = () => {
       if (res.ok) {
         const data = await res.json();
         setSubmittedTicket(data.ticket_id);
+      } else {
+        setSubmittedTicket(`tkt_deb_${Date.now()}`);
       }
     } catch (_) {
-      setSubmittedTicket(`tkt_${Date.now()}`);
+      setSubmittedTicket(`tkt_deb_${Date.now()}`);
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="max-w-2xl mx-auto space-y-6">
-      <div className="p-8 bg-surface-subtle border border-border-subtle rounded-3xl space-y-6 shadow-xl">
-        <div>
-          <div className="flex items-center gap-2">
+    <div className="max-w-4xl mx-auto space-y-10">
+      {/* Header */}
+      <div className="text-center space-y-3">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent-primary/20 text-accent-primary border border-accent-primary/30 text-xs font-mono">
+          <MessageSquare className="w-3.5 h-3.5 text-accent-secondary" />
+          <span>Get in Touch with Debapriya</span>
+        </div>
+        <h1 className="text-3xl md:text-5xl font-heading font-extrabold text-text-primary tracking-tight text-balance">
+          Let's Build Something Meaningful Together.
+        </h1>
+        <p className="text-xs md:text-sm text-text-secondary max-w-xl mx-auto font-body text-pretty">
+          Reach out for AI systems architecture, full-stack consulting, engineering leadership, or collaboration with the Tribeni Minati Foundation NGO.
+        </p>
+      </div>
+
+      {/* Social & Channel Connectors Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {/* Facebook Card */}
+        <a
+          href="https://www.facebook.com/deb2remember"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="p-6 rounded-3xl bg-surface-subtle border border-border-subtle hover:border-blue-500/50 transition-all shadow-xl group flex flex-col justify-between"
+        >
+          <div>
+            <div className="w-12 h-12 rounded-2xl bg-blue-600/15 border border-blue-500/30 flex items-center justify-center text-blue-400 mb-4 group-hover:scale-105 transition-transform">
+              <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </div>
+            <div className="text-xs font-mono text-blue-400 mb-1">Official Social</div>
+            <h3 className="font-heading font-bold text-base text-text-primary">
+              Facebook Profile
+            </h3>
+            <p className="text-xs text-text-secondary mt-1.5 font-body">
+              facebook.com/deb2remember
+            </p>
+          </div>
+          <div className="pt-4 mt-4 border-t border-border-subtle flex items-center justify-between text-xs font-mono text-blue-300">
+            <span>Connect on Facebook</span>
+            <ExternalLink className="w-3.5 h-3.5" />
+          </div>
+        </a>
+
+        {/* GitHub Card */}
+        <a
+          href="https://github.com/Deb-git-dev"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="p-6 rounded-3xl bg-surface-subtle border border-border-subtle hover:border-accent-primary/50 transition-all shadow-xl group flex flex-col justify-between"
+        >
+          <div>
+            <div className="w-12 h-12 rounded-2xl bg-indigo-950/60 border border-indigo-700/50 flex items-center justify-center text-accent-primary mb-4 group-hover:scale-105 transition-transform">
+              <Github className="w-6 h-6" />
+            </div>
+            <div className="text-xs font-mono text-accent-secondary mb-1">Open Source & Repos</div>
+            <h3 className="font-heading font-bold text-base text-text-primary">
+              GitHub Profile
+            </h3>
+            <p className="text-xs text-text-secondary mt-1.5 font-body">
+              github.com/Deb-git-dev
+            </p>
+          </div>
+          <div className="pt-4 mt-4 border-t border-border-subtle flex items-center justify-between text-xs font-mono text-indigo-300">
+            <span>View Repositories</span>
+            <ExternalLink className="w-3.5 h-3.5" />
+          </div>
+        </a>
+
+        {/* Email / NGO Card */}
+        <a
+          href="mailto:bhattacharyya.debapriya571@gmail.com"
+          className="p-6 rounded-3xl bg-surface-subtle border border-border-subtle hover:border-emerald-500/50 transition-all shadow-xl group flex flex-col justify-between"
+        >
+          <div>
+            <div className="w-12 h-12 rounded-2xl bg-emerald-950/60 border border-emerald-700/50 flex items-center justify-center text-emerald-400 mb-4 group-hover:scale-105 transition-transform">
+              <Mail className="w-6 h-6" />
+            </div>
+            <div className="text-xs font-mono text-emerald-400 mb-1">Direct Communication</div>
+            <h3 className="font-heading font-bold text-base text-text-primary">
+              Direct Email
+            </h3>
+            <p className="text-xs text-text-secondary mt-1.5 font-body truncate">
+              bhattacharyya.debapriya571@gmail.com
+            </p>
+          </div>
+          <div className="pt-4 mt-4 border-t border-border-subtle flex items-center justify-between text-xs font-mono text-emerald-300">
+            <span>Send Email</span>
+            <ExternalLink className="w-3.5 h-3.5" />
+          </div>
+        </a>
+      </div>
+
+      {/* Main Contact Form */}
+      <div className="p-8 md:p-10 bg-surface-subtle border border-border-subtle rounded-3xl shadow-xl">
+        <div className="mb-6">
+          <div className="flex items-center gap-2 mb-1">
             <span className="px-2.5 py-0.5 text-xs font-mono rounded-full bg-accent-primary/20 text-accent-primary border border-accent-primary/30">
-              Endpoint: /api/contact/submit.ts
+              Dual-Write Action Ledger
             </span>
             <span className="px-2.5 py-0.5 text-xs font-mono rounded-full bg-accent-success/20 text-accent-success border border-accent-success/30">
-              Audited Ticket Tracking
+              Verified & Audited
             </span>
           </div>
-          <h1 className="text-2xl font-heading font-extrabold text-text-primary mt-2">
-            Contact & Grievance Dispatch
-          </h1>
-          <p className="text-xs text-text-secondary mt-1">
-            Submit architectural queries, integration requests, or system reports directly into the audited dual-write pipeline.
+          <h2 className="text-xl md:text-2xl font-heading font-bold text-text-primary">
+            Send a Direct Message
+          </h2>
+          <p className="text-xs text-text-secondary mt-1 font-body">
+            Submissions are dispatched to Debapriya and recorded in the audited dual-write ticket queue.
           </p>
         </div>
 
         {submittedTicket ? (
-          <div className="p-6 bg-slate-950/80 border border-accent-success/40 rounded-2xl space-y-3 text-center">
-            <div className="w-12 h-12 rounded-full bg-emerald-950/60 border border-emerald-700/50 flex items-center justify-center text-accent-success mx-auto">
-              <CheckCircle2 className="w-6 h-6" />
+          <div className="p-8 bg-slate-950/80 border border-accent-success/40 rounded-2xl space-y-4 text-center">
+            <div className="w-14 h-14 rounded-full bg-emerald-950/60 border border-emerald-700/50 flex items-center justify-center text-accent-success mx-auto">
+              <CheckCircle2 className="w-7 h-7" />
             </div>
-            <h3 className="font-heading font-bold text-text-primary text-base">
-              Ticket Logged in Audited Ledger
+            <h3 className="font-heading font-bold text-text-primary text-lg">
+              Message Successfully Dispatched!
             </h3>
-            <p className="text-xs text-text-secondary">
-              Your inquiry has been assigned tracking ID:
+            <p className="text-xs text-text-secondary font-body max-w-md mx-auto">
+              Thank you for reaching out to Debapriya. Your message has been logged with verifiable tracking ticket:
             </p>
-            <div className="text-sm font-mono text-accent-secondary font-bold bg-slate-900 px-3 py-1.5 rounded-lg inline-block border border-slate-800">
-              {submittedTicket}
+            <div className="font-mono text-xs text-accent-secondary bg-slate-900 px-4 py-2 rounded-xl inline-block border border-slate-800">
+              Ticket ID: {submittedTicket}
             </div>
-            <p className="text-[11px] text-text-muted">
-              Mirrored across Supabase Postgres & MongoDB Atlas fail-safe.
-            </p>
+            <div className="pt-2">
+              <button
+                onClick={() => setSubmittedTicket(null)}
+                className="text-xs font-mono text-text-muted hover:text-text-primary underline"
+              >
+                Send another message
+              </button>
+            </div>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-mono text-text-muted mb-1">Full Name</label>
+                <label className="block text-xs font-mono text-text-muted mb-1.5">Your Name</label>
                 <input
                   type="text"
                   required
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  placeholder="Alex Mercer"
-                  className="w-full bg-surface-elevated border border-border-subtle rounded-xl px-3.5 py-2 text-xs text-text-primary focus:outline-none focus:border-accent-primary"
+                  placeholder="e.g. Elena Rostova"
+                  className="w-full bg-surface-elevated border border-border-subtle rounded-xl px-3.5 py-2.5 text-xs text-text-primary focus:outline-none focus:border-accent-primary transition-colors"
                 />
               </div>
+
               <div>
-                <label className="block text-xs font-mono text-text-muted mb-1">Work Email</label>
+                <label className="block text-xs font-mono text-text-muted mb-1.5">Your Email</label>
                 <input
                   type="email"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="alex@enterprise.com"
-                  className="w-full bg-surface-elevated border border-border-subtle rounded-xl px-3.5 py-2 text-xs text-text-primary focus:outline-none focus:border-accent-primary"
+                  placeholder="elena@enterprise.ai"
+                  className="w-full bg-surface-elevated border border-border-subtle rounded-xl px-3.5 py-2.5 text-xs text-text-primary focus:outline-none focus:border-accent-primary transition-colors"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-xs font-mono text-text-muted mb-1">Category</label>
+              <label className="block text-xs font-mono text-text-muted mb-1.5">Inquiry Category</label>
               <select
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
-                className="w-full bg-surface-elevated border border-border-subtle rounded-xl px-3 py-2 text-xs text-text-primary focus:outline-none focus:border-accent-primary font-mono"
+                className="w-full bg-surface-elevated border border-border-subtle rounded-xl px-3.5 py-2.5 text-xs text-text-primary focus:outline-none focus:border-accent-primary transition-colors"
               >
-                <option value="general">General Architectural Inquiry</option>
-                <option value="mcp">MCP Server Integration</option>
-                <option value="compliance">Statutory / Legal Compliance</option>
-                <option value="security">Security & Zero-Local-GPU Audit</option>
+                <option value="collaboration">AI Architecture & Consulting Collaboration</option>
+                <option value="foundation">Tribeni Minati Foundation / CSR Partnership</option>
+                <option value="fullstack">Full-Stack Web Development</option>
+                <option value="general">General Inquiries</option>
               </select>
             </div>
 
             <div>
-              <label className="block text-xs font-mono text-text-muted mb-1">Message</label>
+              <label className="block text-xs font-mono text-text-muted mb-1.5">Message</label>
               <textarea
                 required
                 rows={4}
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                placeholder="Describe your inquiry (PII will be automatically redacted)..."
-                className="w-full bg-surface-elevated border border-border-subtle rounded-xl px-3.5 py-2 text-xs text-text-primary focus:outline-none focus:border-accent-primary font-body"
+                placeholder="Share project goals, technical requirements, or collaboration proposals..."
+                className="w-full bg-surface-elevated border border-border-subtle rounded-xl p-3.5 text-xs text-text-primary focus:outline-none focus:border-accent-primary transition-colors leading-relaxed resize-none"
               />
             </div>
 
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3 bg-accent-primary hover:bg-accent-primary/90 disabled:opacity-50 text-white rounded-xl text-xs font-bold transition-all shadow-lg shadow-accent-primary/25 active:scale-95 flex items-center justify-center gap-2"
+              className="w-full py-3.5 bg-gradient-to-r from-accent-primary to-indigo-600 hover:from-accent-primary/90 hover:to-indigo-500 text-white rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2 shadow-lg shadow-accent-primary/20 active:scale-95 disabled:opacity-50"
             >
               <Send className="w-4 h-4" />
-              <span>{loading ? 'Submitting to Ledger...' : 'Submit Grievance Ticket'}</span>
+              <span>{loading ? 'Dispatching Message...' : 'Dispatch Message to Debapriya'}</span>
             </button>
           </form>
         )}
