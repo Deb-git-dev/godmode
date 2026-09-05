@@ -5,10 +5,9 @@ import {
   Copy, 
   Check, 
   ExternalLink, 
-  Code, 
   Terminal, 
   ShieldCheck, 
-  BookOpen
+  Filter
 } from 'lucide-react';
 import promptsData from '../data/gitreversePrompts.json';
 
@@ -36,7 +35,8 @@ export const GitReversePromptsPage: React.FC<GitReversePromptsPageProps> = ({ on
   const filteredPrompts = promptsData.filter((item: any) => {
     const matchCat = selectedCategory === 'all' || item.category === selectedCategory;
     const matchSearch = item.name.toLowerCase().includes(search.toLowerCase()) || 
-                        item.prompt.toLowerCase().includes(search.toLowerCase());
+                        item.prompt.toLowerCase().includes(search.toLowerCase()) ||
+                        item.repo.toLowerCase().includes(search.toLowerCase());
     return matchCat && matchSearch;
   });
 
@@ -47,157 +47,157 @@ export const GitReversePromptsPage: React.FC<GitReversePromptsPageProps> = ({ on
   };
 
   return (
-    <div className="space-y-6">
-      {/* Header Banner */}
-      <div className="p-6 md:p-8 bg-surface-subtle border border-border-subtle rounded-3xl relative overflow-hidden shadow-2xl">
-        <div className="flex flex-wrap items-center justify-between gap-4 mb-3">
-          <div className="flex items-center gap-2">
-            <span className="px-3 py-1 rounded-full bg-indigo-950/80 border border-indigo-700/60 text-indigo-300 text-xs font-mono flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
-              <span>GitReverse Master Vault</span>
-            </span>
-            <span className="px-3 py-1 rounded-full bg-cyan-950/80 border border-cyan-700/60 text-cyan-300 text-xs font-mono">
-              {promptsData.length} Reverse-Engineered Prompts
-            </span>
+    <div className="space-y-8 pb-16">
+      {/* Vibrant Hero Banner */}
+      <div className="relative overflow-hidden rounded-3xl p-8 border border-slate-700/60 bg-gradient-to-br from-slate-900 via-indigo-950/40 to-slate-950 shadow-2xl">
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-gradient-to-br from-indigo-500/20 via-purple-500/20 to-pink-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-gradient-to-tr from-cyan-500/20 via-blue-500/15 to-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div className="space-y-3 max-w-2xl">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="px-3.5 py-1.5 rounded-full bg-gradient-to-r from-indigo-500/20 to-purple-500/20 border border-indigo-400/40 text-indigo-300 text-xs font-mono flex items-center gap-1.5">
+                <Sparkles className="w-3.5 h-3.5 text-cyan-400 animate-pulse" />
+                <span>GitReverse Master Vault</span>
+              </span>
+              <span className="px-3 py-1.5 rounded-full bg-cyan-950/80 border border-cyan-700/60 text-cyan-300 text-xs font-mono">
+                {promptsData.length} Reverse-Engineered Prompts Sourced
+              </span>
+            </div>
+            <h1 className="text-3xl sm:text-4xl font-heading font-extrabold tracking-tight text-white">
+              Sourced Prompts from Top 49 Repositories
+            </h1>
+            <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-body">
+              Verbatim system prompts extracted directly from the world's leading coding agents, design skills, MCP servers, and harnesses. Copy with one click or inject directly into the live studio.
+            </p>
           </div>
 
-          <div className="flex items-center gap-2 text-xs font-mono text-emerald-400">
-            <ShieldCheck className="w-4 h-4" />
-            <span>Verbatim Sourced from gitreverse.com</span>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => handleCopy('all-prompts', JSON.stringify(promptsData, null, 2))}
+              className="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs font-mono text-slate-200 flex items-center gap-2 transition-all shadow-md"
+            >
+              {copiedId === 'all-prompts' ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+              <span>Export All 49 Prompts</span>
+            </button>
           </div>
-        </div>
-
-        <h1 className="text-2xl md:text-4xl font-heading font-extrabold text-white tracking-tight">
-          Reverse-Engineered Prompt Archive
-        </h1>
-        <p className="text-text-secondary text-xs md:text-sm mt-2 max-w-3xl leading-relaxed font-body">
-          Explore and copy the exact generation prompts reverse-engineered from 49 leading repositories, agent skills, and developer harnesses. Every prompt is ready to run in Claude Code, Cursor, or Debapriya's AI Studio.
-        </p>
-
-        {/* Filter Bar */}
-        <div className="mt-6 flex flex-col md:flex-row items-center gap-3">
-          <div className="relative flex-1 w-full">
-            <input
-              type="text"
-              placeholder="Search prompts by repository name or prompt content..."
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 rounded-xl bg-slate-950/80 border border-border-prominent text-text-primary text-xs font-mono focus:outline-none focus:border-cyan-400 transition-all text-white"
-            />
-            <Search className="w-4 h-4 text-text-muted absolute left-3.5 top-3.5" />
-          </div>
-
-          <select
-            value={selectedCategory}
-            onChange={(e) => setSelectedCategory(e.target.value)}
-            className="w-full md:w-auto px-4 py-3 rounded-xl bg-slate-950 border border-border-prominent text-text-primary text-xs font-mono focus:outline-none focus:border-cyan-400 transition-all"
-          >
-            {categories.map(c => (
-              <option key={c} value={c}>{c === 'all' ? 'All Categories (49)' : c}</option>
-            ))}
-          </select>
         </div>
       </div>
 
-      {/* Prompts Cards List */}
+      {/* Search Bar & Categories */}
       <div className="space-y-4">
-        <div className="flex items-center justify-between px-2 text-xs font-mono text-slate-400">
-          <span>Showing {filteredPrompts.length} Prompts</span>
-          <span>Click any card to expand/collapse prompt text</span>
+        <div className="relative">
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+          <input
+            type="text"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Search across 49 prompts by repo, prompt content, or keywords..."
+            className="w-full pl-11 pr-4 py-3 bg-slate-900/90 border border-slate-700 rounded-2xl text-sm text-white placeholder-slate-400 focus:outline-none focus:border-cyan-400 transition-colors shadow-inner"
+          />
         </div>
 
-        <div className="grid grid-cols-1 gap-4">
+        <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+          <Filter className="w-3.5 h-3.5 text-slate-400 shrink-0 ml-1" />
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setSelectedCategory(cat)}
+              className={`px-3.5 py-1.5 rounded-full text-xs font-mono font-medium transition-all shrink-0 capitalize ${
+                selectedCategory === cat
+                  ? 'bg-gradient-to-r from-indigo-500 to-purple-600 text-white shadow-md shadow-indigo-500/20'
+                  : 'bg-slate-900/80 text-slate-400 hover:text-slate-200 border border-slate-800 hover:border-slate-700'
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Prompts Count & Results Grid */}
+      <div className="space-y-4">
+        <div className="flex items-center justify-between text-xs font-mono text-slate-400 px-1">
+          <span>SHOWING {filteredPrompts.length} OF {promptsData.length} REVERSE-ENGINEERED PROMPTS</span>
+          <span className="text-cyan-400 font-semibold">One-Click Copy Ready</span>
+        </div>
+
+        <div className="space-y-4">
           {filteredPrompts.map((item: any) => {
             const isExpanded = expandedId === item.id;
-            const isCopied = copiedId === item.id;
-
             return (
               <div 
                 key={item.id}
-                className={`p-5 md:p-6 bg-surface-subtle border transition-all rounded-2xl shadow-lg ${
-                  isExpanded ? 'border-cyan-500/50 bg-slate-900/60' : 'border-border-subtle hover:border-border-prominent'
+                className={`p-6 rounded-3xl border transition-all shadow-xl relative overflow-hidden ${
+                  isExpanded 
+                    ? 'bg-slate-900/95 border-indigo-500/60 shadow-indigo-500/10' 
+                    : 'bg-slate-900/70 border-slate-800/80 hover:border-slate-700 hover:bg-slate-900/90'
                 }`}
               >
-                {/* Card Top Row */}
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                  <div 
-                    onClick={() => setExpandedId(isExpanded ? null : item.id)}
-                    className="cursor-pointer flex-1"
-                  >
-                    <div className="flex items-center gap-2 mb-1.5">
-                      <span className="px-2.5 py-0.5 rounded-full bg-slate-800 border border-slate-700 text-cyan-300 text-[10px] font-mono">
-                        {item.category}
-                      </span>
-                      <span className="px-2 py-0.5 rounded bg-indigo-950/60 border border-indigo-800/40 text-indigo-300 text-[10px] font-mono">
-                        {item.charCount} chars
-                      </span>
+                {/* Header Row */}
+                <div 
+                  onClick={() => setExpandedId(isExpanded ? null : item.id)}
+                  className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-800 cursor-pointer"
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="w-8 h-8 rounded-xl bg-indigo-500/20 text-indigo-300 border border-indigo-500/40 flex items-center justify-center text-xs font-mono font-bold">
+                      {item.id}
+                    </span>
+                    <div>
+                      <h3 className="font-heading font-bold text-white text-base sm:text-lg">
+                        {item.name}
+                      </h3>
+                      <a 
+                        href={item.url} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="text-xs font-mono text-cyan-400 hover:underline inline-flex items-center gap-1"
+                      >
+                        <span>{item.repo}</span>
+                        <ExternalLink className="w-3 h-3" />
+                      </a>
                     </div>
-
-                    <h3 className="text-base font-heading font-bold text-white hover:text-cyan-300 transition-colors flex items-center gap-2">
-                      <Code className="w-4 h-4 text-cyan-400" />
-                      <span>{item.name}</span>
-                    </h3>
                   </div>
 
-                  {/* Actions */}
-                  <div className="flex items-center gap-2 self-start md:self-auto">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px] font-mono px-2.5 py-1 rounded-full bg-indigo-950/70 text-indigo-300 border border-indigo-800">
+                      {item.category}
+                    </span>
                     <button
                       onClick={() => handleCopy(item.id, item.prompt)}
-                      className="px-3.5 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 text-xs font-mono transition-all flex items-center gap-1.5 shadow-sm"
+                      className="px-3.5 py-1.5 rounded-xl bg-cyan-950 hover:bg-cyan-900 border border-cyan-800 text-cyan-300 text-xs font-mono flex items-center gap-1.5 transition-all"
                     >
-                      {isCopied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
-                      <span>{isCopied ? 'Copied!' : 'Copy Prompt'}</span>
+                      {copiedId === item.id ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+                      <span>{copiedId === item.id ? 'Copied' : 'Copy Prompt'}</span>
                     </button>
-
-                    <a
-                      href={item.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-3 py-1.5 rounded-lg bg-slate-900/60 hover:bg-slate-800 text-slate-400 hover:text-slate-200 border border-slate-800 text-xs font-mono transition-all flex items-center gap-1"
-                      title="View on gitreverse.com"
-                    >
-                      <ExternalLink className="w-3.5 h-3.5" />
-                    </a>
-
                     {onNavigateToStudio && (
                       <button
                         onClick={() => onNavigateToStudio(item.prompt)}
-                        className="px-3 py-1.5 rounded-lg bg-accent-primary/20 hover:bg-accent-primary/30 text-accent-secondary border border-accent-secondary/30 text-xs font-mono transition-all flex items-center gap-1"
-                        title="Load into AI Studio"
+                        className="px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-mono flex items-center gap-1.5 transition-all shadow-md"
+                        title="Inject into AI Studio"
                       >
                         <Terminal className="w-3.5 h-3.5" />
-                        <span>Studio</span>
+                        <span className="hidden sm:inline">Inject</span>
                       </button>
                     )}
                   </div>
                 </div>
 
-                {/* Prompt Body */}
-                {isExpanded && (
-                  <div className="mt-4 pt-4 border-t border-slate-800/80 space-y-3">
-                    <div className="flex items-center justify-between text-[11px] font-mono text-slate-400">
-                      <span className="flex items-center gap-1">
-                        <BookOpen className="w-3 h-3 text-cyan-400" />
-                        <span>Reverse-Engineered Prompt Definition:</span>
-                      </span>
-                    </div>
+                {/* Prompt Monospace Text */}
+                <div className="mt-4 p-4 rounded-2xl bg-slate-950/90 border border-slate-800/90 font-mono text-xs text-slate-200 leading-relaxed whitespace-pre-wrap select-all">
+                  {item.prompt}
+                </div>
 
-                    <pre className="p-4 rounded-xl bg-slate-950 border border-slate-800 text-xs font-mono text-slate-200 whitespace-pre-wrap leading-relaxed max-h-72 overflow-y-auto selection:bg-cyan-500/30">
-                      {item.prompt}
-                    </pre>
-
-                    <div className="flex items-center justify-between text-[11px] font-mono text-slate-500 pt-1">
-                      <span>URL: <a href={item.url} target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline">{item.url}</a></span>
-                      <button
-                        onClick={() => handleCopy(item.id, item.prompt)}
-                        className="text-xs text-accent-secondary hover:underline flex items-center gap-1"
-                      >
-                        <Copy className="w-3 h-3" />
-                        <span>Copy Full Block</span>
-                      </button>
-                    </div>
+                {/* Footer Metrics */}
+                <div className="mt-4 pt-3 border-t border-slate-800/80 flex flex-wrap items-center justify-between text-[11px] font-mono text-slate-400 gap-2">
+                  <div className="flex items-center gap-2">
+                    <span className="text-emerald-400 flex items-center gap-1">
+                      <ShieldCheck className="w-3 h-3" />
+                      <span>{item.integration}</span>
+                    </span>
                   </div>
-                )}
+                  <span>{item.chars} characters • {item.prompt.split(' ').length} words</span>
+                </div>
               </div>
             );
           })}
@@ -206,5 +206,3 @@ export const GitReversePromptsPage: React.FC<GitReversePromptsPageProps> = ({ on
     </div>
   );
 };
-
-export default GitReversePromptsPage;

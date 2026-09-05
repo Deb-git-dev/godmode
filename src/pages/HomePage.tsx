@@ -326,21 +326,22 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenActionModa
           {/* Card 1: Multi-Crawler */}
           <div 
             onClick={() => onNavigate('/crawler')}
-            className="p-6 rounded-3xl bg-surface-subtle border border-border-subtle hover:border-cyan-400/60 transition-all cursor-pointer group shadow-xl flex flex-col justify-between hover:bg-slate-900/60"
+            className="p-6 rounded-3xl bg-gradient-to-br from-slate-900/90 via-cyan-950/40 to-slate-950 border border-cyan-500/30 hover:border-cyan-400/80 transition-all cursor-pointer group shadow-xl hover:shadow-cyan-500/20 flex flex-col justify-between relative overflow-hidden"
           >
+            <div className="absolute -top-12 -right-12 w-32 h-32 bg-cyan-500/10 rounded-full blur-xl pointer-events-none" />
             <div>
-              <div className="w-10 h-10 rounded-2xl bg-cyan-950/80 border border-cyan-700/60 flex items-center justify-center text-cyan-400 mb-4 group-hover:scale-110 transition-transform shadow-lg">
+              <div className="w-11 h-11 rounded-2xl bg-cyan-500/20 border border-cyan-400/50 flex items-center justify-center text-cyan-300 mb-4 group-hover:scale-110 transition-transform shadow-lg">
                 <Globe className="w-5 h-5" />
               </div>
               <h3 className="text-base font-heading font-bold text-white group-hover:text-cyan-300 transition-colors">
                 Firecrawl Multi-Vector Studio
               </h3>
-              <p className="text-xs text-text-secondary mt-2 leading-relaxed font-body">
+              <p className="text-xs text-slate-300 mt-2 leading-relaxed font-body">
                 Deconstruct 28 reference websites into Web structure, Tech stack signatures, and LLM-ready markdown (<code className="text-cyan-300">llms.txt</code>).
               </p>
             </div>
             <div className="pt-4 mt-4 border-t border-slate-800 flex items-center justify-between text-xs font-mono text-cyan-400">
-              <span>Launch Multi-Crawler</span>
+              <span className="font-semibold">Launch Multi-Crawler</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
             </div>
           </div>
@@ -348,21 +349,22 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenActionModa
           {/* Card 2: GitReverse Vault */}
           <div 
             onClick={() => onNavigate('/prompts')}
-            className="p-6 rounded-3xl bg-surface-subtle border border-border-subtle hover:border-indigo-400/60 transition-all cursor-pointer group shadow-xl flex flex-col justify-between hover:bg-slate-900/60"
+            className="p-6 rounded-3xl bg-gradient-to-br from-slate-900/90 via-indigo-950/40 to-slate-950 border border-indigo-500/30 hover:border-indigo-400/80 transition-all cursor-pointer group shadow-xl hover:shadow-indigo-500/20 flex flex-col justify-between relative overflow-hidden"
           >
+            <div className="absolute -top-12 -right-12 w-32 h-32 bg-indigo-500/10 rounded-full blur-xl pointer-events-none" />
             <div>
-              <div className="w-10 h-10 rounded-2xl bg-indigo-950/80 border border-indigo-700/60 flex items-center justify-center text-indigo-400 mb-4 group-hover:scale-110 transition-transform shadow-lg">
+              <div className="w-11 h-11 rounded-2xl bg-indigo-500/20 border border-indigo-400/50 flex items-center justify-center text-indigo-300 mb-4 group-hover:scale-110 transition-transform shadow-lg">
                 <Sparkles className="w-5 h-5" />
               </div>
               <h3 className="text-base font-heading font-bold text-white group-hover:text-indigo-300 transition-colors">
                 GitReverse Prompt Vault
               </h3>
-              <p className="text-xs text-text-secondary mt-2 leading-relaxed font-body">
+              <p className="text-xs text-slate-300 mt-2 leading-relaxed font-body">
                 Explore and copy 49 reverse-engineered system prompts verbatim from leading repositories, agents, and skills.
               </p>
             </div>
             <div className="pt-4 mt-4 border-t border-slate-800 flex items-center justify-between text-xs font-mono text-indigo-400">
-              <span>Explore 49 Prompts</span>
+              <span className="font-semibold">Explore 49 Prompts</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
             </div>
           </div>
@@ -370,21 +372,22 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenActionModa
           {/* Card 3: Design Lab */}
           <div 
             onClick={() => onNavigate('/design-lab')}
-            className="p-6 rounded-3xl bg-surface-subtle border border-border-subtle hover:border-rose-400/60 transition-all cursor-pointer group shadow-xl flex flex-col justify-between hover:bg-slate-900/60"
+            className="p-6 rounded-3xl bg-gradient-to-br from-slate-900/90 via-fuchsia-950/40 to-slate-950 border border-fuchsia-500/30 hover:border-fuchsia-400/80 transition-all cursor-pointer group shadow-xl hover:shadow-fuchsia-500/20 flex flex-col justify-between relative overflow-hidden"
           >
+            <div className="absolute -top-12 -right-12 w-32 h-32 bg-fuchsia-500/10 rounded-full blur-xl pointer-events-none" />
             <div>
-              <div className="w-10 h-10 rounded-2xl bg-rose-950/80 border border-rose-700/60 flex items-center justify-center text-rose-400 mb-4 group-hover:scale-110 transition-transform shadow-lg">
+              <div className="w-11 h-11 rounded-2xl bg-fuchsia-500/20 border border-fuchsia-400/50 flex items-center justify-center text-fuchsia-300 mb-4 group-hover:scale-110 transition-transform shadow-lg">
                 <Layers className="w-5 h-5" />
               </div>
-              <h3 className="text-base font-heading font-bold text-white group-hover:text-rose-300 transition-colors">
+              <h3 className="text-base font-heading font-bold text-white group-hover:text-fuchsia-300 transition-colors">
                 Design System & Component Lab
               </h3>
-              <p className="text-xs text-text-secondary mt-2 leading-relaxed font-body">
+              <p className="text-xs text-slate-300 mt-2 leading-relaxed font-body">
                 Interactive token inspector (§18), typography scales, and copy-paste components from 21st.dev and Uiverse.
               </p>
             </div>
-            <div className="pt-4 mt-4 border-t border-slate-800 flex items-center justify-between text-xs font-mono text-rose-400">
-              <span>Open Design Lab</span>
+            <div className="pt-4 mt-4 border-t border-slate-800 flex items-center justify-between text-xs font-mono text-fuchsia-400">
+              <span className="font-semibold">Open Design Lab</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
             </div>
           </div>
@@ -392,21 +395,22 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenActionModa
           {/* Card 4: Agent Terminal */}
           <div 
             onClick={() => onNavigate('/terminal')}
-            className="p-6 rounded-3xl bg-surface-subtle border border-border-subtle hover:border-emerald-400/60 transition-all cursor-pointer group shadow-xl flex flex-col justify-between hover:bg-slate-900/60"
+            className="p-6 rounded-3xl bg-gradient-to-br from-slate-900/90 via-emerald-950/40 to-slate-950 border border-emerald-500/30 hover:border-emerald-400/80 transition-all cursor-pointer group shadow-xl hover:shadow-emerald-500/20 flex flex-col justify-between relative overflow-hidden"
           >
+            <div className="absolute -top-12 -right-12 w-32 h-32 bg-emerald-500/10 rounded-full blur-xl pointer-events-none" />
             <div>
-              <div className="w-10 h-10 rounded-2xl bg-emerald-950/80 border border-emerald-700/60 flex items-center justify-center text-emerald-400 mb-4 group-hover:scale-110 transition-transform shadow-lg">
+              <div className="w-11 h-11 rounded-2xl bg-emerald-500/20 border border-emerald-400/50 flex items-center justify-center text-emerald-300 mb-4 group-hover:scale-110 transition-transform shadow-lg">
                 <Terminal className="w-5 h-5" />
               </div>
               <h3 className="text-base font-heading font-bold text-white group-hover:text-emerald-300 transition-colors">
                 Agent CLI & Terminal Sandbox
               </h3>
-              <p className="text-xs text-text-secondary mt-2 leading-relaxed font-body">
+              <p className="text-xs text-slate-300 mt-2 leading-relaxed font-body">
                 In-browser interactive terminal to execute OpenCode, Claude slash commands (/design-md), and Firecrawl CLI.
               </p>
             </div>
             <div className="pt-4 mt-4 border-t border-slate-800 flex items-center justify-between text-xs font-mono text-emerald-400">
-              <span>Launch Terminal</span>
+              <span className="font-semibold">Launch Terminal</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
             </div>
           </div>
