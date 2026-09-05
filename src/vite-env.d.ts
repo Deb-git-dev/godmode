@@ -59,3 +59,21 @@ declare module 'pdf-lib' {
     ZapfDingbats: string;
   };
 }
+
+declare module 'tailwind-merge' {
+  export function twMerge(...classLists: any[]): string;
+}
+
+declare module 'swiper/react' {
+  import * as React from 'react';
+  export const Swiper: React.FC<any>;
+  export const SwiperSlide: React.FC<any>;
+}
+
+declare module 'swiper/modules' {
+  export const Autoplay: any;
+  export const EffectFade: any;
+  export const Pagination: any;
+  export const Navigation: any;
+}
+

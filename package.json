@@ -16,12 +16,14 @@
     "claude-mem": "^13.24.0",
     "clsx": "^2.1.1",
     "framer-motion": "^11.11.17",
+    "gsap": "^3.15.0",
     "headroom-ai": "^0.37.0",
     "lucide-react": "^0.460.0",
     "omniroute": "^3.8.50",
     "pdf-lib": "^1.17.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "swiper": "^14.2.0",
     "tailwind-merge": "^2.5.4"
   },
   "devDependencies": {

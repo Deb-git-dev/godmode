@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter:wght@400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -51,3 +53,47 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* Home Hero Landing Scroll Animation & Swiper Transitions */
+.premium-font { 
+  font-family: 'Space Grotesk', sans-serif; 
+  letter-spacing: -0.03em; 
+}
+
+.readable-font { 
+  font-family: 'Inter', sans-serif; 
+  letter-spacing: -0.01em; 
+}
+
+.hero-title { 
+  font-weight: 700; 
+  letter-spacing: -0.06em; 
+  filter: drop-shadow(0 10px 10px rgba(0,0,0,0.05)); 
+}
+
+.orange-filter { 
+  filter: invert(41%) sepia(82%) saturate(2258%) hue-rotate(359deg) brightness(96%) contrast(92%); 
+}
+
+.hero-bg-swiper { 
+  position: absolute; 
+  inset: 0; 
+  width: 100% !important; 
+  height: 100% !important; 
+}
+
+.hero-bg-swiper .swiper-wrapper, 
+.hero-bg-swiper .swiper-slide { 
+  width: 100% !important; 
+  height: 100% !important; 
+}
+
+.hero-bg-swiper .swiper-slide { 
+  opacity: 0 !important; 
+  transition: opacity 1.2s ease !important; 
+}
+
+.hero-bg-swiper .swiper-slide-active { 
+  opacity: 1 !important; 
+}
+

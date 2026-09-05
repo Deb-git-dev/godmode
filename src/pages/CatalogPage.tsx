@@ -28,10 +28,12 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({ onSelectEntity }) => {
     { id: 'supabase', title: 'Supabase Architecture', category: 'Full-Stack', desc: 'Postgres schema design, Row Level Security (RLS), and database MCP integration.', tag: 'Persistence' },
     { id: 'react-performance-security', title: 'React Performance & Security', category: 'Full-Stack', desc: 'Zero-warning strict builds, tree-shaking, OWASP standards.', tag: 'Zero Warning' },
     { id: 'compliance-guard', title: 'Compliance Guard', category: 'Compliance', desc: 'Grounds agent in verified statutory, legal, and architectural facts; zero hallucination.', tag: 'Truth Guard' },
-    { id: 'doc-ingestion', title: 'Doc Ingestion', category: 'Compliance', desc: 'Reads reference docs dropped into project and extracts them into Provenance Log (§20) automatically.', tag: 'Auto-Catalog' }
+    { id: 'doc-ingestion', title: 'Doc Ingestion', category: 'Compliance', desc: 'Reads reference docs dropped into project and extracts them into Provenance Log (§20) automatically.', tag: 'Auto-Catalog' },
+    { id: 'black-hole', title: 'Black Hole Singularity Simulation', category: 'Interactive UI', desc: 'Hardware-accelerated relativistic accretion disk canvas simulation with Doppler beaming and star lensing.', tag: 'shadcn Primitive' },
+    { id: 'scroll-hero', title: 'GSAP Luxury Scroll Hero Experience', category: 'Interactive UI', desc: 'Pinned 800vh GSAP ScrollTrigger timeline with dynamic Swiper cross-fade transitions.', tag: 'GSAP + Swiper' }
   ];
 
-  const categories = ['all', 'Model Gateway', 'Frontend Taste', 'Motion', 'Skill Makers', 'Routers', 'Full-Stack', 'Compliance'];
+  const categories = ['all', 'Interactive UI', 'Model Gateway', 'Frontend Taste', 'Motion', 'Skill Makers', 'Routers', 'Full-Stack', 'Compliance'];
 
   const filteredItems = items.filter((item) => {
     const matchCat = filter === 'all' || item.category === filter;

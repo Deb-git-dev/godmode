@@ -26,6 +26,8 @@ import { EntityDetailPage } from './pages/EntityDetailPage';
 import { DashboardPage } from './pages/DashboardPage';
 import { AuthPage } from './pages/AuthPage';
 import { ContactPage } from './pages/ContactPage';
+import { BlackHoleShowcasePage } from './pages/BlackHoleShowcasePage';
+import { ScrollHeroShowcasePage } from './pages/ScrollHeroShowcasePage';
 import { ActionLedgerModal } from './components/modals/ActionLedgerModal';
 import debPhoto from './assets/deb.jpg';
 
@@ -49,6 +51,8 @@ export const App: React.FC = () => {
         else if (hash === '/directory' || hash === '/projects') setCurrentRoute('/catalog');
         else if (hash === '/generator') setCurrentRoute('/studio');
         else if (hash === '/login') setCurrentRoute('/auth');
+        else if (hash === '/blackhole' || hash === '/black-hole') setCurrentRoute('/black-hole');
+        else if (hash === '/scrollhero' || hash === '/scroll-hero') setCurrentRoute('/scroll-hero');
         else setCurrentRoute(hash);
       }
     };
@@ -68,12 +72,18 @@ export const App: React.FC = () => {
       else if (path === '/directory' || path === '/projects') setCurrentRoute('/catalog');
       else if (path === '/generator') setCurrentRoute('/studio');
       else if (path === '/login') setCurrentRoute('/auth');
+      else if (path === '/blackhole' || path === '/black-hole') setCurrentRoute('/black-hole');
+      else if (path === '/scrollhero' || path === '/scroll-hero') setCurrentRoute('/scroll-hero');
       else setCurrentRoute(path);
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleSelectEntity = (id: string) => {
+    if (id === 'black-hole' || id === 'scroll-hero') {
+      navigate(`/${id}`);
+      return;
+    }
     setSelectedEntityId(id);
     navigate(`/detail/${id}`);
   };
@@ -271,12 +281,36 @@ export const App: React.FC = () => {
             >
               Audit
             </button>
+
+            <span className="text-border-prominent mx-1">|</span>
+
+            {/* shadcn Interactive Visualizers */}
+            <button
+              onClick={() => navigate('/black-hole')}
+              className={`px-2 py-1 rounded-lg transition-all text-[11px] font-mono flex items-center gap-1 ${
+                currentRoute === '/black-hole' ? 'bg-cyan-950 text-cyan-300 border border-cyan-500 shadow-sm' : 'text-text-muted hover:text-cyan-300'
+              }`}
+              title="Relativistic Black Hole Simulation"
+            >
+              <Sparkles className="w-3 h-3 text-cyan-400" />
+              <span>Black Hole</span>
+            </button>
+
+            <button
+              onClick={() => navigate('/scroll-hero')}
+              className={`px-2 py-1 rounded-lg transition-all text-[11px] font-mono flex items-center gap-1 ${
+                currentRoute === '/scroll-hero' ? 'bg-amber-950 text-amber-300 border border-amber-500 shadow-sm' : 'text-text-muted hover:text-amber-300'
+              }`}
+              title="GSAP Scroll Landing Animation"
+            >
+              <span>Scroll Hero</span>
+            </button>
           </nav>
         </div>
       </header>
 
       {/* Main Routed Page Container */}
-      <main className="flex-1 max-w-7xl w-full mx-auto p-6 z-10">
+      <main className={`flex-1 w-full z-10 ${currentRoute === '/scroll-hero' ? '' : 'max-w-7xl mx-auto p-6'}`}>
         {currentRoute === '/' && (
           <HomePage onNavigate={navigate} onOpenActionModal={() => setIsActionModalOpen(true)} />
         )}
@@ -293,6 +327,14 @@ export const App: React.FC = () => {
         {currentRoute === '/dashboard' && <DashboardPage />}
         {currentRoute === '/auth' && <AuthPage />}
         {currentRoute === '/contact' && <ContactPage />}
+
+        {/* Dedicated shadcn Showcase Pages */}
+        {currentRoute === '/black-hole' && (
+          <BlackHoleShowcasePage onBack={() => navigate('/')} />
+        )}
+        {currentRoute === '/scroll-hero' && (
+          <ScrollHeroShowcasePage onBack={() => navigate('/')} />
+        )}
 
         {/* Operational Viewers */}
         {currentRoute === '/router-view' && <ModelRouterVisualizer />}

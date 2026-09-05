@@ -68,8 +68,8 @@
 | `freshtechbro/claudedesignskills` | Motion Design Skill | Framer Motion layoutId transitions, spring physics, and 3D gyro micro-interactions. | `.agents/skills/motion-framer/` |
 | `get-convex/agent-skills` | Reactive Backend Skill | Convex reactive components, object syntax, mutation transactions, and auth integration. | `.agents/skills/convex-create-component/` |
 | `skiper-ui.com` | Component Library | Premium animated landing page component library reference. | `docs/FRONTEND_TOOLKIT_ALPHENEX.md` |
-| `uiverse.io` | Component Library | 3,000+ open-source community CSS, Tailwind, and React UI elements. | `docs/FRONTEND_TOOLKIT_ALPHENEX.md` |
-
-
-
+| `greensock/gsap` | Animation Library | Official GSAP + ScrollTrigger for pinned multi-stage viewport hero timelines. | `package.json`, `src/components/ui/home-hero-landing-scroll-animation.tsx` |
+| `nolimits4web/swiper` | Carousel / Slider | Touch and hardware-accelerated carousel engine with cross-fade image transitions. | `package.json`, `src/components/ui/home-hero-landing-scroll-animation.tsx` |
+| `21st.dev/black-hole` | Canvas UI Primitive | Hardware-accelerated relativistic accretion disk simulation with Doppler beaming. | `src/components/ui/black-hole.tsx`, `src/pages/BlackHoleShowcasePage.tsx` |
+| `21st.dev/home-hero-landing-scroll-animation` | shadcn UI Component | Luxury GSAP ScrollTrigger hero landing experience with text segment reveals. | `src/components/ui/home-hero-landing-scroll-animation.tsx`, `src/pages/ScrollHeroShowcasePage.tsx` |
 
