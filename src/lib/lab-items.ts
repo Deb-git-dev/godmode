@@ -1,8 +1,9 @@
 /**
  * Catalog of all 28 integrated components (from the user's paste + the 26
- * 21st.dev URLs). Each entry links to its dedicated demo route which already
- * exists under src/app/<slug>/page.tsx.
+ * 21st.dev URLs). Each entry links to its dedicated demo route.
  */
+import { assetUrl } from "./assets";
+
 export type LabCategory =
   | "WebGL & Shaders"
   | "Heroes & Landing"
@@ -29,7 +30,7 @@ export const labCategories: LabCategory[] = [
   "Product UI",
 ];
 
-export const labItems: LabItem[] = [
+const rawLabItems: LabItem[] = [
   {
     slug: "black-hole",
     title: "Black Hole",
@@ -255,3 +256,8 @@ export const labItems: LabItem[] = [
     thumb: "/lab/bento0.png",
   },
 ];
+
+export const labItems: LabItem[] = rawLabItems.map((item) => ({
+  ...item,
+  thumb: item.thumb ? assetUrl(item.thumb) : null,
+}));

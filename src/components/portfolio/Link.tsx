@@ -31,7 +31,7 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
           }
         } else {
           // Route change
-          window.location.hash = href;
+          window.location.hash = hashHref;
         }
       }
     };

@@ -4,9 +4,13 @@
  * Nav — fixed header: serif wordmark (roman+italic), numbered links with
  * rolling hover fill, live local time (guglieri), availability pill with a
  * pulsing COPPER dot (never green), full-screen mobile overlay menu.
+ * Dynamically inverts contrast when over the dark hero canvas at the top of Home.
  */
 import { useEffect, useState } from "react";
 import Link from "./Link";
+import { AnimatePresence, motion } from "framer-motion";
+import { profile } from "@/lib/profile";
+
 function usePathname() {
   const [pathname, setPathname] = useState(() => {
     if (typeof window === "undefined") return "/";
@@ -19,8 +23,6 @@ function usePathname() {
   }, []);
   return pathname;
 }
-import { AnimatePresence, motion } from "framer-motion";
-import { profile } from "@/lib/profile";
 
 function useLocalTime() {
   const [time, setTime] = useState("");
@@ -59,25 +61,40 @@ export function Nav() {
     return () => cancelAnimationFrame(raf);
   }, [pathname]);
 
+  const isHomeTop = (pathname === "/" || pathname === "") && !scrolled;
+
   return (
     <>
       <header
         className={`fixed inset-x-0 top-0 z-[80] transition-all duration-500 ${
-          scrolled ? "bg-bone/85 backdrop-blur-md border-b border-ink/8" : "bg-transparent"
+          scrolled
+            ? "bg-bone/90 backdrop-blur-md border-b border-ink/8 shadow-sm"
+            : "bg-transparent"
         }`}
       >
         <div className="mx-auto flex max-w-[100rem] items-center justify-between px-5 py-4 md:px-10 md:py-5">
           {/* wordmark */}
-          <Link href="/" className="group font-display text-xl leading-none text-ink md:text-2xl">
-            {profile.wordmark.roman}
+          <Link
+            href="/"
+            className={`group font-display text-xl leading-none transition-colors md:text-2xl ${
+              isHomeTop ? "text-bone" : "text-ink"
+            }`}
+          >
+            {profile.wordmark.roman}{" "}
             <span className="italic text-copper">{profile.wordmark.italic}</span>
-            <span className="ml-1 align-super font-label text-[9px] text-taupe">©</span>
+            <span className={`ml-1 align-super font-label text-[9px] ${isHomeTop ? "text-bone/50" : "text-taupe"}`}>
+              ©
+            </span>
           </Link>
 
           {/* center meta (desktop) */}
-          <div className="hidden items-center gap-8 font-label text-[10px] uppercase tracking-[0.22em] text-taupe lg:flex">
+          <div
+            className={`hidden items-center gap-8 font-label text-[10px] uppercase tracking-[0.22em] transition-colors lg:flex ${
+              isHomeTop ? "text-bone/70" : "text-taupe"
+            }`}
+          >
             <span>
-              Local — <span className="text-ink">{time || "··:··"}</span>
+              Local — <span className={isHomeTop ? "text-bone" : "text-ink"}>{time || "··:··"}</span>
             </span>
             <span className="flex items-center gap-2">
               <span className="relative flex size-1.5">
@@ -97,10 +114,18 @@ export function Nav() {
                   key={item.href}
                   href={item.href}
                   className={`group relative font-label text-[11px] uppercase tracking-[0.22em] transition-colors ${
-                    active ? "text-copper" : "text-ink hover:text-copper"
+                    active
+                      ? "text-copper"
+                      : isHomeTop
+                      ? "text-bone/85 hover:text-copper"
+                      : "text-ink hover:text-copper"
                   }`}
                 >
-                  <span className="mr-1 text-[8px] text-taupe group-hover:text-copper/70">
+                  <span
+                    className={`mr-1 text-[8px] transition-colors ${
+                      isHomeTop ? "text-bone/50 group-hover:text-copper" : "text-taupe group-hover:text-copper/70"
+                    }`}
+                  >
                     {item.n}
                   </span>
                   {item.label}
@@ -121,8 +146,16 @@ export function Nav() {
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
           >
-            <span className={`h-px w-6 bg-ink transition-transform duration-300 ${open ? "translate-y-[3.5px] rotate-45" : ""}`} />
-            <span className={`h-px w-6 bg-ink transition-transform duration-300 ${open ? "-translate-y-[3.5px] -rotate-45" : ""}`} />
+            <span
+              className={`h-px w-6 transition-all duration-300 ${
+                isHomeTop ? "bg-bone" : "bg-ink"
+              } ${open ? "translate-y-[3.5px] rotate-45" : ""}`}
+            />
+            <span
+              className={`h-px w-6 transition-all duration-300 ${
+                isHomeTop ? "bg-bone" : "bg-ink"
+              } ${open ? "-translate-y-[3.5px] -rotate-45" : ""}`}
+            />
           </button>
         </div>
       </header>
@@ -137,7 +170,10 @@ export function Nav() {
             exit={{ clipPath: "inset(0 0 100% 0)" }}
             transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
           >
-            <div className="pointer-events-none absolute inset-0 opacity-40" style={{ backgroundImage: "radial-gradient(circle at 80% 10%, rgba(192,90,46,0.3), transparent 55%)" }} />
+            <div
+              className="pointer-events-none absolute inset-0 opacity-40"
+              style={{ backgroundImage: "radial-gradient(circle at 80% 10%, rgba(192,90,46,0.3), transparent 55%)" }}
+            />
             <nav className="relative flex flex-col gap-2" aria-label="Mobile">
               {profile.nav.map((item, i) => (
                 <motion.div
@@ -174,5 +210,3 @@ export function Nav() {
     </>
   );
 }
-
-export default Nav;

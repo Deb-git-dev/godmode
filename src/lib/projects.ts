@@ -1,3 +1,5 @@
+import { assetUrl } from "./assets";
+
 export interface Project {
   slug: string;
   index: string;
@@ -30,8 +32,8 @@ export const projects: Project[] = [
     client: "Open Source / Foundation",
     role: "Lead Architect & Systems Engineer",
     stack: ["TypeScript", "React", "OpenRouter", "NVIDIA NIM", "Tailwind CSS"],
-    cover: "/work/obsidian.png",
-    wide: "/work/flow-wide.png",
+    cover: assetUrl("/work/obsidian.png"),
+    wide: assetUrl("/work/flow-wide.png"),
     featured: true,
     summary:
       "A zero-local-compute agentic workspace integrating multi-model fallback, deterministic provenance logs, and 28 high-fidelity interactive components.",
@@ -53,8 +55,8 @@ export const projects: Project[] = [
     client: "Tribeni Minati Foundation NGO",
     role: "Founder & Technical Director",
     stack: ["React", "PostgreSQL", "Supabase", "Tailwind CSS"],
-    cover: "/work/auric.png",
-    wide: "/work/studio-wide.png",
+    cover: assetUrl("/work/auric.png"),
+    wide: assetUrl("/work/studio-wide.png"),
     featured: true,
     summary:
       "High-transparency NGO platform driving rural educational access, healthcare dispatching, and audited donor reporting.",
@@ -76,8 +78,8 @@ export const projects: Project[] = [
     client: "Dev Ecosystem",
     role: "Creator & Lead Developer",
     stack: ["React", "TypeScript", "BM25 Search", "Vector Embeddings"],
-    cover: "/work/halcyon.png",
-    wide: "/work/flow-wide.png",
+    cover: assetUrl("/work/halcyon.png"),
+    wide: assetUrl("/work/flow-wide.png"),
     featured: true,
     summary:
       "Comprehensive indexing engine deconstructing cutting-edge GitHub repos and developer workflows into reusable prompt blueprints.",
@@ -99,8 +101,8 @@ export const projects: Project[] = [
     client: "Autonomous Systems",
     role: "Systems Architect",
     stack: ["FastAPI", "Python", "OpenRouter", "SSE Streaming"],
-    cover: "/work/meridian.png",
-    wide: "/work/flow-wide.png",
+    cover: assetUrl("/work/meridian.png"),
+    wide: assetUrl("/work/flow-wide.png"),
     featured: true,
     summary:
       "High-speed unified LLM router dynamically dispatching between Anthropic, OpenAI, DeepSeek, and NVIDIA NIM with zero downtime fallback.",
@@ -122,8 +124,8 @@ export const projects: Project[] = [
     client: "Research Labs",
     role: "Lead Developer",
     stack: ["TypeScript", "Firecrawl API", "React"],
-    cover: "/work/terra.png",
-    wide: "/work/studio-wide.png",
+    cover: assetUrl("/work/terra.png"),
+    wide: assetUrl("/work/studio-wide.png"),
     featured: false,
     summary:
       "Automated multi-engine crawling harness capturing deep page structures and transforming web noise into structured RAG embeddings.",
@@ -145,8 +147,8 @@ export const projects: Project[] = [
     client: "GODMODE Creative",
     role: "Design Technologist",
     stack: ["React", "Tailwind CSS", "Three.js", "GSAP"],
-    cover: "/work/nocturne.png",
-    wide: "/work/flow-wide.png",
+    cover: assetUrl("/work/nocturne.png"),
+    wide: assetUrl("/work/flow-wide.png"),
     featured: false,
     summary:
       "Curated collection of 28 production-grade interactive modules, WebGL shaders, and typography treatments defying generic AI aesthetics.",

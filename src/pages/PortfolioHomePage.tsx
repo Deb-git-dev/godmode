@@ -13,6 +13,8 @@ import HomeHeroLandingScrollAnimation from "../components/ui/home-hero-landing-s
 import { profile } from "../lib/profile";
 import { projects } from "../lib/projects";
 import { labItems } from "../lib/lab-items";
+import { assetUrl } from "../lib/assets";
+import debPhoto from "../assets/deb.jpg";
 
 const featured = projects.filter((p) => p.featured).slice(0, 4);
 
@@ -138,7 +140,7 @@ function HeroEditorialSection() {
         <h1 className="font-display text-[15.5vw] leading-[0.98] tracking-[-0.01em] md:text-[9.8rem]">
           <WordReveal text="Systems *that* make" delay={0.15} className="text-ink" />
           <br />
-          <HeroChipLine chipSrc="/work/auric.png" />
+          <HeroChipLine chipSrc={assetUrl("/work/auric.png")} />
         </h1>
 
         <FadeUp delay={1.0} className="mt-8 flex max-w-3xl flex-col gap-4 md:mt-10">
@@ -314,7 +316,7 @@ function AboutTeaser() {
           <FadeUp className="md:row-span-2">
             <div className="group relative h-full min-h-[24rem] overflow-hidden rounded-2xl bg-sand">
               <img
-                src="/avatar.jpg"
+                src={debPhoto}
                 alt={`${profile.firstName} ${profile.lastName}`}
                 loading="lazy"
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"

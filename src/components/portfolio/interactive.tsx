@@ -11,9 +11,11 @@
  * PixelMarquee       — rohithmanikkoth pixel-font marquee band
  */
 import { useEffect, useRef, useState } from "react";
+import Link from "./Link";
 import { AnimatePresence, motion, useMotionValue, useSpring } from "framer-motion";
 import { AnimatedMarquee } from "@/components/ui/marquee-helper";
 import type { Project } from "@/lib/projects";
+import { assetUrl } from "@/lib/assets";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -29,23 +31,18 @@ export function HoverPreviewList({ items }: { items: Project[] }) {
   const zone = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // enable the floating preview when a real mouse is present:
-    // media-query hint first, then self-certify on first mousemove
-    const raf = requestAnimationFrame(() =>
-      setFine(window.matchMedia("(hover: hover) and (pointer: fine)").matches)
-    );
-    const certify = () => setFine(true);
-    window.addEventListener("mousemove", certify, { once: true, passive: true });
-    return () => {
-      cancelAnimationFrame(raf);
-      window.removeEventListener("mousemove", certify);
-    };
+    const mq = window.matchMedia("(pointer: fine)");
+    const update = () => setFine(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
   }, []);
 
-  const onMove = (e: React.MouseEvent) => {
-    const rect = zone.current?.getBoundingClientRect();
-    x.set(e.clientX - (rect?.left ?? 0));
-    y.set(e.clientY - (rect?.top ?? 0));
+  const onMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!zone.current) return;
+    const rect = zone.current.getBoundingClientRect();
+    x.set(e.clientX - rect.left);
+    y.set(e.clientY - rect.top);
   };
 
   return (
@@ -56,7 +53,7 @@ export function HoverPreviewList({ items }: { items: Project[] }) {
       className="relative"
     >
       {items.map((p) => (
-        <a
+        <Link
           key={p.slug}
           href={`/work/${p.slug}`}
           data-cursor-label="VIEW"
@@ -86,7 +83,7 @@ export function HoverPreviewList({ items }: { items: Project[] }) {
           >
             <path d="M7 17L17 7M17 7H8M17 7v9" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-        </a>
+        </Link>
       ))}
 
       {/* cursor-following cover preview */}
@@ -105,7 +102,7 @@ export function HoverPreviewList({ items }: { items: Project[] }) {
             >
               <div className="relative -ml-32 -mt-24 h-48 w-72 overflow-hidden rounded-xl border border-ink/10 shadow-2xl shadow-umber/30 lg:h-56 lg:w-84">
                 <img
-                  src={active.cover}
+                  src={assetUrl(active.cover)}
                   alt=""
                   className="h-full w-full object-cover"
                 />
@@ -143,15 +140,15 @@ const slides: Slide[] = [
     fg: "#faf7f0",
     muted: "rgba(250,247,240,0.55)",
     segments: [
-      { t: "\u201CDeb turned a " },
+      { t: "“Deb turned a " },
       { t: "fuzzy ambition", em: true },
       { t: " into a brand our investors quote back to us. The site " },
       { t: "closed our seed round", em: true },
-      { t: " before the deck did.\u201D" },
+      { t: " before the deck did.”" },
     ],
     name: "Kavya R.",
     role: "Founder, Meridian Labs",
-    avatar: "/work/portrait.png",
+    avatar: assetUrl("/work/portrait.png"),
     companyNote: "Backed by Blume & First Cheque",
   },
   {
@@ -160,15 +157,15 @@ const slides: Slide[] = [
     fg: "#1b1710",
     muted: "rgba(27,23,16,0.45)",
     segments: [
-      { t: "\u201CWorking with Deb feels like hiring " },
+      { t: "“Working with Deb feels like hiring " },
       { t: "a studio, an engineer and an editor", em: true },
       { t: " in one person. He shipped " },
       { t: "three weeks early", em: true },
-      { t: " — then kept polishing.\u201D" },
+      { t: " — then kept polishing.”" },
     ],
     name: "Daniel O.",
     role: "CPO, Obsidian Private",
-    avatar: "/work/portrait.png",
+    avatar: assetUrl("/work/portrait.png"),
     companyNote: "Previously at Stripe & Wise",
   },
   {
@@ -177,15 +174,15 @@ const slides: Slide[] = [
     fg: "#f3efe7",
     muted: "rgba(243,239,231,0.5)",
     segments: [
-      { t: "\u201CThe WebGL work is " },
+      { t: "“The WebGL work is " },
       { t: "genuinely art", em: true },
       { t: ". Our album premiere became " },
       { t: "the label's biggest weekend", em: true },
-      { t: " — and the code is open source now.\u201D" },
+      { t: " — and the code is open source now.”" },
     ],
     name: "Mira S.",
     role: "Founder, Nocturne Records",
-    avatar: "/work/portrait.png",
+    avatar: assetUrl("/work/portrait.png"),
     companyNote: "Independent, Berlin",
   },
 ];

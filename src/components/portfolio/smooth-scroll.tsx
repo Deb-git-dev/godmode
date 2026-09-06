@@ -22,16 +22,20 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
     };
     raf = requestAnimationFrame(loop);
 
-    // anchor links through lenis
+    // in-page anchor links through lenis (strictly ignoring SPA routes like '#/work')
     const onClick = (e: MouseEvent) => {
       const a = (e.target as HTMLElement).closest?.('a[href^="#"]');
       if (!a) return;
       const id = a.getAttribute("href");
-      if (!id || id === "#") return;
-      const el = document.querySelector(id);
-      if (el) {
-        e.preventDefault();
-        lenis.scrollTo(el as HTMLElement, { offset: -80 });
+      if (!id || id === "#" || id.startsWith("#/") || id.includes("/")) return;
+      try {
+        const el = document.querySelector(id);
+        if (el) {
+          e.preventDefault();
+          lenis.scrollTo(el as HTMLElement, { offset: -80 });
+        }
+      } catch {
+        // Ignore invalid selectors safely
       }
     };
     document.addEventListener("click", onClick);

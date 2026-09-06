@@ -3,6 +3,7 @@ import { PortfolioShell } from "../components/portfolio/shell";
 import { WordReveal, FadeUp } from "../components/portfolio/reveal";
 import { OrbitingCircles } from "../components/ui/orbiting-circles";
 import { profile } from "../lib/profile";
+import debPhoto from "../assets/deb.jpg";
 
 const experience = [
   { years: "2024 — Present", role: "AI Systems Architect & Founder", place: "GODMODE & Tribeni Minati Foundation, Kolkata" },
@@ -60,7 +61,7 @@ export const AboutPage: React.FC = () => {
           <div className="relative overflow-hidden rounded-2xl bg-sand shadow-sm">
             <div className="relative aspect-[3/4]">
               <img
-                src="/avatar.jpg"
+                src={debPhoto}
                 alt={`${profile.firstName} ${profile.lastName}`}
                 loading="lazy"
                 className="absolute inset-0 h-full w-full object-cover"
