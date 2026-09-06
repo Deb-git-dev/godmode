@@ -6,6 +6,7 @@ import {
   Github, 
   Box 
 } from 'lucide-react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import { GridSweep } from './components/primitives/MotionPrimitives';
 import { AmbientCanvas3D } from './components/motion/AmbientCanvas3D';
 import { CustomCursor3D } from './components/motion/CustomCursor3D';
@@ -164,6 +165,7 @@ export const App: React.FC = () => {
         {isActionModalOpen && (
           <ActionLedgerModal isOpen={isActionModalOpen} onClose={() => setIsActionModalOpen(false)} />
         )}
+        <SpeedInsights />
       </div>
     );
   }
@@ -495,6 +497,7 @@ export const App: React.FC = () => {
 
       {/* Floating AI Assistant Widget */}
       <AssistantWidget />
+      <SpeedInsights />
     </div>
   );
 };

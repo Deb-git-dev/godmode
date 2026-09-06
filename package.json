@@ -13,6 +13,7 @@
     "claude-mem": "claude-mem"
   },
   "dependencies": {
+    "@vercel/speed-insights": "^2.0.0",
     "claude-mem": "^13.24.0",
     "clsx": "^2.1.1",
     "framer-motion": "^11.11.17",
