@@ -18,6 +18,7 @@
     "framer-motion": "^11.11.17",
     "gsap": "^3.15.0",
     "headroom-ai": "^0.37.0",
+    "lenis": "^1.3.26",
     "lucide-react": "^0.460.0",
     "omniroute": "^3.8.50",
     "pdf-lib": "^1.17.1",

@@ -15,6 +15,10 @@ import { MemoryJournalView } from './components/memory/MemoryJournalView';
 import { ProvenanceAuditView } from './components/audit/ProvenanceAuditView';
 import { AssistantWidget } from './components/ai/AssistantWidget';
 import { GenerativeAIStudio } from './components/ai/GenerativeAIStudio';
+import { PortfolioHomePage } from './pages/PortfolioHomePage';
+import { WorkPage } from './pages/WorkPage';
+import { WorkCaseStudyPage } from './pages/WorkCaseStudyPage';
+import { LabPage } from './pages/LabPage';
 import { HomePage } from './pages/HomePage';
 import { AboutPage } from './pages/AboutPage';
 import { CatalogPage } from './pages/CatalogPage';
@@ -68,19 +72,22 @@ export const App: React.FC = () => {
   // Sync hash routing and aliases
   useEffect(() => {
     const handleHashChange = () => {
-      const hash = window.location.hash.replace('#', '') || '/';
+      const rawHash = window.location.hash.replace('#', '') || '/';
+      const hash = rawHash.length > 1 && rawHash.endsWith('/') ? rawHash.slice(0, -1) : rawHash;
       if (hash.startsWith('/detail/')) {
         setSelectedEntityId(hash.replace('/detail/', ''));
         setCurrentRoute('/detail');
+      } else if (hash.startsWith('/work/')) {
+        setCurrentRoute(hash);
       } else if (hash === 'action') {
         setIsActionModalOpen(true);
       } else {
         // Handle route aliases
         if (hash === '/team' || hash === '/leadership') setCurrentRoute('/about');
-        else if (hash === '/directory' || hash === '/projects') setCurrentRoute('/catalog');
+        else if (hash === '/directory' || hash === '/projects') setCurrentRoute('/work');
         else if (hash === '/generator') setCurrentRoute('/studio');
         else if (hash === '/login') setCurrentRoute('/auth');
-        else if (hash === '/blackhole' || hash === '/black-hole' || hash === '/showcase/blackhole') setCurrentRoute('/black-hole');
+        else if (hash === '/blackhole' || hash === '/black-hole' || hash === '/blackhole-hero-section' || hash === '/showcase/blackhole') setCurrentRoute('/black-hole');
         else if (hash === '/scrollhero' || hash === '/scroll-hero') setCurrentRoute('/scroll-hero');
         else if (hash === '/crawler' || hash === '/firecrawl') setCurrentRoute('/crawler');
         else if (hash === '/prompts' || hash === '/gitreverse') setCurrentRoute('/prompts');
@@ -100,12 +107,14 @@ export const App: React.FC = () => {
     if (path.startsWith('/detail/')) {
       setSelectedEntityId(path.replace('/detail/', ''));
       setCurrentRoute('/detail');
+    } else if (path.startsWith('/work/')) {
+      setCurrentRoute(path);
     } else {
       if (path === '/team' || path === '/leadership') setCurrentRoute('/about');
-      else if (path === '/directory' || path === '/projects') setCurrentRoute('/catalog');
+      else if (path === '/directory' || path === '/projects') setCurrentRoute('/work');
       else if (path === '/generator') setCurrentRoute('/studio');
       else if (path === '/login') setCurrentRoute('/auth');
-      else if (path === '/blackhole' || path === '/black-hole' || path === '/showcase/blackhole') setCurrentRoute('/black-hole');
+      else if (path === '/blackhole' || path === '/black-hole' || path === '/blackhole-hero-section' || path === '/showcase/blackhole') setCurrentRoute('/black-hole');
       else if (path === '/scrollhero' || path === '/scroll-hero') setCurrentRoute('/scroll-hero');
       else if (path === '/crawler' || path === '/firecrawl') setCurrentRoute('/crawler');
       else if (path === '/prompts' || path === '/gitreverse') setCurrentRoute('/prompts');
@@ -117,7 +126,7 @@ export const App: React.FC = () => {
   };
 
   const handleSelectEntity = (id: string) => {
-    if (id === 'black-hole' || id === 'scroll-hero' || id === 'crawler' || id === 'prompts' || id === 'design-lab' || id === 'terminal' || id === 'showcase') {
+    if (id === 'black-hole' || id === 'scroll-hero' || id === 'crawler' || id === 'prompts' || id === 'design-lab' || id === 'terminal' || id === 'showcase' || id === 'work' || id === 'lab') {
       navigate(`/${id}`);
       return;
     }
@@ -125,10 +134,39 @@ export const App: React.FC = () => {
     navigate(`/detail/${id}`);
   };
 
+  const isPortfolioPage = 
+    currentRoute === '/' || 
+    currentRoute === '/work' || 
+    currentRoute.startsWith('/work/') || 
+    currentRoute === '/lab' || 
+    currentRoute === '/about' || 
+    currentRoute === '/contact';
+
   const isFullBleedPage = 
+    isPortfolioPage ||
     currentRoute === '/scroll-hero' || 
     currentRoute === '/black-hole' || 
     currentRoute.startsWith('/showcase/');
+
+  if (isPortfolioPage) {
+    return (
+      <div className="min-h-screen bg-bone text-ink font-body">
+        {currentRoute === '/' && <PortfolioHomePage />}
+        {currentRoute === '/work' && <WorkPage />}
+        {currentRoute.startsWith('/work/') && (
+          <WorkCaseStudyPage slug={currentRoute.replace('/work/', '')} />
+        )}
+        {currentRoute === '/lab' && <LabPage />}
+        {currentRoute === '/about' && <AboutPage />}
+        {currentRoute === '/contact' && <ContactPage />}
+
+        {/* Global Invariant Action Modal */}
+        {isActionModalOpen && (
+          <ActionLedgerModal isOpen={isActionModalOpen} onClose={() => setIsActionModalOpen(false)} />
+        )}
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-[#F8FAFC] text-slate-900 flex flex-col selection:bg-indigo-600 selection:text-white relative overflow-x-hidden font-body">
@@ -148,7 +186,7 @@ export const App: React.FC = () => {
                 alt="Debapriya Bhattacharyya" 
                 className="w-10 h-10 rounded-full object-cover border-2 border-indigo-600 shadow-md hover:scale-105 transition-transform"
               />
-              <span className="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 rounded-full border-2 border-white animate-pulse" />
+              <span className="absolute bottom-0 right-0 w-3 h-3 bg-amber-500 rounded-full border-2 border-white animate-pulse" />
             </div>
             
             <div>
@@ -178,7 +216,27 @@ export const App: React.FC = () => {
               }`}
             >
               <Home className="w-3.5 h-3.5" />
-              <span>Home</span>
+              <span>Portfolio</span>
+            </button>
+
+            <button
+              onClick={() => navigate('/work')}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
+                currentRoute === '/work' ? 'bg-indigo-600 text-white shadow-sm' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
+              }`}
+            >
+              <Compass className="w-3.5 h-3.5" />
+              <span>Work</span>
+            </button>
+
+            <button
+              onClick={() => navigate('/lab')}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
+                currentRoute === '/lab' ? 'bg-copper text-white shadow-sm' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
+              }`}
+            >
+              <Box className="w-3.5 h-3.5" />
+              <span>The Lab</span>
             </button>
 
             <button
@@ -257,7 +315,7 @@ export const App: React.FC = () => {
 
       {/* Main Routed Page Container */}
       <main className={`flex-1 w-full z-10 ${isFullBleedPage ? '' : 'max-w-7xl mx-auto p-6'}`}>
-        {currentRoute === '/' && (
+        {(currentRoute === '/' || currentRoute === '/portal') && (
           <HomePage onNavigate={navigate} onOpenActionModal={() => setIsActionModalOpen(true)} />
         )}
         {currentRoute === '/studio' && (
@@ -296,83 +354,83 @@ export const App: React.FC = () => {
         )}
 
         {/* 21st.dev 26 Individual Showcase Experiences */}
-        {currentRoute === '/showcase/kintaro-awwwards' && (
-          <KintaroAwwwardsPage onBack={() => navigate('/showcase')} />
+        {(currentRoute === '/showcase/kintaro-awwwards' || currentRoute === '/kintaro-awwwards-portfolio' || currentRoute === '/kintaro-awwwards') && (
+          <KintaroAwwwardsPage onBack={() => navigate('/lab')} />
         )}
-        {currentRoute === '/showcase/webgl-shader' && (
-          <WebGLShaderPage onBack={() => navigate('/showcase')} />
+        {(currentRoute === '/showcase/webgl-shader' || currentRoute === '/web-gl-shader' || currentRoute === '/webgl-shader') && (
+          <WebGLShaderPage onBack={() => navigate('/lab')} />
         )}
-        {currentRoute === '/showcase/neural-noise' && (
-          <NeuralNoisePage onBack={() => navigate('/showcase')} />
+        {(currentRoute === '/showcase/neural-noise' || currentRoute === '/neural-noise') && (
+          <NeuralNoisePage onBack={() => navigate('/lab')} />
         )}
-        {currentRoute === '/showcase/neon-orbs' && (
-          <NeonOrbsPage onBack={() => navigate('/showcase')} />
+        {(currentRoute === '/showcase/neon-orbs' || currentRoute === '/neon-orbs') && (
+          <NeonOrbsPage onBack={() => navigate('/lab')} />
         )}
-        {currentRoute === '/showcase/orbiting-circles' && (
-          <OrbitingCirclesPage onBack={() => navigate('/showcase')} />
+        {(currentRoute === '/showcase/orbiting-circles' || currentRoute === '/orbiting-circles') && (
+          <OrbitingCirclesPage onBack={() => navigate('/lab')} />
         )}
-        {currentRoute === '/showcase/link-hover' && (
-          <LinkHoverPage onBack={() => navigate('/showcase')} />
+        {(currentRoute === '/showcase/link-hover' || currentRoute === '/link-hover') && (
+          <LinkHoverPage onBack={() => navigate('/lab')} />
         )}
-        {currentRoute === '/showcase/ai-image-generation' && (
-          <AiImageGenerationPage onBack={() => navigate('/showcase')} />
+        {(currentRoute === '/showcase/ai-image-generation' || currentRoute === '/ai-chat-image-generation-1' || currentRoute === '/ai-image-generation') && (
+          <AiImageGenerationPage onBack={() => navigate('/lab')} />
         )}
-        {currentRoute === '/showcase/dancing-letters' && (
-          <DancingLettersPage onBack={() => navigate('/showcase')} />
+        {(currentRoute === '/showcase/dancing-letters' || currentRoute === '/dancing-letters') && (
+          <DancingLettersPage onBack={() => navigate('/lab')} />
         )}
-        {currentRoute === '/showcase/prism' && (
-          <PrismHeroPage onBack={() => navigate('/showcase')} />
+        {(currentRoute === '/showcase/prism' || currentRoute === '/prism-hero' || currentRoute === '/prism') && (
+          <PrismHeroPage onBack={() => navigate('/lab')} />
         )}
-        {currentRoute === '/showcase/vetra' && (
-          <VetraTemplatePage onBack={() => navigate('/showcase')} />
+        {(currentRoute === '/showcase/vetra' || currentRoute === '/vetra') && (
+          <VetraTemplatePage onBack={() => navigate('/lab')} />
         )}
-        {currentRoute === '/showcase/velaris' && (
-          <VelarisPage onBack={() => navigate('/showcase')} />
+        {(currentRoute === '/showcase/velaris' || currentRoute === '/velaris') && (
+          <VelarisPage onBack={() => navigate('/lab')} />
         )}
-        {currentRoute === '/showcase/scroll-locked-video' && (
-          <ScrollLockedVideoPage onBack={() => navigate('/showcase')} />
+        {(currentRoute === '/showcase/scroll-locked-video' || currentRoute === '/scroll-locked-video-hero' || currentRoute === '/scroll-locked-video') && (
+          <ScrollLockedVideoPage onBack={() => navigate('/lab')} />
         )}
-        {currentRoute === '/showcase/aurora' && (
-          <AuroraBackgroundPage onBack={() => navigate('/showcase')} />
+        {(currentRoute === '/showcase/aurora' || currentRoute === '/aurora-background' || currentRoute === '/aurora') && (
+          <AuroraBackgroundPage onBack={() => navigate('/lab')} />
         )}
-        {currentRoute === '/showcase/liquid-metal' && (
-          <LiquidMetalPage onBack={() => navigate('/showcase')} />
+        {(currentRoute === '/showcase/liquid-metal' || currentRoute === '/liquid-metal-hero' || currentRoute === '/liquid-metal') && (
+          <LiquidMetalPage onBack={() => navigate('/lab')} />
         )}
-        {currentRoute === '/showcase/scroll-expansion' && (
-          <ScrollExpansionPage onBack={() => navigate('/showcase')} />
+        {(currentRoute === '/showcase/scroll-expansion' || currentRoute === '/scroll-expansion-hero' || currentRoute === '/scroll-expansion') && (
+          <ScrollExpansionPage onBack={() => navigate('/lab')} />
         )}
-        {currentRoute === '/showcase/container-scroll' && (
-          <ContainerScrollPage onBack={() => navigate('/showcase')} />
+        {(currentRoute === '/showcase/container-scroll' || currentRoute === '/container-scroll-animation' || currentRoute === '/container-scroll') && (
+          <ContainerScrollPage onBack={() => navigate('/lab')} />
         )}
-        {currentRoute === '/showcase/splite' && (
-          <SpliteHeroPage onBack={() => navigate('/showcase')} />
+        {(currentRoute === '/showcase/splite' || currentRoute === '/splite') && (
+          <SpliteHeroPage onBack={() => navigate('/lab')} />
         )}
-        {currentRoute === '/showcase/hero' && (
-          <ReunoHeroPage onBack={() => navigate('/showcase')} />
+        {(currentRoute === '/showcase/hero' || currentRoute === '/reuno-hero' || currentRoute === '/hero') && (
+          <ReunoHeroPage onBack={() => navigate('/lab')} />
         )}
-        {currentRoute === '/showcase/prisma' && (
-          <PrismaHeroPage onBack={() => navigate('/showcase')} />
+        {(currentRoute === '/showcase/prisma' || currentRoute === '/prisma-hero' || currentRoute === '/prisma') && (
+          <PrismaHeroPage onBack={() => navigate('/lab')} />
         )}
-        {currentRoute === '/showcase/hero-3' && (
-          <Hero3Page onBack={() => navigate('/showcase')} />
+        {(currentRoute === '/showcase/hero-3' || currentRoute === '/hero-3') && (
+          <Hero3Page onBack={() => navigate('/lab')} />
         )}
-        {currentRoute === '/showcase/gradient-recipe' && (
-          <GradientRecipePage onBack={() => navigate('/showcase')} />
+        {(currentRoute === '/showcase/gradient-recipe' || currentRoute === '/gradient-recipe') && (
+          <GradientRecipePage onBack={() => navigate('/lab')} />
         )}
-        {currentRoute === '/showcase/oceanic-shimmer' && (
-          <OceanicShimmerPage onBack={() => navigate('/showcase')} />
+        {(currentRoute === '/showcase/oceanic-shimmer' || currentRoute === '/oceanic-shimmer') && (
+          <OceanicShimmerPage onBack={() => navigate('/lab')} />
         )}
-        {currentRoute === '/showcase/saa-template' && (
-          <SaaSTemplatePage onBack={() => navigate('/showcase')} />
+        {(currentRoute === '/showcase/saa-template' || currentRoute === '/saa-s-template' || currentRoute === '/saa-template') && (
+          <SaaSTemplatePage onBack={() => navigate('/lab')} />
         )}
-        {currentRoute === '/showcase/responsive-hero' && (
-          <ResponsiveHeroPage onBack={() => navigate('/showcase')} />
+        {(currentRoute === '/showcase/responsive-hero' || currentRoute === '/responsive-hero-banner' || currentRoute === '/responsive-hero') && (
+          <ResponsiveHeroPage onBack={() => navigate('/lab')} />
         )}
-        {currentRoute === '/showcase/bento' && (
-          <KinfeBentoPage onBack={() => navigate('/showcase')} />
+        {(currentRoute === '/showcase/bento' || currentRoute === '/bento') && (
+          <KinfeBentoPage onBack={() => navigate('/lab')} />
         )}
         {(currentRoute === '/showcase/velora' || currentRoute === '/velora' || currentRoute === '/atelier') && (
-          <VeloraAtelierPage onBack={() => navigate('/showcase')} />
+          <VeloraAtelierPage onBack={() => navigate('/lab')} />
         )}
 
         {/* Operational Viewers */}

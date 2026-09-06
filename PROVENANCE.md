@@ -112,3 +112,8 @@
 | `grok-workspace/multiplayer-p2p` | P2P Multiplayer Skill | Peer-to-peer realtime multiplayer over WebRTC data channels with mesh state synchronization. | `.agents/skills/grok-multiplayer-p2p/` |
 | `grok-workspace/game-asset-core` | Asset Generation Skill | Spec checklists, style anchoring, sprite sheets, tilesets, UI icons, and character consistency. | `.agents/skills/grok-game-asset-core/` |
 | `grok-workspace/xai-api` | Grok API Skill | xAI Grok API integration patterns for chat, vision, and voice. | `.agents/skills/grok-xai-api/` |
+| `npm/lenis` | Smooth Scrolling Engine | High-performance momentum scrolling and anchor easing for museum editorial portfolio pages. | `src/components/portfolio/smooth-scroll.tsx`, `package.json` |
+| `portfolio-tar/shell` | Portfolio Shell System | Museum editorial chrome with live time, pulsing copper availability, custom cursor, and preloader. | `src/components/portfolio/shell.tsx`, `src/components/portfolio/nav.tsx`, `src/components/portfolio/footer.tsx` |
+| `portfolio-tar/technicals` | Interaction Recipes | Timq scramble text, Jackelder parallax frames & pixel dissolve, Thibaut next/prev pills, and bordered contact rows. | `src/components/portfolio/technicals.tsx`, `src/components/portfolio/interactive.tsx` |
+| `portfolio-tar/pages` | Multidisciplinary Portfolio Pages | Editorial Home, Work Index (6 full case studies), The Lab (28 live experiments), About, and Contact. | `src/pages/PortfolioHomePage.tsx`, `src/pages/WorkPage.tsx`, `src/pages/WorkCaseStudyPage.tsx`, `src/pages/LabPage.tsx` |
+

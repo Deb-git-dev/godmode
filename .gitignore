@@ -63,3 +63,6 @@ Thumbs.db
 .env*
 !.env.example
 
+# Temporary workspace scratch
+scratch/
+
